@@ -1,4 +1,4 @@
-# DWSIM_PFR: Stage-1 Ideal Plug-Flow Reactor for Ethane Pyrolysis
+# PFR: Stage-1 Ideal Plug-Flow Reactor for Ethane Pyrolysis (Stage 2 to be improved upon that, see Stage 2)
 
 ## Model Overview
 
@@ -112,4 +112,5 @@ sol = run_pfr(
 3. Add radial energy balance with wall heat transfer coefficient.
 4. Allow q''(z) profile input.
 5. Consider adding simplified coking rate for long-term operation.
+
 
