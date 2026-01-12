@@ -1,0 +1,19 @@
+id,reaction,A, n, Ea, temperature range (Kelvin), units for Energy, Pressure units, Molecular units, Temperature units, Base volume unit
+1, C1H4+H=C1H3+H2, 1.37*10^(-12), 2.41,3.82*10^(4),300-1950, J, bar, molecule, K, cm
+2, C1H3+C1H3=C2H6, 1.03*10^(-10), -1.10, 1.33, 296-2000, kJ, Pa, molecule, K, cm 
+3, C2H5+H=C1H3+C1H3, 5.99*10^(-11), 0.00, 0.00, 300-2000, kJ, Pa, molecule, K, cm 
+4, C2H6+H=C2H5+H2, 1.23*10^(-11), 1.50, 31.01, 300-2000, kJ, Pa, molecule, K, cm
+5, C2H4+C1H3=C2H3+C1H4, 1.57*10^(-14), 3.7,39.74,300-2500, kJ, Pa, molecule, K, cm
+6, C2H6+C1H3=C2H5+C1H4, 1.74*10^(-16),6,25.28,300-1500, kJ, Pa, molecule, K, cm
+7, C2H5+M=C2H4+H+M,2.99*10^(-3), -4.99,167,200-1100, kJ, Pa, molecule, K, cm
+8, C2H4+M=C2H2+H2+M, 9.13*10^(-10), 0, 227, 1390-1870, kJ, Pa, molecule, K, cm
+9, C2H4+H=C2H3+H2,9*10^(-10), 0, 6.24*10^(4), 700-2000, kJ, Pa, molecule, K, cm
+10, C2H3+M=C2H2+H+M, 0.2, -7.49, 1.9*10^(5), 300-2500, kJ, Pa, molecule, K, cm
+11, C3H7=C2H4+C1H3, 1.31*10^(13), 0.87, 1.27*10^(5), 298-2000, J, bar, molecule, K, cm
+12, C3H6+H=C3H7, 7.59*10^(-12), 0.51, 1.1*10^(4), 298-2000, J, bar, molecule, K, cm
+13, C3H5+H=C3H6, 78.8, -11.76, 9.85*10^(4), 900-3000, J, bar, molecule, K, cm
+14, C3H6+H=C2H4+C1H3, 7.51*10^(-12), 0, 0, 1070-1170, J, bar, molecule, K, cm
+15, C3H6+H=C3H5+H2, 4.4*10^(-13), 2.5, 10.39, 300-2500, kJ, Pa, molecule, K, cm
+16, C3H5+H=C3H4+H2, 3.01*10^(-11), 0, 0, 300-2500, kJ, Pa, molecule, K, cm
+17, C3H4+H=C1H3+C2H2, 3.87*10^(-11), 0, 10.92, 870-1346, kJ, Pa, molecule, K, cm
+18, C3H4+H=C3H5, 1.01*10^(-11), 0.69, 12.55, 350-1200, kJ, Pa, molecule, K, cm 

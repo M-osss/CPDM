@@ -1,0 +1,5487 @@
+{
+  "metadata": {
+    "generated_at_utc": "2025-12-28T16:12:54.947707+00:00",
+    "source_csv": "C:/agno_chem_eng/DWSIM_PFR/reduced_by_GS_mechanism_reactions.csv",
+    "source_rmg_nasa_json": "C:/agno_chem_eng/DWSIM_PFR/ethane_mechanism_complete.json",
+    "sources_ipd_dir": "C:/agno_chem_eng/ipd",
+    "thermo_library": "thermo",
+    "notes": [
+      "All quantities are stored in SI unless explicitly stated.",
+      "Transport properties are tabulated at P_ref and fitted for convenience; use the tabulated values for validation.",
+      "C3H4 is treated as propyne (methylacetylene) per user request.",
+      "Radical transport (mu,k) may be proxied from stable analogs when not available directly."
+    ]
+  },
+  "units": {
+    "MW_kg_per_mol": "kg/mol",
+    "Tc_K": "K",
+    "Pc_Pa": "Pa",
+    "mu_gas_Pa_s": "Pa*s",
+    "k_gas_W_m_K": "W/(m*K)",
+    "Cp_molar_J_mol_K": "J/(mol*K)",
+    "H_form_298_J_mol": "J/mol",
+    "S_form_298_J_mol_K": "J/(mol*K)",
+    "binary_diffusivity_m2_s": "m^2/s"
+  },
+  "major_species_csv_tokens": [],
+  "csv_species_all_tokens": [
+    "C1H3",
+    "C1H4",
+    "C2H2",
+    "C2H3",
+    "C2H4",
+    "C2H5",
+    "C2H6",
+    "C3H4",
+    "C3H5",
+    "C3H6",
+    "C3H7",
+    "H",
+    "H2"
+  ],
+  "formula_to_entries": {
+    "C1H3": [
+      "C1H3::methyl_radical::NA"
+    ],
+    "C1H4": [
+      "C1H4::methane::74-82-8"
+    ],
+    "C2H2": [
+      "C2H2::acetylene::74-86-2"
+    ],
+    "C2H3": [
+      "C2H3::vinyl_radical::NA"
+    ],
+    "C2H4": [
+      "C2H4::ethylene::74-85-1"
+    ],
+    "C2H5": [
+      "C2H5::ethyl_radical::NA"
+    ],
+    "C2H6": [
+      "C2H6::ethane::74-84-0"
+    ],
+    "C3H4": [
+      "C3H4::propyne::74-99-7"
+    ],
+    "C3H5": [
+      "C3H5::allyl_radical::NA"
+    ],
+    "C3H6": [
+      "C3H6::propene::115-07-1"
+    ],
+    "C3H7": [
+      "C3H7::propyl_radical::NA"
+    ],
+    "H": [
+      "H::H::12385-13-6"
+    ],
+    "H2": [
+      "H2::hydrogen::1333-74-0"
+    ]
+  },
+  "species": {
+    "C1H3::methyl_radical::NA": {
+      "display_name": "methyl_radical",
+      "csv_formula_token": "C1H3",
+      "identifiers": {
+        "formula": "C1H3",
+        "MW_kg_per_mol": 0.015034520000000001
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "[CH3](4)",
+          "T_low_K": 100.0,
+          "T_mid_K": 1337.63,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            3.91546761,
+            0.00184154318,
+            3.48741774e-06,
+            -3.32747622e-09,
+            8.49956934e-13,
+            16285.6394,
+            0.351741472
+          ],
+          "nasa7_high": [
+            3.54145742,
+            0.00476786844,
+            -1.82148431e-06,
+            3.28876598e-10,
+            -2.22545603e-14,
+            16223.9579,
+            1.66035007
+          ],
+          "H_form_298_J_mol": 145998.00022919595,
+          "S_form_298_J_mol_K": 194.0332808336334,
+          "Cp_298_J_mol_K": 39.02026021000963,
+          "Cp_1000_J_mol_K": 56.26321394863665
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            6.775702107885215e-12,
+            -2.6760118275752374e-08,
+            2.8015519841795873e-05,
+            0.015741727199274802,
+            32.491618735645844
+          ],
+          "max_relative_error_on_grid": 5.3554764276635335e-05,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            39.06833745850875,
+            44.443142514982796,
+            49.68833313989961,
+            54.290043784188455,
+            58.005779208717264,
+            60.86441448429266,
+            63.125189378675024
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "cantera (pure species)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "CH3",
+            "values": [
+              1.0709067338594e-05,
+              1.600287621465314e-05,
+              2.0351401916481767e-05,
+              2.416917945796581e-05,
+              2.7639519770181577e-05,
+              3.086048820499307e-05,
+              3.389117359978163e-05
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "CH3",
+            "values": [
+              0.03610675425373078,
+              0.06254902455146925,
+              0.09149216437652424,
+              0.12058461909253387,
+              0.1490512772377973,
+              0.17660635408583844,
+              0.20315178736996709
+            ]
+          },
+          "Cp_molar_J_mol_K": {
+            "method": "Cantera cp_mole",
+            "species_name_in_mechanism": "CH3",
+            "values": [
+              38476.66517762993,
+              44995.503875994786,
+              51076.00243465528,
+              56412.487962954736,
+              61079.997076988504,
+              64848.98509928644,
+              67978.44363103474
+            ]
+          },
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.02473033735964133,
+                -0.5392354116424721,
+                4.576340321903122,
+                -24.592819786435307
+              ],
+              "max_relative_error_on_grid": 0.0002801111539412869
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                -0.07231146518391289,
+                1.3852123510595902,
+                -7.722159958442803,
+                9.076954481566416
+              ],
+              "max_relative_error_on_grid": 0.0017543342942214137
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                2.5682549441233e-09,
+                -1.0480778257941413e-05,
+                0.005951438963375475,
+                32.293967338693236,
+                28514.70726022047
+              ],
+              "max_relative_error_on_grid": 0.0005672534997003456
+            }
+          },
+          "notes": [
+            "Computed with Cantera in venv311_new: set X={species:1}, (T,P), read gas.viscosity, gas.thermal_conductivity, gas.cp_mole."
+          ],
+          "source": {
+            "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml"
+          }
+        },
+        "cantera_transport": {
+          "source": "Cantera mechanism transport parameters",
+          "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml",
+          "species_name_in_mechanism": "CH3",
+          "parameters": {
+            "class": "GasTransportData",
+            "geometry": "linear",
+            "diameter_m": 3.8e-10,
+            "well_depth_J": 1.9881345600000003e-21,
+            "dipole_C_m": 0.0,
+            "polarizability_m3": 0.0,
+            "quadrupole_polarizability": 0.0,
+            "rotational_relaxation": 0.0
+          },
+          "units": {
+            "diameter_m": "m",
+            "well_depth_J": "J",
+            "dipole_C_m": "C*m",
+            "polarizability_m3": "m^3",
+            "rotational_relaxation": "dimensionless"
+          }
+        }
+      }
+    },
+    "C1H4::methane::74-82-8": {
+      "display_name": "methane",
+      "csv_formula_token": "C1H4",
+      "identifiers": {
+        "CAS": "74-82-8",
+        "formula": "CH4",
+        "MW_kg_per_mol": 0.016042459999999998,
+        "Tc_K": 190.564,
+        "Pc_Pa": 4599200.0,
+        "omega": 0.01142,
+        "Tb_K": 111.667205474,
+        "dipole_D": null,
+        "smiles": "C",
+        "InChI": "CH4/h1H4",
+        "InChIKey": null
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "C(3)",
+          "T_low_K": 100.0,
+          "T_mid_K": 1084.14,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            4.20540642,
+            -0.00535547202,
+            2.51119845e-05,
+            -2.13758631e-08,
+            5.97507051e-12,
+            -10161.9429,
+            -0.921247487
+          ],
+          "nasa7_high": [
+            0.908316564,
+            0.011454002,
+            -4.57169104e-06,
+            8.29180698e-10,
+            -5.66305909e-14,
+            -9719.99671,
+            13.9928064
+          ],
+          "H_form_298_J_mol": -74528.30232011511,
+          "S_form_298_J_mol_K": 186.09290285555173,
+          "Cp_298_J_mol_K": 35.93212393151789,
+          "Cp_1000_J_mol_K": 71.18116467247128
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            2.9524498299215905e-11,
+            -1.1705792184816594e-07,
+            0.00014490264174296124,
+            -0.01708215053500741,
+            30.98347741156545
+          ],
+          "max_relative_error_on_grid": 0.0020160816413153366,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            36.00239793103706,
+            45.788789554483465,
+            57.07165037706333,
+            67.04307574003934,
+            74.80271973671316,
+            80.91908290645664,
+            85.76207898701549
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "cantera (pure species)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "CH4",
+            "values": [
+              1.1454058301020278e-05,
+              1.70838889538456e-05,
+              2.170992012825282e-05,
+              2.5772944199037807e-05,
+              2.946747422751261e-05,
+              3.2897468074217224e-05,
+              3.6125534742998787e-05
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "CH4",
+            "values": [
+              0.03593984537993705,
+              0.06855345410461339,
+              0.10979509120830999,
+              0.15268212888744387,
+              0.1952034458248635,
+              0.23668981005550585,
+              0.2769330389577595
+            ]
+          },
+          "Cp_molar_J_mol_K": {
+            "method": "Cantera cp_mole",
+            "species_name_in_mechanism": "CH4",
+            "values": [
+              35760.535441682296,
+              46494.068425063204,
+              58650.68835023717,
+              68850.96399599286,
+              77469.02500352243,
+              84278.6685377947,
+              90021.38565485388
+            ]
+          },
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.024362394522994397,
+                -0.5307321216130848,
+                4.51053173341369,
+                -24.358571540210818
+              ],
+              "max_relative_error_on_grid": 0.0002769614418241046
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                -0.149335679266616,
+                2.8640767533105125,
+                -16.94007422176781,
+                27.829327877920974
+              ],
+              "max_relative_error_on_grid": 0.0065014698860791165
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                2.6425430585510292e-08,
+                -0.00010326379508299447,
+                0.12394207536785917,
+                -1.0210106907984382,
+                27446.554258309963
+              ],
+              "max_relative_error_on_grid": 0.004466451843785577
+            }
+          },
+          "notes": [
+            "Computed with Cantera in venv311_new: set X={species:1}, (T,P), read gas.viscosity, gas.thermal_conductivity, gas.cp_mole."
+          ],
+          "source": {
+            "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml"
+          }
+        },
+        "cantera_transport": {
+          "source": "Cantera mechanism transport parameters",
+          "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml",
+          "species_name_in_mechanism": "CH4",
+          "parameters": {
+            "class": "GasTransportData",
+            "geometry": "nonlinear",
+            "diameter_m": 3.7460000000000003e-10,
+            "well_depth_J": 1.952237686e-21,
+            "dipole_C_m": 0.0,
+            "polarizability_m3": 2.6000000000000002e-30,
+            "quadrupole_polarizability": 0.0,
+            "rotational_relaxation": 13.0
+          },
+          "units": {
+            "diameter_m": "m",
+            "well_depth_J": "J",
+            "dipole_C_m": "C*m",
+            "polarizability_m3": "m^3",
+            "rotational_relaxation": "dimensionless"
+          }
+        }
+      }
+    },
+    "C2H2::acetylene::74-86-2": {
+      "display_name": "acetylene",
+      "csv_formula_token": "C2H2",
+      "identifiers": {
+        "CAS": "74-86-2",
+        "formula": "C2H2",
+        "MW_kg_per_mol": 0.02603728,
+        "Tc_K": 308.3,
+        "Pc_Pa": 5988200.0,
+        "omega": 0.178,
+        "Tb_K": 189.00035,
+        "dipole_D": null,
+        "smiles": "C#C",
+        "InChI": "C2H2/c1-2/h1-2H",
+        "InChIKey": null
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "C#C(32)",
+          "T_low_K": 100.0,
+          "T_mid_K": 888.63,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            3.03574542,
+            0.0077124147,
+            2.53483604e-06,
+            -1.0813178e-08,
+            5.50750679e-12,
+            25852.6444,
+            4.5446198
+          ],
+          "nasa7_high": [
+            5.76204997,
+            0.00237157922,
+            -1.49577595e-07,
+            -2.19166965e-11,
+            2.21789566e-15,
+            25094.4481,
+            -9.82611207
+          ],
+          "H_form_298_J_mol": 225356.61677728526,
+          "S_form_298_J_mol_K": 200.948466849667,
+          "Cp_298_J_mol_K": 44.211862248262975,
+          "Cp_1000_J_mol_K": 66.21931358360717
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            -1.4003355752959656e-11,
+            7.014926083192759e-08,
+            -0.00013121042542433802,
+            0.12434561604468791,
+            17.02225650417044
+          ],
+          "max_relative_error_on_grid": 0.0023402071128584808,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            44.31824811784236,
+            54.1956104704136,
+            60.61191445993501,
+            64.52680919687667,
+            67.87822785205854,
+            71.09281569184309,
+            74.16607460632183
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "cantera (pure species)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "C2H2",
+            "values": [
+              1.0465592891379167e-05,
+              1.635732767952407e-05,
+              2.120970048395676e-05,
+              2.5448962372100546e-05,
+              2.9278608838886404e-05,
+              3.281214442147308e-05,
+              3.6119767934656096e-05
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "C2H2",
+            "values": [
+              0.024311818121642494,
+              0.04646675618010133,
+              0.06771955633522092,
+              0.08796151606251018,
+              0.10726861973135887,
+              0.12573852470475042,
+              0.14346113901863644
+            ]
+          },
+          "Cp_molar_J_mol_K": {
+            "method": "Cantera cp_mole",
+            "species_name_in_mechanism": "C2H2",
+            "values": [
+              44134.49205447343,
+              54715.62455405665,
+              60916.40564386793,
+              65775.33599533893,
+              69787.84371284192,
+              73108.6462606769,
+              75906.50978362249
+            ]
+          },
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.030613186341987824,
+                -0.6833023104180671,
+                5.754114355595886,
+                -27.738264923296917
+              ],
+              "max_relative_error_on_grid": 0.0003148751344244999
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.029492788807846865,
+                -0.7167301822646652,
+                6.665634219900145,
+                -23.89132091583902
+              ],
+              "max_relative_error_on_grid": 0.0004144785641316174
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                -2.1994850521077002e-08,
+                9.483270477016534e-05,
+                -0.15710419457043232,
+                137.2725592210616,
+                14742.218549454075
+              ],
+              "max_relative_error_on_grid": 0.0029910357472298942
+            }
+          },
+          "notes": [
+            "Computed with Cantera in venv311_new: set X={species:1}, (T,P), read gas.viscosity, gas.thermal_conductivity, gas.cp_mole."
+          ],
+          "source": {
+            "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml"
+          }
+        },
+        "cantera_transport": {
+          "source": "Cantera mechanism transport parameters",
+          "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml",
+          "species_name_in_mechanism": "C2H2",
+          "parameters": {
+            "class": "GasTransportData",
+            "geometry": "linear",
+            "diameter_m": 4.1e-10,
+            "well_depth_J": 2.88555641e-21,
+            "dipole_C_m": 0.0,
+            "polarizability_m3": 0.0,
+            "quadrupole_polarizability": 0.0,
+            "rotational_relaxation": 2.5
+          },
+          "units": {
+            "diameter_m": "m",
+            "well_depth_J": "J",
+            "dipole_C_m": "C*m",
+            "polarizability_m3": "m^3",
+            "rotational_relaxation": "dimensionless"
+          }
+        }
+      }
+    },
+    "C2H3::vinyl_radical::NA": {
+      "display_name": "vinyl_radical",
+      "csv_formula_token": "C2H3",
+      "identifiers": {
+        "formula": "C2H3",
+        "MW_kg_per_mol": 0.027045220000000002
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "C2H3(14)",
+          "T_low_K": 100.0,
+          "T_mid_K": 931.96,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            3.90670487,
+            -0.00406240324,
+            3.86779764e-05,
+            -4.62976024e-08,
+            1.72900212e-11,
+            34797.1783,
+            6.0978918
+          ],
+          "nasa7_high": [
+            5.44796733,
+            0.0049835582,
+            -1.08820589e-06,
+            1.79836863e-10,
+            -1.45095912e-14,
+            33829.7739,
+            -4.8780925
+          ],
+          "H_form_298_J_mol": 299651.47907304135,
+          "S_form_298_J_mol_K": 236.8770716363716,
+          "Cp_298_J_mol_K": 41.93225917209715,
+          "Cp_1000_J_mol_K": 79.05928929592226
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            7.852907486422823e-12,
+            -5.123528222003389e-09,
+            -5.3834193742731466e-05,
+            0.11946262982401365,
+            11.064670855108567
+          ],
+          "max_relative_error_on_grid": 0.006673966643776288,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            42.062996762885156,
+            56.857815517494885,
+            68.89769059418144,
+            76.26635060311555,
+            81.7417401663365,
+            86.81284885943303,
+            91.52839803096451
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "cantera (pure species)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "C2H3",
+            "values": [
+              1.0666244809880258e-05,
+              1.6670939073976666e-05,
+              2.161634415308248e-05,
+              2.593688342700952e-05,
+              2.9839953914652005e-05,
+              3.344123632258345e-05,
+              3.681227535464675e-05
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "C2H3",
+            "values": [
+              0.022519684402708434,
+              0.04694529399787474,
+              0.07292844099868202,
+              0.0981841033700473,
+              0.12222887925870841,
+              0.14500859328065607,
+              0.16659000995208637
+            ]
+          },
+          "Cp_molar_J_mol_K": {
+            "method": "Cantera cp_mole",
+            "species_name_in_mechanism": "C2H3",
+            "values": [
+              42846.95899069507,
+              57362.03823646047,
+              68507.09855729491,
+              76102.7171038468,
+              82476.30394348994,
+              87132.38824342958,
+              90954.01639570578
+            ]
+          },
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.030613186341966216,
+                -0.683302310417597,
+                5.754114355592494,
+                -27.71927386800083
+              ],
+              "max_relative_error_on_grid": 0.0003148751344066682
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                -0.016260905224565664,
+                0.13196858490994545,
+                1.602072218223442,
+                -14.207445127632484
+              ],
+              "max_relative_error_on_grid": 0.0019734983756817216
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                -5.819967036367679e-09,
+                3.611681887205775e-05,
+                -0.09329864300011671,
+                131.7969356246342,
+                10752.996410884783
+              ],
+              "max_relative_error_on_grid": 0.003238897810770625
+            }
+          },
+          "notes": [
+            "Computed with Cantera in venv311_new: set X={species:1}, (T,P), read gas.viscosity, gas.thermal_conductivity, gas.cp_mole."
+          ],
+          "source": {
+            "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml"
+          }
+        },
+        "cantera_transport": {
+          "source": "Cantera mechanism transport parameters",
+          "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml",
+          "species_name_in_mechanism": "C2H3",
+          "parameters": {
+            "class": "GasTransportData",
+            "geometry": "nonlinear",
+            "diameter_m": 4.1e-10,
+            "well_depth_J": 2.88555641e-21,
+            "dipole_C_m": 0.0,
+            "polarizability_m3": 0.0,
+            "quadrupole_polarizability": 0.0,
+            "rotational_relaxation": 1.0
+          },
+          "units": {
+            "diameter_m": "m",
+            "well_depth_J": "J",
+            "dipole_C_m": "C*m",
+            "polarizability_m3": "m^3",
+            "rotational_relaxation": "dimensionless"
+          }
+        }
+      }
+    },
+    "C2H4::ethylene::74-85-1": {
+      "display_name": "ethylene",
+      "csv_formula_token": "C2H4",
+      "identifiers": {
+        "CAS": "74-85-1",
+        "formula": "C2H4",
+        "MW_kg_per_mol": 0.028053159999999997,
+        "Tc_K": 282.35,
+        "Pc_Pa": 5041800.0,
+        "omega": 0.0866,
+        "Tb_K": 169.378648434,
+        "dipole_D": null,
+        "smiles": "C=C",
+        "InChI": "C2H4/c1-2/h1-2H2",
+        "InChIKey": null
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "C2H4(9)",
+          "T_low_K": 100.0,
+          "T_mid_K": 940.44,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            3.97977225,
+            -0.00757594213,
+            5.52985928e-05,
+            -6.36239118e-08,
+            2.31775061e-11,
+            5077.45967,
+            4.04612874
+          ],
+          "nasa7_high": [
+            5.20290544,
+            0.00782457804,
+            -2.12692376e-06,
+            3.79711948e-10,
+            -2.94688594e-14,
+            3936.31753,
+            -6.62361308
+          ],
+          "H_form_298_J_mol": 52390.02229222562,
+          "S_form_298_J_mol_K": 219.53540240387298,
+          "Cp_298_J_mol_K": 42.68291594896994,
+          "Cp_1000_J_mol_K": 93.54437937459413
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            1.7839789171150975e-11,
+            -3.73558576059142e-08,
+            -2.8679623324256178e-05,
+            0.13722328864011518,
+            5.020444860867016
+          ],
+          "max_relative_error_on_grid": 0.007796428544120326,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            42.850704485533456,
+            62.45869666760026,
+            79.11078730149208,
+            89.61506197315632,
+            97.26769527186015,
+            104.18368272028398,
+            110.47040493073125
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "cantera (pure species)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "C2H4",
+            "values": [
+              1.006871619366669e-05,
+              1.6357308556328447e-05,
+              2.1656715187441462e-05,
+              2.6309470975411474e-05,
+              3.050660583170182e-05,
+              3.436455853527895e-05,
+              3.795968039035211e-05
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "C2H4",
+            "values": [
+              0.020837092261729234,
+              0.04853597740906808,
+              0.08050303924683551,
+              0.11226806425319424,
+              0.14273987961996046,
+              0.1716707828283723,
+              0.1990723543436477
+            ]
+          },
+          "Cp_molar_J_mol_K": {
+            "method": "Cantera cp_mole",
+            "species_name_in_mechanism": "C2H4",
+            "values": [
+              43054.56623170345,
+              62280.44226030996,
+              78129.2560829282,
+              88850.3307683115,
+              97823.01555617459,
+              104292.8188258318,
+              109593.17063160545
+            ]
+          },
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.02796106472555837,
+                -0.6514450834329569,
+                5.733038789525015,
+                -28.20101347241893
+              ],
+              "max_relative_error_on_grid": 0.00020204147601083996
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                -0.03342639821800687,
+                0.40533878467116735,
+                0.3946190881394808,
+                -13.106646869623244
+              ],
+              "max_relative_error_on_grid": 0.004059463236133424
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                2.331058797126326e-09,
+                8.38759236206021e-06,
+                -0.07058798314071354,
+                149.3477635257483,
+                4304.834217539031
+              ],
+              "max_relative_error_on_grid": 0.005535285507893264
+            }
+          },
+          "notes": [
+            "Computed with Cantera in venv311_new: set X={species:1}, (T,P), read gas.viscosity, gas.thermal_conductivity, gas.cp_mole."
+          ],
+          "source": {
+            "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml"
+          }
+        },
+        "cantera_transport": {
+          "source": "Cantera mechanism transport parameters",
+          "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml",
+          "species_name_in_mechanism": "C2H4",
+          "parameters": {
+            "class": "GasTransportData",
+            "geometry": "nonlinear",
+            "diameter_m": 3.971e-10,
+            "well_depth_J": 3.876862392e-21,
+            "dipole_C_m": 0.0,
+            "polarizability_m3": 0.0,
+            "quadrupole_polarizability": 0.0,
+            "rotational_relaxation": 1.5
+          },
+          "units": {
+            "diameter_m": "m",
+            "well_depth_J": "J",
+            "dipole_C_m": "C*m",
+            "polarizability_m3": "m^3",
+            "rotational_relaxation": "dimensionless"
+          }
+        }
+      }
+    },
+    "C2H5::ethyl_radical::NA": {
+      "display_name": "ethyl_radical",
+      "csv_formula_token": "C2H5",
+      "identifiers": {
+        "formula": "C2H5",
+        "MW_kg_per_mol": 0.0290611
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "C[CH2](5)",
+          "T_low_K": 100.0,
+          "T_mid_K": 900.31,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            3.82184856,
+            -0.00343376314,
+            5.0926334e-05,
+            -6.20220235e-08,
+            2.37077381e-11,
+            13066.0124,
+            7.61638915
+          ],
+          "nasa7_high": [
+            5.1561757,
+            0.0094312837,
+            -1.81949426e-06,
+            2.21204013e-10,
+            -1.43488224e-14,
+            12064.0959,
+            -2.91080147
+          ],
+          "H_form_298_J_mol": 119657.03120227953,
+          "S_form_298_J_mol_K": 250.51785429796533,
+          "Cp_298_J_mol_K": 48.79444179833346,
+          "Cp_1000_J_mol_K": 107.87865861404009
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            3.691543898602081e-12,
+            1.43571917434268e-08,
+            -9.174943616426458e-05,
+            0.1789039685632864,
+            3.0690908438971154
+          ],
+          "max_relative_error_on_grid": 0.0062877442489292085,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            48.99320147101229,
+            71.21778883060266,
+            89.719635699141,
+            102.45400204648388,
+            113.09676393003433,
+            122.94515019664217,
+            132.05995500412263
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "cantera (pure species)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "C2H5",
+            "values": [
+              9.205848576905122e-06,
+              1.4751873152066898e-05,
+              1.937426251181475e-05,
+              2.3420232375293394e-05,
+              2.7069771526242346e-05,
+              3.0428201195729477e-05,
+              3.35627713178822e-05
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "C2H5",
+            "values": [
+              0.021580362966047578,
+              0.048318552244591834,
+              0.07934229679238956,
+              0.11029960540648157,
+              0.1400900251070561,
+              0.16844062728653864,
+              0.19533950874399478
+            ]
+          },
+          "Cp_molar_J_mol_K": {
+            "method": "Cantera cp_mole",
+            "species_name_in_mechanism": "C2H5",
+            "values": [
+              50667.044158860925,
+              71449.0049849549,
+              89133.77954087342,
+              101889.3260191561,
+              112271.99520870032,
+              119933.3222589228,
+              126206.93807926752
+            ]
+          },
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.03014133835986244,
+                -0.6877694662181575,
+                5.9065853207992935,
+                -28.50329965899689
+              ],
+              "max_relative_error_on_grid": 0.0002671556992177007
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                -0.0522680399342399,
+                0.8070493023985562,
+                -2.4614449124921713,
+                -6.353882845867676
+              ],
+              "max_relative_error_on_grid": 0.004340227409447266
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                8.729609071382804e-09,
+                -1.7824644814576006e-05,
+                -0.03555962285069915,
+                139.9725747214002,
+                12241.118283706395
+              ],
+              "max_relative_error_on_grid": 0.003970976931677405
+            }
+          },
+          "notes": [
+            "Computed with Cantera in venv311_new: set X={species:1}, (T,P), read gas.viscosity, gas.thermal_conductivity, gas.cp_mole."
+          ],
+          "source": {
+            "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml"
+          }
+        },
+        "cantera_transport": {
+          "source": "Cantera mechanism transport parameters",
+          "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml",
+          "species_name_in_mechanism": "C2H5",
+          "parameters": {
+            "class": "GasTransportData",
+            "geometry": "nonlinear",
+            "diameter_m": 4.3019999999999997e-10,
+            "well_depth_J": 3.483377427000001e-21,
+            "dipole_C_m": 0.0,
+            "polarizability_m3": 0.0,
+            "quadrupole_polarizability": 0.0,
+            "rotational_relaxation": 1.5
+          },
+          "units": {
+            "diameter_m": "m",
+            "well_depth_J": "J",
+            "dipole_C_m": "C*m",
+            "polarizability_m3": "m^3",
+            "rotational_relaxation": "dimensionless"
+          }
+        }
+      }
+    },
+    "C2H6::ethane::74-84-0": {
+      "display_name": "ethane",
+      "csv_formula_token": "C2H6",
+      "identifiers": {
+        "CAS": "74-84-0",
+        "formula": "C2H6",
+        "MW_kg_per_mol": 0.030069040000000002,
+        "Tc_K": 305.322,
+        "Pc_Pa": 4872200.0,
+        "omega": 0.0995,
+        "Tb_K": 184.568587832,
+        "dipole_D": null,
+        "smiles": "CC",
+        "InChI": "C2H6/c1-2/h1-2H3",
+        "InChIKey": null
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "ethane(1)",
+          "T_low_K": 100.0,
+          "T_mid_K": 954.51,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            3.78033402,
+            -0.00324261739,
+            5.52380125e-05,
+            -6.38580573e-08,
+            2.28636801e-11,
+            -11620.3408,
+            5.2103391
+          ],
+          "nasa7_high": [
+            4.58983511,
+            0.014150768,
+            -4.75961797e-06,
+            8.60293427e-10,
+            -6.21715939e-14,
+            -12721.7671,
+            -3.61741266
+          ],
+          "H_form_298_J_mol": -85345.75720566747,
+          "S_form_298_J_mol_K": 230.46469202156518,
+          "Cp_298_J_mol_K": 51.649829353767394,
+          "Cp_1000_J_mol_K": 122.88033245526307
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            2.461603444198614e-11,
+            -6.179528155357643e-08,
+            -1.0158610888768763e-05,
+            0.16656001781443486,
+            4.18611780645862
+          ],
+          "max_relative_error_on_grid": 0.006101546357469916,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            51.882231684731465,
+            78.28275492096051,
+            101.13200082899226,
+            116.8440181507938,
+            128.46316413472178,
+            138.47384550055432,
+            147.129348992076
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "cantera (pure species)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "C2H6",
+            "values": [
+              9.364137711528516e-06,
+              1.5005522906981859e-05,
+              1.9707391524457477e-05,
+              2.3822929452525998e-05,
+              2.7535220275865727e-05,
+              3.095139616197099e-05,
+              3.4139863367907846e-05
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "C2H6",
+            "values": [
+              0.022072786875854015,
+              0.051647588832269616,
+              0.08698730254175024,
+              0.12253305690058336,
+              0.1568408351395679,
+              0.1895255118653681,
+              0.22054179839979793
+            ]
+          },
+          "Cp_molar_J_mol_K": {
+            "method": "Cantera cp_mole",
+            "species_name_in_mechanism": "C2H6",
+            "values": [
+              52719.37349823664,
+              77740.79316006113,
+              99470.67989115215,
+              115369.97901039437,
+              128113.771404652,
+              137528.72967490237,
+              145227.94521350093
+            ]
+          },
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.030141338359883,
+                -0.6877694662185716,
+                5.906585320802059,
+                -28.48625139995204
+              ],
+              "max_relative_error_on_grid": 0.0002671556992266572
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                -0.05772437896123254,
+                0.8877978027586289,
+                -2.754421343394439,
+                -6.274873057779627
+              ],
+              "max_relative_error_on_grid": 0.0052258461167087825
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                1.6002892160602095e-08,
+                -4.345227397635072e-05,
+                -0.012560891416075902,
+                153.59575384539002,
+                8760.167647392598
+              ],
+              "max_relative_error_on_grid": 0.004123395079236279
+            }
+          },
+          "notes": [
+            "Computed with Cantera in venv311_new: set X={species:1}, (T,P), read gas.viscosity, gas.thermal_conductivity, gas.cp_mole."
+          ],
+          "source": {
+            "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml"
+          }
+        },
+        "cantera_transport": {
+          "source": "Cantera mechanism transport parameters",
+          "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml",
+          "species_name_in_mechanism": "C2H6",
+          "parameters": {
+            "class": "GasTransportData",
+            "geometry": "nonlinear",
+            "diameter_m": 4.3019999999999997e-10,
+            "well_depth_J": 3.483377427000001e-21,
+            "dipole_C_m": 0.0,
+            "polarizability_m3": 0.0,
+            "quadrupole_polarizability": 0.0,
+            "rotational_relaxation": 1.5
+          },
+          "units": {
+            "diameter_m": "m",
+            "well_depth_J": "J",
+            "dipole_C_m": "C*m",
+            "polarizability_m3": "m^3",
+            "rotational_relaxation": "dimensionless"
+          }
+        }
+      }
+    },
+    "C3H4::propyne::74-99-7": {
+      "display_name": "propyne",
+      "csv_formula_token": "C3H4",
+      "identifiers": {
+        "CAS": "74-99-7",
+        "formula": "C3H4",
+        "MW_kg_per_mol": 0.04006386,
+        "Tc_K": 402.38,
+        "Pc_Pa": 5626000.0,
+        "omega": 0.204,
+        "Tb_K": 249.95,
+        "dipole_D": 0.78,
+        "smiles": "CC#C",
+        "InChI": "C3H4/c1-3-2/h1H,2H3",
+        "InChIKey": null
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "Cantera mechanism NASA7",
+          "species_name_in_mechanism": "C3H4-P",
+          "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/example_data/n-hexane-NUIG-2015.yaml",
+          "T_low_K": 200.0,
+          "T_mid_K": 1000.0,
+          "T_high_K": 6000.0,
+          "nasa7_low": [
+            2.6803869,
+            0.015799651,
+            2.5070596e-06,
+            -1.3657623e-08,
+            6.6154285e-12,
+            20802.374,
+            9.8769351
+          ],
+          "nasa7_high": [
+            6.02524,
+            0.011336542,
+            -4.0223391e-06,
+            6.4376063e-10,
+            -3.8299635e-14,
+            19620.942,
+            -8.6043785
+          ]
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            -4.411246433638252e-12,
+            3.650384507876617e-08,
+            -0.00011432551811640219,
+            0.18230276951801846,
+            15.594550571694574
+          ],
+          "max_relative_error_on_grid": 0.0006804473496818646,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            60.95121951433219,
+            82.42325264642632,
+            98.71263843976104,
+            110.70512872949573,
+            119.97085104498605,
+            126.96139550839017,
+            132.68710206180944
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "thermo (tabulated + fitted)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Lucas_gas (thermo.viscosity.Lucas_gas)",
+            "values": [
+              8.786945839266264e-06,
+              1.4357444650175278e-05,
+              1.9260525561025894e-05,
+              2.360130643932865e-05,
+              2.751438836719536e-05,
+              3.109639502206474e-05,
+              3.441506018861799e-05
+            ],
+            "thermo_mug_values_if_available": [
+              8.846560658906091e-06,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Eucken_modified (thermo.thermal_conductivity.Eucken_modified) using Cp(T) from thermo and mu(T) from Lucas_gas",
+            "values": [
+              0.018449590656812787,
+              0.040408707052129296,
+              0.06647736181866541,
+              0.09649363037585508,
+              0.1300190058804948,
+              0.16675429383587206,
+              0.20647317371986443
+            ],
+            "thermo_kg_values_if_available": [
+              0.018093841981080327,
+              0.04284253180016237,
+              0.07522785795056965,
+              0.10734078236556821,
+              0.14315715190610095,
+              0.18256027406181397,
+              0.22618970189057247
+            ]
+          },
+          "Cp_molar_from_thermo_J_mol_K": [
+            60.89313593373755,
+            82.58888658279648,
+            101.92287340442472,
+            121.25686022605294,
+            140.59084704768117,
+            159.9248338693094,
+            179.25882069093765
+          ],
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.006150704577729885,
+                -0.2220798791091978,
+                2.953320758304208,
+                -22.403797945643525
+              ],
+              "max_relative_error_on_grid": 0.000555287808825944
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.03149377802714848,
+                -0.6340214604563823,
+                5.731324770984138,
+                -21.90008084044238
+              ],
+              "max_relative_error_on_grid": 0.0015935884080797622
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                -1.6773890819818573e-11,
+                6.858657579659269e-08,
+                -0.00010075517085771335,
+                0.15924559944206515,
+                20.502124704943927
+              ],
+              "max_relative_error_on_grid": 0.0017554597520830707
+            }
+          },
+          "notes": [
+            "Values tabulated using thermo.Chemical(name, T, P).",
+            "Cpg in thermo is mass-basis (J/kg/K); converted to molar basis using MW.",
+            "Gas viscosity uses Lucas_gas directly to avoid thermo's internal Tmax cutoffs on mug."
+          ]
+        },
+        "cantera_transport": null
+      }
+    },
+    "C3H5::allyl_radical::NA": {
+      "display_name": "allyl_radical",
+      "csv_formula_token": "C3H5",
+      "identifiers": {
+        "formula": "C3H5",
+        "MW_kg_per_mol": 0.0410718
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "C3H5(43)",
+          "T_low_K": 100.0,
+          "T_mid_K": 952.01,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            3.3192561,
+            0.00566542843,
+            4.27428538e-05,
+            -5.78803541e-08,
+            2.21686138e-11,
+            18990.6191,
+            9.19662138
+          ],
+          "nasa7_high": [
+            7.55730522,
+            0.0114808469,
+            -3.63937149e-06,
+            6.63547702e-10,
+            -4.95287837e-14,
+            17113.2199,
+            -16.663225
+          ],
+          "H_form_298_J_mol": 170494.54423830897,
+          "S_form_298_J_mol_K": 259.65883594789943,
+          "Cp_298_J_mol_K": 61.93529001322894,
+          "Cp_1000_J_mol_K": 133.13782325386762
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            7.0946883083134884e-12,
+            1.8966131202195646e-08,
+            -0.00014316519864653594,
+            0.25195815273128264,
+            -1.1723429344687752
+          ],
+          "max_relative_error_on_grid": 0.005634302693424791,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            62.213279845430534,
+            91.36079409847756,
+            113.89796994464035,
+            127.95877019726755,
+            137.9640749534367,
+            146.73549468183057,
+            154.47210406187148
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "thermo (tabulated + fitted) via proxy",
+        "proxy_species": "propene",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Lucas_gas (thermo.viscosity.Lucas_gas)",
+            "values": [
+              8.781956559683147e-06,
+              1.4215723614037573e-05,
+              1.8927306011289706e-05,
+              2.307589095738165e-05,
+              2.6806427001749342e-05,
+              3.021692186373758e-05,
+              3.337489319632938e-05
+            ],
+            "thermo_mug_values_if_available": [
+              8.61451187883838e-06,
+              1.409955037993308e-05,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Eucken_modified (thermo.thermal_conductivity.Eucken_modified) using Cp(T) from thermo and mu(T) from Lucas_gas",
+            "values": [
+              0.018600733668715747,
+              0.0436884293316134,
+              0.0732016368019261,
+              0.10719150891761574,
+              0.14536673539086115,
+              0.18735971447831665,
+              0.2328949463074146
+            ],
+            "thermo_kg_values_if_available": [
+              0.01731676510003494,
+              0.04262509058804304,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "Cp_molar_from_thermo_J_mol_K": [
+            64.68637497965835,
+            95.13630659690057,
+            120.45644739519072,
+            145.24709842326934,
+            170.03774945134793,
+            194.82840047942653,
+            219.61905150750516
+          ],
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.010514110799602757,
+                -0.30604832235454626,
+                3.4703306480857834,
+                -23.431179844907327
+              ],
+              "max_relative_error_on_grid": 0.000382880951481604
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.0700707488589265,
+                -1.4348366683602503,
+                11.298214078190988,
+                -34.74948055002853
+              ],
+              "max_relative_error_on_grid": 0.0026024252391252437
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                -3.5179646511940566e-11,
+                1.4629700726647201e-07,
+                -0.0002197695383226084,
+                0.26462298352368757,
+                1.4653959093270095
+              ],
+              "max_relative_error_on_grid": 0.0024175008795260643
+            }
+          },
+          "notes": [
+            "Values tabulated using thermo.Chemical(name, T, P).",
+            "Cpg in thermo is mass-basis (J/kg/K); converted to molar basis using MW.",
+            "Gas viscosity uses Lucas_gas directly to avoid thermo's internal Tmax cutoffs on mug."
+          ]
+        },
+        "cantera_transport": null,
+        "notes": [
+          "Fallback used: radical transport proxied from a stable analog because Cantera transport was not available for this species."
+        ]
+      }
+    },
+    "C3H6::propene::115-07-1": {
+      "display_name": "propene",
+      "csv_formula_token": "C3H6",
+      "identifiers": {
+        "CAS": "115-07-1",
+        "formula": "C3H6",
+        "MW_kg_per_mol": 0.042079740000000004,
+        "Tc_K": 364.211,
+        "Pc_Pa": 4555000.0,
+        "omega": 0.146,
+        "Tb_K": 225.530871246,
+        "dipole_D": 0.36,
+        "smiles": "CC=C",
+        "InChI": "C3H6/c1-3-2/h3H,1H2,2H3",
+        "InChIKey": null
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "C3H6(27)",
+          "T_low_K": 100.0,
+          "T_mid_K": 988.01,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            3.30974137,
+            0.00827527515,
+            3.37704345e-05,
+            -4.3929304e-08,
+            1.58765757e-11,
+            767.476883,
+            9.64360225
+          ],
+          "nasa7_high": [
+            5.4121619,
+            0.0172863932,
+            -6.51347228e-06,
+            1.20319873e-09,
+            -8.559012e-14,
+            -503.226357,
+            -4.80219518
+          ],
+          "H_form_298_J_mol": 19465.229630948867,
+          "S_form_298_J_mol_K": 266.99985754659133,
+          "Cp_298_J_mol_K": 64.3552539113878,
+          "Cp_1000_J_mol_K": 143.86258108552397
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            2.0376615340907267e-11,
+            -4.3697487320501886e-08,
+            -4.5324609390171186e-05,
+            0.20470020275613246,
+            8.234653975852442
+          ],
+          "max_relative_error_on_grid": 0.003841859518195638,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            64.63806310490047,
+            94.7109628558735,
+            119.67971715687507,
+            137.21939380502684,
+            149.84356105277575,
+            160.26690894740665,
+            168.89945152948238
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "thermo (tabulated + fitted)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Lucas_gas (thermo.viscosity.Lucas_gas)",
+            "values": [
+              8.781956559683147e-06,
+              1.4215723614037573e-05,
+              1.8927306011289706e-05,
+              2.307589095738165e-05,
+              2.6806427001749342e-05,
+              3.021692186373758e-05,
+              3.337489319632938e-05
+            ],
+            "thermo_mug_values_if_available": [
+              8.61451187883838e-06,
+              1.409955037993308e-05,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Eucken_modified (thermo.thermal_conductivity.Eucken_modified) using Cp(T) from thermo and mu(T) from Lucas_gas",
+            "values": [
+              0.018600733668715747,
+              0.0436884293316134,
+              0.0732016368019261,
+              0.10719150891761574,
+              0.14536673539086115,
+              0.18735971447831665,
+              0.2328949463074146
+            ],
+            "thermo_kg_values_if_available": [
+              0.01731676510003494,
+              0.04262509058804304,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "Cp_molar_from_thermo_J_mol_K": [
+            64.68637497965835,
+            95.13630659690057,
+            120.45644739519072,
+            145.24709842326934,
+            170.03774945134793,
+            194.82840047942653,
+            219.61905150750516
+          ],
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.010514110799602757,
+                -0.30604832235454626,
+                3.4703306480857834,
+                -23.431179844907327
+              ],
+              "max_relative_error_on_grid": 0.000382880951481604
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.0700707488589265,
+                -1.4348366683602503,
+                11.298214078190988,
+                -34.74948055002853
+              ],
+              "max_relative_error_on_grid": 0.0026024252391252437
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                -3.5179646511940566e-11,
+                1.4629700726647201e-07,
+                -0.0002197695383226084,
+                0.26462298352368757,
+                1.4653959093270095
+              ],
+              "max_relative_error_on_grid": 0.0024175008795260643
+            }
+          },
+          "notes": [
+            "Values tabulated using thermo.Chemical(name, T, P).",
+            "Cpg in thermo is mass-basis (J/kg/K); converted to molar basis using MW.",
+            "Gas viscosity uses Lucas_gas directly to avoid thermo's internal Tmax cutoffs on mug."
+          ]
+        },
+        "cantera_transport": null
+      }
+    },
+    "C3H7::propyl_radical::NA": {
+      "display_name": "propyl_radical",
+      "csv_formula_token": "C3H7",
+      "identifiers": {
+        "formula": "C3H7",
+        "MW_kg_per_mol": 0.043087679999999996
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "C[CH]C(29)",
+          "T_low_K": 100.0,
+          "T_mid_K": 1100.3,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            3.21174697,
+            0.0131075155,
+            1.99173548e-05,
+            -2.55877557e-08,
+            8.25847345e-12,
+            8907.92321,
+            11.8466459
+          ],
+          "nasa7_high": [
+            3.65557545,
+            0.0230584417,
+            -9.41371369e-06,
+            1.73592451e-09,
+            -1.20102267e-13,
+            8110.22489,
+            6.48192578
+          ],
+          "H_form_298_J_mol": 87945.3503211877,
+          "S_form_298_J_mol_K": 288.75638610690737,
+          "Cp_298_J_mol_K": 68.82185325253799,
+          "Cp_1000_J_mol_K": 157.20433022979228
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            3.23356396953187e-11,
+            -1.0316566364205928e-07,
+            5.000433998945357e-05,
+            0.15870926624608103,
+            19.48152381219009
+          ],
+          "max_relative_error_on_grid": 0.0016857409797985871,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            69.11470038097114,
+            100.29344269194311,
+            127.65004008201272,
+            148.8827488790238,
+            164.3265525320404,
+            176.20986617973801,
+            185.52151642598722
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "thermo (tabulated + fitted) via proxy",
+        "proxy_species": "propane",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Lucas_gas (thermo.viscosity.Lucas_gas)",
+            "values": [
+              8.433348346549472e-06,
+              1.367231209750593e-05,
+              1.822492012677782e-05,
+              2.2236639928717955e-05,
+              2.584538366007352e-05,
+              2.9145122118389534e-05,
+              3.2200739087652235e-05
+            ],
+            "thermo_mug_values_if_available": [
+              8.172345588915326e-06,
+              1.3264244109087008e-05,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Eucken_modified (thermo.thermal_conductivity.Eucken_modified) using Cp(T) from thermo and mu(T) from Lucas_gas",
+            "values": [
+              0.019320753855704302,
+              0.04706942785772561,
+              0.07929217163449256,
+              0.11528783375291951,
+              0.15554842665407573,
+              0.1997098176751532,
+              0.2474977326988607
+            ],
+            "thermo_kg_values_if_available": [
+              0.018513511212812552,
+              0.04636478369226547,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "Cp_molar_from_thermo_J_mol_K": [
+            73.69796243439309,
+            112.17098903555436,
+            142.505873817901,
+            170.36071838643642,
+            198.21556295497177,
+            226.07040752350724,
+            253.92525209204263
+          ],
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.00992492359155315,
+                -0.29483470271632517,
+                3.4025279720107284,
+                -23.34044025875222
+              ],
+              "max_relative_error_on_grid": 0.00040753301258181744
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.10121768652719569,
+                -2.088136436505009,
+                15.837997908840988,
+                -45.13138835939964
+              ],
+              "max_relative_error_on_grid": 0.0016467417494363827
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                -5.192799536607816e-11,
+                2.238094709311673e-07,
+                -0.00035152591224729197,
+                0.377165285903497,
+                -13.40062471492584
+              ],
+              "max_relative_error_on_grid": 0.0012459968993796479
+            }
+          },
+          "notes": [
+            "Values tabulated using thermo.Chemical(name, T, P).",
+            "Cpg in thermo is mass-basis (J/kg/K); converted to molar basis using MW.",
+            "Gas viscosity uses Lucas_gas directly to avoid thermo's internal Tmax cutoffs on mug."
+          ]
+        },
+        "cantera_transport": null,
+        "notes": [
+          "Fallback used: radical transport proxied from a stable analog because Cantera transport was not available for this species."
+        ]
+      }
+    },
+    "H::H::12385-13-6": {
+      "display_name": "H",
+      "csv_formula_token": "H",
+      "identifiers": {
+        "CAS": "12385-13-6",
+        "formula": "H",
+        "MW_kg_per_mol": 0.0010079400000000001,
+        "Tc_K": 36.765882,
+        "Pc_Pa": 2284947.3,
+        "omega": 7.1561063e-07,
+        "Tb_K": 20.28,
+        "dipole_D": null,
+        "smiles": "[H]",
+        "InChI": "H",
+        "InChIKey": null
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "[H](6)",
+          "T_low_K": 100.0,
+          "T_mid_K": 4879.8,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            2.5,
+            -3.01680531e-12,
+            3.74582141e-15,
+            -1.50856878e-18,
+            1.86626471e-22,
+            25474.2178,
+            -0.444972899
+          ],
+          "nasa7_high": [
+            4.28461071,
+            -0.00145494649,
+            4.44804306e-07,
+            -6.04359642e-11,
+            3.07921551e-15,
+            23723.0923,
+            -11.8931307
+          ],
+          "H_form_298_J_mol": 218001.8241939182,
+          "S_form_298_J_mol_K": 114.73142671913688,
+          "Cp_298_J_mol_K": 20.786156539969838,
+          "Cp_1000_J_mol_K": 20.786156540070134
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            1.551942062082899e-21,
+            -1.2543843041073722e-17,
+            3.114566787593704e-14,
+            -2.5083723858613853e-11,
+            20.786156545000104
+          ],
+          "max_relative_error_on_grid": 6.836691856619462e-16,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            20.786156539951982,
+            20.786156538773678,
+            20.78615653877296,
+            20.786156539526505,
+            20.786156540670596,
+            20.786156541901114,
+            20.786156542973494
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "cantera (pure species)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "H",
+            "values": [
+              9.505229467013668e-06,
+              1.4214196844630537e-05,
+              1.8081884016959436e-05,
+              2.147701023889974e-05,
+              2.4562763346472932e-05,
+              2.7426478051920523e-05,
+              3.012078835899145e-05
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "H",
+            "values": [
+              0.29397093711143446,
+              0.43971953877793346,
+              0.5592431193170394,
+              0.6642402666338958,
+              0.7597215369344388,
+              0.8483506514159684,
+              0.9317349369362271
+            ]
+          },
+          "Cp_molar_J_mol_K": {
+            "method": "Cantera cp_mole",
+            "species_name_in_mechanism": "H",
+            "values": [
+              20786.1565453831,
+              20786.1565453831,
+              20786.1565453831,
+              20786.1565453831,
+              20786.15595215071,
+              20786.15534489296,
+              20786.155305871373
+            ]
+          },
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.024867353040313338,
+                -0.5424131623642768,
+                4.6010182191457885,
+                -24.774868367833765
+              ],
+              "max_relative_error_on_grid": 0.00028125595990499946
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.02561171028424779,
+                -0.5569479309611434,
+                4.695278678346543,
+                -14.63836877545904
+              ],
+              "max_relative_error_on_grid": 0.0003524317667092006
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                9.686703293878128e-15,
+                -3.2947788836539e-11,
+                3.685818862254295e-08,
+                -1.626556045439447e-05,
+                20786.158929217396
+              ],
+              "max_relative_error_on_grid": 3.99979158377986e-09
+            }
+          },
+          "notes": [
+            "Computed with Cantera in venv311_new: set X={species:1}, (T,P), read gas.viscosity, gas.thermal_conductivity, gas.cp_mole."
+          ],
+          "source": {
+            "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml"
+          }
+        },
+        "cantera_transport": {
+          "source": "Cantera mechanism transport parameters",
+          "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml",
+          "species_name_in_mechanism": "H",
+          "parameters": {
+            "class": "GasTransportData",
+            "geometry": "atom",
+            "diameter_m": 2.05e-10,
+            "well_depth_J": 2.00194105e-21,
+            "dipole_C_m": 0.0,
+            "polarizability_m3": 0.0,
+            "quadrupole_polarizability": 0.0,
+            "rotational_relaxation": 0.0
+          },
+          "units": {
+            "diameter_m": "m",
+            "well_depth_J": "J",
+            "dipole_C_m": "C*m",
+            "polarizability_m3": "m^3",
+            "rotational_relaxation": "dimensionless"
+          }
+        }
+      }
+    },
+    "H2::hydrogen::1333-74-0": {
+      "display_name": "hydrogen",
+      "csv_formula_token": "H2",
+      "identifiers": {
+        "CAS": "1333-74-0",
+        "formula": "H2",
+        "MW_kg_per_mol": 0.0020158800000000003,
+        "Tc_K": 33.145,
+        "Pc_Pa": 1296400.0,
+        "omega": -0.219,
+        "Tb_K": 20.3689085101,
+        "dipole_D": null,
+        "smiles": "[HH]",
+        "InChI": "H2/h1H",
+        "InChIKey": null
+      },
+      "thermo": {
+        "nasa7": {
+          "source": "RMG (exported) NASA7",
+          "species_name_in_rmg": "[H][H](11)",
+          "T_low_K": 100.0,
+          "T_mid_K": 1959.08,
+          "T_high_K": 5000.0,
+          "nasa7_low": [
+            3.43536417,
+            0.000212709908,
+            -2.78624032e-07,
+            3.40266374e-10,
+            -7.76030035e-14,
+            -1031.35984,
+            -3.90841752
+          ],
+          "nasa7_high": [
+            2.78816047,
+            0.000587647909,
+            1.59007155e-07,
+            -5.5273248e-11,
+            4.34306213e-15,
+            -596.141106,
+            0.112764443
+          ],
+          "H_form_298_J_mol": 4.343188508135722,
+          "S_form_298_J_mol_K": 130.69329530646831,
+          "Cp_298_J_mol_K": 28.954457879264094,
+          "Cp_1000_J_mol_K": 30.199071225825513
+        },
+        "Cp_polynomial": {
+          "source": "NASA7 (derived polynomial fit)",
+          "model": "Cp_molar(T) = poly(T)",
+          "degree": 4,
+          "coeffs_high_to_low": [
+            -6.452272716449298e-13,
+            2.8291320467841178e-09,
+            -2.3166090985386945e-06,
+            0.0017685685785432676,
+            28.56320697068177
+          ],
+          "max_relative_error_on_grid": 1.3204844940620894e-15,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "Cp_grid_J_mol_K": [
+            28.956442949739106,
+            29.181653786688944,
+            29.481539741503102,
+            29.917568970733747,
+            30.52643290370185,
+            31.320046242497224,
+            32.285546961978504
+          ]
+        },
+        "notes": [
+          "Cp_polynomial is derived from NASA7 when available; otherwise from thermo Cp(T) tabulation."
+        ]
+      },
+      "transport": {
+        "source": "cantera (pure species)",
+        "gas": {
+          "P_ref_Pa": 101325.0,
+          "T_grid_K": [
+            300.0,
+            500.0,
+            700.0,
+            900.0,
+            1100.0,
+            1300.0,
+            1500.0
+          ],
+          "mu_gas_Pa_s": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "H2",
+            "values": [
+              9.000244177560584e-06,
+              1.2567461835658438e-05,
+              1.5629125427558272e-05,
+              1.8384117092502617e-05,
+              2.0925358954474838e-05,
+              2.330552371450297e-05,
+              2.555804063635806e-05
+            ]
+          },
+          "k_gas_W_m_K": {
+            "method": "Cantera (pure-species transport from mechanism)",
+            "species_name_in_mechanism": "H2",
+            "values": [
+              0.18751925916321202,
+              0.2640465159047914,
+              0.3317920386363278,
+              0.3975426980811436,
+              0.46273108272060565,
+              0.5276314117542042,
+              0.592216861260723
+            ]
+          },
+          "Cp_molar_J_mol_K": {
+            "method": "Cantera cp_mole",
+            "species_name_in_mechanism": "H2",
+            "values": [
+              28850.78499482545,
+              29297.651718245877,
+              29344.387908470166,
+              29970.581123139014,
+              30634.554434850106,
+              31527.81663032213,
+              32359.00955039026
+            ]
+          },
+          "fits": {
+            "mu_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.002311114872134128,
+                -0.0490053709257469,
+                0.9912035034607037,
+                -16.106419799571746
+              ],
+              "max_relative_error_on_grid": 3.2799039279492286e-05
+            },
+            "k_fit": {
+              "model": "ln(y) = poly(ln(T))",
+              "degree": 3,
+              "coeffs_high_to_low": [
+                0.029004696309829756,
+                -0.5148227538594552,
+                3.711599992714877,
+                -11.477223651931913
+              ],
+              "max_relative_error_on_grid": 0.0012272292447723099
+            },
+            "Cp_fit": {
+              "model": "Cp_molar(T) = poly(T)",
+              "degree": 4,
+              "coeffs_high_to_low": [
+                -5.5550798346931714e-09,
+                1.9956249617078164e-05,
+                -0.022903270522207284,
+                11.848864109246374,
+                26879.71534699158
+              ],
+              "max_relative_error_on_grid": 0.0040262795676234125
+            }
+          },
+          "notes": [
+            "Computed with Cantera in venv311_new: set X={species:1}, (T,P), read gas.viscosity, gas.thermal_conductivity, gas.cp_mole."
+          ],
+          "source": {
+            "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml"
+          }
+        },
+        "cantera_transport": {
+          "source": "Cantera mechanism transport parameters",
+          "mechanism_file": "C:/agno_chem_eng/venv311_new/Lib/site-packages/cantera/data/gri30_highT.yaml",
+          "species_name_in_mechanism": "H2",
+          "parameters": {
+            "class": "GasTransportData",
+            "geometry": "linear",
+            "diameter_m": 2.92e-10,
+            "well_depth_J": 5.2464662e-22,
+            "dipole_C_m": 0.0,
+            "polarizability_m3": 7.900000000000001e-31,
+            "quadrupole_polarizability": 0.0,
+            "rotational_relaxation": 280.0
+          },
+          "units": {
+            "diameter_m": "m",
+            "well_depth_J": "J",
+            "dipole_C_m": "C*m",
+            "polarizability_m3": "m^3",
+            "rotational_relaxation": "dimensionless"
+          }
+        }
+      }
+    }
+  },
+  "binary_interactions": {
+    "kij_from_ipd": {
+      "PR": [
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H4::ethylene::74-85-1",
+          "cas1": "74-82-8",
+          "cas2": "74-85-1",
+          "kij": 0.0378,
+          "comment": "Methane/Ethylene T=198.15-248.15K p378",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H4::ethylene::74-85-1",
+          "cas1": "74-82-8",
+          "cas2": "74-85-1",
+          "kij": 0.0204,
+          "comment": "Methane/Ethylene T=148-169K p380",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H4::ethylene::74-85-1",
+          "cas1": "74-82-8",
+          "cas2": "74-85-1",
+          "kij": 0.0244,
+          "comment": "Methane/Ethylene T=150-190K p383",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-82-8",
+          "cas2": "74-84-0",
+          "kij": -0.0033,
+          "comment": "Methane/Ethane T=130.37-199.93K p385",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-82-8",
+          "cas2": "74-84-0",
+          "kij": -0.0037,
+          "comment": "Methane/Ethane T=158.15-213.7K p388",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-82-8",
+          "cas2": "74-84-0",
+          "kij": -0.0059,
+          "comment": "Methane/Ethane T=144.26-283.15 p390",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-82-8",
+          "cas2": "74-84-0",
+          "kij": -0.0004,
+          "comment": "Methane/Ethane T=160-180K p392",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-82-8",
+          "cas2": "74-84-0",
+          "kij": 0.007,
+          "comment": "Methane/Ethane T=250K p394",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C3H6::propene::115-07-1",
+          "cas1": "74-82-8",
+          "cas2": "115-07-1",
+          "kij": 0.033,
+          "comment": "Methane/Propylene p412",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-82-8",
+          "cas2": "1333-74-0",
+          "kij": 0.0263,
+          "comment": "Hydrogen/Methane T=90.3-127K p219",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-82-8",
+          "cas2": "1333-74-0",
+          "kij": 0.0151,
+          "comment": "Hydrogen/Methane T=116.48-172.04K p221",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-82-8",
+          "cas2": "1333-74-0",
+          "kij": 0.0596,
+          "comment": "Hydrogen/Methane T=90.65K p223",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-82-8",
+          "cas2": "1333-74-0",
+          "kij": -0.0044,
+          "comment": "Hydrogen/Methane T=103.15-173.65K p225",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-82-8",
+          "cas2": "1333-74-0",
+          "kij": -0.0144,
+          "comment": "Hydrogen/Methane T=103.15-163.15K p227",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H2::acetylene::74-86-2",
+          "species_b": "C2H4::ethylene::74-85-1",
+          "cas1": "74-86-2",
+          "cas2": "74-85-1",
+          "kij": 0.0652,
+          "comment": "Ethylene/Acetylene p512",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H2::acetylene::74-86-2",
+          "species_b": "C3H6::propene::115-07-1",
+          "cas1": "74-86-2",
+          "cas2": "115-07-1",
+          "kij": -0.43,
+          "comment": "Acetylene/Propylene p576",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-85-1",
+          "cas2": "74-84-0",
+          "kij": 0.0119,
+          "comment": "Ethylene/Ethane T=200-255K P=2.2-26.7bar p503",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-85-1",
+          "cas2": "74-84-0",
+          "kij": 0.0278,
+          "comment": "Ethylene/Ethane T=277-288K P=32-49bar p505",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-85-1",
+          "cas2": "74-84-0",
+          "kij": 0.0078,
+          "comment": "Ethylene/Ethane T=169-273K P=0.4-41.1bar p507",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-85-1",
+          "cas2": "74-84-0",
+          "kij": 0.0089,
+          "comment": "Ethylene/Ethane T=263-293K P=18.5-48.5bar p510",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-85-1",
+          "cas2": "1333-74-0",
+          "kij": 0.0633,
+          "comment": "Hydrogen/Ethylene T=123.15-248.15K p229",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-85-1",
+          "cas2": "1333-74-0",
+          "kij": -0.0122,
+          "comment": "Hydrogen/Ethylene T=158.15-255.35K p231",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "C3H6::propene::115-07-1",
+          "cas1": "74-84-0",
+          "cas2": "115-07-1",
+          "kij": 0.0089,
+          "comment": "Ethane/Propylene p537",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-84-0",
+          "cas2": "1333-74-0",
+          "kij": -0.0756,
+          "comment": "Hydrogen/Ethane T=149.61-189.57K p233",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-84-0",
+          "cas2": "1333-74-0",
+          "kij": -0.0781,
+          "comment": "Hydrogen/Ethane T=144.25-283.15K p235",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-84-0",
+          "cas2": "1333-74-0",
+          "kij": 0.1896,
+          "comment": "Hydrogen/Ethane T=158.15-188.15K p237",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-84-0",
+          "cas2": "1333-74-0",
+          "kij": -0.1104,
+          "comment": "Hydrogen/Ethane T=144.21-199.65K p239",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-84-0",
+          "cas2": "1333-74-0",
+          "kij": -0.0022,
+          "comment": "Hydrogen/Ethane T=148.15-223.15K p240",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        },
+        {
+          "species_a": "C3H6::propene::115-07-1",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "115-07-1",
+          "cas2": "1333-74-0",
+          "kij": -0.1037,
+          "comment": "Hydrogen/Propylene p244",
+          "source_file": "C:/agno_chem_eng/ipd/pr.ipd"
+        }
+      ],
+      "SRK": [
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H4::ethylene::74-85-1",
+          "cas1": "74-82-8",
+          "cas2": "74-85-1",
+          "kij": 0.0344,
+          "comment": "Methane/Ethylene T=198.15-248.15K p378",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H4::ethylene::74-85-1",
+          "cas1": "74-82-8",
+          "cas2": "74-85-1",
+          "kij": 0.0174,
+          "comment": "Methane/Ethylene T=148-169K p380",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H4::ethylene::74-85-1",
+          "cas1": "74-82-8",
+          "cas2": "74-85-1",
+          "kij": 0.0211,
+          "comment": "Methane/Ethylene T=150-190K p383",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-82-8",
+          "cas2": "74-84-0",
+          "kij": -0.0089,
+          "comment": "Methane/Ethane T=130.37-199.93K p385",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-82-8",
+          "cas2": "74-84-0",
+          "kij": -0.0093,
+          "comment": "Methane/Ethane T=158.15-213.7K p388",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-82-8",
+          "cas2": "74-84-0",
+          "kij": -0.01,
+          "comment": "Methane/Ethane T=144.26-283.15 p390",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-82-8",
+          "cas2": "74-84-0",
+          "kij": -0.0044,
+          "comment": "Methane/Ethane T=160-180K p392",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-82-8",
+          "cas2": "74-84-0",
+          "kij": 0.0041,
+          "comment": "Methane/Ethane T=250K p394",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "C3H6::propene::115-07-1",
+          "cas1": "74-82-8",
+          "cas2": "115-07-1",
+          "kij": 0.0289,
+          "comment": "Methane/Propylene p412",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-82-8",
+          "cas2": "1333-74-0",
+          "kij": -0.0133,
+          "comment": "Hydrogen/Methane T=90.3-127K p219",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-82-8",
+          "cas2": "1333-74-0",
+          "kij": -0.026,
+          "comment": "Hydrogen/Methane T=116.48-172.04K p221",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-82-8",
+          "cas2": "1333-74-0",
+          "kij": 0.0274,
+          "comment": "Hydrogen/Methane T=90.65K p223",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-82-8",
+          "cas2": "1333-74-0",
+          "kij": -0.0459,
+          "comment": "Hydrogen/Methane T=103.15-173.65K p225",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C1H4::methane::74-82-8",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-82-8",
+          "cas2": "1333-74-0",
+          "kij": -0.0593,
+          "comment": "Hydrogen/Methane T=103.15-163.15K p227",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H2::acetylene::74-86-2",
+          "species_b": "C2H4::ethylene::74-85-1",
+          "cas1": "74-86-2",
+          "cas2": "74-85-1",
+          "kij": 0.0596,
+          "comment": "Ethylene/Acetylene p512",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H2::acetylene::74-86-2",
+          "species_b": "C3H6::propene::115-07-1",
+          "cas1": "74-86-2",
+          "cas2": "115-07-1",
+          "kij": -0.42,
+          "comment": "Acetylene/Propylene p576",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-85-1",
+          "cas2": "74-84-0",
+          "kij": 0.0081,
+          "comment": "Ethylene/Ethane T=200-255K P=2.2-26.7bar p503",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-85-1",
+          "cas2": "74-84-0",
+          "kij": 0.027,
+          "comment": "Ethylene/Ethane T=277-288K P=32-49bar p505",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-85-1",
+          "cas2": "74-84-0",
+          "kij": 0.01,
+          "comment": "Ethylene/Ethane T=169-273K P=0.4-41.1bar p507",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "C2H6::ethane::74-84-0",
+          "cas1": "74-85-1",
+          "cas2": "74-84-0",
+          "kij": 0.0026,
+          "comment": "Ethylene/Ethane T=263-293K P=18.5-48.5bar p510",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-85-1",
+          "cas2": "1333-74-0",
+          "kij": 0.0033,
+          "comment": "Hydrogen/Ethylene T=123.15-248.15K p229",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H4::ethylene::74-85-1",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-85-1",
+          "cas2": "1333-74-0",
+          "kij": -0.0681,
+          "comment": "Hydrogen/Ethylene T=158.15-255.35K p231",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "C3H6::propene::115-07-1",
+          "cas1": "74-84-0",
+          "cas2": "115-07-1",
+          "kij": 0.0026,
+          "comment": "Ethane/Propylene p537",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-84-0",
+          "cas2": "1333-74-0",
+          "kij": -0.1822,
+          "comment": "Hydrogen/Ethane T=149.61-189.57K p233",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-84-0",
+          "cas2": "1333-74-0",
+          "kij": -0.1867,
+          "comment": "Hydrogen/Ethane T=144.25-283.15K p235",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-84-0",
+          "cas2": "1333-74-0",
+          "kij": 0.1574,
+          "comment": "Hydrogen/Ethane T=158.15-188.15K p237",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-84-0",
+          "cas2": "1333-74-0",
+          "kij": -0.2244,
+          "comment": "Hydrogen/Ethane T=144.21-199.65K p239",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C2H6::ethane::74-84-0",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "74-84-0",
+          "cas2": "1333-74-0",
+          "kij": -0.0911,
+          "comment": "Hydrogen/Ethane T=148.15-223.15K p240",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        },
+        {
+          "species_a": "C3H6::propene::115-07-1",
+          "species_b": "H2::hydrogen::1333-74-0",
+          "cas1": "115-07-1",
+          "cas2": "1333-74-0",
+          "kij": -0.3233,
+          "comment": "Hydrogen/Propylene p244",
+          "source_file": "C:/agno_chem_eng/ipd/srk.ipd"
+        }
+      ]
+    },
+    "notes": [
+      "These are EOS binary interaction parameters (k_ij) from ChemSep IPD PR/SRK files.",
+      "They are not transport properties; keep temperature applicability in mind (see comment strings)."
+    ]
+  },
+  "binary_diffusion": {
+    "pairs": [
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "C1H4::methane::74-82-8",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00025695521647513134,
+          0.0006281925051390284,
+          0.0011319228134363762,
+          0.0017571936878292133,
+          0.002496505010574832,
+          0.003344229777258604,
+          0.004295907745771547
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 16.04246,
+          "V_A": 21.010356,
+          "V_B": 21.312738
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "C2H2::acetylene::74-86-2",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0002615669558152553,
+          0.0006394670771397921,
+          0.0011522381549200684,
+          0.001788731164941159,
+          0.0025413113800582814,
+          0.0034042508044156467,
+          0.0043730091450912036
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 26.03728,
+          "V_A": 21.010356,
+          "V_B": 14.68953973957266
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "C2H3::vinyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00025761554650368453,
+          0.0006298068501620472,
+          0.0011348316573741243,
+          0.0017617093687092315,
+          0.0025029205924319746,
+          0.0033528238637091476,
+          0.00430694747838854
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 27.04522,
+          "V_A": 21.010356,
+          "V_B": 15.085323296340018
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "C2H4::ethylene::74-85-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00025389557925507947,
+          0.0006207124422843131,
+          0.0011184446937168222,
+          0.0017362702939247242,
+          0.0024667784311530046,
+          0.0033044091032934336,
+          0.00424475517758018
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 28.05316,
+          "V_A": 21.010356,
+          "V_B": 15.476705232415675
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "C2H5::ethyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0002503853147356017,
+          0.0006121307061653081,
+          0.0011029814992142982,
+          0.0017122652756929417,
+          0.0024326736829344865,
+          0.003258723589322838,
+          0.0041860687934475935
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 29.0611,
+          "V_A": 21.010356,
+          "V_B": 15.863890126183987
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "C2H6::ethane::74-84-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0002470657328718061,
+          0.0006040151423887163,
+          0.0010883582878460105,
+          0.001689564244838958,
+          0.0024004215540629125,
+          0.0032155197786773847,
+          0.004130570338747871
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 30.06904,
+          "V_A": 21.010356,
+          "V_B": 16.24706631143904
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "C3H4::propyne::74-99-7",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00022163476599148613,
+          0.0005418426634182339,
+          0.0009763314063743707,
+          0.0015156540394323404,
+          0.0021533413931251176,
+          0.0028845399376284117,
+          0.0037054025250631093
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 40.06386,
+          "V_A": 21.010356,
+          "V_B": 19.86178204297282
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "C3H5::allyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00021962457979878263,
+          0.0005369282510256273,
+          0.0009674762617231386,
+          0.001501907338596158,
+          0.002133810986344065,
+          0.002858377695757273,
+          0.00367179521187391
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 41.071799999999996,
+          "V_A": 21.010356,
+          "V_B": 20.21025878921654
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "C3H6::propene::115-07-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00021768988839504497,
+          0.0005321984048825639,
+          0.0009589536819254181,
+          0.001488676910472609,
+          0.0021150140658160303,
+          0.0028331980061174185,
+          0.0036394500588896417
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 42.07974,
+          "V_A": 21.010356,
+          "V_B": 20.556179079931987
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "C3H7::propyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00021582597607944795,
+          0.000527641596256701,
+          0.0009507428936751883,
+          0.0014759305066417642,
+          0.002096904815110819,
+          0.0028089394946401005,
+          0.003608288226630101
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 43.08768,
+          "V_A": 21.010356,
+          "V_B": 20.899622250614087
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0010296776044135382,
+          0.0025173092909934994,
+          0.004535870440415835,
+          0.007041472096946851,
+          0.01000405959434521,
+          0.013401084254653873,
+          0.01721467288007253
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 21.010356,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C1H3::methyl_radical::NA",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0007506164406648004,
+          0.001835073164608813,
+          0.0033065679108761326,
+          0.005133106420685068,
+          0.007292779383293359,
+          0.00976914921831928,
+          0.012549186686262374
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 15.03452,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 21.010356,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "C2H2::acetylene::74-86-2",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00025501312253315675,
+          0.0006234445616048974,
+          0.0011233676244469734,
+          0.0017439126372912129,
+          0.002477636169055843,
+          0.003318953744804079,
+          0.004263438833395324
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 26.03728,
+          "V_A": 21.312738,
+          "V_B": 14.68953973957266
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "C2H3::vinyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0002510939391096524,
+          0.0006138631190224744,
+          0.0011061030863381096,
+          0.0017171112184770775,
+          0.0024395584791441173,
+          0.0032679462187175626,
+          0.004197915935448001
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 27.04522,
+          "V_A": 21.312738,
+          "V_B": 15.085323296340018
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "C2H4::ethylene::74-85-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00024740544044338605,
+          0.0006048456441132305,
+          0.001089854746082754,
+          0.0016918873422591102,
+          0.002403722057809104,
+          0.003219941016712643,
+          0.0041362497423734
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 28.05316,
+          "V_A": 21.312738,
+          "V_B": 15.476705232415675
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "C2H5::ethyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00024392593067543766,
+          0.0005963390958214009,
+          0.0010745270304599942,
+          0.001668092641046766,
+          0.0023699161141540626,
+          0.0031746557707625525,
+          0.004078077531788744
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 29.0611,
+          "V_A": 21.312738,
+          "V_B": 15.863890126183987
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "C2H6::ethane::74-84-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00024063642808580876,
+          0.0005882970684954435,
+          0.0010600363224014583,
+          0.0016455973079459757,
+          0.0023379562270968474,
+          0.0031318434369110968,
+          0.004023081957663515
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 30.06904,
+          "V_A": 21.312738,
+          "V_B": 16.24706631143904
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "C3H4::propyne::74-99-7",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00021547317321121093,
+          0.000526779079742507,
+          0.0009491887488686281,
+          0.0014735178567581832,
+          0.0020934770811251798,
+          0.0028043478234779204,
+          0.003602389889187564
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 40.06386,
+          "V_A": 21.312738,
+          "V_B": 19.86178204297282
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "C3H5::allyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00021348736122568228,
+          0.0005219242563104827,
+          0.0009404409759280749,
+          0.0014599378394537898,
+          0.0020741834873233525,
+          0.0027785028078944965,
+          0.0035691900763668584
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 41.071799999999996,
+          "V_A": 21.312738,
+          "V_B": 20.21025878921654
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "C3H6::propene::115-07-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00021157662907636256,
+          0.0005172529846702473,
+          0.0009320239399174799,
+          0.0014468712571988154,
+          0.0020556193482096216,
+          0.002753634944000638,
+          0.0035372454863602507
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 42.07974,
+          "V_A": 21.312738,
+          "V_B": 20.556179079931987
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "C3H7::propyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00020973627440495918,
+          0.0005127537687086789,
+          0.0009239169263065021,
+          0.0014342859528165247,
+          0.0020377389769861095,
+          0.0027296830313784646,
+          0.003506477502754773
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 43.08768,
+          "V_A": 21.312738,
+          "V_B": 20.899622250614087
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0010218800978681994,
+          0.0024982462992482884,
+          0.00450152135940606,
+          0.0069881486833565975,
+          0.009928301201783785,
+          0.013299600992570283,
+          0.01708431020744289
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 21.312738,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C1H4::methane::74-82-8",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0007436294313164573,
+          0.0018179916397961411,
+          0.0032757891806850367,
+          0.005085325609335397,
+          0.0072248955547945535,
+          0.009678214443624898,
+          0.012432374317200273
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 16.04246,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 21.312738,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C2H2::acetylene::74-86-2",
+        "species_b": "C2H3::vinyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0002484742970394102,
+          0.0006074587364329802,
+          0.0010945632053307444,
+          0.0016991967407196395,
+          0.0024141067695272194,
+          0.0032338520090835227,
+          0.004154119429523431
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 26.03728,
+          "MW_B_g_mol": 27.04522,
+          "V_A": 14.68953973957266,
+          "V_B": 15.085323296340018
+        }
+      },
+      {
+        "species_a": "C2H2::acetylene::74-86-2",
+        "species_b": "C2H4::ethylene::74-85-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0002441676373660032,
+          0.0005969300094192569,
+          0.0010755917814347532,
+          0.0016697455573673379,
+          0.0023722644687520496,
+          0.003177801543489178,
+          0.004082118506937834
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 26.03728,
+          "MW_B_g_mol": 28.05316,
+          "V_A": 14.68953973957266,
+          "V_B": 15.476705232415675
+        }
+      },
+      {
+        "species_a": "C2H2::acetylene::74-86-2",
+        "species_b": "C2H5::ethyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0002401135027433366,
+          0.0005870186442416199,
+          0.0010577327648672388,
+          0.0016420212719206984,
+          0.002332875630736334,
+          0.0031250376497954737,
+          0.0040143394263383965
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 26.03728,
+          "MW_B_g_mol": 29.0611,
+          "V_A": 14.68953973957266,
+          "V_B": 15.863890126183987
+        }
+      },
+      {
+        "species_a": "C2H2::acetylene::74-86-2",
+        "species_b": "C2H6::ethane::74-84-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.000236288758531999,
+          0.0005776680823787567,
+          0.0010408842443827724,
+          0.0016158656776583255,
+          0.0022957154857945195,
+          0.003075259234484763,
+          0.003950395411079728
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 26.03728,
+          "MW_B_g_mol": 30.06904,
+          "V_A": 14.68953973957266,
+          "V_B": 16.24706631143904
+        }
+      },
+      {
+        "species_a": "C2H2::acetylene::74-86-2",
+        "species_b": "C3H4::propyne::74-99-7",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00020733332904526597,
+          0.0005068791564477366,
+          0.0009133316238970409,
+          0.0014178533601018324,
+          0.0020143926319968757,
+          0.002698409093704624,
+          0.0034663038424377008
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 26.03728,
+          "MW_B_g_mol": 40.06386,
+          "V_A": 14.68953973957266,
+          "V_B": 19.86178204297282
+        }
+      },
+      {
+        "species_a": "C2H2::acetylene::74-86-2",
+        "species_b": "C3H5::allyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00020507456671453022,
+          0.0005013570363424384,
+          0.0009033814674169993,
+          0.001402406766083145,
+          0.0019924471289876956,
+          0.0026690116743806713,
+          0.0034285407071895637
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 26.03728,
+          "MW_B_g_mol": 41.071799999999996,
+          "V_A": 14.68953973957266,
+          "V_B": 20.21025878921654
+        }
+      },
+      {
+        "species_a": "C2H2::acetylene::74-86-2",
+        "species_b": "C3H6::propene::115-07-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00020290535055533882,
+          0.0004960538346720322,
+          0.0008938257740493139,
+          0.0013875725354543338,
+          0.001971371631534367,
+          0.002640779683715557,
+          0.0033922746502931286
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 26.03728,
+          "MW_B_g_mol": 42.07974,
+          "V_A": 14.68953973957266,
+          "V_B": 20.556179079931987
+        }
+      },
+      {
+        "species_a": "C2H2::acetylene::74-86-2",
+        "species_b": "C3H7::propyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0002008199781208218,
+          0.0004909556103520215,
+          0.0008846394237369058,
+          0.0013733116719117518,
+          0.0019511107362581261,
+          0.0026136389053034513,
+          0.0033574103353469194
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 26.03728,
+          "MW_B_g_mol": 43.08768,
+          "V_A": 14.68953973957266,
+          "V_B": 20.899622250614087
+        }
+      },
+      {
+        "species_a": "C2H2::acetylene::74-86-2",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0011653701576655258,
+          0.0028490443151949906,
+          0.0051336146650567075,
+          0.007969408495089203,
+          0.011322410487307387,
+          0.01516710046309097,
+          0.01948324986619162
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 26.03728,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 14.68953973957266,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C2H2::acetylene::74-86-2",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.000839256145138916,
+          0.00205177550975761,
+          0.0036970379120182194,
+          0.005739270916310465,
+          0.008153977958637006,
+          0.01092278035769111,
+          0.014031110261338372
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 26.03728,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 14.68953973957266,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C2H3::vinyl_radical::NA",
+        "species_b": "C2H4::ethylene::74-85-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00023967677490764123,
+          0.0005859509517583425,
+          0.0010558089191198452,
+          0.0016390346993703899,
+          0.0023286325052414426,
+          0.0031193537090188463,
+          0.004007037988687531
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 27.04522,
+          "MW_B_g_mol": 28.05316,
+          "V_A": 15.085323296340018,
+          "V_B": 15.476705232415675
+        }
+      },
+      {
+        "species_a": "C2H3::vinyl_radical::NA",
+        "species_b": "C2H5::ethyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00023566636494194381,
+          0.0005761464826467775,
+          0.0010381425156364788,
+          0.001611609425916123,
+          0.0022896684837626583,
+          0.0030671588845265487,
+          0.0039399899190990075
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 27.04522,
+          "MW_B_g_mol": 29.0611,
+          "V_A": 15.085323296340018,
+          "V_B": 15.863890126183987
+        }
+      },
+      {
+        "species_a": "C2H3::vinyl_radical::NA",
+        "species_b": "C2H6::ethane::74-84-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0002318832055605542,
+          0.0005668975854975524,
+          0.001021477182005958,
+          0.0015857382103937362,
+          0.002252912365396965,
+          0.0030179216889213655,
+          0.0038767411401368856
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 27.04522,
+          "MW_B_g_mol": 30.06904,
+          "V_A": 15.085323296340018,
+          "V_B": 16.24706631143904
+        }
+      },
+      {
+        "species_a": "C2H3::vinyl_radical::NA",
+        "species_b": "C3H4::propyne::74-99-7",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00020325622796631224,
+          0.0004969116439152917,
+          0.0008953714369537242,
+          0.0013899720180576534,
+          0.0019747806583158,
+          0.002645346295368908,
+          0.0033981407969637203
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 27.04522,
+          "MW_B_g_mol": 40.06386,
+          "V_A": 15.085323296340018,
+          "V_B": 19.86178204297282
+        }
+      },
+      {
+        "species_a": "C2H3::vinyl_radical::NA",
+        "species_b": "C3H5::allyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00020102435749626412,
+          0.0004914552678161473,
+          0.0008855397427918469,
+          0.0013747093245976023,
+          0.0019530964291031641,
+          0.002616298869178043,
+          0.003360827253493524
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 27.04522,
+          "MW_B_g_mol": 41.071799999999996,
+          "V_A": 15.085323296340018,
+          "V_B": 20.21025878921654
+        }
+      },
+      {
+        "species_a": "C2H3::vinyl_radical::NA",
+        "species_b": "C3H6::propene::115-07-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00019888117866444368,
+          0.0004862157210274465,
+          0.0008760987474063873,
+          0.0013600531507832498,
+          0.0019322739030396957,
+          0.0025884057500357893,
+          0.003324996501853259
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 27.04522,
+          "MW_B_g_mol": 42.07974,
+          "V_A": 15.085323296340018,
+          "V_B": 20.556179079931987
+        }
+      },
+      {
+        "species_a": "C2H3::vinyl_radical::NA",
+        "species_b": "C3H7::propyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0001968210405038953,
+          0.0004811791883204615,
+          0.0008670235575163185,
+          0.0013459648523574343,
+          0.00191225817691108,
+          0.0025615933915389176,
+          0.003290554066308791
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 27.04522,
+          "MW_B_g_mol": 43.08768,
+          "V_A": 15.085323296340018,
+          "V_B": 20.899622250614087
+        }
+      },
+      {
+        "species_a": "C2H3::vinyl_radical::NA",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0011530233017056032,
+          0.002818859279520476,
+          0.005079225078704015,
+          0.007884974259213662,
+          0.011202451888328037,
+          0.01500640816844479,
+          0.019276828860688155
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 27.04522,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 15.085323296340018,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C2H3::vinyl_radical::NA",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0008298282516796762,
+          0.0020287266217389587,
+          0.0036555067540384252,
+          0.005674798067292802,
+          0.008062379182854086,
+          0.010800077878731076,
+          0.013873489952657947
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 27.04522,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 15.085323296340018,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C2H4::ethylene::74-85-1",
+        "species_b": "C2H5::ethyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00023149071397285455,
+          0.0005659380397949769,
+          0.001019748202971037,
+          0.0015830541483618657,
+          0.002249099026914321,
+          0.003012813475619006,
+          0.0038701792665354106
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 28.05316,
+          "MW_B_g_mol": 29.0611,
+          "V_A": 15.476705232415675,
+          "V_B": 15.863890126183987
+        }
+      },
+      {
+        "species_a": "C2H4::ethylene::74-85-1",
+        "species_b": "C2H6::ethane::74-84-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00022774684824858116,
+          0.0005567852060035561,
+          0.0010032559632652993,
+          0.0015574516433455486,
+          0.002212724674730377,
+          0.0029640876804826978,
+          0.0038075874188793764
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 28.05316,
+          "MW_B_g_mol": 30.06904,
+          "V_A": 15.476705232415675,
+          "V_B": 16.24706631143904
+        }
+      },
+      {
+        "species_a": "C2H4::ethylene::74-85-1",
+        "species_b": "C3H4::propyne::74-99-7",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00019942950799357588,
+          0.00048755625180021663,
+          0.0008785142129705241,
+          0.0013638029125091263,
+          0.0019376013174288724,
+          0.002595542165849343,
+          0.003334163749923043
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 28.05316,
+          "MW_B_g_mol": 40.06386,
+          "V_A": 15.476705232415675,
+          "V_B": 19.86178204297282
+        }
+      },
+      {
+        "species_a": "C2H4::ethylene::74-85-1",
+        "species_b": "C3H5::allyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0001972229336982739,
+          0.0004821617186463226,
+          0.000868793951912363,
+          0.0013487132074756188,
+          0.001916162858774502,
+          0.002566823965202125,
+          0.003297273120743209
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 28.05316,
+          "MW_B_g_mol": 41.071799999999996,
+          "V_A": 15.476705232415675,
+          "V_B": 20.21025878921654
+        }
+      },
+      {
+        "species_a": "C2H4::ethylene::74-85-1",
+        "species_b": "C3H6::propene::115-07-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00019510423963331567,
+          0.00047698203110953295,
+          0.0008594608152681004,
+          0.0013342244732578172,
+          0.0018955782198572554,
+          0.0025392495112636884,
+          0.0032618517178644112
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 28.05316,
+          "MW_B_g_mol": 42.07974,
+          "V_A": 15.476705232415675,
+          "V_B": 20.556179079931987
+        }
+      },
+      {
+        "species_a": "C2H4::ethylene::74-85-1",
+        "species_b": "C3H7::propyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00019306782407007582,
+          0.000472003494336766,
+          0.0008504901266582773,
+          0.001320298402315924,
+          0.0018757929758486645,
+          0.0025127458984595535,
+          0.0032278058887439173
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 28.05316,
+          "MW_B_g_mol": 43.08768,
+          "V_A": 15.476705232415675,
+          "V_B": 20.899622250614087
+        }
+      },
+      {
+        "species_a": "C2H4::ethylene::74-85-1",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0011412372808713412,
+          0.0027900453482251272,
+          0.005027306047656714,
+          0.007804375306218311,
+          0.011087942206558945,
+          0.014853015050492094,
+          0.019079784181509078
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 28.05316,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 15.476705232415675,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C2H4::ethylene::74-85-1",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.000820851714212534,
+          0.002006781188459521,
+          0.0036159638808323145,
+          0.005613411825782693,
+          0.00797516565564203,
+          0.01068324972359144,
+          0.013723415642572718
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 28.05316,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 15.476705232415675,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C2H5::ethyl_radical::NA",
+        "species_b": "C2H6::ethane::74-84-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00022385418103072494,
+          0.0005472685890428168,
+          0.0009861082326628587,
+          0.0015308315561651095,
+          0.0021749046088559063,
+          0.0029134252584408667,
+          0.003742507832318355
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 29.0611,
+          "MW_B_g_mol": 30.06904,
+          "V_A": 15.863890126183987,
+          "V_B": 16.24706631143904
+        }
+      },
+      {
+        "species_a": "C2H5::ethyl_radical::NA",
+        "species_b": "C3H4::propyne::74-99-7",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00019582950999678792,
+          0.00047875513932964513,
+          0.0008626557302481705,
+          0.001339184249993023,
+          0.0019026247438440735,
+          0.0025486887854662492,
+          0.0032739771559658812
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 29.0611,
+          "MW_B_g_mol": 40.06386,
+          "V_A": 15.863890126183987,
+          "V_B": 19.86178204297282
+        }
+      },
+      {
+        "species_a": "C2H5::ethyl_radical::NA",
+        "species_b": "C3H5::allyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00019364679418890036,
+          0.00047341893432796084,
+          0.0008530405690847259,
+          0.0013242577017308031,
+          0.001881418087579986,
+          0.0025202810990990914,
+          0.0032374854050897916
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 29.0611,
+          "MW_B_g_mol": 41.071799999999996,
+          "V_A": 15.863890126183987,
+          "V_B": 20.21025878921654
+        }
+      },
+      {
+        "species_a": "C2H5::ethyl_radical::NA",
+        "species_b": "C3H6::propene::115-07-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00019155118619741467,
+          0.0004682956865806703,
+          0.0008438091297463,
+          0.001309926842115196,
+          0.0018610577464952154,
+          0.002493007106600613,
+          0.003202449966906362
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 29.0611,
+          "MW_B_g_mol": 42.07974,
+          "V_A": 15.863890126183987,
+          "V_B": 20.556179079931987
+        }
+      },
+      {
+        "species_a": "C2H5::ethyl_radical::NA",
+        "species_b": "C3H7::propyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00018953713148790667,
+          0.0004633718166129426,
+          0.0008349369437503342,
+          0.0012961536863449468,
+          0.0018414897542869506,
+          0.0024667945166210814,
+          0.0031687779778894736
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 29.0611,
+          "MW_B_g_mol": 43.08768,
+          "V_A": 15.863890126183987,
+          "V_B": 20.899622250614087
+        }
+      },
+      {
+        "species_a": "C2H5::ethyl_radical::NA",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0011299671670316604,
+          0.0027624926830437362,
+          0.004977659657362885,
+          0.007727304394127602,
+          0.010978444932845357,
+          0.014706336377014365,
+          0.018891364697352402
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 29.0611,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 15.863890126183987,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C2H5::ethyl_radical::NA",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0008122887706977541,
+          0.001985846890990475,
+          0.0035782429454587986,
+          0.0055548539552719555,
+          0.007891970491585161,
+          0.010571804425551029,
+          0.013580256006133476
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 29.0611,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 15.863890126183987,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C2H6::ethane::74-84-0",
+        "species_b": "C3H4::propyne::74-99-7",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00019243552338219918,
+          0.0004704576741795917,
+          0.0008477047557933573,
+          0.0013159744006755274,
+          0.001869649719225475,
+          0.0025045166092566126,
+          0.003217234764872732
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 30.06904,
+          "MW_B_g_mol": 40.06386,
+          "V_A": 16.24706631143904,
+          "V_B": 19.86178204297282
+        }
+      },
+      {
+        "species_a": "C2H6::ethane::74-84-0",
+        "species_b": "C3H5::allyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00019027536573698432,
+          0.0004651766183549317,
+          0.0008381889664165949,
+          0.0013012021168863214,
+          0.001848662231760194,
+          0.0024764025136573917,
+          0.0031811201528112783
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 30.06904,
+          "MW_B_g_mol": 41.071799999999996,
+          "V_A": 16.24706631143904,
+          "V_B": 20.21025878921654
+        }
+      },
+      {
+        "species_a": "C2H6::ethane::74-84-0",
+        "species_b": "C3H6::propene::115-07-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0001882015789031244,
+          0.00046010671798802136,
+          0.0008290536522569884,
+          0.0012870204817191102,
+          0.0018285138989393404,
+          0.0024494125199276775,
+          0.003146449531817989
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 30.06904,
+          "MW_B_g_mol": 42.07974,
+          "V_A": 16.24706631143904,
+          "V_B": 20.556179079931987
+        }
+      },
+      {
+        "species_a": "C2H6::ethane::74-84-0",
+        "species_b": "C3H7::propyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00018620865366817486,
+          0.00045523450440515805,
+          0.0008202745444814872,
+          0.0012733918203079583,
+          0.00180915119479578,
+          0.0024234749265758283,
+          0.0031131307960826056
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 30.06904,
+          "MW_B_g_mol": 43.08768,
+          "V_A": 16.24706631143904,
+          "V_B": 20.899622250614087
+        }
+      },
+      {
+        "species_a": "C2H6::ethane::74-84-0",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0011191730928554252,
+          0.002736103818126173,
+          0.004930110286785358,
+          0.0076534888893535396,
+          0.01087357272734921,
+          0.01456585328126995,
+          0.018710903885938563
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 30.06904,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 16.24706631143904,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C2H6::ethane::74-84-0",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0008041060666680567,
+          0.001965842185837021,
+          0.0035421970169352626,
+          0.005498896360529952,
+          0.0078124696280089286,
+          0.010465307881717456,
+          0.013443453406424683
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 30.06904,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 16.24706631143904,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C3H4::propyne::74-99-7",
+        "species_b": "C3H5::allyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00016485505242276342,
+          0.00040303018474156734,
+          0.0007262090153582675,
+          0.001127364766117017,
+          0.0016016855778907182,
+          0.0021455613270147046,
+          0.002756130450852571
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 40.06386,
+          "MW_B_g_mol": 41.071799999999996,
+          "V_A": 19.86178204297282,
+          "V_B": 20.21025878921654
+        }
+      },
+      {
+        "species_a": "C3H4::propyne::74-99-7",
+        "species_b": "C3H6::propene::115-07-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00016294879372778266,
+          0.0003983698496004089,
+          0.0007178116855248451,
+          0.001114328775674247,
+          0.0015831649016080796,
+          0.0021207516843915132,
+          0.0027242606503264364
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 40.06386,
+          "MW_B_g_mol": 42.07974,
+          "V_A": 19.86178204297282,
+          "V_B": 20.556179079931987
+        }
+      },
+      {
+        "species_a": "C3H4::propyne::74-99-7",
+        "species_b": "C3H7::propyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00016111785429254438,
+          0.0003938936515828781,
+          0.0007097461473147378,
+          0.0011018078575837996,
+          0.0015653760061856206,
+          0.002096922309515703,
+          0.0026936500754185713
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 40.06386,
+          "MW_B_g_mol": 43.08768,
+          "V_A": 19.86178204297282,
+          "V_B": 20.899622250614087
+        }
+      },
+      {
+        "species_a": "C3H4::propyne::74-99-7",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0010317365511448354,
+          0.0025223429109480747,
+          0.004544940381897373,
+          0.007055552247758508,
+          0.010024063744880473,
+          0.013427881106895476,
+          0.017249095396697976
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 40.06386,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 19.86178204297282,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C3H4::propyne::74-99-7",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0007384455441641859,
+          0.0018053183066713448,
+          0.003252953449967332,
+          0.005049875487297218,
+          0.007174530357203195,
+          0.0096107470070249,
+          0.012345707460320942
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 40.06386,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 19.86178204297282,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C3H5::allyl_radical::NA",
+        "species_b": "C3H6::propene::115-07-1",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0001609892371410052,
+          0.00039357921418114886,
+          0.0007091795712007228,
+          0.0011009283064700628,
+          0.0015641263979166466,
+          0.002095248378494011,
+          0.0026914997885899338
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 41.071799999999996,
+          "MW_B_g_mol": 42.07974,
+          "V_A": 20.21025878921654,
+          "V_B": 20.556179079931987
+        }
+      },
+      {
+        "species_a": "C3H5::allyl_radical::NA",
+        "species_b": "C3H7::propyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00015917116907846347,
+          0.00038913448351411494,
+          0.0007011707331448112,
+          0.0010884954095342987,
+          0.0015464625571510677,
+          0.0020715865224116945,
+          0.0026611044038246327
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 41.071799999999996,
+          "MW_B_g_mol": 43.08768,
+          "V_A": 20.21025878921654,
+          "V_B": 20.899622250614087
+        }
+      },
+      {
+        "species_a": "C3H5::allyl_radical::NA",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0010244418957444847,
+          0.002504509266965542,
+          0.004512806428840955,
+          0.007005667592369051,
+          0.009953190913391745,
+          0.013332942369556964,
+          0.01712713964476977
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 41.071799999999996,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 20.21025878921654,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C3H5::allyl_radical::NA",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0007330141609624035,
+          0.0017920399063854804,
+          0.0032290274653582287,
+          0.005012732858284752,
+          0.00712176055722167,
+          0.009540058450146115,
+          0.012254902838850844
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 41.071799999999996,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 20.21025878921654,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C3H6::propene::115-07-1",
+        "species_b": "C3H7::propyl_radical::NA",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.00015730350313574657,
+          0.0003845684981902415,
+          0.0006929434096545951,
+          0.0010757233364449268,
+          0.0015283168372546827,
+          0.0020472791580962864,
+          0.0026298798165214684
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 42.07974,
+          "MW_B_g_mol": 43.08768,
+          "V_A": 20.556179079931987,
+          "V_B": 20.899622250614087
+        }
+      },
+      {
+        "species_a": "C3H6::propene::115-07-1",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0010173649153521255,
+          0.0024872077850089523,
+          0.004481631363916251,
+          0.00695727151213011,
+          0.009884432951394989,
+          0.01324083663655857,
+          0.017008823094122303
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 42.07974,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 20.556179079931987,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C3H6::propene::115-07-1",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0007277511996815826,
+          0.001779173256403426,
+          0.0032058434023074208,
+          0.0049767419861444185,
+          0.0070706270975150745,
+          0.009471561876800292,
+          0.012166913980550465
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 42.07974,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 20.556179079931987,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C3H7::propyl_radical::NA",
+        "species_b": "H::H::12385-13-6",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0010104940601398098,
+          0.002470410228580711,
+          0.004451364308554131,
+          0.006910285023298747,
+          0.009817677643992464,
+          0.013151413588793816,
+          0.016893952648868983
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 43.08768,
+          "MW_B_g_mol": 1.00794,
+          "V_A": 20.899622250614087,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "C3H7::propyl_radical::NA",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.0007226474115890976,
+          0.0017666957458414747,
+          0.0031833605188848623,
+          0.004941839623222355,
+          0.00702104011998417,
+          0.009405136916257186,
+          0.012081586260412877
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 43.08768,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 20.899622250614087,
+          "V_B": 7.07
+        }
+      },
+      {
+        "species_a": "H::H::12385-13-6",
+        "species_b": "H2::hydrogen::1333-74-0",
+        "P_ref_Pa": 101325.0,
+        "T_grid_K": [
+          300.0,
+          500.0,
+          700.0,
+          900.0,
+          1100.0,
+          1300.0,
+          1500.0
+        ],
+        "D_AB_m2_s": [
+          0.001813678604970189,
+          0.004433999519459255,
+          0.007989501895969121,
+          0.012402879537232325,
+          0.017621194023584506,
+          0.02360472801572864,
+          0.0303219995854244
+        ],
+        "method": "Fuller-Schettler-Giddings (estimated diffusion volumes from MW)",
+        "parameters": {
+          "MW_A_g_mol": 1.00794,
+          "MW_B_g_mol": 2.01588,
+          "V_A": 7.07,
+          "V_B": 7.07
+        }
+      }
+    ],
+    "notes": [
+      "Binary diffusivities computed with Fuller-Schettler-Giddings using estimated diffusion volumes from MW.",
+      "If you want higher-fidelity diffusion volumes, we can add an atom-count-based Fuller volume calculator."
+    ]
+  }
+}

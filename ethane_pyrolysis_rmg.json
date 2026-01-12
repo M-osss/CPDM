@@ -1,0 +1,633 @@
+{
+  "input_file": "/mnt/c/agno_chem_eng/examples/noncat_15_C2H6.py",
+  "query": "noncat_15_C2H6.py",
+  "rmg_available": true,
+  "results": [
+    {
+      "label": "[CH3](4)+[CH3](4) <=> ethane(1)",
+      "kinetics": {
+        "A_si": 945000000000000.0,
+        "n": -0.538,
+        "Ea_si": 564.84,
+        "type": "Arrhenius"
+      },
+      "k_si": 20527665507268.676,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[CH3](4)+ethane(1) <=> C(3)+C[CH2](5)",
+      "kinetics": {
+        "A_si": 35.0,
+        "n": 3.44,
+        "Ea_si": 43446.656,
+        "type": "Arrhenius"
+      },
+      "k_si": 8775560826.571741,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C[CH2](5) <=> ethane(1)",
+      "kinetics": {
+        "A_si": 100000000000000.0,
+        "n": 0.0,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 100000000000000.0,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+[CH3](4) <=> C(3)",
+      "kinetics": {
+        "A_si": 193000000000000.0,
+        "n": 0.0,
+        "Ea_si": 1129.68,
+        "type": "Arrhenius"
+      },
+      "k_si": 170573415608796.44,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C2H4(9) <=> C[CH2](5)",
+      "kinetics": {
+        "A_si": 462000000.0,
+        "n": 1.64,
+        "Ea_si": 4225.84,
+        "type": "Arrhenius"
+      },
+      "k_si": 28304164505860.336,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[CH3](4)+C[CH2](5) <=> C(3)+C2H4(9)",
+      "kinetics": {
+        "A_si": 657000000000000.0,
+        "n": -0.68,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 5615886781381.154,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C[CH2](5)+C[CH2](5) <=> C2H4(9)+ethane(1)",
+      "kinetics": {
+        "A_si": 69000000000000.0,
+        "n": -0.35,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 5947872508508.851,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+ethane(1) <=> [H][H](11)+C[CH2](5)",
+      "kinetics": {
+        "A_si": 115000000.0,
+        "n": 1.9,
+        "Ea_si": 31505.52,
+        "type": "Arrhenius"
+      },
+      "k_si": 2204030701448.9385,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C[CH2](5) <=> [H][H](11)+C2H4(9)",
+      "kinetics": {
+        "A_si": 10830000000000.0,
+        "n": 0.0,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 10830000000000.0,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C(3) <=> [H][H](11)+[CH3](4)",
+      "kinetics": {
+        "A_si": 4100.0,
+        "n": 3.156,
+        "Ea_si": 36630.920000000006,
+        "type": "Arrhenius"
+      },
+      "k_si": 296414297242.53674,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+[H](6) <=> [H][H](11)",
+      "kinetics": {
+        "A_si": 54500000000.0,
+        "n": 0.0,
+        "Ea_si": 6276.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 27438690077.4322,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H4(9)+C[CH2](5) <=> [CH2]CCC(17)",
+      "kinetics": {
+        "A_si": 36.28,
+        "n": 2.997,
+        "Ea_si": 28727.343999999997,
+        "type": "Arrhenius"
+      },
+      "k_si": 2044203769.40521,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[CH3](4)+C2H4(9) <=> [CH2]CC(16)",
+      "kinetics": {
+        "A_si": 861.0,
+        "n": 2.988,
+        "Ea_si": 30283.792,
+        "type": "Arrhenius"
+      },
+      "k_si": 38421587756.04131,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C2H3(14) <=> C2H4(9)",
+      "kinetics": {
+        "A_si": 121000000000000.0,
+        "n": 0.0,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 121000000000000.0,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C(3)+C2H3(14) <=> [CH3](4)+C2H4(9)",
+      "kinetics": {
+        "A_si": 0.02236,
+        "n": 4.34,
+        "Ea_si": 23848.8,
+        "type": "Arrhenius"
+      },
+      "k_si": 26096974821.972363,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H3(14)+ethane(1) <=> C2H4(9)+C[CH2](5)",
+      "kinetics": {
+        "A_si": 0.00108,
+        "n": 4.55,
+        "Ea_si": 14644.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 15008933765.219475,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C2H4(9) <=> [H][H](11)+C2H3(14)",
+      "kinetics": {
+        "A_si": 240.0,
+        "n": 3.62,
+        "Ea_si": 47136.944,
+        "type": "Arrhenius"
+      },
+      "k_si": 141783365930.67877,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H3(14)+C[CH2](5) <=> C2H4(9)+C2H4(9)",
+      "kinetics": {
+        "A_si": 456000000000000.0,
+        "n": -0.7,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 3388363252284.9756,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C#C(32) <=> C2H3(14)",
+      "kinetics": {
+        "A_si": 1030000000.0,
+        "n": 1.64,
+        "Ea_si": 8828.24,
+        "type": "Arrhenius"
+      },
+      "k_si": 38149421941804.1,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H3(14)+C[CH2](5) <=> C#C(32)+ethane(1)",
+      "kinetics": {
+        "A_si": 21063800000000.0,
+        "n": -0.251,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 3632011028155.1284,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[CH3](4)+C2H3(14) <=> C(3)+C#C(32)",
+      "kinetics": {
+        "A_si": 1620000.0,
+        "n": 1.87,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 788713611335.5519,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H3(14)+C2H3(14) <=> C#C(32)+C2H4(9)",
+      "kinetics": {
+        "A_si": 29597000000000.0,
+        "n": -0.312,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 3329148553640.9834,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C2H3(14) <=> [H][H](11)+C#C(32)",
+      "kinetics": {
+        "A_si": 480000000.0,
+        "n": 1.5,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 17511778893076.512,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H2(36) <=> C#C(32)",
+      "kinetics": {
+        "A_si": 7.90318e+18,
+        "n": -1.971,
+        "Ea_si": 40944.623999999996,
+        "type": "Arrhenius"
+      },
+      "k_si": 90959646557.99417,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H3(14)+C2H4(9) <=> C4H7(34)",
+      "kinetics": {
+        "A_si": 28600.0,
+        "n": 2.41,
+        "Ea_si": 7531.2,
+        "type": "Arrhenius"
+      },
+      "k_si": 268214745908.50366,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C4H7(34) <=> [CH2]C1CC1(47)",
+      "kinetics": {
+        "A_si": 632000000.0,
+        "n": 0.97,
+        "Ea_si": 37237.6,
+        "type": "Arrhenius"
+      },
+      "k_si": 9605900644.360302,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C#C(32)+C[CH2](5) <=> C4H7(38)",
+      "kinetics": {
+        "A_si": 13600.0,
+        "n": 2.41,
+        "Ea_si": 25940.8,
+        "type": "Arrhenius"
+      },
+      "k_si": 17038251219.148403,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C4H7(38) <=> C4H7(34)",
+      "kinetics": {
+        "A_si": 111300.0,
+        "n": 2.23,
+        "Ea_si": 44308.56,
+        "type": "Arrhenius"
+      },
+      "k_si": 5305019307.627923,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C4H7(34) <=> C4H7(51)",
+      "kinetics": {
+        "A_si": 1720000.0,
+        "n": 1.99,
+        "Ea_si": 113804.8,
+        "type": "Arrhenius"
+      },
+      "k_si": 7648316.240660548,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C4H7(38) <=> C4H7(51)",
+      "kinetics": {
+        "A_si": 18460000000.0,
+        "n": 0.74,
+        "Ea_si": 145184.80000000002,
+        "type": "Arrhenius"
+      },
+      "k_si": 419143.3597651902,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C4H6(48) <=> C4H7(34)",
+      "kinetics": {
+        "A_si": 324000000.0,
+        "n": 1.64,
+        "Ea_si": 10041.6,
+        "type": "Arrhenius"
+      },
+      "k_si": 10509353708501.902,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C4H6(48) <=> C4H7(51)",
+      "kinetics": {
+        "A_si": 462000000.0,
+        "n": 1.64,
+        "Ea_si": -1966.4799999999998,
+        "type": "Arrhenius"
+      },
+      "k_si": 55706989956339.8,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C[CH2](5)+C4H7(51) <=> ethane(1)+C4H6(48)",
+      "kinetics": {
+        "A_si": 150000000000.0,
+        "n": 0.0,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 150000000000.0,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H3(14)+C2H3(14) <=> C4H6(48)",
+      "kinetics": {
+        "A_si": 36150000000000.0,
+        "n": 0.0,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 36150000000000.0,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C[CH2](5)+C4H7(34) <=> ethane(1)+C4H6(48)",
+      "kinetics": {
+        "A_si": 3941700000000.0,
+        "n": -0.039,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 2999640803824.2676,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[CH3](4)+C4H7(34) <=> C(3)+C4H6(48)",
+      "kinetics": {
+        "A_si": 23000000000000.0,
+        "n": -0.32,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 2446144885402.0913,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[CH3](4)+C4H7(51) <=> C(3)+C4H6(48)",
+      "kinetics": {
+        "A_si": 150000000000.0,
+        "n": 0.0,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 150000000000.0,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H3(14)+C4H7(34) <=> C2H4(9)+C4H6(48)",
+      "kinetics": {
+        "A_si": 2420000000000.0,
+        "n": 0.0,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 2420000000000.0,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H3(14)+C4H7(51) <=> C2H4(9)+C4H6(48)",
+      "kinetics": {
+        "A_si": 150000000000.0,
+        "n": 0.0,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 150000000000.0,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C4H7(34) <=> [H][H](11)+C4H6(48)",
+      "kinetics": {
+        "A_si": 3620000000000.0,
+        "n": 0.0,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 3620000000000.0,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C4H7(51) <=> [H][H](11)+C4H6(48)",
+      "kinetics": {
+        "A_si": 21690000000000.0,
+        "n": 0.0,
+        "Ea_si": 16677.424,
+        "type": "Arrhenius"
+      },
+      "k_si": 3501758460854.9746,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C4H6(48) <=> C4H6(118)",
+      "kinetics": {
+        "A_si": 67065200000000.0,
+        "n": -0.361,
+        "Ea_si": 187677.50400000002,
+        "type": "Arrhenius"
+      },
+      "k_si": 6548.951984331463,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C4H6(49) <=> C4H7(34)",
+      "kinetics": {
+        "A_si": 35327400000000.0,
+        "n": 0.153,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 103144186886839.19,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C[CH2](5)+C4H6(49) <=> C2H4(9)+C4H7(34)",
+      "kinetics": {
+        "A_si": 4660962000000000.0,
+        "n": -0.9,
+        "Ea_si": 6045.88,
+        "type": "Arrhenius"
+      },
+      "k_si": 4406734635526.798,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H3(14)+C4H6(49) <=> C#C(32)+C4H7(34)",
+      "kinetics": {
+        "A_si": 42127600000000.0,
+        "n": -0.251,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 7264022056310.257,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "[H](6)+C4H6(49) <=> C4H7(51)",
+      "kinetics": {
+        "A_si": 32519600000000.0,
+        "n": 0.255,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 193954709664645.34,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C[CH2](5)+C4H6(49) <=> C2H4(9)+C4H7(51)",
+      "kinetics": {
+        "A_si": 137400000000000.0,
+        "n": -0.35,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 11844024386508.93,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C2H3(14)+C4H6(49) <=> C#C(32)+C4H7(51)",
+      "kinetics": {
+        "A_si": 42127600000000.0,
+        "n": -0.251,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 7264022056310.257,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C4H6(49)+C4H7(34) <=> C4H6(48)+C4H7(34)",
+      "kinetics": {
+        "A_si": 421060000000000.0,
+        "n": -0.55,
+        "Ea_si": 2677.76,
+        "type": "Arrhenius"
+      },
+      "k_si": 6674476495770.99,
+      "T": 1100.0,
+      "P": 200000.0
+    },
+    {
+      "label": "C4H6(49)+C4H7(51) <=> C4H6(48)+C4H7(34)",
+      "kinetics": {
+        "A_si": 300000000000.0,
+        "n": 0.0,
+        "Ea_si": 0.0,
+        "type": "Arrhenius"
+      },
+      "k_si": 300000000000.0,
+      "T": 1100.0,
+      "P": 200000.0
+    }
+  ],
+  "exit_code": 0,
+  "stdout_preview": "Global RMG Settings:\n   database.directory   = /root/RMG-database/input (Default, relative to RMG-Py source code)\n   test_data.directory  = /root/RMG-Py/test/rmgpy/test_data (Default, relative to RMG-Py source code)\nRMG execution initiated at Fri Dec 26 19:00:15 2025\n\n#########################################################\n# RMG-Py - Reaction Mechanism Generator in Python       #\n# Version: 3.3.0                                        #\n# Authors: RMG Developers (rmg_dev@mit.edu)             #\n# P.I.s:   William H. Green (whgreen@mit.edu)           #\n#          Richard H. West (r.west@neu.edu)             #\n# Website: http://reactionmechanismgenerator.github.io/ #\n#########################################################\n\nThe current git HEAD for RMG-Py is:\n\tb'd65c5f357fd9be37f4eec7ce0b05d3bc02bb6e6a'\n\tb'Thu Oct 30 07:53:06 2025 -0700'\n\nThe current git HEAD for RMG-database is:\n\tb'e883a4c47eb25fac07510888dab1e861bd314b94'\n\tb'Wed Jul 9 16:49:00 2025 -0400'\n\nReading input file \"/mnt/c/",
+  "stderr_preview": ":root:Removing old /mnt/c/agno_chem_eng/examples/RMG_backup.log\n:root:Moving /mnt/c/agno_chem_eng/examples/RMG.log to /mnt/c/agno_chem_eng/examples/RMG_backup.log\n\n/root/miniforge3/envs/rmg-env/lib/python3.9/site-packages/scipy/optimize/_optimize.py:2322: LinAlgWarning: Ill-conditioned matrix (rcond=9.78829e-18): result may not be accurate.\n  fu = func(x, *args)\n/root/miniforge3/envs/rmg-env/lib/python3.9/site-packages/scipy/optimize/_optimize.py:2322: LinAlgWarning: Ill-conditioned matrix (rcond=8.30526e-20): result may not be accurate.\n  fu = func(x, *args)\n/root/miniforge3/envs/rmg-env/lib/python3.9/site-packages/scipy/optimize/_optimize.py:2322: LinAlgWarning: Ill-conditioned matrix (rcond=1.38146e-20): result may not be accurate.\n  fu = func(x, *args)\n/root/miniforge3/envs/rmg-env/lib/python3.9/site-packages/scipy/optimize/_optimize.py:2322: LinAlgWarning: Ill-conditioned matrix (rcond=8.43874e-21): result may not be accurate.\n  fu = func(x, *args)\n/root/miniforge3/envs/rmg-env/li",
+  "message": "RMG executed successfully",
+  "mechanism_files": [
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0005.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0006.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0007.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0008.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0009.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0010.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0011.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0012.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0013.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0014.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0015.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0016.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0017.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0018.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0019.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0020.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0021.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0022.inp",
+    "/mnt/c/agno_chem_eng/examples/chemkin/chem0023.inp"
+  ]
+}
