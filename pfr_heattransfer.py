@@ -25,14 +25,16 @@ try:
     from .pfr_ideal import (
         run_pfr, get_species_list, get_species_index, get_MW_array,
         mixture_viscosity, mixture_cp, mixture_density, mixture_molar_mass,
-        omega_rates, delta_H_reaction, _get_kinetics, R_GAS
+        omega_rates, delta_H_reaction, _get_kinetics, R_GAS,
+        FEED_FORMULA, make_diluted_feed
     )
     from . import props
 except ImportError:
     from pfr_ideal import (
         run_pfr, get_species_list, get_species_index, get_MW_array,
         mixture_viscosity, mixture_cp, mixture_density, mixture_molar_mass,
-        omega_rates, delta_H_reaction, _get_kinetics, R_GAS
+        omega_rates, delta_H_reaction, _get_kinetics, R_GAS,
+        FEED_FORMULA, make_diluted_feed
     )
     import props
 
@@ -329,18 +331,18 @@ class TubeWall:
 class Stage2State:
     """Operating state for Stage-2 PFR with heat transfer."""
     # Geometry
-    D_inner: float = 0.1           # m inner diameter
+    D_inner: float = 0.05           # m inner diameter
     wall_thickness: float = 0.008  # m (8 mm typical for cracker tubes)
     L: float = 10.0                # m length
     
     # Operating conditions
     T_in: float = 1000.0           # K inlet gas temperature
-    P_in: float = 2.0 * 101325.0   # Pa inlet pressure
-    v_z0: float = 1.0              # m/s inlet velocity
-    T_furnace: float = 1300.0      # K furnace temperature (radiant section)
+    P_in: float = 20.0 * 101325.0   # Pa inlet pressure
+    v_z0: float = 5              # m/s inlet velocity
+    T_furnace: float = 1500.0      # K furnace temperature (radiant section)
     
     # External heat transfer
-    h_outer: float = 60.0          # W/(m²·K) outer convective coefficient
+    h_outer: float = 30.0          # W/(m²·K) outer convective coefficient
     
     # Discretization
     Nz: int = 100                  # axial nodes
@@ -569,7 +571,7 @@ def solve_stage2(state: Stage2State,
     
     # Build initial mole fraction vector
     Y0 = np.zeros(n_spec)
-    feed = feed or {"C2H6": 1.0}
+    feed = feed or FEED_FORMULA  # Default: diluted feed from pfr_ideal
     for sp, frac in feed.items():
         if sp in spec_idx:
             Y0[spec_idx[sp]] = frac
@@ -814,7 +816,7 @@ def print_stage2_results(result: Dict[str, Any]) -> None:
     Y_in = Y[:, 0] / Y[:, 0].sum()
     Y_out = Y[:, -1] / Y[:, -1].sum()
     
-    for sp in ["C2H6", "C2H4", "C2H2", "C1H4", "H2"]:
+    for sp in ["C2H6", "C2H4", "C2H2", "C1H4", "H2", "N2"]:
         if sp in spec_idx:
             i = spec_idx[sp]
             if Y_out[i] > 1e-6 or Y_in[i] > 1e-6:
@@ -846,15 +848,16 @@ if __name__ == "__main__":
     print("=" * 60)
     
     # Create state with typical industrial conditions
+    # Uses Stage2State defaults (can be overridden)
     state = Stage2State(
-        D_inner=0.1,           # 100 mm tube
-        wall_thickness=0.008,  # 8 mm wall
-        L=10.0,                # 10 m length
-        T_in=1000.0,           # 1000 K inlet
-        P_in=2.0 * 101325,     # 2 bar
-        v_z0=1.0,              # 1 m/s
-        T_furnace=1300.0,      # 1300 K furnace (radiant section)
-        h_outer=60.0,          # 60 W/(m²·K) external convection
+        # D_inner=0.1,           # 100 mm tube (default)
+        # wall_thickness=0.008,  # 8 mm wall (default)
+        # L=10.0,                # 10 m length (default)
+        # T_in=1000.0,           # 1000 K inlet (default)
+        # P_in=2.0 * 101325,     # 2 bar (default)
+        # v_z0=1.0,              # 1 m/s (default)
+        # T_furnace=1300.0,      # 1300 K furnace (default)
+        # h_outer=60.0,          # 60 W/(m²·K) (default)
         Nz=50,                 # 50 axial nodes
         Nr_wall=5,             # 5 radial wall nodes
     )

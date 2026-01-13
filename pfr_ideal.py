@@ -23,14 +23,14 @@ import numpy as np
 from scipy.integrate import solve_ivp
 
 # Handle imports for both module and standalone execution
-if __name__ == "__main__":
-    from kinetics_parser import parse_csv_mechanism, Reaction
-    import props
-    from props import cp_molar, sensible_enthalpy, gas_viscosity, resolve_species
-else:
+try:
     from .kinetics_parser import parse_csv_mechanism, Reaction
     from . import props
     from .props import cp_molar, sensible_enthalpy, gas_viscosity, resolve_species
+except ImportError:
+    from kinetics_parser import parse_csv_mechanism, Reaction
+    import props
+    from props import cp_molar, sensible_enthalpy, gas_viscosity, resolve_species
 
 ROOT = Path(__file__).resolve().parent
 
@@ -44,10 +44,16 @@ L_TUBE = 10.0         # m tube length
 # Operating conditions (Stage-1 defaults)
 T_SET = 1000.0       # K target temperature
 P_IN = 2.0 * 101_325.0  # Pa (2 bar)
-V_Z0 = 1.0           # m/s feed superficial velocity
+V_Z0 = 10.0           # m/s feed superficial velocity
+TARGET_CONVERSION = 0.9  # target ethane conversion for heat flux estimation
 
-# Feed composition: pure ethane
-FEED_FORMULA = {"C2H6": 1.0}
+# Feed composition: ethane with N2 dilution (default 50% N2 by mole)
+# N2 is inert - does not participate in reactions but affects:
+# - Heat capacity (thermal ballast)
+# - Partial pressures (shifts equilibrium)
+# - Density and velocity
+DEFAULT_N2_DILUTION = 0.5  # mole fraction of N2 in feed
+FEED_FORMULA = {"C2H6": 1.0 - DEFAULT_N2_DILUTION, "N2": DEFAULT_N2_DILUTION}
 
 # -----------------------------------------------------------------------------
 # Build kinetics data structures at module load
@@ -74,6 +80,13 @@ def _build_kinetics():
         for sp in r["stoich"]:
             if sp not in species_formula:
                 species_formula.append(sp)
+    
+    # Add inert species (N2 for dilution) - these have zero stoichiometry
+    # but are tracked for mass/energy balance and property calculations
+    INERT_SPECIES = ["N2"]
+    for inert in INERT_SPECIES:
+        if inert not in species_formula:
+            species_formula.append(inert)
     
     # Resolve to database keys
     species_keys = [resolve_species(sp) for sp in species_formula]
@@ -103,6 +116,7 @@ def _build_kinetics():
             rord[species_formula.index(sp)] = order
         reactant_orders.append(rord)
     
+    # Note: N2 (and other inerts) have nu[i_N2, :] = 0 (no reaction)
     return species_formula, species_keys, nu, A, n_exp, Ea, reactant_orders, has_third_body
 
 # Module-level cached kinetics
@@ -180,13 +194,14 @@ def mixture_molar_mass(Y: np.ndarray) -> float:
 def reaction_rate_constants(T: float) -> np.ndarray:
     """Arrhenius rate constants k_j(T).
     
-    k = A * (T/298.15)^n * exp(-Ea/(R*T))
+    k = A * (T/298)^n * exp(-Ea/(R*T))
     
     Units depend on reaction order (mechanism uses molecule-based units,
     converted at parse time).
+    Reference temperature: 298 K (standard form).
     """
     _, _, _, A, n_exp, Ea, *_ = _get_kinetics()
-    return A * (T / 298.15) ** n_exp * np.exp(-Ea / (R_GAS * T))
+    return A * (T / 298.0) ** n_exp * np.exp(-Ea / (R_GAS * T))
 
 
 def omega_rates(C: np.ndarray, T: float, P: float) -> np.ndarray:
@@ -236,7 +251,7 @@ def delta_H_reaction(T: float) -> np.ndarray:
 
 def estimate_heat_flux(T: float = T_SET, P: float = P_IN, 
                        Y0: np.ndarray | None = None,
-                       target_conversion: float = 0.6) -> float:
+                       target_conversion: float = TARGET_CONVERSION) -> float:
     """Estimate constant heat flux q'' [W/m²] to maintain near-isothermal operation.
     
     Uses an iterative approach: run short integration segments to estimate
@@ -290,6 +305,30 @@ class PFRState:
         self.D = D
         self.q_flux = q_flux if q_flux is not None else estimate_heat_flux(T_in, P_in)
         self.mu_in: float | None = None  # set after first call
+
+
+def make_diluted_feed(hydrocarbon: str = "C2H6", n2_fraction: float = 0.5) -> Dict[str, float]:
+    """Create a feed composition with N2 dilution.
+    
+    Args:
+        hydrocarbon: primary hydrocarbon species (default "C2H6" for ethane)
+        n2_fraction: mole fraction of N2 diluent (0 to 1)
+    
+    Returns:
+        dict of {species: mole_fraction}
+    
+    Examples:
+        make_diluted_feed("C2H6", 0.5)  -> {"C2H6": 0.5, "N2": 0.5}
+        make_diluted_feed("C2H6", 0.0)  -> {"C2H6": 1.0}  (pure feed)
+        make_diluted_feed("C2H6", 0.8)  -> {"C2H6": 0.2, "N2": 0.8}  (highly diluted)
+    """
+    if not 0.0 <= n2_fraction <= 1.0:
+        raise ValueError(f"n2_fraction must be between 0 and 1, got {n2_fraction}")
+    
+    feed = {hydrocarbon: 1.0 - n2_fraction}
+    if n2_fraction > 0:
+        feed["N2"] = n2_fraction
+    return feed
 
 
 def ode_pfr(z: float, y: np.ndarray, state: PFRState) -> np.ndarray:
@@ -442,7 +481,7 @@ def print_results(sol) -> None:
     print()
     
     print("Mole fractions (inlet -> outlet, normalized):")
-    for sp in ["C2H6", "C2H4", "C2H2", "C2H5", "C2H3", "C1H4", "C1H3", "H2", "H", "C3H6", "C3H7"]:
+    for sp in ["C2H6", "C2H4", "C2H2", "C2H5", "C2H3", "C1H4", "C1H3", "H2", "H", "C3H6", "C3H7", "N2"]:
         if sp in spec_idx:
             i = spec_idx[sp]
             if Y_out[i] > 1e-6 or Y_in[i] > 1e-6:
@@ -455,6 +494,22 @@ def print_results(sol) -> None:
         i_eth = spec_idx["C2H6"]
         conv = 1.0 - Y_out[i_eth] / Y_in[i_eth]
         print(f"\nEthane conversion: {conv*100:.1f}%")
+        
+        # Selectivity to ethylene (C2H4)
+        if "C2H4" in spec_idx and conv > 0.01:
+            i_ene = spec_idx["C2H4"]
+            ethylene_formed = Y_out[i_ene] - Y_in[i_ene]
+            ethane_reacted = Y_in[i_eth] - Y_out[i_eth]
+            selectivity = ethylene_formed / ethane_reacted if ethane_reacted > 1e-10 else 0
+            print(f"Ethylene selectivity: {selectivity*100:.1f}%")
+        
+        # Selectivity to acetylene (C2H2)  
+        if "C2H2" in spec_idx and conv > 0.01:
+            i_ace = spec_idx["C2H2"]
+            acetylene_formed = Y_out[i_ace] - Y_in[i_ace]
+            ethane_reacted = Y_in[i_eth] - Y_out[i_eth]
+            selectivity_ace = acetylene_formed / ethane_reacted if ethane_reacted > 1e-10 else 0
+            print(f"Acetylene selectivity: {selectivity_ace*100:.1f}%")
     
     # Heat flux used
     if hasattr(sol, 'state'):
@@ -466,11 +521,13 @@ def print_results(sol) -> None:
 # -----------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    print("Stage-1 Ideal PFR - Ethane Pyrolysis")
-    print("=" * 50)
+    print("Stage-1 Ideal PFR - Ethane Pyrolysis with N2 Dilution")
+    print("=" * 60)
     print(f"Tube: D={D_TUBE*1000:.0f} mm, L={L_TUBE:.1f} m")
     print(f"Inlet: T={T_SET:.0f} K, P={P_IN/1e5:.1f} bar, v_z={V_Z0:.1f} m/s")
+    print(f"N2 dilution: {DEFAULT_N2_DILUTION*100:.0f}% (mole basis)")
     print()
     
+    # Run with default N2 dilution
     sol = run_pfr()
     print_results(sol)

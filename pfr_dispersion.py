@@ -34,7 +34,8 @@ try:
         get_species_list, get_species_index, get_MW_array,
         mixture_viscosity, mixture_cp, mixture_density, mixture_molar_mass,
         omega_rates, delta_H_reaction, _get_kinetics, R_GAS,
-        D_TUBE, L_TUBE, T_SET, P_IN, V_Z0
+        D_TUBE, L_TUBE, T_SET, P_IN, V_Z0,
+        FEED_FORMULA, make_diluted_feed
     )
     from .pfr_heattransfer import (
         Stage2State, solve_stage2, gas_thermal_conductivity
@@ -45,7 +46,8 @@ except ImportError:
         get_species_list, get_species_index, get_MW_array,
         mixture_viscosity, mixture_cp, mixture_density, mixture_molar_mass,
         omega_rates, delta_H_reaction, _get_kinetics, R_GAS,
-        D_TUBE, L_TUBE, T_SET, P_IN, V_Z0
+        D_TUBE, L_TUBE, T_SET, P_IN, V_Z0,
+        FEED_FORMULA, make_diluted_feed
     )
     from pfr_heattransfer import (
         Stage2State, solve_stage2, gas_thermal_conductivity
@@ -147,13 +149,13 @@ def estimate_molecular_diffusivity(T: float, P: float, MW1: float, MW2: float) -
 class Stage3State:
     """Configuration for Stage-3 PFR with axial dispersion."""
     # Geometry
-    D: float = 0.1              # tube diameter [m]
+    D: float = 0.025              # tube diameter [m]
     L: float = 10.0             # tube length [m]
     
     # Operating conditions
-    T_in: float = 1000.0        # inlet temperature [K]
-    P_in: float = 2.0 * 101325  # inlet pressure [Pa]
-    v_z0: float = 1.0           # inlet velocity [m/s]
+    T_in: float = 1100.0        # inlet temperature [K]
+    P_in: float = 5.0 * 101325  # inlet pressure [Pa]
+    v_z0: float = 5           # inlet velocity [m/s] volumetric inlet flow rate over the surface area
     
     # Discretization
     Nz: int = 100               # number of axial nodes
@@ -287,7 +289,7 @@ def compute_alpha_ax_profile(state: Stage3State, T: np.ndarray, P: np.ndarray,
 
 def solve_dispersion_fd(state: Stage3State,
                        feed: Dict[str, float] | None = None,
-                       max_iter: int = 200,
+                       max_iter: int = 800,
                        tol: float = 1e-5,
                        relax: float = 0.3,
                        verbose: bool = True) -> Dict[str, Any]:
@@ -321,7 +323,7 @@ def solve_dispersion_fd(state: Stage3State,
     n_spec = len(species_formula)
     
     # Build feed composition
-    feed = feed or {"C2H6": 1.0}
+    feed = feed or FEED_FORMULA  # Default: diluted feed from pfr_ideal
     
     Nz = state.Nz
     z = state.z_nodes
@@ -1344,7 +1346,7 @@ def print_stage3_results(result: Dict[str, Any]) -> None:
     Y_in = Y[:, 0] / Y[:, 0].sum()
     Y_out = Y[:, -1] / Y[:, -1].sum()
     
-    for sp in ["C2H6", "C2H4", "C2H2", "C1H4", "H2"]:
+    for sp in ["C2H6", "C2H4", "C2H2", "C1H4", "H2", "N2"]:
         if sp in spec_idx:
             i = spec_idx[sp]
             if Y_out[i] > 1e-6 or Y_in[i] > 1e-6:
@@ -1433,12 +1435,13 @@ if __name__ == "__main__":
     
     # Configure Stage-3 with auto-estimated heat flux
     # The heat flux is computed from energy balance to maintain near-isothermal operation
+    # Uses Stage3State defaults (can be overridden)
     state = Stage3State(
-        D=0.1,              # 100 mm tube
-        L=10.0,             # 10 m length
-        T_in=1000.0,        # 1000 K inlet
-        P_in=2.0 * 101325,  # 2 bar
-        v_z0=1.0,           # 1 m/s
+        # D=0.1,              # 100 mm tube (default)
+        # L=10.0,             # 10 m length (default)
+        # T_in=1000.0,        # 1000 K inlet (default)
+        # P_in=5.0 * 101325,  # 5 bar (default)
+        # v_z0=1.0,           # 1 m/s (default)
         Nz=100,             # 100 axial nodes
         use_taylor_aris=False,  # use turbulent correlation
         # q_flux_constant=None uses auto-estimate for near-isothermal operation
