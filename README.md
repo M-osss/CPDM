@@ -27,6 +27,8 @@
 - **18-reaction mechanism** from reduced Glarborg-Sendt kinetics
 - **NASA-7 thermochemistry** from RMG database
 - **Coupled species/energy/momentum** equations
+- **Reversible kinetics** with detailed balance ($k_r = k_f / K_c$)
+- **Thermodynamically consistent** reaction enthalpies and Gibbs energy
 - **Industrial furnace modeling** with wall conduction and radiation
 - **OpenFOAM integration** for CFD validation
 - **Robust numerical solvers** (BDF for stiff kinetics)
@@ -79,7 +81,9 @@ See `SETUP.md` for detailed installation instructions.
 
 ### Model Description
 
-Stage-1 implements an ideal plug-flow reactor solving coupled species, energy, and pressure equations. It assumes:
+Stage-1 implements an ideal plug-flow reactor solving coupled species, energy, and pressure equations. It features:
+- **Reversible kinetics**: Net rates $\Omega_{net} = \Omega_f - \Omega_r$ with $k_r$ via detailed balance
+- **Thermodynamic consistency**: Enthalpy and Gibbs energy via NASA-7 polynomials
 - Perfect plug flow (no radial gradients)
 - Constant heat flux along the reactor
 - Ideal gas behavior
@@ -89,7 +93,7 @@ Stage-1 implements an ideal plug-flow reactor solving coupled species, energy, a
 
 **Species balance** (molar fractions):
 ```
-dY_i/dz = (1/v_z) * (1/C_total) * Σ_j(ν_ij * Ω_j)
+dY_i/dz = (1/v_z) * (1/C_total) * Σ_j(ν_ij * Ω_net,j)
 ```
 
 Where:
@@ -97,7 +101,7 @@ Where:
 - v_z: axial velocity [m/s]
 - C_total: total molar concentration [mol/m³]
 - ν_ij: stoichiometric coefficient
-- Ω_j: reaction rate [mol/m³/s]
+- Ω_net,j = Ω_f,j - Ω_r,j: net reaction rate [mol/m³/s]
 
 **Energy balance**:
 ```
@@ -105,7 +109,8 @@ dT/dz = (1/(ρ * Cp_mass * v_z)) * [Q_rxn + 4*q''/D]
 ```
 
 Where:
-- Q_rxn = -Σ_j(ΔH_j * Ω_j): volumetric reaction heat [W/m³]
+- Q_rxn = -Σ_j(ΔH_j * Ω_net,j): volumetric reaction heat [W/m³]
+- ΔH_j: thermodynamically consistent reaction enthalpy [J/mol]
 - q'': wall heat flux [W/m²]
 - D: tube diameter [m]
 - ρ: density [kg/m³]
@@ -189,17 +194,20 @@ print(f"Estimated heat flux: {q_flux/1e3:.2f} kW/m²")
 
 1. **Fast computation**: Typically < 1 second for 10 m tube
 2. **Robust solver**: BDF method handles stiff kinetics
-3. **Proper unit conversion**: Pre-exponential factors correctly converted
-4. **Third-body reactions**: Handled with total concentration [M] = P/(R*T)
-5. **Property database**: Uses resolved species keys for NASA-7 lookups
+3. **Reversible kinetics**: Rigorous treatment of chemical equilibrium via detailed balance
+4. **Thermodynamic consistency**: NASA-7 polynomials ensure accurate $K_c$ and $\Delta H_{rxn}$
+5. **Proper unit conversion**: Pre-exponential factors correctly converted
+6. **Third-body reactions**: Handled with total concentration [M] = P/(R*T)
+7. **Property database**: Uses resolved species keys for NASA-7 lookups
 
 ### Limitations
 
-1. **No reverse reactions**: All reactions treated as irreversible
-2. **Linear mixing rules**: Viscosity uses simple molar-fraction weighting
-3. **Constant q''**: Heat flux uniform along reactor
-4. **No radial gradients**: Ideal plug flow assumption
-5. **No dispersion**: Perfect plug flow (no back-mixing)
+1. **Ideal Gas Law**: Assumes $Z=1$, inaccurate for high-pressure industrial crackers (> 5 bar)
+2. **Linear mixing rules**: Viscosity and thermal conductivity use simple molar-fraction weighting instead of Wilke/Wassiljewa rules
+3. **Constant q''**: Heat flux uniform along reactor in Stage-1
+4. **No radial gradients**: Ideal plug flow assumption (significant in large D tubes)
+5. **No dispersion**: Perfect plug flow (no back-mixing) in Stage-1/Stage-2
+6. **Property dependency**: Accuracy is strictly bound by `species_properties.json` data quality
 
 ### Typical Results
 
@@ -442,9 +450,9 @@ For a 10 m tube, 100 mm diameter, 8 mm wall:
 - Tolerance: 1 K on gas temperature
 
 **Stability:**
-- Heat flux clamping: Limited to 1-200 kW/m²
+- Heat flux clamping: Limited to ±200 kW/m² (magnitude clamp; negative q'' allowed for gas→wall cooling)
 - Temperature clamping: T_gas ∈ [300, 2500] K
-- Wall-gas constraint: T_wall > T_gas (heating only)
+- No forced heat-flow direction: the sign of q'' follows from (T_wall − T_gas) and (T_furnace − T_wall)
 
 **Discretization:**
 - Axial nodes: Nz = 50-100 (default 50)
@@ -904,11 +912,45 @@ For 10 m tube, 100 mm diameter, 1000 K inlet:
 |--------|---------|---------|---------|
 | T_out [K] | 1097 | 1240 | 1137 |
 | Conversion [%] | 53 | 90 | 65 |
+| Reversibility | Net rates | Net rates | Net rates |
 | Heat flux [kW/m²] | 5 (const) | 11-46 (var) | 7.5 (auto) |
 | Wall T [K] | N/A | 1178-1269 | N/A |
 | Pe number | N/A | N/A | 316 |
 
 **Note:** Results depend strongly on heat flux and operating conditions.
+
+---
+
+## Equilibrium & Reversibility Model
+
+The model now incorporates a rigorous thermodynamic equilibrium module (`equilibrium.py`) to handle reversible reactions.
+
+### Detailed Balance
+
+For every reaction $j$, the net rate is computed as:
+$$\Omega_{net,j} = \Omega_{f,j} - \Omega_{r,j}$$
+
+The reverse rate constant $k_{r,j}$ is derived from the forward rate constant $k_{f,j}$ and the concentration-based equilibrium constant $K_{c,j}$:
+$$k_{r,j} = \frac{k_{f,j}}{K_{c,j}}$$
+
+### Thermodynamic Calculations
+
+1. **Gibbs Free Energy**: $\Delta G_{rxn}^\circ(T) = \sum \nu_i G_i^\circ(T)$
+2. **Equilibrium Constant ($K_p$)**: $K_p(T) = \exp\left(-\frac{\Delta G_{rxn}^\circ}{RT}\right)$
+3. **Conversion to $K_c$**: $K_c(T) = K_p(T) \cdot \left(\frac{P_{std}}{RT}\right)^{-\Delta n}$
+
+Where $\Delta n$ is the net change in moles (excluding third bodies).
+
+### Harsh Analysis of the Reversible Model
+
+**Strengths:**
+- **Closer to Physics**: Eliminates the "infinite conversion" artifact of irreversible models, especially relevant for secondary reactions like $C_2H_2 + H_2 \rightleftharpoons C_2H_4$.
+- **Thermodynamic Closure**: Energy balance ($Q_{rxn}$) and kinetics ($\Omega_{net}$) are now coupled through the same NASA-7 property basis, preventing violations of the first and second laws of thermodynamics.
+
+**Weaknesses:**
+- **Increased Stiffness**: The presence of both very fast forward and reverse rates near equilibrium can lead to extreme numerical stiffness, challenging the BDF integrator.
+- **Data Sensitivity**: A 1% error in Gibbs energy coefficients can lead to orders of magnitude error in $K_c$ due to the exponential dependence, making the model highly sensitive to the RMG database accuracy.
+- **Inert Species Handling**: While N2 dilution is handled, its effect on equilibrium is purely through partial pressure reduction; any non-ideal gas effects (fugacity) are ignored.
 
 ---
 
@@ -1042,6 +1084,7 @@ DWSIM_PFR/
 ├── pfr_ideal.py                  # Stage-1: Ideal PFR
 ├── pfr_heattransfer.py           # Stage-2: Heat transfer
 ├── pfr_dispersion.py             # Stage-3: Axial dispersion
+├── equilibrium.py                # Equilibrium calculations
 ├── kinetics_parser.py             # CSV mechanism parser
 ├── props.py                      # Thermophysical properties
 ├── species_properties.json        # NASA-7 + transport data
