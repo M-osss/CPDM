@@ -4,8 +4,8 @@ Extends Stage-1 ideal PFR with:
   • Tube wall radial conduction: ρ_w C_{p,w} ∂T_w/∂t = (1/r)∂/∂r(k_w r ∂T_w/∂r)
   • Gas-phase radiative transfer via WSGG (Weighted Sum of Gray Gases)
   • Coupled boundary conditions:
-    - Inner: q''_inner = h_i(T_fluid - T_w,inner) + q_rad(fluid→wall)
-    - Outer: q''_outer = h_o(T_w,outer - T_furnace)
+    - Inner: q''_inner = h_i(T_w,inner - T_fluid) + q_rad(wall→gas)  (positive heats gas)
+    - Outer: q''_outer = h_o(T_furnace - T_w,outer) + εσ(T_furnace^4 - T_w,outer^4) (positive heats wall)
 
 Operator-split coupling: advance species/P with current wall T, then update wall T.
 """
@@ -26,7 +26,7 @@ try:
         run_pfr, get_species_list, get_species_index, get_MW_array,
         mixture_viscosity, mixture_cp, mixture_density, mixture_molar_mass,
         omega_rates, delta_H_reaction, _get_kinetics, R_GAS,
-        FEED_FORMULA, make_diluted_feed
+        set_mechanism_path, report_skipped_reactions,
     )
     from . import props
 except ImportError:
@@ -34,11 +34,19 @@ except ImportError:
         run_pfr, get_species_list, get_species_index, get_MW_array,
         mixture_viscosity, mixture_cp, mixture_density, mixture_molar_mass,
         omega_rates, delta_H_reaction, _get_kinetics, R_GAS,
-        FEED_FORMULA, make_diluted_feed
+        set_mechanism_path, report_skipped_reactions,
     )
     import props
 
 ROOT = Path(__file__).resolve().parent
+
+# =============================================================================
+# Feed Composition (Standalone - independent of pfr_ideal.py)
+# =============================================================================
+
+DEFAULT_N2_DILUTION = 0.1  # mole fraction of N2 in feed (modify this to change N2 composition)
+
+FEED_FORMULA = {"C2H6": 1.0 - DEFAULT_N2_DILUTION, "N2": DEFAULT_N2_DILUTION}
 
 # =============================================================================
 # Physical Constants
@@ -331,15 +339,18 @@ class TubeWall:
 class Stage2State:
     """Operating state for Stage-2 PFR with heat transfer."""
     # Geometry
-    D_inner: float = 0.05           # m inner diameter
+    D_inner: float = 0.025           # m inner diameter
     wall_thickness: float = 0.008  # m (8 mm typical for cracker tubes)
-    L: float = 10.0                # m length
+    L: float = 12.0                # m length
     
     # Operating conditions
     T_in: float = 1000.0           # K inlet gas temperature
-    P_in: float = 20.0 * 101325.0   # Pa inlet pressure
-    v_z0: float = 5              # m/s inlet velocity
-    T_furnace: float = 1500.0      # K furnace temperature (radiant section)
+    P_in: float = 10.0 * 101325.0   # Pa inlet pressure
+    v_z0: float = 20              # m/s inlet velocity
+    T_furnace: float = 1450.0      # K furnace temperature (radiant section)
+    
+    # Kinetics mechanism selection
+    mechanism_path: Path | str | None = "reduced"
     
     # External heat transfer
     h_outer: float = 30.0          # W/(m²·K) outer convective coefficient
@@ -488,6 +499,7 @@ def stage2_ode(z: float, y: np.ndarray, state: Stage2State,
     
     State vector: y = [Y_0, ..., Y_{n-1}, T, P]
     """
+    set_mechanism_path(state.mechanism_path)
     species_formula, _, nu, *_ = _get_kinetics()
     n_spec = len(species_formula)
     
@@ -565,13 +577,15 @@ def solve_stage2(state: Stage2State,
     Returns:
         dict with solution arrays and convergence info
     """
+    set_mechanism_path(state.mechanism_path)
     species_formula = get_species_list()
     spec_idx = get_species_index()
+    report_skipped_reactions("solve_stage2")
     n_spec = len(species_formula)
     
     # Build initial mole fraction vector
     Y0 = np.zeros(n_spec)
-    feed = feed or FEED_FORMULA  # Default: diluted feed from pfr_ideal
+    feed = feed or FEED_FORMULA  # Default: Stage-2 feed composition
     for sp, frac in feed.items():
         if sp in spec_idx:
             Y0[spec_idx[sp]] = frac
@@ -618,10 +632,10 @@ def solve_stage2(state: Stage2State,
             Y = Y_gas[:, iz]
             T = max(T_gas[iz], 300.0)  # clamp to physical values
             P = P_gas[iz]
-            T_wi = state.T_wall_inner[iz]
-            
-            # Ensure wall is hotter than gas (heating)
-            T_wi = max(T_wi, T + 1.0)
+            # IMPORTANT: do not force wall-to-gas heating.
+            # If T_gas > T_wall_inner, the heat flux must go negative (gas cools to furnace),
+            # otherwise the coupling will run away to unphysical T > T_furnace.
+            T_wi = float(np.clip(state.T_wall_inner[iz], 250.0, 3000.0))
             
             # Gas properties
             mu = mixture_viscosity(Y, T)
@@ -634,8 +648,8 @@ def solve_stage2(state: Stage2State,
                 T, T_wi, Y, P, state.D_inner, v_z, rho, mu, state.wsgg
             )
             
-            # Clamp heat flux to reasonable range
-            q_total = max(1000.0, min(q_total, 200000.0))  # 1-200 kW/m2
+            # Clamp magnitude only; allow negative heat flux (gas -> wall) when T_gas > T_wall.
+            q_total = float(np.clip(q_total, -200000.0, 200000.0))  # ±200 kW/m²
             q_inner_new[iz] = q_total
         
         # Apply under-relaxation to heat flux
@@ -714,9 +728,6 @@ def solve_stage2(state: Stage2State,
                 # q_wall = k*(T_wo - T_wi)/t  (thin wall approximation)
                 T_wi_calc = T_wo - q_out * state.wall_thickness / state.wall_material.k
                 
-                # Ensure T_wi > T_gas
-                T_wi_calc = max(T_wi_calc, T + 1.0)
-                
                 # Inner heat flux to gas
                 mu = mixture_viscosity(Y, T)
                 rho = mixture_density(Y, T, P)
@@ -740,8 +751,9 @@ def solve_stage2(state: Stage2State,
                 dT = 0.05 * res / (state.h_outer + 20)
                 T_wo += dT
                 
-                # Clamp to physical range
-                T_wo = max(T + 10.0, min(T_wo, state.T_furnace - 10.0))
+                # Clamp to a broad physical range only (do not enforce ordering vs T_gas/T_furnace).
+                # Ordering depends on direction of heat flow.
+                T_wo = float(np.clip(T_wo, 250.0, 3000.0))
                 T_wi = T_wi_calc
             
             # Apply under-relaxation to wall temperatures
@@ -847,6 +859,11 @@ if __name__ == "__main__":
     print("Stage-2 PFR with Heat Transfer - Ethane Pyrolysis")
     print("=" * 60)
     
+    # Feed composition uses DEFAULT_N2_DILUTION constant above
+    # To change N2 composition, modify DEFAULT_N2_DILUTION at module level,
+    # or pass custom feed dict: feed = {"C2H6": 0.9, "N2": 0.1}
+    feed_composition = FEED_FORMULA
+    
     # Create state with typical industrial conditions
     # Uses Stage2State defaults (can be overridden)
     state = Stage2State(
@@ -866,8 +883,9 @@ if __name__ == "__main__":
           f"wall={state.wall_thickness*1000:.0f} mm, L={state.L:.1f} m")
     print(f"Inlet: T={state.T_in:.0f} K, P={state.P_in/1e5:.1f} bar")
     print(f"Furnace: T={state.T_furnace:.0f} K, h_outer={state.h_outer:.0f} W/(m²·K)")
+    print(f"Feed: {feed_composition} (N2 dilution: {DEFAULT_N2_DILUTION*100:.0f}%)")
     print()
     
-    result = solve_stage2(state, feed={"C2H6": 1.0}, verbose=True)
+    result = solve_stage2(state, feed=feed_composition, verbose=True)
     print_stage2_results(result)
 
