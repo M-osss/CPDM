@@ -25,6 +25,7 @@ try:
     from .pfr_ideal import (
         run_pfr, get_species_list, get_species_index, get_MW_array,
         mixture_viscosity, mixture_cp, mixture_density, mixture_molar_mass,
+        mixture_concentration,  # Added for EOS-based concentration
         omega_rates, delta_H_reaction, _get_kinetics, R_GAS,
         set_mechanism_path, report_skipped_reactions,
     )
@@ -33,6 +34,7 @@ except ImportError:
     from pfr_ideal import (
         run_pfr, get_species_list, get_species_index, get_MW_array,
         mixture_viscosity, mixture_cp, mixture_density, mixture_molar_mass,
+        mixture_concentration,  # Added for EOS-based concentration
         omega_rates, delta_H_reaction, _get_kinetics, R_GAS,
         set_mechanism_path, report_skipped_reactions,
     )
@@ -510,18 +512,18 @@ def stage2_ode(z: float, y: np.ndarray, state: Stage2State,
     T = max(y[n_spec], 300.0)
     P = max(y[n_spec + 1], 1e3)
     
-    # Mixture properties
+    # Mixture properties using PPR78 EOS
     mu_mix = mixture_viscosity(Y, T)
-    rho = mixture_density(Y, T, P)
-    Cp_mix = mixture_cp(Y, T)  # J/mol/K
+    rho = mixture_density(Y, T, P, use_eos=True)  # Non-ideal density
+    Cp_mix = mixture_cp(Y, T, P, use_eos=True)  # Ideal + residual Cp
     MW_mix = mixture_molar_mass(Y)  # kg/mol
     
     # Velocity from continuity
     v_z = state.v_z0 * (state.P_in / P) * (T / state.T_in)
     v_z = max(v_z, 0.01)
     
-    # Concentrations [mol/m³]
-    C_total = P / (R_GAS * T)
+    # Concentrations [mol/m³] using PPR78 EOS
+    C_total = mixture_concentration(Y, T, P, use_eos=True)  # Non-ideal concentration
     C = Y * C_total
     
     # Reaction rates
@@ -637,9 +639,9 @@ def solve_stage2(state: Stage2State,
             # otherwise the coupling will run away to unphysical T > T_furnace.
             T_wi = float(np.clip(state.T_wall_inner[iz], 250.0, 3000.0))
             
-            # Gas properties
+            # Gas properties using PPR78 EOS
             mu = mixture_viscosity(Y, T)
-            rho = mixture_density(Y, T, P)
+            rho = mixture_density(Y, T, P, use_eos=True)  # Non-ideal density
             v_z = state.v_z0 * (state.P_in / P) * (T / state.T_in)
             v_z = max(v_z, 0.1)  # prevent zero velocity
             
@@ -728,9 +730,9 @@ def solve_stage2(state: Stage2State,
                 # q_wall = k*(T_wo - T_wi)/t  (thin wall approximation)
                 T_wi_calc = T_wo - q_out * state.wall_thickness / state.wall_material.k
                 
-                # Inner heat flux to gas
+                # Inner heat flux to gas using PPR78 EOS
                 mu = mixture_viscosity(Y, T)
-                rho = mixture_density(Y, T, P)
+                rho = mixture_density(Y, T, P, use_eos=True)  # Non-ideal density
                 v_z = state.v_z0 * (state.P_in / P) * (T / state.T_in)
                 v_z = max(v_z, 0.1)
                 

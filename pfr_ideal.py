@@ -41,6 +41,17 @@ try:
         delta_G_reaction,
         delta_H_reaction_thermo,
     )
+    from .eos_ppr78 import (
+        evaluate_eos,
+        get_Z,
+        get_density,
+        get_concentration,
+        compressibility_factor,
+        fugacity_coefficients,
+        residual_enthalpy,
+        residual_Cp,
+        CRITICAL_PROPERTIES,
+    )
 except ImportError:
     from kinetics_parser import (
         parse_csv_mechanism,
@@ -59,6 +70,17 @@ except ImportError:
         delta_G_reaction,
         delta_H_reaction_thermo,
     )
+    from eos_ppr78 import (
+        evaluate_eos,
+        get_Z,
+        get_density,
+        get_concentration,
+        compressibility_factor,
+        fugacity_coefficients,
+        residual_enthalpy,
+        residual_Cp,
+        CRITICAL_PROPERTIES,
+    )
 
 ROOT = Path(__file__).resolve().parent
 
@@ -73,7 +95,7 @@ L_TUBE = 15.0         # m tube length
 T_SET = 1000.0       # K target temperature
 P_IN = 2.0 * 101_325.0  # Pa (2 bar)
 V_Z0 = 20.0           # m/s feed superficial velocity
-TARGET_CONVERSION = 0.8  # target ethane conversion for heat flux estimation
+TARGET_CONVERSION = 0.65  # target ethane conversion for heat flux estimation
 
 # Feed composition: ethane with N2 dilution (default 50% N2 by mole)
 # N2 is inert - does not participate in reactions but affects:
@@ -284,23 +306,78 @@ def mixture_viscosity(Y: np.ndarray, T: float) -> float:
     return float(np.dot(Y, mu))
 
 
-def mixture_cp(Y: np.ndarray, T: float) -> float:
-    """Molar-fraction weighted heat capacity [J/mol/K]."""
-    _, species_keys, *_ = _get_kinetics()
+def mixture_cp(Y: np.ndarray, T: float, P: float = None, use_eos: bool = True) -> float:
+    """Molar-fraction weighted heat capacity [J/mol/K].
+    
+    Cp_total = Cp_ideal + Cp_residual
+    
+    where Cp_ideal is from NASA7 polynomials and Cp_residual is from PPR78 EOS.
+    
+    Args:
+        Y: molar fractions
+        T: temperature [K]
+        P: pressure [Pa] (required if use_eos=True)
+        use_eos: if True, include residual Cp from EOS
+    """
+    species_formula, species_keys, *_ = _get_kinetics()
     cps = np.array([cp_molar(T, key) for key in species_keys])
-    return float(np.dot(Y, cps))
+    Cp_ideal = float(np.dot(Y, cps))
+    
+    if use_eos and P is not None:
+        Cp_res = residual_Cp(species_formula, Y, T, P)
+        return Cp_ideal + Cp_res
+    
+    return Cp_ideal
 
 
-def mixture_density(Y: np.ndarray, T: float, P: float) -> float:
-    """Mixture mass density [kg/m³] from ideal gas law."""
+def mixture_density(Y: np.ndarray, T: float, P: float, use_eos: bool = True) -> float:
+    """Mixture mass density [kg/m³] using PPR78 EOS or ideal gas law.
+    
+    rho = P * MW_mix / (Z * R * T)
+    where Z is the compressibility factor from PPR78 EOS.
+    
+    Args:
+        Y: molar fractions
+        T: temperature [K]
+        P: pressure [Pa]
+        use_eos: if True, use PPR78 EOS; if False, use ideal gas (Z=1)
+    """
+    species_formula, species_keys, *_ = _get_kinetics()
     MW = get_MW_array()
     MW_mix = float(np.dot(Y, MW))  # kg/mol
-    return P * MW_mix / (R_GAS * T)
+    
+    if use_eos:
+        Z = compressibility_factor(species_formula, Y, T, P)
+    else:
+        Z = 1.0
+    
+    return P * MW_mix / (Z * R_GAS * T)
 
 
 def mixture_molar_mass(Y: np.ndarray) -> float:
     """Average molar mass [kg/mol]."""
     return float(np.dot(Y, get_MW_array()))
+
+
+def mixture_concentration(Y: np.ndarray, T: float, P: float, use_eos: bool = True) -> float:
+    """Total molar concentration [mol/m³] using PPR78 EOS or ideal gas law.
+    
+    C_total = P / (Z * R * T)
+    where Z is the compressibility factor from PPR78 EOS.
+    
+    Args:
+        Y: molar fractions
+        T: temperature [K]
+        P: pressure [Pa]
+        use_eos: if True, use PPR78 EOS; if False, use ideal gas (Z=1)
+    """
+    if use_eos:
+        species_formula, *_ = _get_kinetics()
+        Z = compressibility_factor(species_formula, Y, T, P)
+    else:
+        Z = 1.0
+    
+    return P / (Z * R_GAS * T)
 
 # -----------------------------------------------------------------------------
 # Reaction rate calculations
@@ -366,9 +443,15 @@ def omega_rates(C: np.ndarray, T: float, P: float,
     m = len(k_forward)
     
     if not include_reverse:
-        # Original forward-only calculation
+        # Original forward-only calculation with EOS correction
         omega = np.zeros(m)
-        C_total = P / (R_GAS * T)
+        species_formula, *_ = _get_kinetics()
+        # Use EOS for total concentration [M] in third-body reactions
+        # Y is approximated from C for this purpose
+        C_sum = max(C.sum(), 1e-30)
+        Y_approx = C / C_sum
+        Z = compressibility_factor(species_formula, Y_approx, T, P)
+        C_total = P / (Z * R_GAS * T)  # Non-ideal concentration
         for j in range(m):
             rate = k_forward[j]
             for i_sp, order in reactant_orders[j].items():
@@ -378,9 +461,14 @@ def omega_rates(C: np.ndarray, T: float, P: float,
             omega[j] = rate
         return omega
     
-    # Compute reverse rate constants from equilibrium
+    # Compute reverse rate constants from equilibrium with fugacity corrections
     eq_calc = _get_equilibrium_calculator()
-    k_reverse = eq_calc.compute_reverse_rate_constants(T, k_forward)
+    # Get molar fractions from concentrations for fugacity correction
+    C_sum = max(C.sum(), 1e-30)
+    Y_approx = C / C_sum
+    k_reverse = eq_calc.compute_reverse_rate_constants(
+        T, k_forward, y=Y_approx, P=P, use_fugacity=True
+    )
     
     # Compute net rates using the equilibrium module
     _, _, omega_net = net_reaction_rates(
@@ -413,8 +501,14 @@ def omega_rates_detailed(C: np.ndarray, T: float, P: float) -> tuple:
     
     k_forward = reaction_rate_constants(T)
     
+    # Get molar fractions from concentrations for fugacity correction
+    C_sum = max(C.sum(), 1e-30)
+    Y_approx = C / C_sum
+    
     eq_calc = _get_equilibrium_calculator()
-    k_reverse = eq_calc.compute_reverse_rate_constants(T, k_forward)
+    k_reverse = eq_calc.compute_reverse_rate_constants(
+        T, k_forward, y=Y_approx, P=P, use_fugacity=True
+    )
     
     return net_reaction_rates(
         C, T, P, k_forward, k_reverse,
@@ -481,8 +575,8 @@ def estimate_heat_flux(T: float = T_SET, P: float = P_IN,
     # ΔH_rxn ≈ +137 kJ/mol (endothermic)
     dH_main = 137e3  # J/mol
     
-    # Molar flow rate estimate [mol/s]
-    C_total = P / (R_GAS * T)  # mol/m³
+    # Molar flow rate estimate [mol/s] using EOS
+    C_total = mixture_concentration(Y0, T, P, use_eos=True)  # mol/m³ (non-ideal)
     A_cross = math.pi * (D_TUBE / 2) ** 2  # m²
     F_in = C_total * V_Z0 * A_cross  # mol/s
     
@@ -566,8 +660,8 @@ def ode_pfr(z: float, y: np.ndarray, state: PFRState) -> np.ndarray:
     if state.mu_in is None:
         state.mu_in = mu_mix
     
-    rho = mixture_density(Y, T, P)
-    Cp_mix = mixture_cp(Y, T)  # J/mol/K
+    rho = mixture_density(Y, T, P, use_eos=True)  # PPR78 EOS density
+    Cp_mix = mixture_cp(Y, T, P, use_eos=True)  # Ideal + residual Cp
     MW_mix = mixture_molar_mass(Y)  # kg/mol
     
     # Velocity from continuity using constant mass flux:
@@ -577,8 +671,8 @@ def ode_pfr(z: float, y: np.ndarray, state: PFRState) -> np.ndarray:
     v_z = state.v_z0 * (state.rho_in / rho)
     v_z = max(v_z, 0.01)  # prevent zero velocity
     
-    # Concentrations [mol/m³]
-    C_total = P / (R_GAS * T)
+    # Concentrations [mol/m³] using PPR78 EOS
+    C_total = mixture_concentration(Y, T, P, use_eos=True)
     C = Y * C_total
     
     # Reaction rates
@@ -650,8 +744,8 @@ def run_pfr(L: float = L_TUBE, T_in: float = T_SET, P_in: float = P_IN,
     # Build initial state vector
     y0 = np.concatenate([Y0, [T_in, P_in]])
     
-    # Create state container
-    rho_in = mixture_density(Y0, T_in, P_in)
+    # Create state container using PPR78 EOS for inlet density
+    rho_in = mixture_density(Y0, T_in, P_in, use_eos=True)
     state = PFRState(
         T_in=T_in,
         P_in=P_in,

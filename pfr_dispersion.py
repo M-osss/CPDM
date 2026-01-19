@@ -33,7 +33,9 @@ try:
     from .pfr_ideal import (
         get_species_list, get_species_index, get_MW_array,
         mixture_viscosity, mixture_cp, mixture_density, mixture_molar_mass,
+        mixture_concentration,  # Added for EOS-based concentration
         omega_rates, delta_H_reaction, _get_kinetics, R_GAS,
+        set_mechanism_path, report_skipped_reactions,
         D_TUBE, L_TUBE, T_SET, P_IN, V_Z0,
         FEED_FORMULA, make_diluted_feed
     )
@@ -45,7 +47,9 @@ except ImportError:
     from pfr_ideal import (
         get_species_list, get_species_index, get_MW_array,
         mixture_viscosity, mixture_cp, mixture_density, mixture_molar_mass,
+        mixture_concentration,  # Added for EOS-based concentration
         omega_rates, delta_H_reaction, _get_kinetics, R_GAS,
+        set_mechanism_path, report_skipped_reactions,
         D_TUBE, L_TUBE, T_SET, P_IN, V_Z0,
         FEED_FORMULA, make_diluted_feed
     )
@@ -157,6 +161,9 @@ class Stage3State:
     P_in: float = 5.0 * 101325  # inlet pressure [Pa]
     v_z0: float = 5           # inlet velocity [m/s] volumetric inlet flow rate over the surface area
     
+    # Kinetics mechanism selection
+    mechanism_path: Path | str | None = "reduced"
+    
     # Discretization
     Nz: int = 100               # number of axial nodes
     
@@ -237,9 +244,9 @@ def compute_D_ax_profile(state: Stage3State, T: np.ndarray, P: np.ndarray,
         # Velocity from continuity
         v_z = state.v_z0 * (state.P_in / P_loc) * (T_loc / state.T_in)
         
-        # Mixture properties
+        # Mixture properties using PPR78 EOS
         mu = mixture_viscosity(Y_loc, T_loc)
-        rho = mixture_density(Y_loc, T_loc, P_loc)
+        rho = mixture_density(Y_loc, T_loc, P_loc, use_eos=True)  # Non-ideal density
         
         # Reynolds number
         Re = rho * v_z * state.D / mu
@@ -318,8 +325,10 @@ def solve_dispersion_fd(state: Stage3State,
     except ImportError:
         from pfr_ideal import run_pfr
     
+    set_mechanism_path(state.mechanism_path)
     species_formula = get_species_list()
     spec_idx = get_species_index()
+    report_skipped_reactions("solve_dispersion_fd")
     n_spec = len(species_formula)
     
     # Build feed composition
@@ -348,6 +357,7 @@ def solve_dispersion_fd(state: Stage3State,
         feed=feed,
         q_flux=q_flux_used,
         max_step=dz / 2,  # Fine step size for accuracy
+        mechanism_path=state.mechanism_path,
     )
     
     if not sol.success:
@@ -519,6 +529,7 @@ def _solve_species_fd(state: Stage3State, Y: np.ndarray, T: np.ndarray,
     c = np.zeros(Nz)  # super-diagonal
     d = np.zeros(Nz)  # RHS
     
+    set_mechanism_path(state.mechanism_path)
     species_formula, _, nu, *_ = _get_kinetics()
     
     for iz in range(1, Nz - 1):
@@ -526,7 +537,8 @@ def _solve_species_fd(state: Stage3State, Y: np.ndarray, T: np.ndarray,
         T_loc = T[iz]
         P_loc = P[iz]
         
-        C_total = P_loc / (R_GAS * T_loc)
+        # Use PPR78 EOS for concentration
+        C_total = mixture_concentration(Y_loc, T_loc, P_loc, use_eos=True)
         C = Y_loc * C_total
         
         v_z = state.v_z0 * (state.P_in / P_loc) * (T_loc / state.T_in)
@@ -593,14 +605,16 @@ def _solve_energy_fd(state: Stage3State, Y: np.ndarray, T: np.ndarray,
         T_loc = T[iz]
         P_loc = P[iz]
         
-        C_total = P_loc / (R_GAS * T_loc)
+        # Use PPR78 EOS for concentration
+        C_total = mixture_concentration(Y_loc, T_loc, P_loc, use_eos=True)
         C = Y_loc * C_total
         
         v_z = state.v_z0 * (state.P_in / P_loc) * (T_loc / state.T_in)
         alpha_loc = max(alpha_ax[iz], 1e-6)
         
-        rho = mixture_density(Y_loc, T_loc, P_loc)
-        Cp_mix = mixture_cp(Y_loc, T_loc)  # J/mol/K
+        # Mixture properties using PPR78 EOS
+        rho = mixture_density(Y_loc, T_loc, P_loc, use_eos=True)
+        Cp_mix = mixture_cp(Y_loc, T_loc, P_loc, use_eos=True)  # J/mol/K
         MW_mix = mixture_molar_mass(Y_loc)
         Cp_mass = Cp_mix / MW_mix  # J/kg/K
         
@@ -1108,6 +1122,7 @@ def _write_reaction_sources(filepath: Path, species_list: List[str],
         T = stage2_result["T_gas"]
         P = stage2_result["P"]
         
+        set_mechanism_path(state.mechanism_path)
         species_formula, _, nu, *_ = _get_kinetics()
         
         for iz in range(Nz):
@@ -1115,7 +1130,8 @@ def _write_reaction_sources(filepath: Path, species_list: List[str],
             T_loc = T[iz]
             P_loc = P[iz]
             
-            C_total = P_loc / (R_GAS * T_loc)
+            # Use PPR78 EOS for concentration
+            C_total = mixture_concentration(Y_loc, T_loc, P_loc, use_eos=True)
             C = Y_loc * C_total
             
             omega = omega_rates(C, T_loc, P_loc)
@@ -1453,7 +1469,7 @@ if __name__ == "__main__":
     print()
     
     # Solve Stage-3
-    result = solve_dispersion_fd(state, feed={"C2H6": 1.0}, verbose=True)
+    result = solve_dispersion_fd(state, feed=FEED_FORMULA, verbose=True)
     print_stage3_results(result)
     
     # Generate OpenFOAM case

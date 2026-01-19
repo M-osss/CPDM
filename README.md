@@ -84,9 +84,9 @@ See `SETUP.md` for detailed installation instructions.
 Stage-1 implements an ideal plug-flow reactor solving coupled species, energy, and pressure equations. It features:
 - **Reversible kinetics**: Net rates $\Omega_{net} = \Omega_f - \Omega_r$ with $k_r$ via detailed balance
 - **Thermodynamic consistency**: Enthalpy and Gibbs energy via NASA-7 polynomials
+- **PPR78 Equation of State**: Non-ideal gas behavior with compressibility factor and fugacity corrections
 - Perfect plug flow (no radial gradients)
 - Constant heat flux along the reactor
-- Ideal gas behavior
 - No axial dispersion
 
 ### Governing Equations
@@ -197,17 +197,18 @@ print(f"Estimated heat flux: {q_flux/1e3:.2f} kW/m²")
 3. **Reversible kinetics**: Rigorous treatment of chemical equilibrium via detailed balance
 4. **Thermodynamic consistency**: NASA-7 polynomials ensure accurate $K_c$ and $\Delta H_{rxn}$
 5. **Proper unit conversion**: Pre-exponential factors correctly converted
-6. **Third-body reactions**: Handled with total concentration [M] = P/(R*T)
+6. **Third-body reactions**: Handled with total concentration [M] = P/(Z·R·T) using PPR78 EOS
 7. **Property database**: Uses resolved species keys for NASA-7 lookups
+8. **Non-ideal gas**: PPR78 EOS with fugacity-corrected equilibrium constants
 
 ### Limitations
 
-1. **Ideal Gas Law**: Assumes $Z=1$, inaccurate for high-pressure industrial crackers (> 5 bar)
-2. **Linear mixing rules**: Viscosity and thermal conductivity use simple molar-fraction weighting instead of Wilke/Wassiljewa rules
-3. **Constant q''**: Heat flux uniform along reactor in Stage-1
-4. **No radial gradients**: Ideal plug flow assumption (significant in large D tubes)
-5. **No dispersion**: Perfect plug flow (no back-mixing) in Stage-1/Stage-2
-6. **Property dependency**: Accuracy is strictly bound by `species_properties.json` data quality
+1. **Linear mixing rules**: Viscosity and thermal conductivity use simple molar-fraction weighting instead of Wilke/Wassiljewa rules
+2. **Constant q''**: Heat flux uniform along reactor in Stage-1
+3. **No radial gradients**: Ideal plug flow assumption (significant in large D tubes)
+4. **No dispersion**: Perfect plug flow (no back-mixing) in Stage-1/Stage-2
+5. **Property dependency**: Accuracy is strictly bound by `species_properties.json` data quality
+6. **Radical critical properties**: Estimated from parent molecules (uncertainty in EOS for radicals)
 
 ### Typical Results
 
@@ -785,7 +786,7 @@ k = A * (T/298.15)^n * exp(-Ea/(R*T))
 **Unit conversion:**
 - Pre-exponential factors converted from molecule/cm³ basis to mol/m³
 - Activation energies in J/mol
-- Third-body reactions (M) handled with [M] = P/(R*T)
+- Third-body reactions (M) handled with [M] = P/(Z·R·T) using PPR78 EOS
 
 ### Thermophysical Properties
 
@@ -818,11 +819,36 @@ k_gas ≈ 0.02 + 7×10⁻⁵ * T  [W/(m·K)]
 #### Mixture Properties
 
 **Simple mixing rules:**
-- Heat capacity: Cp_mix = Σ_i(Y_i * Cp_i)
+- Heat capacity: Cp_mix = Σ_i(Y_i * Cp_i) + Cp_residual (EOS)
 - Viscosity: μ_mix = Σ_i(Y_i * μ_i)
-- Density: ρ = P * MW_mix / (R*T) (ideal gas)
+- Density: ρ = P * MW_mix / (Z * R * T) (PPR78 EOS)
 
-**Note:** More sophisticated mixing rules (Wilke, Wassiljewa) could be implemented for improved accuracy.
+#### PPR78 Equation of State
+
+The models use the **Predictive Peng-Robinson 1978 (PPR78)** equation of state for non-ideal gas behavior:
+
+```
+Z³ - (1-B)Z² + (A - 3B² - 2B)Z - (AB - B² - B³) = 0
+```
+
+Where:
+- Z = compressibility factor (Z=1 for ideal gas)
+- A, B = reduced EOS parameters from critical properties
+
+**Features:**
+- Temperature-dependent binary interaction parameters via group contribution
+- Fugacity coefficients for equilibrium calculations
+- Residual enthalpy, entropy, and heat capacity
+
+**Critical properties database** (`eos_ppr78.py`):
+- Stable species: from ChemSep/literature (Tc, Pc, ω)
+- Radicals: estimated from parent molecules
+
+**Fugacity corrections** for equilibrium:
+- Kc_corrected = Kc / K_φ
+- K_φ = Π(φ_products)^ν / Π(φ_reactants)^|ν|
+
+**Note:** At typical pyrolysis conditions (T > 800K, P < 5 bar), non-ideality corrections are small (<1%), but the framework supports higher pressures where deviations become significant.
 
 ### Data Files
 
@@ -950,7 +976,7 @@ Where $\Delta n$ is the net change in moles (excluding third bodies).
 **Weaknesses:**
 - **Increased Stiffness**: The presence of both very fast forward and reverse rates near equilibrium can lead to extreme numerical stiffness, challenging the BDF integrator.
 - **Data Sensitivity**: A 1% error in Gibbs energy coefficients can lead to orders of magnitude error in $K_c$ due to the exponential dependence, making the model highly sensitive to the RMG database accuracy.
-- **Inert Species Handling**: While N2 dilution is handled, its effect on equilibrium is purely through partial pressure reduction; any non-ideal gas effects (fugacity) are ignored.
+- **Inert Species Handling**: N2 dilution affects equilibrium through partial pressure reduction and fugacity corrections via the PPR78 EOS.
 
 ---
 
@@ -1085,8 +1111,10 @@ DWSIM_PFR/
 ├── pfr_heattransfer.py           # Stage-2: Heat transfer
 ├── pfr_dispersion.py             # Stage-3: Axial dispersion
 ├── equilibrium.py                # Equilibrium calculations
+├── eos_ppr78.py                  # PPR78 Equation of State
 ├── kinetics_parser.py             # CSV mechanism parser
 ├── props.py                      # Thermophysical properties
+├── validate_eos_integration.py   # EOS validation script
 ├── species_properties.json        # NASA-7 + transport data
 ├── reduced_by_GS_mechanism_reactions.csv  # Reaction mechanism
 ├── ethane_mechanism_complete.json # Full RMG mechanism (ref)
