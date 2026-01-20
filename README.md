@@ -1168,10 +1168,11 @@ If you use this code in your research, please cite:
 
 ```
 DWSIM_PFR: Multi-Stage Plug-Flow Reactor Models for Ethane Pyrolysis
-[Your citation information here]
+Kreshchenko Mikhail, CPDM Research 
 ```
 
 ---
 
 **End of Complete Guide**
+
 
