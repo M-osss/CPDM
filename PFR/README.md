@@ -1,4 +1,4 @@
-# DWSIM_PFR: Complete Guide - Plug-Flow Reactor Models for Ethane Pyrolysis
+# PFR: Complete Guide - Plug-Flow Reactor Models for Ethane Pyrolysis
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@
 
 ## Overview
 
-**DWSIM_PFR** is a comprehensive multi-stage Plug-Flow Reactor (PFR) model for thermal cracking of ethane to ethylene. The package implements three progressively sophisticated models:
+**PFR** is a comprehensive multi-stage Plug-Flow Reactor (PFR) model for thermal cracking of ethane to ethylene. The package implements three progressively sophisticated models:
 
 - **Stage-1**: Ideal 1-D PFR with constant heat flux (fast, preliminary design)
 - **Stage-2**: 2-D heat transfer with wall conduction and radiation (industrial furnaces)
@@ -1174,5 +1174,6 @@ Kreshchenko Mikhail, CPDM Research
 ---
 
 **End of Complete Guide**
+
 
 
