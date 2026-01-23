@@ -1,0 +1,120 @@
+119 Total number of subgroups. Govender.gct by Mgovendr from govender+gov2unif
+  1 CH3          1 CH2         16.1599998 -2.589  15.034 -CH3 
+  2 CH2          1 CH2         2.3299999 -0.636  14.026 -CH2- 
+  3 CH           1 CH2         -16.1800003 1.095  13.018 >CH- 
+  4 C            1 CH2         -34.8199997 2.756  12.010 >C< 
+  5 CH2=CH       2 C=C         18.1599998 -3.26  27.044 CH2= =CH- 
+  6 CH=CH        2 C=C         9.6599998 -2.1919999  26.036 =CH- =CH- 
+  7 CH2=C        2 C=C         3.2299995 -0.9630001  26.036 CH2= -C= 
+  8 CH=C         2 C=C         -5.2700005 0.105  25.028 =CH- -C= 
+  9 C=C          2 C=C         -20.2000008 2.402  24.020 -C= -C= 
+ 10 ACH          3 ACH         6.1700001 -1.22  13.018 CHa< 
+ 11 AC           3 ACH         -11 0.726  12.010 >Ca< 
+ 12 ACCH3        4 ACCH2       6.3999996 -1.911  27.044 >Ca< -CH3a 
+ 13 ACCH2        4 ACCH2       -8.6700001 0.09  26.036 >Ca< -CH2- 
+ 14 ACCH         4 ACCH2       -27.1800003 1.8210001  25.028 >Ca< >CH- 
+ 15 OH           5 OH          2.1500001 -0.1041  17.008 -OH 
+ 16 CH3OH        6 CH3OH       18.3099995 -2.6931  32.042 -CH3 -OH 
+ 17 H2O          7 H2O         4.3000002 -0.2082  18.016 -OH -OH 
+ 18 ACOH         8 ACOH        -15.0510006 -0.8026  29.018 >Ca< Ca-OH 
+ 19 CH3CO        9 CH2CO       16.7059994 -2.8118999  43.044 >C=O -CH3 
+ 20 CH2CO        9 CH2CO       2.8759999 -0.8589  42.036 >C=O -CH2- 
+ 21 CHO         10 CHO         12.7440004 -2.4582  29.018 -CHO 
+ 22 CH3COO      11 CCOO        39.3180008 -5.4454002  59.044 -COO- -CH3 
+ 23 CH2COO      11 CCOO        25.4880009 -3.4923999  58.036 -COO- -CH2- 
+ 24 HCOO        12 HCOO        23.1580009 -2.8564  45.018 -COO- 
+ 25 CH3O        13 CH2O        23.6669998 -2.2837999  31.034 -O- -CH3 
+ 26 CH2O        13 CH2O        9.8369999 -0.3308  30.026 -O- -CH2- 
+ 27 CH-O        13 CH2O        -8.6730003 1.4002  29.018 -O- >CH- 
+ 28 FCH2O       13 CH2O        38.5159988 -1.8293999  49.026 -O- -CH2- -F 
+ 29 CH3NH2      14 CNH2        19.5950012 -1.7563999  31.058 -CH3e -NH2 
+ 30 CH2NH2      14 CNH2        1.2350001 0.0786  30.500 -CH2-e -NH2 
+ 31 CHNH2       14 CNH2        -15.1850004 1.8156  29.042 -CH<e -NH2 
+ 32 CH3NH       15 CNH         24.2550011 -2.4245999  30.500 -CH3e -NH- 
+ 33 CH2NH       15 CNH         5.895 -0.5896  29.042 -CH2-e -NH- 
+ 34 CHNH        15 CNH         -10.5250006 1.1474  28.034 -CH<e -NH- 
+ 35 CH3N        16 (C)3N       1.8439999 -1.5884  29.042 -CH3e -N< 
+ 36 CH2N        16 (C)3N       -16.5160007 0.2465999  28.034 -CH2-e -N< 
+ 37 ACNH2       17 ACNH2       -6.8649998 1.3196  28.034 >Ca<e -NH2 
+ 38 C5H5N       18 Pyridine    53.1289978 -6.9005003  79.098 CHa< CHa< CHa< CHa< CHa< =N-a 
+ 39 C5H4N       18 Pyridine    35.9589996 -4.9545002  78.090 CHa< CHa< CHa< CHa< >Ca< =N-a 
+ 40 C5H3N       18 Pyridine    18.7889996 -3.0084999  77.082 CHa< CHa< CHa< >Ca< >Ca< =N-a 
+ 41 CH3CN       19 CCN         41.7029991 -5.2767  41.052 -CH3 -CN 
+ 42 CH2CN       19 CCN         27.8729992 -3.3237  40.044 -CH2- -CN 
+ 43 COOH        20 COOH        4.9819999 -1.6203001  45.018 -COOH 
+ 44 HCOOH       20 COOH        4.9819999 -1.6203001  46.026 -COOH 
+ 45 CH2Cl       21 CCl         12.9119987 -3.1882  49.483 -CH2-e -Cl 
+ 46 CHCl        21 CCl         -3.5080013 -1.4512  48.475 -CH<e -Cl 
+ 47 CCl         21 CCl         -20.2980022 -0.3032001  47.467 >C<e -Cl 
+ 48 CH2Cl2      22 CCl2        45.8186035 -5.5716  84.940 -CH2- Cl-C1 Cl-C1 
+ 49 CHCl2       22 CCl2        23.1286011 -4.1175995  83.932 -CH<e Cl-C1 Cl-C1 
+ 50 CCl2        22 CCl2        6.3386002 -2.9695997  82.924 >C<e Cl-C1 Cl-C1 
+ 51 CHCl3       23 CCl3        28.4559975 -6.4126005 119.389 -CH<e Cl-C2 Cl-C2 Cl-C2 
+ 52 CCl3        23 CCl3        11.6659966 -5.2646003 118.381 >C<e Cl-C2 Cl-C2 Cl-C2 
+ 53 CCl4        24 CCl4        28.5179958 -7.5338001 153.838 >C<e Cl-C2 Cl-C2 Cl-C2 -Cl 
+ 54 ACCl        25 ACCl        8.1759996 -2.2105  47.467 >Ca<e Cl-Ca 
+ 55 CH3NO2      26 CNO2        44.5209999 -5.6905999  61.042 -CH3 -NO2 
+ 56 CH2NO2      26 CNO2        30.691 -3.7375998  60.034 -CH2- -NO2 
+ 57 CHNO2       26 CNO2        12.1809998 -2.0065999  59.026 >CH- -NO2 
+ 58 ACNO2       27 ACNO2       18.5569992 -2.6792998  58.018 >Ca< -NO2a 
+ 59 CS2         28 CS2         -11.6619987 2.9078002  76.142 -S- >C< -S- 
+ 60 CH3SH       29 CH3SH       27.7390003 -2.5130999  48.108 -CH3 -S- 
+ 61 CH2SH       29 CH3SH       13.9090004 -0.5601  47.100 -CH2- -S- 
+ 62 Furfural    30 Furfural    38.0020027 -6.5983996  96.090 -Oa- CHa< CHa< CHa< CHa< >C=O 
+ 63 (CH2OH)2    31 DOH         4.3000002 -0.2082  60.052 error:-CH2 -OH -OH 
+ 64 I           32 I           1.147 -3.3471999 126.92  -I 
+ 65 Br          33 Br          6.1350002 -2.7263  79.916 -Br 
+ 66 CH~C        34 C~C         0 0  25.028 error:no groups defined! 
+ 67 C~C         34 C~C         0 0  24.020 error:no groups defined! 
+ 68 Me2SO       35 Me2SO       0 0  78.131 error:no groups defined! 
+ 69 ACRY        36 ACRY        0 0  53.060 error:no groups defined! 
+ 70 Cl(C=C)     37 ClCC        0 0  35.450 error:no groups defined! 
+ 71 ACF         38 ACF         0 0  31.010 error:no groups defined! 
+ 72 DMF-1       39 DMF         0 0  73.090 error:no groups defined! 
+ 73 DMF-2       39 DMF         0 0  71.090 error:no groups defined! 
+ 74 CF3         40 CF2         7.3459988 -5.1145997  69.010 >C<e F-C2 F-C2 F-C2 
+ 75 CF2         40 CF2         0.9639969 -2.2768002  50.010 >C<e F-C1 F-C1 
+ 76 CF          40 CF2         -8.4710007 0.4674  31.010 >C<e -F 
+ 77 COO         41 COO         23.1580009 -2.8564  44.010 -COO- 
+ 78 SiH3        42 SiH2        0 0  31.110 error:no groups defined! 
+ 79 SiH2        42 SiH2        0 0  30.102 error:no groups defined! 
+ 80 SiH         42 SiH2        0 0  29.094 error:no groups defined! 
+ 81 Si          42 SiH2        0 0  28.086 error:no groups defined! 
+ 82 SiH2O       43 SiO         0 0  46.101 error:no groups defined! 
+ 83 SiHO        43 SiO         0 0  45.093 error:no groups defined! 
+ 84 SiO         43 SiO         0 0  44.085 error:no groups defined! 
+ 85 NMP         44 NMP         0 0  99.130 error:no groups defined! 
+ 86 CCl3F       45 CClF        40.3449974 -6.7632003 137.368 >C<e Cl-C2 Cl-C2 Cl-C2 -F 
+ 87 CCl2F       45 CClF        24.072998 -4.3530002 101.916 >C<e Cl-C2 Cl-C2 -F 
+ 88 HCCl2F      45 CClF        57.1349983 -7.9112005 102.923 -CH<e Cl-C2 Cl-C2 Cl-C2 -F 
+ 89 HCClF       45 CClF        20.4412994 -3.7711999  86.469 -CH<e Cl-C1 F-C1 
+ 90 CClF2       45 CClF        8.7859974 -5.1645999  85.461 >C<e Cl-C2 F-C2 F-C2 
+ 91 HCClF2      45 CClF        45.9360008 -7.1306  86.469 error:>CH-e Cl-C2 F-C2 F-C2 
+ 92 CClF3       45 CClF        7.3459988 -5.1145997 104.459 >C<e F-C2 F-C2 F-C2 
+ 93 CCl2F2      45 CClF        25.0579967 -7.5748 120.914 >C<e Cl-C2 Cl-C2 F-C2 F-C2 
+ 94 CONH2       46 CON         5.7210002 0.7747  44.033 >C=O -NH2 
+ 95 CONHCH3     46 CON         26.5410004 -2.4825001  58.060 >C=O -NH- -CH3 
+ 96 CONHCH2     46 CON         12.7110004 -0.5295  57.053 >C=O -NH- -CH2- 
+ 97 CON(CH3)2   46 CON         20.289999 -4.2353001  72.087 >C=O -N< -CH3 -CH3 
+ 98 CONCH3CH2   46 CON         6.4599991 -2.2823  71.079 >C=O -N< -CH3 -CH2- 
+ 99 CON(CH2)2   46 CON         -7.3700008 -0.3293  70.071 >C=O -N< -CH2- -CH2- 
+100 C2H5O2      47 OCCOH       0 0  61.061 error:no groups defined! 
+101 C2H4O2      47 OCCOH       0 0  60.053 error:no groups defined! 
+102 CH3S        48 CH2S        27.7390003 -2.5130999  47.079 -CH3 -S- 
+103 CH2S        48 CH2S        13.9090004 -0.5601  46.091 -CH2- -S- 
+104 CHS         48 CH2S        -4.6009998 1.1709  45.083 >CH- -S- 
+105 Morpholine  49 MORPH       0 0  87.122 error:no groups defined! 
+106 C4H4S       50 Thiophene   0 0  84.140 error:no groups defined! 
+108 C4H2S       50 Thiophene   0 0  82.125 error:no groups defined! 
+107 C4H3S       50 Thiophene   0 0  83.133 error:no groups defined! 
+109 CH2=C=CH     2 C=C         18.1599998 -3.26  39.054 CH2= error:>C= =CH- 
+120 OCOO        54 OCOO        18.2490005 -2.0574999  60.009 -OCOO- 
+121 CH2OCH2     52 CH2OCH2     0 0  44.052 error:no groups defined! 
+122 CH2OCH      52 CH2OCH2     0 0  43.044 error:no groups defined! 
+123 CH2OC       52 CH2OCH2     0 0  42.036 error:no groups defined! 
+124 CHOCH       52 CH2OCH2     0 0  42.036 error:no groups defined! 
+125 COCH        52 CH2OCH2     0 0  41.028 error:no groups defined! 
+126 CHOC        52 CH2OCH2     0 0  40.020 error:no groups defined! 
+127 O=COC=O     53 O=COC=O     0 0  72.019 error:no groups defined! 
+128 AC-CN       57 AC-CN       -11.6070023 -0.7217001  38.028 >C<e -CN 
+129 AC-Br       64 AC-Br       -31.0150013 -0.7603  91.914 >C<e -Br 

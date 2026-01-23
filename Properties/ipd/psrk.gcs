@@ -1,0 +1,862 @@
+[PSRK]
+# GC structural data
+100-01-6  9  4  36  1  57  1  0  0  0  0  0  0  4-Nitroaniline
+105-05-5  1  2  9  4  12  2  0  0  0  0  0  0  1,4-Diethylbenzene
+107-02-8  5  1  20  1  0  0  0  0  0  0  0  0  Acrolein
+107-03-9  1  1  2  1  60  1  0  0  0  0  0  0  1-Propanethiol
+107-05-1  5  1  44  1  0  0  0  0  0  0  0  0  3-Chloro-1-propene
+107-06-2  44  2  0  0  0  0  0  0  0  0  0  0  1,2-Dichlorethane
+107-07-3  2  1  14  1  44  1  0  0  0  0  0  0  2-Chloroethanol
+107-10-8  1  1  2  1  29  1  0  0  0  0  0  0  N-Propylamine
+108-03-2  1  1  2  1  55  1  0  0  0  0  0  0  1-Nitropropane
+108-05-4  5  1  21  1  0  0  0  0  0  0  0  0  Vinyl acetate
+108-08-7  1  4  2  1  3  2  0  0  0  0  0  0  2,4-Dimethylpentane
+108-10-1  1  2  2  1  3  1  18  1  0  0  0  0  4-Methyl-2-pentanone
+108-11-2  1  3  2  1  3  2  14  1  0  0  0  0  4-Methyl-2-pentanol
+109-05-7  1  1  2  3  3  1  32  1  0  0  0  0  2-Methylpiperidine
+109-06-8  1  1  38  1  0  0  0  0  0  0  0  0  2-Methylpyridine
+110-02-1  106  1  0  0  0  0  0  0  0  0  0  0  Thiophene
+111-01-3  1  8  2  16  3  6  0  0  0  0  0  0  Squalane
+111-11-5  1  2  2  5  22  1  0  0  0  0  0  0  Octanoic acid methyl ester
+112-07-2  1  1  2  4  21  1  25  1  0  0  0  0  2-Butoxyethyl acetate
+115-07-1  1  1  5  1  0  0  0  0  0  0  0  0  Propylene
+115-10-6  1  1  24  1  0  0  0  0  0  0  0  0  Dimethyl ether
+115-11-7  1  2  7  1  0  0  0  0  0  0  0  0  Isobutylene
+120-12-7  9  10  10  4  0  0  0  0  0  0  0  0  Anthracene
+123-01-3  1  1  2  10  9  5  12  1  0  0  0  0  1-Phenyldodecane
+123-02-4  1  1  2  11  9  5  12  1  0  0  0  0  1-Phenyltridecane
+123-05-7  1  2  2  4  3  1  20  1  0  0  0  0  2-Ethylhexanaldehyde
+123-07-9  1  1  9  4  12  1  17  1  0  0  0  0  4-Ethylphenol
+124-06-1  1  2  2  12  22  1  0  0  0  0  0  0  Tetradecanoic acid ethyl ester
+124-07-2  1  1  2  6  42  1  0  0  0  0  0  0  Octanoic acid
+124-10-7  1  2  2  11  22  1  0  0  0  0  0  0  Tetradecanoic acid methyl ester
+124-11-8  1  1  2  6  5  1  0  0  0  0  0  0  1-Nonene
+124-12-9  1  1  2  5  41  1  0  0  0  0  0  0  Caprylonitrile
+143-07-7  1  1  2  10  42  1  0  0  0  0  0  0  Dodecanoic acid
+143-08-8  1  1  2  8  14  1  0  0  0  0  0  0  1-Nonanol
+344-04-7  10  1  64  1  71  5  0  0  0  0  0  0  Bromopentafluorobenzene
+355-02-2  74  1  75  5  76  1  0  0  0  0  0  0  Perfluoromethylcyclohexane
+355-04-4  74  3  75  2  76  1  0  0  0  0  0  0  Perfluoro-2-methylpentane
+367-11-3  9  4  71  2  0  0  0  0  0  0  0  0  1,2-Difluorobenzene
+374-07-2  74  1  87  1  0  0  0  0  0  0  0  0  1,1-Dichloro tetrafluoro ethane [R114a]
+422-05-9  2  1  14  1  74  1  75  1  0  0  0  0  2,2,3,3,3-Pentafluoropropanol
+462-06-6  9  5  71  1  0  0  0  0  0  0  0  0  Fluorobenzene
+464-06-2  1  5  3  1  4  1  0  0  0  0  0  0  2,2,3-Trimethylbutane
+493-01-6  2  8  3  2  0  0  0  0  0  0  0  0  cis-Decahydronaphthalene
+493-02-7  2  8  3  2  0  0  0  0  0  0  0  0  trans-Decahydronaphthalene
+496-11-7  2  1  9  4  12  2  0  0  0  0  0  0  Indane
+541-01-5  1  16  81  1  84  6  0  0  0  0  0  0  Hexadecamethylheptasiloxane
+541-02-6  1  10  84  5  0  0  0  0  0  0  0  0  Decamethylcyclopentasiloxane
+541-05-9  1  6  84  3  0  0  0  0  0  0  0  0  Hexamethylcyclotrisiloxane
+544-01-4  1  4  2  3  3  2  25  1  0  0  0  0  Diisopentyl ether
+544-10-5  1  1  2  4  44  1  0  0  0  0  0  0  1-Chlorohexane
+554-12-1  1  2  22  1  0  0  0  0  0  0  0  0  Methyl propanoate
+564-02-3  1  5  2  1  3  1  4  1  0  0  0  0  2,2,3-Trimethylpentane
+590-01-2  1  2  2  3  22  1  0  0  0  0  0  0  Propanoic acid butyl ester
+627-05-4  1  1  2  2  55  1  0  0  0  0  0  0  1-Nitrobutane
+629-11-8  2  6  14  2  0  0  0  0  0  0  0  0  1,6-Hexanediol
+630-01-3  1  2  2  24  0  0  0  0  0  0  0  0  Hexacosane
+630-02-4  1  2  2  26  0  0  0  0  0  0  0  0  Octacosane
+630-06-8  1  2  2  34  0  0  0  0  0  0  0  0  Hexatriacontane
+638-11-9  1  3  2  1  3  1  22  1  0  0  0  0  Isopropyl butyrate
+646-04-8  1  2  2  1  6  1  0  0  0  0  0  0  trans-2-Pentene
+693-02-7  1  1  2  3  65  1  0  0  0  0  0  0  1-Hexyne
+872-05-9  1  1  2  7  5  1  0  0  0  0  0  0  1-Decene
+929-06-6  2  1  29  1  100  1  0  0  0  0  0  0  Diglycolamine
+994-05-8  1  3  2  1  4  1  24  1  0  0  0  0  Methyl tert-amyl ether
+1067-08-9  1  4  2  3  4  1  0  0  0  0  0  0  3-Methyl-3-ethylpentane
+1078-04-2  1  2  2  1  4  1  9  2  10  1  11  2  1,1,4,7-Tetramethylindan
+1459-09-2  1  1  2  14  9  5  12  1  0  0  0  0  Hexadecylbenzene
+1459-10-5  1  1  2  12  9  5  12  1  0  0  0  0  1-Phenyltetradecane
+1569-01-3  1  2  2  2  101  1  0  0  0  0  0  0  1-Propoxy-2-propanol
+1634-04-4  1  3  4  1  24  1  0  0  0  0  0  0  Methyl tert-butyl ether
+1634-09-9  1  1  2  2  9  7  10  2  12  1  0  0  1-Butylnaphthalene
+1679-07-8  2  4  134  1  0  0  0  0  0  0  0  0  Cyclopentane-thiol
+1795-01-3  1  1  2  1  7  11  0  0  0  0  0  0  3-Ethylthiophene
+1795-09-1  1  1  2  2  3  1  3  11  0  0  0  0  2-Methyl-thiacyclopentane
+1957-10-3  1  1  2  14  42  1  0  0  0  0  0  0  Palmitic acid
+1957-11-4  1  1  2  16  42  1  0  0  0  0  0  0  Octadecanoic acid
+1968-12-2  72  1  0  0  0  0  0  0  0  0  0  0  N,N-Dimethylformamide (DMF)
+1975-01-4  5  1  69  1  0  0  0  0  0  0  0  0  Vinyl chloride
+1975-03-6  1  1  2  1  63  1  0  0  0  0  0  0  Ethyl iodide
+1975-04-7  1  1  29  1  0  0  0  0  0  0  0  0  Ethylamine
+1975-05-8  40  1  0  0  0  0  0  0  0  0  0  0  Acetonitrile
+1975-08-1  1  1  60  1  0  0  0  0  0  0  0  0  Ethanethiol
+1975-09-2  47  1  0  0  0  0  0  0  0  0  0  0  Dichloromethane
+1976-01-7  48  1  51  1  0  0  0  0  0  0  0  0  Pentachloroethane
+1976-03-9  42  1  51  1  0  0  0  0  0  0  0  0  Trichloroacetic acid
+1976-05-1  42  1  74  1  0  0  0  0  0  0  0  0  Trifluoroacetic acid
+1979-01-6  8  1  69  3  0  0  0  0  0  0  0  0  Trichloroethylene
+1979-09-4  1  1  2  1  42  1  0  0  0  0  0  0  Propionic acid
+1979-10-7  5  1  42  1  0  0  0  0  0  0  0  0  Acrylic acid
+1979-11-8  42  1  44  1  0  0  0  0  0  0  0  0  Chloroacetic acid
+1985-01-8  9  10  10  4  0  0  0  0  0  0  0  0  Phenanthrene
+1992-06-8  9  14  10  4  0  0  0  0  0  0  0  0  m-Terphenyl
+1998-01-1  61  1  0  0  0  0  0  0  0  0  0  0  Furfural
+1998-06-6  1  3  4  1  9  5  10  1  0  0  0  0  tert-Butylbenzene
+1998-08-8  9  5  10  1  74  1  0  0  0  0  0  0  1',1',1'-Trifluorotoluene
+1999-08-1  9  4  11  1  57  1  0  0  0  0  0  0  m-Nitrotoluene
+1999-09-2  9  4  36  1  57  1  0  0  0  0  0  0  3-Nitroaniline
+2207-01-4  1  2  2  4  3  2  0  0  0  0  0  0  cis-1,2-Dimethylcyclohexane
+2207-03-6  1  2  2  4  3  2  0  0  0  0  0  0  trans-1,3-Dimethyl cyclohexane
+2207-04-7  1  2  2  4  3  2  0  0  0  0  0  0  trans-1,4-Dimethylcyclohexane
+2690-08-6  1  2  2  13  3  11  0  0  0  0  0  0  Di-n-octyl thioether
+2870-04-4  1  1  9  3  11  2  12  1  0  0  0  0  2-Ethyl m-xylene
+4390-04-9  1  9  2  3  3  1  4  3  0  0  0  0  2,2,4,4,6,8,8-Heptamethylnonane
+7058-01-7  1  2  2  6  3  2  0  0  0  0  0  0  sec-Butylcyclohexane
+7440-01-9  26  1  0  0  0  0  0  0  0  0  0  0  Neon
+7446-09-5  121  1  0  0  0  0  0  0  0  0  0  0  Sulfur dioxide
+7642-09-3  1  2  2  2  6  1  0  0  0  0  0  0  cis-3-Hexene
+7783-06-4  114  1  0  0  0  0  0  0  0  0  0  0  Hydrogen sulfide
+100-18-5  1  4  9  4  13  2  0  0  0  0  0  0  p-Diisopropylbenzene
+100-41-4  1  1  9  5  12  1  0  0  0  0  0  0  Ethylbenzene
+100-42-5  5  1  9  5  10  1  0  0  0  0  0  0  Styrene
+100-46-9  9  5  10  1  29  1  0  0  0  0  0  0  alpha-Aminotoluene
+100-51-6  9  5  12  1  14  1  0  0  0  0  0  0  Benzyl alcohol
+100-52-7  9  5  10  1  20  1  0  0  0  0  0  0  Benzaldehyde
+100-61-8  9  5  10  1  31  1  0  0  0  0  0  0  N-Methylaniline
+100-66-3  9  5  10  1  24  1  0  0  0  0  0  0  Methyl phenyl ether
+100-68-5  9  5  10  1  2  11  0  0  0  0  0  0  1-Phenyl-1-thiaethane
+100-71-0  1  1  2  1  38  1  0  0  0  0  0  0  2-Ethylpyridine
+10024-97-2  123  1  0  0  0  0  0  0  0  0  0  0  Dinitrogen monoxide
+10028-15-6  148  1  0  0  0  0  0  0  0  0  0  0  Ozone
+10034-85-2  132  1  0  0  0  0  0  0  0  0  0  0  Hydrogen iodide
+10035-10-6  131  1  0  0  0  0  0  0  0  0  0  0  Hydrogen bromide
+101-81-5  9  10  10  1  12  1  0  0  0  0  0  0  Diphenylmethane
+10102-43-9  122  1  0  0  0  0  0  0  0  0  0  0  Nitrogen oxide
+10102-44-0  146  1  0  0  0  0  0  0  0  0  0  0  Nitrogen dioxide
+1012-72-2  1  6  4  2  9  4  10  2  0  0  0  0  1,4-Bis(1,1-dimethylethyl)benzene
+102-25-0  1  3  9  3  12  3  0  0  0  0  0  0  1,3,5-Triethylbenzene
+102-69-2  1  3  2  5  35  1  0  0  0  0  0  0  Tripropylamine
+102-71-6  2  5  14  3  35  1  0  0  0  0  0  0  Triethanolamine
+102-82-9  1  3  2  8  35  1  0  0  0  0  0  0  Tributylamine
+103-49-1  9  10  10  1  12  1  32  1  0  0  0  0  Dibenzylamine
+103-65-1  1  1  2  1  9  5  12  1  0  0  0  0  Propylbenzene
+103-69-5  1  1  9  5  10  1  32  1  0  0  0  0  N-Ethylaniline
+103-73-1  1  1  9  5  10  1  25  1  0  0  0  0  Ethoxybenzene
+104-51-8  1  1  2  2  9  5  12  1  0  0  0  0  Butylbenzene
+104-72-3  1  1  2  8  9  5  12  1  0  0  0  0  1-Phenyldecane
+104-76-7  1  2  2  5  3  1  14  1  0  0  0  0  2-Ethyl-1-hexanol
+104-90-5  1  2  2  1  39  1  0  0  0  0  0  0  5-Ethyl-2-methylpyridine
+105-30-6  1  2  2  3  3  1  14  1  0  0  0  0  2-Methyl-1-pentanol
+105-37-3  1  2  2  1  22  1  0  0  0  0  0  0  Propanoic acid ethyl ester
+105-38-4  1  1  5  1  22  1  0  0  0  0  0  0  Vinyl propionate
+105-39-5  1  1  2  1  44  1  77  1  0  0  0  0  Ethyl chloroacetate
+105-46-4  1  2  2  1  3  1  21  1  0  0  0  0  sec-Butyl acetate
+105-54-4  1  2  2  2  22  1  0  0  0  0  0  0  Ethyl butyrate
+105-66-8  1  2  2  3  22  1  0  0  0  0  0  0  Butanoic acid propyl ester
+105-67-9  9  3  11  2  17  1  0  0  0  0  0  0  2,4-Dimethylphenol
+106-35-4  1  2  2  3  19  1  0  0  0  0  0  0  3-Heptanone
+106-36-5  1  2  2  2  22  1  0  0  0  0  0  0  Propanoic acid propyl ester
+106-42-3  9  4  11  2  0  0  0  0  0  0  0  0  p-Xylene
+106-43-4  9  4  11  1  53  1  0  0  0  0  0  0  p-Chlorotoluene
+106-44-5  9  4  11  1  17  1  0  0  0  0  0  0  4-Methylphenol
+106-46-7  9  4  53  2  0  0  0  0  0  0  0  0  p-Dichlorobenzene
+106-47-8  9  4  36  1  53  1  0  0  0  0  0  0  p-Chloroaniline
+106-49-0  9  4  11  1  36  1  0  0  0  0  0  0  p-Methylaniline
+106-65-0  1  2  22  2  0  0  0  0  0  0  0  0  Dimethylsuccinate
+106-88-7  1  1  2  1  136  1  0  0  0  0  0  0  1,2-Epoxybutane
+106-89-8  44  1  136  1  0  0  0  0  0  0  0  0  Epichlorohydrin
+106-93-4  2  2  64  2  0  0  0  0  0  0  0  0  1,2-Dibromoethane
+106-94-5  1  1  2  2  64  1  0  0  0  0  0  0  Propyl bromide
+106-97-8  1  2  2  2  0  0  0  0  0  0  0  0  n-Butane
+106-98-9  1  1  2  1  5  1  0  0  0  0  0  0  1-Butene
+106-99-0  5  2  0  0  0  0  0  0  0  0  0  0  1,3-Butadiene
+1067-20-5  1  4  2  4  4  1  0  0  0  0  0  0  3,3-Diethylpentane
+107-00-6  1  1  2  1  65  1  0  0  0  0  0  0  1-Butyne
+107-04-0  2  1  44  1  64  1  0  0  0  0  0  0  1-Bromo-2-chloro ethane
+107-12-0  1  1  41  1  0  0  0  0  0  0  0  0  Propionitrile
+107-13-1  68  1  0  0  0  0  0  0  0  0  0  0  Acrylonitrile
+107-15-3  29  2  0  0  0  0  0  0  0  0  0  0  Ethylenediamine
+107-18-6  2  1  5  1  14  1  0  0  0  0  0  0  2-Propen-1-ol
+107-21-1  62  1  0  0  0  0  0  0  0  0  0  0  1,2-Ethanediol
+107-31-3  1  1  23  1  0  0  0  0  0  0  0  0  Methyl formate
+107-41-5  1  3  2  1  3  1  4  1  14  2  0  0  2-Methyl-2,4-pentanediol
+107-46-0  1  6  81  1  84  1  0  0  0  0  0  0  Hexamethyl disiloxane
+107-51-7  1  8  81  1  84  2  0  0  0  0  0  0  Octamethyltrisiloxan
+107-52-8  1  14  81  1  84  5  0  0  0  0  0  0  Tetradecamethylhexasiloxane
+107-83-5  1  3  2  2  3  1  0  0  0  0  0  0  2-Methylpentane
+107-87-9  1  1  2  2  18  1  0  0  0  0  0  0  2-Pentanone
+107-88-0  1  1  2  2  3  1  14  2  0  0  0  0  1,3-Butanediol
+107-92-6  1  1  2  2  42  1  0  0  0  0  0  0  Butyric acid
+107-98-2  1  2  1  11  0  0  0  0  0  0  0  0  1-Methoxy-2-propanol
+1070-87-7  1  6  2  1  4  2  0  0  0  0  0  0  2,2,4,4-Tetramethylpentane
+1072-16-8  1  4  2  4  3  2  0  0  0  0  0  0  2,7-Dimethyloctane
+1074-17-5  1  1  2  1  9  4  11  1  12  1  0  0  o-Propyltoluene
+1074-55-1  1  1  2  1  9  4  11  1  12  1  0  0  p-Methylpropylbenzene
+1077-16-3  1  1  2  4  9  5  12  1  0  0  0  0  Hexylbenzene
+108-18-9  1  4  3  1  33  1  0  0  0  0  0  0  Diisopropylamine
+108-20-3  1  4  3  1  26  1  0  0  0  0  0  0  Diisopropyl ether
+108-21-4  1  2  3  1  21  1  0  0  0  0  0  0  Acetic acid isopropyl ester
+108-38-3  9  4  11  2  0  0  0  0  0  0  0  0  m-Xylene
+108-39-4  9  4  11  1  17  1  0  0  0  0  0  0  3-Methylphenol
+108-42-9  9  4  36  1  53  1  0  0  0  0  0  0  m-Chloroaniline
+108-44-1  9  4  11  1  36  1  0  0  0  0  0  0  m-Methylaniline
+108-45-2  9  4  36  2  0  0  0  0  0  0  0  0  m-Phenylenediamine
+108-46-3  9  4  17  2  0  0  0  0  0  0  0  0  1,3-Dihydroxybenzene
+108-47-4  1  2  39  1  0  0  0  0  0  0  0  0  2,4-Dimethylpyridine
+108-48-5  1  2  39  1  0  0  0  0  0  0  0  0  2,6-Dimethylpyridine
+108-65-6  1  1  2  1  3  1  21  1  24  1  0  0  Propylene glycol monomethyl ether acetate
+108-67-8  9  3  11  3  0  0  0  0  0  0  0  0  1,3,5-Trimethylbenzene
+108-68-9  9  3  11  2  17  1  0  0  0  0  0  0  3,5-Dimethylphenol
+108-86-1  9  5  10  1  64  1  0  0  0  0  0  0  Bromobenzene
+108-87-2  1  1  2  5  3  1  0  0  0  0  0  0  Methylcyclohexane
+108-88-3  9  5  11  1  0  0  0  0  0  0  0  0  Toluene
+108-89-4  1  1  38  1  0  0  0  0  0  0  0  0  4-Methylpyridine
+108-90-7  9  5  53  1  0  0  0  0  0  0  0  0  Chlorobenzene
+108-93-0  2  5  3  1  14  1  0  0  0  0  0  0  Cyclohexanol
+108-94-1  2  4  19  1  0  0  0  0  0  0  0  0  Cyclohexanone
+108-95-2  9  5  17  1  0  0  0  0  0  0  0  0  Phenol
+108-99-6  1  1  38  1  0  0  0  0  0  0  0  0  3-Methylpyridine
+1081-77-2  1  1  2  7  9  5  12  1  0  0  0  0  Nonylbenzene
+109-21-7  1  2  2  4  22  1  0  0  0  0  0  0  1-Butanoic acid butyl ester
+109-52-4  1  1  2  3  42  1  0  0  0  0  0  0  Pentanoic acid
+109-60-4  1  1  2  2  21  1  0  0  0  0  0  0  Acetic acid propyl ester
+109-65-9  1  1  2  3  64  1  0  0  0  0  0  0  Butyl bromide
+109-66-0  1  2  2  3  0  0  0  0  0  0  0  0  Pentane
+109-67-1  1  1  2  2  5  1  0  0  0  0  0  0  1-Pentene
+109-69-3  1  1  2  2  44  1  0  0  0  0  0  0  Butyl chloride
+109-73-9  1  1  2  2  29  1  0  0  0  0  0  0  Butylamine
+109-74-0  1  1  2  1  41  1  0  0  0  0  0  0  Butanenitrile
+109-75-1  5  1  41  1  0  0  0  0  0  0  0  0  Allylcyanide
+109-79-5  1  1  2  2  60  1  0  0  0  0  0  0  n-Butylmercaptan
+109-83-1  2  2  14  1  31  1  0  0  0  0  0  0  2-N-Monomethylaminoethanol
+109-86-4  1  1  100  1  0  0  0  0  0  0  0  0  2-Methoxyethanol
+109-87-5  2  1  24  2  0  0  0  0  0  0  0  0  Dimethoxymethane
+109-89-7  1  2  2  1  32  1  0  0  0  0  0  0  N,N-Diethylamine
+109-92-2  1  1  5  1  25  1  0  0  0  0  0  0  Ethyl vinyl ether
+109-94-4  1  1  2  1  23  1  0  0  0  0  0  0  Formic acid ethyl ester
+109-99-9  2  3  27  1  0  0  0  0  0  0  0  0  Tetrahydrofuran
+110-01-0  2  3  103  1  0  0  0  0  0  0  0  0  Tetrahydrothiophene
+110-19-0  1  2  2  1  3  1  21  1  0  0  0  0  Acetic acid isobutyl ester
+110-42-9  1  2  2  7  22  1  0  0  0  0  0  0  Decanoic acid methyl ester
+110-43-0  1  1  2  4  18  1  0  0  0  0  0  0  2-Heptanone
+110-45-2  1  2  2  2  3  1  23  1  0  0  0  0  Formic acid isopentyl ester
+110-54-3  1  2  2  4  0  0  0  0  0  0  0  0  Hexane
+110-56-5  2  2  44  2  0  0  0  0  0  0  0  0  1,4-Dichlorobutane
+110-58-7  1  1  2  3  29  1  0  0  0  0  0  0  1-Aminopentane
+110-59-8  1  1  2  2  41  1  0  0  0  0  0  0  Valeronitrile
+110-61-2  41  2  0  0  0  0  0  0  0  0  0  0  1,2-Dicyanoethane
+110-62-3  1  1  2  3  20  1  0  0  0  0  0  0  Valeraldehyde
+110-63-4  2  4  14  2  0  0  0  0  0  0  0  0  1,4-Butanediol
+110-65-6  2  2  14  2  66  1  0  0  0  0  0  0  2-Butyne-1,4-diol
+110-68-9  1  1  2  3  31  1  0  0  0  0  0  0  Methyl butyl amine
+110-71-4  2  2  24  2  0  0  0  0  0  0  0  0  1,2-Dimethoxyethane
+110-74-7  1  1  2  2  23  1  0  0  0  0  0  0  Formic acid propyl ester
+110-80-5  1  1  2  1  100  1  0  0  0  0  0  0  2-Ethoxyethanol
+110-81-6  1  2  103  2  0  0  0  0  0  0  0  0  Diethyl disulfide
+110-82-7  2  6  0  0  0  0  0  0  0  0  0  0  Cyclohexane
+110-83-8  2  4  6  1  0  0  0  0  0  0  0  0  Cyclohexene
+110-85-0  2  2  32  2  0  0  0  0  0  0  0  0  Piperazine
+110-86-1  37  1  0  0  0  0  0  0  0  0  0  0  Pyridine
+110-89-4  2  4  32  1  0  0  0  0  0  0  0  0  Piperidine
+110-91-8  105  1  0  0  0  0  0  0  0  0  0  0  Morpholine
+111-13-7  1  1  2  5  18  1  0  0  0  0  0  0  2-Octanone
+111-14-8  1  1  2  5  42  1  0  0  0  0  0  0  Heptanoic acid
+111-15-9  1  1  2  2  21  1  25  1  0  0  0  0  1,2-Ethanediol-monoacetate-monoethyl ether
+111-27-3  1  1  2  5  14  1  0  0  0  0  0  0  1-Hexanol
+111-31-9  1  1  2  4  60  1  0  0  0  0  0  0  Hexylmercaptan
+111-34-2  1  1  2  2  5  1  25  1  0  0  0  0  Butyl vinyl ether
+111-40-0  2  1  29  2  32  1  0  0  0  0  0  0  Diethylenetriamine
+111-41-1  2  2  14  1  29  1  32  1  0  0  0  0  N-(2-Aminoethyl)ethanolamine
+111-42-2  2  3  14  2  32  1  0  0  0  0  0  0  2,2'-Diethanolamine
+111-43-3  1  2  2  3  25  1  0  0  0  0  0  0  Di-n-propyl ether
+111-46-6  2  2  14  1  100  1  0  0  0  0  0  0  Diethylene glycol
+111-49-9  2  5  32  1  0  0  0  0  0  0  0  0  Hexamethylene imine
+111-61-5  1  2  2  16  22  1  0  0  0  0  0  0  Octadecanoic acid ethyl ester
+111-65-9  1  2  2  6  0  0  0  0  0  0  0  0  Octane
+111-66-0  1  1  2  5  5  1  0  0  0  0  0  0  1-Octene
+111-69-3  2  2  41  2  0  0  0  0  0  0  0  0  1,4-Dicyanobutane
+111-70-6  1  1  2  6  14  1  0  0  0  0  0  0  1-Heptanol
+111-71-7  1  1  2  5  20  1  0  0  0  0  0  0  Heptanal
+111-76-2  1  1  2  3  100  1  0  0  0  0  0  0  2-Butoxyethanol
+111-77-3  2  2  24  1  100  1  0  0  0  0  0  0  Diethylene glycol monomethyl ether
+111-82-0  1  2  2  9  22  1  0  0  0  0  0  0  Dodecanoic acid methyl ester
+111-84-2  1  2  2  7  0  0  0  0  0  0  0  0  Nonane
+111-85-3  1  1  2  6  44  1  0  0  0  0  0  0  1-Chlorooctane
+111-86-4  1  1  2  6  29  1  0  0  0  0  0  0  1-Octanamine
+111-87-5  1  1  2  7  14  1  0  0  0  0  0  0  1-Octanol
+111-88-6  1  1  2  6  60  1  0  0  0  0  0  0  Octylmercaptan
+111-90-0  1  1  2  2  25  1  100  1  0  0  0  0  Diethylene glycol ethyl ether
+111-92-2  1  2  2  5  32  1  0  0  0  0  0  0  Dibutylamine
+112-05-0  1  1  2  7  42  1  0  0  0  0  0  0  Nonanoic acid
+112-14-1  1  1  2  7  21  1  0  0  0  0  0  0  Octyl acetate
+112-15-2  1  1  2  3  21  1  25  2  0  0  0  0  Diethylene glycol monoethyl ether acetate
+112-27-6  2  2  100  2  0  0  0  0  0  0  0  0  Triethylene glycol
+112-30-1  1  1  2  9  14  1  0  0  0  0  0  0  1-Decanol
+112-31-2  1  1  2  8  20  1  0  0  0  0  0  0  Capraldehyde
+112-34-5  1  1  2  4  25  1  100  1  0  0  0  0  Diethylene glycol monobutyl ether
+112-39-0  1  2  2  13  22  1  0  0  0  0  0  0  Hexadecanoic acid methyl ester
+112-40-3  1  2  2  10  0  0  0  0  0  0  0  0  Dodecane
+112-41-4  1  1  2  9  5  1  0  0  0  0  0  0  1-Dodecene
+112-42-5  1  1  2  10  14  1  0  0  0  0  0  0  1-Undecanol
+112-52-7  1  1  2  10  44  1  0  0  0  0  0  0  1-Chlorododecane
+112-53-8  1  1  2  11  14  1  0  0  0  0  0  0  1-Dodecanol
+112-60-7  2  3  25  1  100  2  0  0  0  0  0  0  Tetraethylene glycol
+112-61-8  1  2  2  15  22  1  0  0  0  0  0  0  Octadecanoic acid methyl ester
+112-62-9  1  2  2  13  6  1  22  1  0  0  0  0  Methyl oleate
+112-70-9  1  1  2  12  14  1  0  0  0  0  0  0  n-Tridecanol
+112-72-1  1  1  2  13  14  1  0  0  0  0  0  0  1-Tetradecanol
+112-88-9  1  1  2  15  5  1  0  0  0  0  0  0  1-Octadecene
+112-92-5  1  1  2  17  14  1  0  0  0  0  0  0  1-Octadecanol
+112-95-8  1  2  2  18  0  0  0  0  0  0  0  0  Eicosane
+1120-21-4  1  2  2  9  0  0  0  0  0  0  0  0  n-Undecane
+1120-36-1  1  1  2  11  5  1  0  0  0  0  0  0  1-Tetradecene
+1120-48-5  1  2  2  13  32  1  0  0  0  0  0  0  Dioctylamine
+1120-62-3  1  1  2  2  3  1  6  1  0  0  0  0  3-Methyl cyclopentene
+1127-76-0  1  1  9  7  10  2  12  1  0  0  0  0  1-Ethylnaphthalene
+115-25-3  75  4  0  0  0  0  0  0  0  0  0  0  Perfluorocyclobutane [R318]
+1186-53-4  1  6  3  2  4  1  0  0  0  0  0  0  2,2,3,4-Tetramethylpentane
+119-36-8  1  1  9  4  10  1  17  1  77  1  0  0  Salicylic acid methyl ester
+119-64-2  2  2  9  4  12  2  0  0  0  0  0  0  1,2,3,4-Tetrahydronaphthalene
+119-65-3  9  4  39  1  0  0  0  0  0  0  0  0  Isoquinoline
+1192-22-9  1  3  2  1  138  1  0  0  0  0  0  0  2,3-Epoxy-2-methylpentane
+120-51-4  9  10  10  1  12  1  77  1  0  0  0  0  Benzyl benzoate
+120-61-6  1  2  9  4  10  2  77  2  0  0  0  0  Dimethyl terephthalate
+120-80-9  9  4  17  2  0  0  0  0  0  0  0  0  1,2-Dihydroxybenzene
+120-92-3  2  3  19  1  0  0  0  0  0  0  0  0  Cyclopentanone
+121-44-8  1  3  2  2  35  1  0  0  0  0  0  0  Triethylamine
+121-69-7  1  1  9  5  10  1  34  1  0  0  0  0  N,N-Dimethylaniline
+122-60-1  9  5  10  1  25  1  136  1  0  0  0  0  2-Phenoxymethyloxirane
+122-79-2  9  5  10  1  21  1  0  0  0  0  0  0  Acetic acid phenyl ester
+123-19-3  1  2  2  3  19  1  0  0  0  0  0  0  4-Heptanone
+123-31-9  9  4  17  2  0  0  0  0  0  0  0  0  1,4-Dihydroxybenzene
+123-38-6  1  1  2  1  20  1  0  0  0  0  0  0  Propanal
+123-42-2  1  2  2  1  4  1  14  1  18  1  0  0  Diacetone alcohol
+123-51-3  1  2  2  2  3  1  14  1  0  0  0  0  3-Methyl-1-butanol
+123-72-8  1  1  2  2  20  1  0  0  0  0  0  0  Butyraldehyde
+123-75-1  2  3  32  1  0  0  0  0  0  0  0  0  Pyrrolidine
+123-86-4  1  1  2  3  21  1  0  0  0  0  0  0  Acetic acid butyl ester
+123-91-1  2  2  27  2  0  0  0  0  0  0  0  0  1,4-Dioxane
+123-92-2  1  2  2  2  3  1  21  1  0  0  0  0  Acetic acid 3-methylbutyl ester
+123-96-6  1  2  2  5  3  1  14  1  0  0  0  0  2-Octanol
+124-13-0  1  1  2  6  20  1  0  0  0  0  0  0  Octanal
+124-17-4  1  1  2  5  21  1  25  2  0  0  0  0  Diethylene glycol monobutyl ether acetate
+124-18-5  1  2  2  8  0  0  0  0  0  0  0  0  Decane
+124-19-6  1  1  2  7  20  1  0  0  0  0  0  0  Nonanal
+124-38-9  117  1  0  0  0  0  0  0  0  0  0  0  Carbon dioxide
+124-40-3  1  1  31  1  0  0  0  0  0  0  0  0  Dimethylamine
+124-73-2  64  2  75  2  0  0  0  0  0  0  0  0  1,2-Dibromotetrafluoroethane
+126-99-8  5  1  7  1  69  1  0  0  0  0  0  0  2-Chloro-1,3-butadiene
+127-18-4  69  4  70  1  0  0  0  0  0  0  0  0  Tetrachloroethylene
+127-19-5  1  1  97  1  0  0  0  0  0  0  0  0  N,N-Dimethylacetamide
+129-00-0  9  10  10  6  0  0  0  0  0  0  0  0  Pyrene
+13269-52-8  1  2  2  2  6  1  0  0  0  0  0  0  trans-3-Hexene
+1333-74-0  113  1  0  0  0  0  0  0  0  0  0  0  Hydrogen
+13360-61-7  1  1  2  12  5  1  0  0  0  0  0  0  1-Pentadecene
+13360-63-9  1  2  2  3  32  1  0  0  0  0  0  0  Ethyl butyl amine
+13389-42-9  1  2  2  4  6  1  0  0  0  0  0  0  trans-2-Octene
+135-19-3  9  7  10  2  17  1  0  0  0  0  0  0  beta-Naphthol
+135-98-8  1  2  2  1  9  5  13  1  0  0  0  0  sec-Butylbenzene
+137-32-6  1  2  2  2  3  1  14  1  0  0  0  0  2-Methyl-1-butanol
+13952-84-6  1  2  2  1  30  1  0  0  0  0  0  0  sec-Butylamine
+140-29-4  9  5  10  1  41  1  0  0  0  0  0  0  Benzylcyanide
+140-88-5  1  1  2  1  5  1  77  1  0  0  0  0  2-Propenoic acid ethyl ester
+141-32-2  1  1  2  3  5  1  77  1  0  0  0  0  2-Propenoic acid butyl ester
+141-43-5  2  1  14  1  29  1  0  0  0  0  0  0  Monoethanolamine
+141-62-8  1  10  81  1  84  3  0  0  0  0  0  0  Decamethyltetrasiloxane
+141-63-9  1  12  81  1  84  4  0  0  0  0  0  0  Dodecamethylpentasiloxane
+141-78-6  1  1  2  1  21  1  0  0  0  0  0  0  Ethyl acetate
+141-79-7  1  2  8  1  18  1  0  0  0  0  0  0  4-Methyl-3-penten-2-one
+141-93-5  1  2  9  4  12  2  0  0  0  0  0  0  1,3-Diethylbenzene
+142-28-9  2  1  44  2  0  0  0  0  0  0  0  0  1,3-Dichloropropane
+142-29-0  2  3  6  1  0  0  0  0  0  0  0  0  Cyclopentene
+142-62-1  1  1  2  4  42  1  0  0  0  0  0  0  Hexanoic acid
+142-68-7  2  4  27  1  0  0  0  0  0  0  0  0  Tetrahydropyran
+142-82-5  1  2  2  5  0  0  0  0  0  0  0  0  Heptane
+142-84-7  1  2  2  3  32  1  0  0  0  0  0  0  Dipropylamine
+142-92-7  1  1  2  5  21  1  0  0  0  0  0  0  Hexyl acetate
+142-96-1  1  2  2  5  25  1  0  0  0  0  0  0  Dibutyl ether
+1436-34-6  1  1  2  3  136  1  0  0  0  0  0  0  1,2-Epoxyhexane
+1459-93-4  1  2  9  4  10  2  77  2  0  0  0  0  1,3-Benzenedicarboxylic acid dimethyl ester
+149-57-5  1  2  2  4  3  1  42  1  0  0  0  0  2-Ethyl hexanoic acid
+151-56-4  2  1  32  1  0  0  0  0  0  0  0  0  Ethylenimine
+151-67-7  45  1  64  1  74  1  0  0  0  0  0  0  2-Bromo-2-chloro-1,1,1-trifluoroethane
+156-59-2  6  1  69  2  0  0  0  0  0  0  0  0  cis-1,2-Dichloroethylene
+156-60-5  6  1  69  2  0  0  0  0  0  0  0  0  trans-1,2-Dichloroethene
+1569-69-3  2  5  134  1  0  0  0  0  0  0  0  0  Cyclohexanethiol
+1574-41-0  1  1  5  1  6  1  0  0  0  0  0  0  cis-1,3-Pentadiene
+1613-51-0  2  4  3  11  0  0  0  0  0  0  0  0  Tetrahydrothiopyran
+1638-26-2  1  2  2  4  4  1  0  0  0  0  0  0  1,1-Dimethylcyclopentane
+1640-89-7  1  1  2  5  3  1  0  0  0  0  0  0  Ethylcyclopentane
+16747-25-4  1  5  2  2  3  1  4  1  0  0  0  0  2,2,3-Trimethylhexane
+16747-26-5  1  5  2  2  3  1  4  1  0  0  0  0  2,2,4-Trimethylhexane
+16747-38-9  1  6  3  2  4  1  0  0  0  0  0  0  2,3,3,4-Tetramethylpentane
+1678-91-7  1  1  2  6  3  1  0  0  0  0  0  0  Ethylcyclohexane
+1678-92-8  1  1  2  7  3  1  0  0  0  0  0  0  n-Propyl cyclohexane
+1678-93-9  1  1  2  8  3  1  0  0  0  0  0  0  n-Butylcyclohexane
+1680-51-9  2  2  9  3  11  1  12  2  0  0  0  0  6-Methyl tetralin
+1685-82-1  2  1  9  2  11  2  12  2  0  0  0  0  4,6-Dimethylindan
+1717-00-6  1  1  87  1  0  0  0  0  0  0  0  0  1,1-Dichloro-1-fluoroethane [R141b]
+1732-13-4  2  3  6  1  8  1  9  2  10  1  12  2  1,2,3,6,7,8-Hexahydropyrene
+1758-88-9  1  1  9  3  11  2  12  1  0  0  0  0  2-Ethyl p-xylene
+1759-58-6  1  2  2  3  3  2  0  0  0  0  0  0  trans-1,3-Dimethylcyclopentane
+17928-28-8  1  10  81  1  84  3  0  0  0  0  0  0  Methyltris(trimethylsiloxy)silane
+1805-22-7  74  1  75  4  76  1  0  0  0  0  0  0  Perfluoromethylcyclopentane
+1814-88-6  1  1  74  1  75  1  0  0  0  0  0  0  1,1,1,2,2-Pentafluoropropane
+1873-88-7  1  7  81  1  83  1  84  1  0  0  0  0  1,1,1,3,5,5,5-Heptamethyltrisiloxane
+1888-71-7  51  1  69  3  70  1  0  0  0  0  0  0  Hexachloropropene
+19600-63-6  2  4  5  1  136  1  0  0  0  0  0  0  1,2-Epoxy-7-octene
+19740-90-0  2  4  6  1  137  1  0  0  0  0  0  0  5,6-Epoxy-cis-cyclooctene
+2004-70-8  1  1  5  1  6  1  0  0  0  0  0  0  trans-1,3-Pentadiene
+2051-30-1  1  4  2  4  3  2  0  0  0  0  0  0  2,6-Dimethyloctane
+206-44-0  9  10  10  6  0  0  0  0  0  0  0  0  Fluoranthene
+208-96-8  6  1  9  6  10  4  0  0  0  0  0  0  Acenaphthylene
+21035-44-9  1  3  2  1  3  1  32  1  0  0  0  0  N-Ethyl-sec.butylamine
+2117-28-4  1  6  2  1  81  2  0  0  0  0  0  0  Methylenebis[trimethylsilane]
+2131-18-2  1  1  2  13  9  5  12  1  0  0  0  0  1-Phenylpentadecane
+2162-98-3  2  8  44  2  0  0  0  0  0  0  0  0  1,10-Dichlorodecane
+2163-00-0  2  4  44  2  0  0  0  0  0  0  0  0  1,6-Dichlorohexane
+2163-42-0  1  1  2  2  3  1  14  2  0  0  0  0  2-Methyl-1,3-propanediol
+2189-60-8  1  1  2  6  9  5  12  1  0  0  0  0  Octylbenzene
+2314-97-8  63  1  74  1  0  0  0  0  0  0  0  0  Iodotrifluoromethane
+2367-82-0  9  2  71  4  0  0  0  0  0  0  0  0  1,2,3,5-Tetrafluorobenzene
+2437-56-1  1  1  2  10  5  1  0  0  0  0  0  0  1-Tridecene
+2473-01-0  1  1  2  7  44  1  0  0  0  0  0  0  1-Nonylchloride
+2551-62-4  124  1  0  0  0  0  0  0  0  0  0  0  Sulfur hexafluoride
+2687-94-7  1  1  2  8  99  1  0  0  0  0  0  0  N-Octyl-2-pyrrolidone
+2696-92-6  149  1  0  0  0  0  0  0  0  0  0  0  Nitrosylchloride
+2765-18-6  1  1  2  1  9  7  10  2  12  1  0  0  1-Propyl naphthalene
+2807-30-9  1  1  2  2  100  1  0  0  0  0  0  0  Ethylene glycol monopropyl ether
+2825-83-4  2  6  3  4  0  0  0  0  0  0  0  0  exo-Tetrahydrodicyclopentadiene
+28304-66-7  1  1  2  2  3  2  6  1  8  1  0  0  cis-5-Ethylidene-2-norbornene
+2837-89-0  74  1  89  1  0  0  0  0  0  0  0  0  1-Chloro-1,2,2,2-tetrafluoroethane [R124]
+285-67-6  2  3  137  1  0  0  0  0  0  0  0  0  cis-1,2-Epoxycyclopentane
+286-62-4  2  6  137  1  0  0  0  0  0  0  0  0  1,2-Epoxycyclooctane
+287-23-0  2  4  0  0  0  0  0  0  0  0  0  0  Cyclobutane
+287-27-4  2  2  3  11  0  0  0  0  0  0  0  0  Thiacyclobutane
+287-92-3  2  5  0  0  0  0  0  0  0  0  0  0  Cyclopentane
+291-64-5  2  7  0  0  0  0  0  0  0  0  0  0  Cycloheptane
+292-64-8  2  8  0  0  0  0  0  0  0  0  0  0  Cyclooctane
+3042-50-0  1  1  2  1  9  3  11  2  12  1  0  0  2-Propyl p-xylene
+3048-64-4  2  2  3  3  5  1  6  1  0  0  0  0  5-Vinylbicyclo[2.2.1]hept-2-ene
+306-83-2  48  1  74  1  0  0  0  0  0  0  0  0  1,1-Dichloro-2,2,2-trifluoroethane [R123]
+307-34-6  74  2  75  6  0  0  0  0  0  0  0  0  Perfluorooctane
+307-45-9  74  2  75  8  0  0  0  0  0  0  0  0  Perfluorodecane
+308-26-9  5  1  74  1  75  3  77  1  0  0  0  0  1,1-Dihydroperfluoroamyl acrylate
+319-88-0  53  3  71  3  0  0  0  0  0  0  0  0  1,3,5-Trichloro-2,4,6-trifluorobenzene
+3221-61-2  1  3  2  5  3  1  0  0  0  0  0  0  2-Methyloctane
+327-54-8  9  2  71  4  0  0  0  0  0  0  0  0  1,2,4,5-Tetrafluorobenzene
+334-48-5  1  1  2  8  42  1  0  0  0  0  0  0  Decanoic acid
+335-57-9  74  2  75  5  0  0  0  0  0  0  0  0  Perfluoroheptane
+3424-57-5  1  3  9  15  10  3  84  3  0  0  0  0  cis-1,3,5-Trimethyl-1,3,5-triphenylcyclotrisiloxane
+344-07-0  53  1  71  5  0  0  0  0  0  0  0  0  Chloropentafluorobenzene
+352-32-9  9  4  11  1  71  1  0  0  0  0  0  0  4-Fluorotoluene
+352-93-2  1  2  2  1  3  11  0  0  0  0  0  0  Diethyl sulfide
+3522-94-9  1  5  2  2  3  1  4  1  0  0  0  0  2,2,5-Trimethylhexane
+353-59-3  64  1  90  1  0  0  0  0  0  0  0  0  Bromochlorodifluoromethane [R12B1]
+354-23-4  89  1  90  1  0  0  0  0  0  0  0  0  1,2-Dichloro-1,2,2-trifluoroethane [R123a]
+355-25-9  74  2  75  2  0  0  0  0  0  0  0  0  Perfluorobutane
+355-28-2  2  1  14  1  74  1  75  3  0  0  0  0  2,2,3,3,4,4,5,5,5-Nonafluoro-1-pentanol
+355-42-0  74  2  75  4  0  0  0  0  0  0  0  0  Perfluorohexane
+355-68-0  75  6  0  0  0  0  0  0  0  0  0  0  Perfluorocyclohexane
+3555-47-3  1  12  81  1  84  4  0  0  0  0  0  0  Tetrakis(trimethylsiloxy)silane
+363-72-4  9  1  71  5  0  0  0  0  0  0  0  0  Pentafluorobenzene
+36653-82-4  1  1  2  15  14  1  0  0  0  0  0  0  1-Hexadecanol
+3698-94-0  1  2  2  7  103  1  0  0  0  0  0  0  Ethyl octyl sulfide
+372-18-9  9  4  71  2  0  0  0  0  0  0  0  0  1,3-Difluorobenzene
+372-38-3  9  3  71  3  0  0  0  0  0  0  0  0  1,3,5-Trifluorobenzene
+374-41-4  18  1  74  1  75  1  0  0  0  0  0  0  3,3,4,4,4-Pentafluoro-2-butanone
+375-82-6  2  1  14  1  74  1  75  5  0  0  0  0  1,1-Dihydroperfluoroheptanol
+375-96-2  74  2  75  7  0  0  0  0  0  0  0  0  Perfluorononane
+376-77-2  75  5  0  0  0  0  0  0  0  0  0  0  Perfluorocyclopentane
+3875-51-2  1  2  2  4  3  2  0  0  0  0  0  0  Isopropylcyclopentane
+3877-19-8  1  1  2  1  3  1  9  4  12  2  0  0  2-Methyl tetralin
+392-56-3  71  6  0  0  0  0  0  0  0  0  0  0  Hexafluorobenzene
+4050-45-7  1  2  2  2  6  1  0  0  0  0  0  0  trans-2-Hexene
+4132-72-3  1  2  9  3  11  2  13  1  0  0  0  0  2,5-Dimethyl cumene
+4181-95-7  1  2  2  38  0  0  0  0  0  0  0  0  Tetracontane
+420-46-2  1  1  74  1  0  0  0  0  0  0  0  0  1,1,1-Trifluoroethane [R143a]
+421-14-7  24  1  74  1  0  0  0  0  0  0  0  0  Trifluoromethoxymethane
+422-56-0  48  1  74  1  75  1  0  0  0  0  0  0  1,1-Dichloro-2,2,3,3,3-pentafluoropropane R225ca
+434-64-0  10  1  71  5  74  1  0  0  0  0  0  0  Perfluorotoluene
+463-58-1  133  1  0  0  0  0  0  0  0  0  0  0  Carbonyl sulfide
+463-82-1  1  4  4  1  0  0  0  0  0  0  0  0  2,2-Dimethylpropane
+4740-00-5  1  1  2  2  3  1  3  11  0  0  0  0  3-Methyl-thiacyclopentane
+48076-62-6  5  1  74  1  75  6  77  1  0  0  0  0  Perfluoroheptyl acrylate
+488-23-3  9  2  11  4  0  0  0  0  0  0  0  0  1,2,3,4-Tetramethylbenzene
+4912-92-9  1  2  2  1  4  1  9  4  10  1  12  1  1,1-Dimethylindane
+498-66-8  2  3  3  2  6  1  0  0  0  0  0  0  2-Norbornene
+502-56-7  1  2  2  5  19  1  0  0  0  0  0  0  5-Nonanone
+503-17-3  1  2  66  1  0  0  0  0  0  0  0  0  2-Butyne
+503-74-2  1  2  2  1  3  1  42  1  0  0  0  0  3-Methyl butyric acid
+504-63-2  2  3  14  2  0  0  0  0  0  0  0  0  1,3-Propanediol
+5063-65-0  1  1  2  4  136  1  0  0  0  0  0  0  1,2-Heptenoxide
+507-19-7  1  3  4  1  64  1  0  0  0  0  0  0  tert-Butyl bromide
+507-20-0  1  3  46  1  0  0  0  0  0  0  0  0  tert.Butyl chloride
+507-55-1  75  1  89  1  90  1  0  0  0  0  0  0  1,3-Dichloro-1,1,2,2,3-pentafluoropropane R225cb
+5076-19-7  1  3  138  1  0  0  0  0  0  0  0  0  2-Methyl-2,3-epoxybutane
+513-35-9  1  3  8  1  0  0  0  0  0  0  0  0  2-Methyl-2-butene
+513-44-0  1  2  3  1  60  1  0  0  0  0  0  0  iso-Butylmercaptan
+513-53-1  1  2  2  1  134  1  0  0  0  0  0  0  sec-Butylmercaptan
+515-84-4  1  1  2  1  51  1  77  1  0  0  0  0  Trichloroacetic acid ethyl ester
+5161-16-0  1  1  2  3  3  1  3  11  0  0  0  0  2-Methyl-thiacyclohexane
+5161-17-1  1  1  2  3  3  1  3  11  0  0  0  0  4-Methyl thiacyclohexane
+5258-50-4  1  1  2  3  3  1  3  11  0  0  0  0  3-Methyl-thiacyclohexane
+526-73-8  9  3  11  3  0  0  0  0  0  0  0  0  1,2,3-Trimethylbenzene
+526-75-0  9  3  11  2  17  1  0  0  0  0  0  0  2,3-Dimethylphenol
+527-53-7  9  2  11  4  0  0  0  0  0  0  0  0  1,2,3,5-Tetramethyl benzene
+527-84-4  1  2  9  4  11  1  13  1  0  0  0  0  o-Isopropyl-toluene
+535-77-3  1  2  9  4  11  1  13  1  0  0  0  0  m-Isopropyl-toluene
+536-75-4  1  1  2  1  38  1  0  0  0  0  0  0  4-Ethylpyridine
+536-78-7  1  1  2  1  38  1  0  0  0  0  0  0  3-Ethylpyridine
+538-68-1  1  1  2  3  9  5  12  1  0  0  0  0  Pentylbenzene
+538-93-2  1  2  3  1  9  5  12  1  0  0  0  0  Isobutylbenzene
+539-82-2  1  2  2  3  22  1  0  0  0  0  0  0  Ethyl valerate
+540-36-3  9  4  71  2  0  0  0  0  0  0  0  0  1,4-Difluorobenzene
+540-54-5  1  1  2  1  44  1  0  0  0  0  0  0  1-Chloropropane
+540-67-0  1  1  2  1  24  1  0  0  0  0  0  0  Methyl ethyl ether
+540-84-1  1  5  2  1  3  1  4  1  0  0  0  0  2,2,4-Trimethylpentane
+541-73-1  9  4  53  2  0  0  0  0  0  0  0  0  m-Dichlorobenzene
+542-55-2  1  2  2  1  3  1  23  1  0  0  0  0  Isobutyl formate
+542-92-7  2  1  6  2  0  0  0  0  0  0  0  0  1,3-Cyclopentadiene
+543-49-7  1  2  2  4  3  1  14  1  0  0  0  0  2-Heptanol
+544-40-1  1  2  2  5  103  1  0  0  0  0  0  0  Dibutylsulfide
+544-63-8  1  1  2  12  42  1  0  0  0  0  0  0  Tetradecanoic acid
+544-76-3  1  2  2  14  0  0  0  0  0  0  0  0  Hexadecane
+544-85-4  1  2  2  30  0  0  0  0  0  0  0  0  Dotriacontane
+547-63-7  1  3  3  1  77  1  0  0  0  0  0  0  2-Methylpropanoic acid methyl ester
+551-62-2  9  2  71  4  0  0  0  0  0  0  0  0  1,2,3,4-Tetrafluorobenzene
+553-90-2  1  2  77  2  0  0  0  0  0  0  0  0  Dimethyl oxalate
+556-52-5  2  1  14  1  136  1  0  0  0  0  0  0  2,3-Epoxy-1-propanol
+556-67-2  1  8  84  4  0  0  0  0  0  0  0  0  Octamethylcyclotetrasiloxane
+556-69-4  1  18  81  1  84  7  0  0  0  0  0  0  Octadecamethyloctasiloxane
+556-71-8  1  18  84  9  0  0  0  0  0  0  0  0  Octadecamethylcyclononasiloxane
+557-17-5  1  1  2  2  24  1  0  0  0  0  0  0  Methyl propyl ether
+558-30-5  1  2  140  1  0  0  0  0  0  0  0  0  2,2-Dimethyloxirane
+56-23-5  52  1  0  0  0  0  0  0  0  0  0  0  Tetrachloromethane
+56-33-7  1  4  9  10  10  2  81  1  84  1  0  0  1,1,3,3-Tetramethyl-1,3-diphenyldisiloxane
+56-81-5  2  2  3  1  14  3  0  0  0  0  0  0  Glycerol
+560-21-4  1  5  2  1  3  1  4  1  0  0  0  0  2,3,3-Trimethylpentane
+562-49-2  1  4  2  2  4  1  0  0  0  0  0  0  3,3-Dimethylpentane
+563-16-6  1  4  2  3  4  1  0  0  0  0  0  0  3,3-Dimethylhexane
+563-45-1  1  2  3  1  5  1  0  0  0  0  0  0  3-Methyl-1-butene
+563-46-2  1  2  2  1  7  1  0  0  0  0  0  0  2-Methyl-1-butene
+563-78-0  1  3  3  1  7  1  0  0  0  0  0  0  2,3-Dimethyl-1-butene
+563-79-1  1  4  70  1  0  0  0  0  0  0  0  0  2,3-Dimethyl-2-butene
+563-80-4  1  2  3  1  18  1  0  0  0  0  0  0  Methyl isopropyl ketone
+565-59-3  1  4  2  1  3  2  0  0  0  0  0  0  2,3-Dimethylpentane
+565-61-7  1  2  2  1  3  1  18  1  0  0  0  0  3-Methyl-2-pentanone
+565-67-3  1  3  2  1  3  2  14  1  0  0  0  0  2-Methyl-3-pentanol
+565-69-5  1  3  3  1  19  1  0  0  0  0  0  0  2-Methyl-3-pentanone
+565-75-3  1  5  3  3  0  0  0  0  0  0  0  0  2,3,4-Trimethyl pentane
+57-55-6  1  1  2  1  3  1  14  2  0  0  0  0  1,2-Propanediol
+571-58-4  9  6  10  2  11  2  0  0  0  0  0  0  1,4-Dimethyl naphthalene
+571-61-9  9  6  10  2  11  2  0  0  0  0  0  0  1,5-Dimethyl naphthalene
+573-98-8  9  6  10  2  11  2  0  0  0  0  0  0  1,2-Dimethyl naphthalene
+574-00-5  9  6  10  2  17  2  0  0  0  0  0  0  1,2-Dihydroxynaphthalene
+575-37-1  9  6  10  2  11  2  0  0  0  0  0  0  1,7-Dimethyl naphthalene
+575-41-7  9  6  10  2  11  2  0  0  0  0  0  0  1,3-Dimethyl naphthalene
+575-43-9  9  6  10  2  11  2  0  0  0  0  0  0  1,6-Dimethyl naphthalene
+576-26-1  9  3  11  2  17  1  0  0  0  0  0  0  2,6-Dimethylphenol
+577-55-9  1  4  9  4  13  2  0  0  0  0  0  0  1,2-Diisopropylbenzene
+578-58-5  9  4  10  1  11  1  24  1  0  0  0  0  2-Methoxy toluene
+581-40-8  9  6  10  2  11  2  0  0  0  0  0  0  2,3-Dimethyl naphthalene
+581-42-0  9  6  10  2  11  2  0  0  0  0  0  0  2,6-Dimethyl naphthalene
+582-16-1  9  6  10  2  11  2  0  0  0  0  0  0  2,7-Dimethyl naphthalene
+583-48-2  1  4  2  2  3  2  0  0  0  0  0  0  3,4-Dimethylhexane
+583-58-4  1  2  39  1  0  0  0  0  0  0  0  0  3,4-Dimethylpyridine
+583-61-9  1  2  39  1  0  0  0  0  0  0  0  0  2,3-Dimethylpyridine
+584-94-1  1  4  2  2  3  2  0  0  0  0  0  0  2,3-Dimethylhexane
+589-16-2  1  1  9  4  12  1  36  1  0  0  0  0  4-Ethyl aniline
+589-34-4  1  3  2  3  3  1  0  0  0  0  0  0  3-Methylhexane
+589-38-8  1  2  2  2  19  1  0  0  0  0  0  0  3-Hexanone
+589-43-5  1  4  2  2  3  2  0  0  0  0  0  0  2,4-Dimethylhexane
+589-53-7  1  3  2  4  3  1  0  0  0  0  0  0  4-Methyl-heptane
+589-81-1  1  3  2  4  3  1  0  0  0  0  0  0  3-Methylheptane
+589-93-5  1  2  39  1  0  0  0  0  0  0  0  0  2,5-Dimethylpyridine
+590-18-1  1  2  6  1  0  0  0  0  0  0  0  0  cis-2-Butene
+590-35-2  1  4  2  2  4  1  0  0  0  0  0  0  2,2-Dimethylpentane
+590-66-9  1  2  2  5  4  1  0  0  0  0  0  0  1,1-Dimethylcyclohexane
+590-73-8  1  4  2  3  4  1  0  0  0  0  0  0  2,2-Dimethylhexane
+591-22-0  1  2  39  1  0  0  0  0  0  0  0  0  3,5-Dimethylpyridine
+591-49-1  1  1  2  4  8  1  0  0  0  0  0  0  1-Methylcyclohexene
+591-50-4  9  5  10  1  63  1  0  0  0  0  0  0  Iodobenzene
+591-68-4  1  2  2  5  22  1  0  0  0  0  0  0  Butyl valerate
+591-76-4  1  3  2  3  3  1  0  0  0  0  0  0  2-Methylhexane
+591-78-6  1  1  2  3  18  1  0  0  0  0  0  0  2-Hexanone
+591-93-5  2  1  5  2  0  0  0  0  0  0  0  0  1,4-Pentadiene
+592-13-2  1  4  2  2  3  2  0  0  0  0  0  0  2,5-Dimethylhexane
+592-27-8  1  3  2  4  3  1  0  0  0  0  0  0  2-Methylheptane
+592-41-6  1  1  2  3  5  1  0  0  0  0  0  0  1-Hexene
+592-42-7  2  2  5  2  0  0  0  0  0  0  0  0  1,5-Hexadiene
+592-57-4  2  2  6  2  0  0  0  0  0  0  0  0  1,3-Cyclohexadiene
+592-76-7  1  1  2  4  5  1  0  0  0  0  0  0  1-Heptene
+592-84-7  1  1  2  3  23  1  0  0  0  0  0  0  Formic acid butyl ester
+593-45-3  1  2  2  16  0  0  0  0  0  0  0  0  Octadecane
+593-60-2  5  1  64  1  0  0  0  0  0  0  0  0  Vinyl bromide
+594-20-7  1  2  49  1  0  0  0  0  0  0  0  0  2,2-Dichloropropane
+594-56-9  1  4  4  1  7  1  0  0  0  0  0  0  2,3,3-Trimethyl-1-butene
+594-82-1  1  6  4  2  0  0  0  0  0  0  0  0  2,2,3,3-Tetramethylbutane
+598-53-8  1  2  3  1  24  1  0  0  0  0  0  0  Methyl isopropyl ether
+598-75-4  1  3  3  2  14  1  0  0  0  0  0  0  3-Methyl-2-butanol
+60-29-7  1  2  2  1  25  1  0  0  0  0  0  0  Diethyl ether
+60-35-5  1  1  94  1  0  0  0  0  0  0  0  0  Acetamide
+6032-29-7  1  2  2  2  3  1  14  1  0  0  0  0  2-Pentanol
+609-26-7  1  4  2  2  3  2  0  0  0  0  0  0  2-Methyl-3-ethyl-pentane
+609-72-3  1  1  9  4  10  1  11  1  34  1  0  0  2-Dimethylaminotoluene
+611-14-3  1  1  9  4  11  1  12  1  0  0  0  0  1-Ethyl-2-methylbenzene
+611-32-5  9  3  11  1  39  1  0  0  0  0  0  0  8-Methylquinoline
+612-60-2  9  3  11  1  39  1  0  0  0  0  0  0  7-Methylquinoline
+616-45-5  2  2  96  1  0  0  0  0  0  0  0  0  2-Pyrrolidone
+617-78-7  1  3  2  3  3  1  0  0  0  0  0  0  3-Ethylpentane
+619-99-8  1  3  2  4  3  1  0  0  0  0  0  0  3-Ethylhexane
+62-53-3  9  5  36  1  0  0  0  0  0  0  0  0  Aniline
+620-14-4  1  1  9  4  11  1  12  1  0  0  0  0  1-Ethyl-3-methylbenzene
+620-17-7  1  1  9  4  12  1  17  1  0  0  0  0  3-Ethylphenol
+622-96-8  1  1  9  4  11  1  12  1  0  0  0  0  1-Ethyl-4-methylbenzene
+622-97-9  5  1  9  4  10  1  11  1  0  0  0  0  p-Methyl-styrene
+623-37-0  1  2  2  3  3  1  14  1  0  0  0  0  3-Hexanol
+623-42-7  1  2  2  1  22  1  0  0  0  0  0  0  Methyl butanoate
+624-24-8  1  2  2  2  22  1  0  0  0  0  0  0  Methyl pentanoate
+624-29-3  1  2  2  4  3  2  0  0  0  0  0  0  cis-1,4-Dimethyl cyclohexane
+624-64-6  1  2  6  1  0  0  0  0  0  0  0  0  trans-2-Butene
+624-89-5  1  1  2  1  2  11  0  0  0  0  0  0  Ethyl methyl sulfide
+624-92-0  102  2  0  0  0  0  0  0  0  0  0  0  Dimethyl disulfide
+625-27-4  1  3  2  1  8  1  0  0  0  0  0  0  2-Methyl-2-pentene
+626-93-7  1  2  2  3  3  1  14  1  0  0  0  0  (+-)-2-Hexanol
+627-19-0  1  1  2  2  65  1  0  0  0  0  0  0  1-Pentyne
+627-20-3  1  2  2  1  6  1  0  0  0  0  0  0  cis-2-Pentene
+628-28-4  1  1  2  3  24  1  0  0  0  0  0  0  Methyl butyl ether
+628-29-5  1  1  2  3  2  11  0  0  0  0  0  0  Methyl butyl sulfide
+628-32-0  1  2  2  2  25  1  0  0  0  0  0  0  Ethyl propyl ether
+628-55-7  1  4  2  1  3  2  25  1  0  0  0  0  Diisobutyl ether
+628-63-7  1  1  2  4  21  1  0  0  0  0  0  0  Acetic acid pentyl ester
+628-73-9  1  1  2  3  41  1  0  0  0  0  0  0  N-Hexanoic acid nitrile
+628-76-2  2  3  44  2  0  0  0  0  0  0  0  0  1,5-Dichloropentane
+628-81-9  1  2  2  3  25  1  0  0  0  0  0  0  Ethyl butyl ether
+628-97-7  1  2  2  14  22  1  0  0  0  0  0  0  Hexadecanoic acid ethyl ester
+628-99-9  1  2  2  6  3  1  14  1  0  0  0  0  2-Nonanol
+629-05-0  1  1  2  5  65  1  0  0  0  0  0  0  1-Octyne
+629-14-1  1  2  2  2  25  2  0  0  0  0  0  0  1,2-Diethoxyethane
+629-50-5  1  2  2  11  0  0  0  0  0  0  0  0  Tridecane
+629-59-4  1  2  2  12  0  0  0  0  0  0  0  0  Tetradecane
+629-62-9  1  2  2  13  0  0  0  0  0  0  0  0  Pentadecane
+629-73-2  1  1  2  13  5  1  0  0  0  0  0  0  1-Hexadecene
+629-76-5  1  1  2  14  14  1  0  0  0  0  0  0  1-Pentadecanol
+629-78-7  1  2  2  15  0  0  0  0  0  0  0  0  Heptadecane
+629-92-5  1  2  2  17  0  0  0  0  0  0  0  0  Nonadecane
+629-94-7  1  2  2  19  0  0  0  0  0  0  0  0  Heneicosane
+629-96-9  1  1  2  19  14  1  0  0  0  0  0  0  1-Eicosanol
+629-97-0  1  2  2  20  0  0  0  0  0  0  0  0  Docosane
+630-08-0  112  1  0  0  0  0  0  0  0  0  0  0  Carbon monoxide
+630-19-3  1  3  4  1  20  1  0  0  0  0  0  0  2,2-Dimethylpropionaldehyde
+630-20-6  44  1  51  1  0  0  0  0  0  0  0  0  1,1,1,2-Tetrachloroethane [R130a]
+631-36-7  1  4  2  4  81  1  0  0  0  0  0  0  Tetraethylsilane
+637-92-3  1  4  4  1  25  1  0  0  0  0  0  0  Ethyl tert-butyl ether
+638-04-0  1  2  2  4  3  2  0  0  0  0  0  0  cis-1,3-Dimethyl cyclohexane
+638-67-5  1  2  2  21  0  0  0  0  0  0  0  0  Tricosane
+638-68-6  1  2  2  28  0  0  0  0  0  0  0  0  Triacontane
+64-17-5  1  1  2  1  14  1  0  0  0  0  0  0  Ethanol
+64-18-6  43  1  0  0  0  0  0  0  0  0  0  0  Formic acid
+64-19-7  1  1  42  1  0  0  0  0  0  0  0  0  Acetic acid
+644-35-9  1  1  2  1  9  4  12  1  17  1  0  0  2-Propylphenol
+646-31-1  1  2  2  22  0  0  0  0  0  0  0  0  Tetracosane
+65-85-0  9  5  10  1  42  1  0  0  0  0  0  0  Benzoic acid
+66-25-1  1  1  2  4  20  1  0  0  0  0  0  0  Hexanal
+6654-36-0  1  1  2  3  20  1  22  1  0  0  0  0  Methyl-5-formyl valerate
+66670-22-2  4  1  24  1  74  3  0  0  0  0  0  0  Perfluoro-tert.-butylmethylether
+6682-71-9  2  1  9  2  11  2  12  2  0  0  0  0  4,7-Dimethyl indan
+67-56-1  15  1  0  0  0  0  0  0  0  0  0  0  Methanol
+67-63-0  1  2  3  1  14  1  0  0  0  0  0  0  2-Propanol
+67-64-1  1  1  18  1  0  0  0  0  0  0  0  0  Acetone
+67-66-3  50  1  0  0  0  0  0  0  0  0  0  0  Chloroform
+67-68-5  67  1  0  0  0  0  0  0  0  0  0  0  Dimethyl sulfoxide
+6742-54-7  1  1  2  9  9  5  12  1  0  0  0  0  1-Phenylundecane
+677-21-4  5  1  74  1  0  0  0  0  0  0  0  0  3,3,3-Trifluoropropylene
+678-26-2  74  2  75  3  0  0  0  0  0  0  0  0  Perfluoropentane
+6876-23-9  1  2  2  4  3  2  0  0  0  0  0  0  trans-1,2-Dimethylcyclohexane
+6881-94-3  1  1  2  3  25  1  100  1  0  0  0  0  Diethylene glycol monopropyl ether
+689-97-4  5  1  65  1  0  0  0  0  0  0  0  0  1-Buten-3-yne
+691-37-2  1  2  2  1  3  1  5  1  0  0  0  0  4-Methyl-1-pentene
+693-65-2  1  2  2  7  25  1  0  0  0  0  0  0  Dipentyl ether
+696-29-7  1  2  2  5  3  2  0  0  0  0  0  0  Isopropylcyclohexane
+697-82-5  9  2  11  3  17  1  0  0  0  0  0  0  2,3,5-Trimethylphenol
+698-71-5  1  1  9  3  11  1  12  1  17  1  0  0  3-Methyl-5-ethyl-phenol
+702-79-4  1  2  2  6  3  2  4  2  0  0  0  0  1,3-Dimethyl adamantane
+7098-22-8  1  2  2  42  0  0  0  0  0  0  0  0  Tetratetracontane
+71-23-8  1  1  2  2  14  1  0  0  0  0  0  0  1-Propanol
+71-36-3  1  1  2  3  14  1  0  0  0  0  0  0  1-Butanol
+71-41-0  1  1  2  4  14  1  0  0  0  0  0  0  1-Pentanol
+71-43-2  9  6  0  0  0  0  0  0  0  0  0  0  Benzene
+71-55-6  1  1  51  1  0  0  0  0  0  0  0  0  1,1,1-Trichloroethane [R140a]
+7133-36-  2  4  3  1  2  11  0  0  0  0  0  0  1-Cyclopentyl-1-thiaethane
+7133-46-2  2  10  3  1  104  1  0  0  0  0  0  0  Dicyclohexyl sulfide
+7154-79-2  1  6  2  1  4  2  0  0  0  0  0  0  2,2,3,3-Tetramethylpentane
+7289-52-3  1  1  2  9  24  1  0  0  0  0  0  0  Decyl methyl ether
+74-82-8  118  1  0  0  0  0  0  0  0  0  0  0  Methane
+74-83-9  1  1  64  1  0  0  0  0  0  0  0  0  Methyl bromide [R40B1]
+74-84-0  1  2  0  0  0  0  0  0  0  0  0  0  Ethane
+74-85-1  109  1  0  0  0  0  0  0  0  0  0  0  Ethylene
+74-86-2  110  1  0  0  0  0  0  0  0  0  0  0  Ethyne
+74-88-4  1  1  63  1  0  0  0  0  0  0  0  0  Methyl iodide
+74-89-5  28  1  0  0  0  0  0  0  0  0  0  0  Methylamine
+74-90-8  145  1  0  0  0  0  0  0  0  0  0  0  Hydrogen cyanide
+74-93-1  59  1  0  0  0  0  0  0  0  0  0  0  Methanethiol
+74-95-3  2  1  64  2  0  0  0  0  0  0  0  0  Dibromomethane [R30B2]
+74-96-4  1  1  2  1  64  1  0  0  0  0  0  0  Ethyl bromide
+74-97-5  44  1  64  1  0  0  0  0  0  0  0  0  Bromochloromethane [R30B1]
+74-98-6  1  2  2  1  0  0  0  0  0  0  0  0  Propane
+74-99-7  1  1  65  1  0  0  0  0  0  0  0  0  Propyne
+7439-90-9  127  1  0  0  0  0  0  0  0  0  0  0  Krypton
+7440-37-1  116  1  0  0  0  0  0  0  0  0  0  0  Argon
+7440-59-7  125  1  0  0  0  0  0  0  0  0  0  0  Helium
+7440-63-3  128  1  0  0  0  0  0  0  0  0  0  0  Xenon
+75-00-3  1  1  44  1  0  0  0  0  0  0  0  0  Chloroethane
+75-07-0  1  1  20  1  0  0  0  0  0  0  0  0  Acetaldehyde
+75-15-0  58  1  0  0  0  0  0  0  0  0  0  0  Carbon disulfide
+75-18-3  1  1  102  1  0  0  0  0  0  0  0  0  Dimethyl sulfide
+75-19-4  2  3  0  0  0  0  0  0  0  0  0  0  Cyclopropane
+75-21-8  139  1  0  0  0  0  0  0  0  0  0  0  Ethylene oxide
+75-25-2  3  1  64  3  0  0  0  0  0  0  0  0  Tribromomethane [R20B3]
+75-26-3  1  2  3  1  64  1  0  0  0  0  0  0  Isopropyl bromide
+75-28-5  1  3  3  1  0  0  0  0  0  0  0  0  2-Methylpropane
+75-29-6  1  2  45  1  0  0  0  0  0  0  0  0  2-Chloropropane
+75-31-0  1  2  30  1  0  0  0  0  0  0  0  0  Isopropylamine
+75-33-2  1  2  134  1  0  0  0  0  0  0  0  0  2-Propanethiol
+75-34-3  1  1  48  1  0  0  0  0  0  0  0  0  1,1-Dichloroethane [R 150a]
+75-35-4  7  1  69  2  0  0  0  0  0  0  0  0  1,1-Dichloroethylene
+75-43-4  88  1  0  0  0  0  0  0  0  0  0  0  Dichlorofluoromethane [R21]
+75-45-6  91  1  0  0  0  0  0  0  0  0  0  0  Chlorodifluoromethane [R22]
+75-50-3  1  2  34  1  0  0  0  0  0  0  0  0  Trimethylamine
+75-52-5  54  1  0  0  0  0  0  0  0  0  0  0  Nitromethane
+75-56-9  1  1  136  1  0  0  0  0  0  0  0  0  1,2-Propylene oxide
+75-63-8  64  1  74  1  0  0  0  0  0  0  0  0  Trifluorobromomethane [R13B1]
+75-64-9  1  3  30  1  0  0  0  0  0  0  0  0  tert-Butylamine
+75-65-0  1  3  4  1  14  1  0  0  0  0  0  0  tert-Butanol
+75-66-1  1  3  135  1  0  0  0  0  0  0  0  0  2-Methyl-2-propanethiol
+75-68-3  0  1  90  1  0  0  0  0  0  0  0  0  1-Chloro-1,1-difluoroethane [R142b]
+75-69-4  86  1  0  0  0  0  0  0  0  0  0  0  Trichlorofluoromethane [R11]
+75-71-8  93  1  0  0  0  0  0  0  0  0  0  0  Dichlorodifluoromethane [R12]
+75-72-9  92  1  0  0  0  0  0  0  0  0  0  0  Chlorotrifluoromethane [R 13]
+75-73-0  147  1  0  0  0  0  0  0  0  0  0  0  Tetrafluoromethane [R14]
+75-76-3  1  4  81  1  0  0  0  0  0  0  0  0  Tetramethylsilane
+75-83-2  1  4  2  1  4  1  0  0  0  0  0  0  2,2-Dimethylbutane
+75-84-3  1  3  2  1  4  1  14  1  0  0  0  0  2,2-Dimethyl-1-propanol
+75-85-4  1  3  2  1  4  1  14  1  0  0  0  0  tert-Pentanol
+75-89-8  2  1  14  1  74  1  0  0  0  0  0  0  2,2,2-Trifluoroethanol
+75-97-8  1  3  4  1  18  1  0  0  0  0  0  0  3,3-Dimethyl-2-butanone
+75240-06-1  75  7  76  2  0  0  0  0  0  0  0  0  trans-Perfluorobicyclo[4.3.0]nonane
+75262-87-2  75  7  76  2  0  0  0  0  0  0  0  0  cis-Perfluorobicyclo[4.3.0]nonane
+76-12-0  87  2  0  0  0  0  0  0  0  0  0  0  1,1,2,2-Tetrachloro-1,2-difluoroethane [R112]
+76-13-1  87  1  90  1  0  0  0  0  0  0  0  0  1,1,2-Trichloro-1,2,2-trifluoroethane [R113]
+76-14-2  90  2  0  0  0  0  0  0  0  0  0  0  1,2-Dichlorotetrafluoroethane [R114]
+76-15-3  74  1  90  1  0  0  0  0  0  0  0  0  Chloroperfluoroethane [R115]
+76-16-4  74  2  0  0  0  0  0  0  0  0  0  0  Hexafluoroethane [R116]
+76-19-7  74  2  75  1  0  0  0  0  0  0  0  0  Perfluoropropane [R218]
+763-29-1  1  2  2  2  7  1  0  0  0  0  0  0  2-Methyl-1-pentene
+763-69-9  1  2  2  2  22  1  25  1  0  0  0  0  Propionic acid,beta ethoxy,ethyl ester
+7647-01-0  130  1  0  0  0  0  0  0  0  0  0  0  Hydrogen chloride
+7664-39-3  129  1  0  0  0  0  0  0  0  0  0  0  Hydrogen fluoride
+7664-41-7  111  1  0  0  0  0  0  0  0  0  0  0  Ammonia
+7688-21-3  1  2  2  2  6  1  0  0  0  0  0  0  cis-2-Hexene
+77-73-6  2  2  3  4  6  2  0  0  0  0  0  0  Dicyclopentadiene
+77-74-7  1  3  2  2  4  1  14  1  0  0  0  0  3-Methyl-3-pentanol
+77-99-6  1  1  2  4  4  1  14  3  0  0  0  0  2-Ethyl-2-hydroxymethyl-1,3-propanediol
+771-56-2  11  1  71  5  0  0  0  0  0  0  0  0  2,3,4,5,6-Pentafluorotoluene
+771-61-9  17  1  71  5  0  0  0  0  0  0  0  0  2,3,4,5,6-Pentafluorophenol
+7726-95-6  144  1  0  0  0  0  0  0  0  0  0  0  Bromine
+7727-37-9  115  1  0  0  0  0  0  0  0  0  0  0  Nitrogen
+7732-18-5  16  1  0  0  0  0  0  0  0  0  0  0  Water
+776-35-2  9  8  10  2  12  2  0  0  0  0  0  0  9,10-Dihydrophenanthrene
+7782-39-0  120  1  0  0  0  0  0  0  0  0  0  0  Deuterium
+7782-41-4  142  1  0  0  0  0  0  0  0  0  0  0  Fluorine
+7782-44-7  119  1  0  0  0  0  0  0  0  0  0  0  Oxygen
+7782-50-5  143  1  0  0  0  0  0  0  0  0  0  0  Chlorine
+7789-20-0  16  1  0  0  0  0  0  0  0  0  0  0  Deuterium oxide
+78-75-1  1  1  2  1  3  1  64  2  0  0  0  0  1,2-Dibromopropane
+78-78-4  1  3  2  1  3  1  0  0  0  0  0  0  2-Methylbutane
+78-79-5  1  1  5  1  7  1  0  0  0  0  0  0  Isoprene
+78-81-9  1  2  3  1  29  1  0  0  0  0  0  0  2-Methylpropylamine
+78-83-1  1  2  2  1  3  1  14  1  0  0  0  0  2-Methyl-1-propanol
+78-84-2  1  2  3  1  20  1  0  0  0  0  0  0  2-Methylpropanal
+78-86-4  1  2  2  1  45  1  0  0  0  0  0  0  sec-Butyl chloride
+78-87-5  1  1  44  1  45  1  0  0  0  0  0  0  1,2-Dichloropropane
+78-92-2  1  2  2  1  3  1  14  1  0  0  0  0  2-Butanol
+78-93-3  1  1  2  1  18  1  0  0  0  0  0  0  2-Butanone
+781-17-9  9  6  10  2  12  4  0  0  0  0  0  0  4,5,9,10-Tetrahydropyrene
+79-00-5  44  1  48  1  0  0  0  0  0  0  0  0  1,1,2-Trichloroethane
+79-16-3  1  1  95  1  0  0  0  0  0  0  0  0  N-Methylacetamide
+79-20-9  1  1  21  1  0  0  0  0  0  0  0  0  Methyl acetate
+79-24-3  1  1  55  1  0  0  0  0  0  0  0  0  Nitroethane
+79-27-6  3  2  64  4  0  0  0  0  0  0  0  0  1,1,2,2-Tetrabromoethane
+79-29-8  1  4  3  2  0  0  0  0  0  0  0  0  2,3-Dimethylbutane
+79-31-2  1  2  3  1  42  1  0  0  0  0  0  0  2-Methylpropionic acid
+79-34-5  48  2  0  0  0  0  0  0  0  0  0  0  1,1,2,2-Tetrachloroethane
+79-41-4  1  1  7  1  42  1  0  0  0  0  0  0  Methacrylic acid
+80-56-8  1  3  2  2  3  2  4  1  8  1  0  0  alpha-Pinene
+80-62-6  1  2  7  1  77  1  0  0  0  0  0  0  Methacrylic acid methyl ester
+80553-01-1  18  1  74  2  76  1  0  0  0  0  0  0  3,4,4,4-Tetrafluoro-3-trifluoromethyl-2-butanone
+807-28-3  1  2  9  20  10  4  81  1  84  1  0  0  1,3-Dimethyl-1,1,3,3-tetraphenyldisiloxane
+821-55-6  1  1  2  6  18  1  0  0  0  0  0  0  2-Nonanone
+821-95-4  1  1  2  8  5  1  0  0  0  0  0  0  1-Undecene
+84-15-1  9  14  10  4  0  0  0  0  0  0  0  0  o-Terphenyl
+84-66-2  1  2  2  2  9  4  10  2  77  2  0  0  Phthalic acid diethyl ester
+86-73-7  9  8  10  3  12  1  0  0  0  0  0  0  9H-Fluorene
+865-71-4  74  3  75  2  76  1  0  0  0  0  0  0  Perfluoro-3-methylpentane
+87-62-7  9  3  11  2  36  1  0  0  0  0  0  0  2,6-Dimethylaniline
+87-66-1  9  3  17  3  0  0  0  0  0  0  0  0  1,2,3-Trihydroxybenzene
+872-50-4  85  1  0  0  0  0  0  0  0  0  0  0  N-Methyl-2-pyrrolidone
+872-55-9  1  1  2  1  7  11  0  0  0  0  0  0  2-Ethylthiophene
+874-41-9  1  1  9  3  11  2  12  1  0  0  0  0  4-Ethyl m-xylene
+88-72-2  9  4  11  1  57  1  0  0  0  0  0  0  o-Nitrotoluene
+88-74-4  9  4  36  1  57  1  0  0  0  0  0  0  2-Nitroaniline
+90-00-6  1  1  9  4  12  1  17  1  0  0  0  0  2-Ethylphenol
+90-04-0  9  4  10  1  24  1  36  1  0  0  0  0  o-Anisidine
+90-12-0  9  7  10  2  11  1  0  0  0  0  0  0  1-Methyl naphthalene
+90-15-3  9  7  10  2  17  1  0  0  0  0  0  0  1-Naphthol
+90-41-5  9  9  10  2  36  1  0  0  0  0  0  0  2-Aminobiphenyl
+91-17-8  2  8  3  2  0  0  0  0  0  0  0  0  Decalin <Isomer not specified>
+91-20-3  9  8  10  2  0  0  0  0  0  0  0  0  Naphthalene
+91-22-5  9  4  39  1  0  0  0  0  0  0  0  0  Quinoline
+91-57-6  9  7  10  2  11  1  0  0  0  0  0  0  2-Methyl naphthalene
+92-51-3  2  10  3  2  0  0  0  0  0  0  0  0  Bicyclohexyl
+92-52-4  9  10  10  2  0  0  0  0  0  0  0  0  Biphenyl
+92-69-3  9  9  10  2  17  1  0  0  0  0  0  0  p-Phenylphenol
+92-94-4  9  14  10  4  0  0  0  0  0  0  0  0  p-Terphenyl
+93-58-3  1  1  9  5  10  1  77  1  0  0  0  0  Benzoic acid methyl ester
+93-89-0  1  1  2  1  9  5  10  1  77  1  0  0  Ethyl benzoate
+930-68-7  2  2  6  1  19  1  0  0  0  0  0  0  2-Cyclohexen-1-one
+934-74-7  1  1  9  3  11  2  12  1  0  0  0  0  5-Ethyl m-xylene
+934-80-5  1  1  9  3  11  2  12  1  0  0  0  0  4-Ethyl o-xylene
+939-27-5  1  1  9  7  10  2  12  1  0  0  0  0  2-Ethyl naphthalene
+941-60-6  1  2  2  1  4  1  9  2  10  1  11  2  1,1,4,6-Tetramethylindan
+95-13-6  6  1  9  4  10  1  12  1  0  0  0  0  Indene
+95-15-8  9  5  10  2  104  1  0  0  0  0  0  0  Benzo(b)thiophene
+95-47-6  9  4  11  2  0  0  0  0  0  0  0  0  o-Xylene
+95-48-7  9  4  11  1  17  1  0  0  0  0  0  0  2-Methylphenol
+95-49-8  9  4  11  1  53  1  0  0  0  0  0  0  o-Chlorotoluene
+95-50-1  9  4  53  2  0  0  0  0  0  0  0  0  o-Dichlorobenzene
+95-51-2  9  4  36  1  53  1  0  0  0  0  0  0  o-Chloroaniline
+95-53-4  9  4  11  1  36  1  0  0  0  0  0  0  o-Methylaniline
+95-63-6  9  3  11  3  0  0  0  0  0  0  0  0  1,2,4-Trimethylbenzene
+95-65-8  9  3  11  2  17  1  0  0  0  0  0  0  3,4-Dimethylphenol
+95-68-1  9  3  11  2  36  1  0  0  0  0  0  0  2,4-Dimethylaniline
+95-87-4  9  3  11  2  17  1  0  0  0  0  0  0  2,5-Dimethylphenol
+95-93-2  9  2  11  4  0  0  0  0  0  0  0  0  1,2,4,5-Tetramethylbenzene
+95-96-5  1  2  3  2  77  2  0  0  0  0  0  0  3,6-Dimethyl-1,4-dioxane-2,5-dione
+96-14-0  1  3  2  2  3  1  0  0  0  0  0  0  3-Methylpentane
+96-18-4  44  2  45  1  0  0  0  0  0  0  0  0  1,2,3-Trichloropropane
+96-22-0  1  2  2  1  19  1  0  0  0  0  0  0  3-Pentanone
+96-33-3  1  1  5  1  77  1  0  0  0  0  0  0  2-Propenoic acid methyl ester
+96-37-7  1  1  2  4  3  1  0  0  0  0  0  0  Methylcyclopentane
+96-41-3  2  4  3  1  14  1  0  0  0  0  0  0  Cyclopentanol
+96-47-9  1  1  2  2  3  1  27  1  0  0  0  0  2-Methyltetrahydrofuran
+96-48-0  2  2  22  1  0  0  0  0  0  0  0  0  gamma-Butyrolactone
+97-53-0  5  1  9  3  10  1  12  1  17  1  24  1  4-Allyl-2-methoxyphenol
+97-62-1  1  3  2  1  3  1  77  1  0  0  0  0  Ethyl isobutyrate
+98-29-3  1  3  4  1  9  3  10  1  17  2  0  0  4-tert-Butylcatechol
+98-54-4  1  3  4  1  9  4  10  1  17  1  0  0  4-tert-Butylphenol
+98-82-8  1  2  9  5  13  1  0  0  0  0  0  0  Isopropylbenzene
+98-83-9  1  1  7  1  9  5  10  1  0  0  0  0  alpha-Methyl styrene
+98-85-1  1  1  9  5  13  1  14  1  0  0  0  0  alpha.-Phenylethanol
+98-86-2  9  5  10  1  18  1  0  0  0  0  0  0  Acetophenone
+98-95-3  9  5  57  1  0  0  0  0  0  0  0  0  Nitrobenzene
+99-62-7  1  4  9  4  13  2  0  0  0  0  0  0  1,3-Diisopropylbenzene
+99-87-6  1  2  9  4  11  1  13  1  0  0  0  0  4-Isopropyltoluene
+99-89-8  1  2  9  4  13  1  17  1  0  0  0  0  4-Isopropylphenol
+99-97-8  1  1  9  4  10  1  11  1  34  1  0  0  4-Dimethylaminotoluene
+99-99-0  9  4  11  1  57  1  0  0  0  0  0  0  p-Nitrotoluene
+996-70-3  1  4  34  4  70  1  0  0  0  0  0  0  Tetrakis(dimethylamino)ethylene
+10486-19-8 1 1 2 11 20 1 # Tridecanal
+112-44-7 1 1 2 9 20 1 # Undecanal

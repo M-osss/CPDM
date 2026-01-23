@@ -1,0 +1,1617 @@
+ ---------------------------------------------
+             ===  CHEMSEP 2  ===
+ Copyright 2008 Harry Kooijman and Ross Taylor
+      Interaction Parameters Data (IPD)
+ ---------------------------------------------
+ Hayden O'Connell association/solvation parms.
+  Computer Calculations for Multicomponent
+   Vapor-Liquid and Liquid-Liquid Equilibria,
+   J.M. Prausnitz  T. Anderson  E. Grens,
+   C. Eckert  R. Hsieh  J. O'Connell,
+   Prentice-Hall (1980).
+ Negative ID's indicate ID's not available
+ ---------------------------------------------
+ Data: ID1  ID2  î12  comments
+ ---------------------------------------------
+
+[IPD]
+Comment=Hayden O'Connell
+#
+# ID/CASN       ID/CASN    a12         Name/Name Comments
+64-18-6       56-23-5  .15  Formic acid/carbon tetrachloride
+64-18-6       67-66-3  1.50  Formic acid/chloroform
+64-18-6       75-09-2  .50  Formic acid/dichloromethane
+64-18-6       64-18-6  4.50  Formic acid/formic acid
+75-52-5       56-23-5  .30  Nitro-methane/carbon tetrachloride
+75-52-5       67-66-3  .80  Nitro-methane/chloroform
+75-52-5       75-09-2  .40  Nitro-methane/dichloromethane
+75-52-5       64-18-6  2.20  Nitro-methane/formic acid
+75-52-5       75-52-5  1.66  Nitro-methane/nitro-methane
+67-56-1       67-66-3  .10  Methanol/chloroform
+67-56-1       64-18-6  2.50  Methanol/formic acid
+67-56-1       75-52-5  1.20  Methanol/nitro-methane
+67-56-1       67-56-1  1.63  Methanol/methanol
+124-38-9       67-66-3  .10  Carbon dioxide/chloroform
+124-38-9       64-18-6  .50  Carbon dioxide/formic acid
+124-38-9       75-52-5  .40  Carbon dioxide/nitro-methane
+124-38-9       67-56-1  .30  Carbon dioxide/methanol
+124-38-9       124-38-9  .16  Carbon dioxide/carbon dioxide
+75-15-0       64-18-6  .25  Carbon disulfide/formic acid
+75-15-0       75-52-5  .20  Carbon disulfide/nitro-methane
+75-15-0       67-56-1  .15  Carbon disulfide/methanol
+75-15-0       124-38-9  .20  Carbon disulfide/carbon dioxide
+75-15-0       75-15-0  .34  Carbon disulfide/carbon disulfide
+79-01-6       64-18-6  .30  Trichloroethylene/formic acid
+79-01-6       75-52-5  .20  Trichloroethylene/nitro-methane
+74-86-2       64-18-6  .60  Acetylene/formic acid
+74-86-2       75-52-5  .50  Acetylene/nitro-methane
+74-86-2       67-56-1  .30  Acetylene/methanol
+74-86-2       124-38-9  .16  Acetylene/carbon dioxide
+74-86-2       75-15-0  .20  Acetylene/carbon disulfide
+74-86-2       74-86-2  .16  Acetylene/acetylene
+75-05-8       56-23-5  .30  Acetonitrile/carbon tetrachloride
+75-05-8       67-66-3  1.80  Acetonitrile/chloroform
+75-05-8       75-09-2  .60  Acetonitrile/dichloromethane
+75-05-8       64-18-6  .20  Acetonitrile/formic acid
+75-05-8       75-52-5  2.00  Acetonitrile/nitro-methane
+75-05-8       67-56-1  1.50  Acetonitrile/methanol
+75-05-8       79-01-6  .20  Acetonitrile/trichloroethylene
+75-05-8       74-86-2  .50  Acetonitrile/acetylene
+75-05-8       75-05-8  1.65  Acetonitrile/acetonitrile
+74-85-1       64-18-6  .30  Ethylene/formic acid
+74-85-1       75-52-5  .20  Ethylene/nitro-methane
+74-85-1       75-05-8  .20  Ethylene/acetonitrile
+75-07-0       56-23-5  .15  Acetaldehyde/carbon tetrachloride
+75-07-0       67-66-3  1.10  Acetaldehyde/chloroform
+75-07-0       64-18-6  1.60  Acetaldehyde/formic acid
+75-07-0       75-52-5  1.40  Acetaldehyde/nitro-methane
+75-07-0       67-56-1  .80  Acetaldehyde/methanol
+75-07-0       124-38-9  .20  Acetaldehyde/carbon dioxide
+75-07-0       75-05-8  2.38  Acetaldehyde/acetonitrile
+75-07-0       75-07-0  .58  Acetaldehyde/acetaldehyde
+64-19-7       56-23-5  .15  Acetic acid/carbon tetrachloride
+64-19-7       67-66-3  1.50  Acetic acid/chloroform
+64-19-7       75-09-2  .50  Acetic acid/dichloromethane
+64-19-7       64-18-6  4.50  Acetic acid/formic acid
+64-19-7       75-52-5  2.20  Acetic acid/nitro-methane
+64-19-7       67-56-1  2.50  Acetic acid/methanol
+64-19-7       124-38-9  .50  Acetic acid/carbon dioxide
+64-19-7       75-15-0  .25  Acetic acid/carbon disulfide
+64-19-7       79-01-6  .30  Acetic acid/trichloroethylene
+64-19-7       74-86-2  .60  Acetic acid/acetylene
+64-19-7       75-05-8  2.50  Acetic acid/acetonitrile
+64-19-7       74-85-1  .30  Acetic acid/ethylene
+64-19-7       75-07-0  1.60  Acetic acid/acetaldehyde
+64-19-7       64-19-7  4.50  Acetic acid/acetic acid
+79-24-3       56-23-5  .30  Nitro-ethane/carbon tetrachloride
+79-24-3       67-66-3  .80  Nitro-ethane/chloroform
+79-24-3       75-09-2  .40  Nitro-ethane/dichloromethane
+79-24-3       64-18-6  2.20  Nitro-ethane/formic acid
+79-24-3       75-52-5  1.66  Nitro-ethane/nitro-methane
+79-24-3       67-56-1  1.20  Nitro-ethane/methanol
+79-24-3       124-38-9  .50  Nitro-ethane/carbon dioxide
+79-24-3       75-15-0  .20  Nitro-ethane/carbon disulfide
+79-24-3       79-01-6  .20  Nitro-ethane/trichloroethylene
+79-24-3       74-86-2  .50  Nitro-ethane/acetylene
+79-24-3       75-05-8  2.00  Nitro-ethane/acetonitrile
+79-24-3       74-85-1  .20  Nitro-ethane/ethylene
+79-24-3       75-07-0  1.40  Nitro-ethane/acetaldehyde
+79-24-3       64-19-7  2.20  Nitro-ethane/acetic acid
+79-24-3       79-24-3  1.66  Nitro-ethane/nitro-ethane
+64-17-5       67-66-3  .10  Ethanol/chloroform
+64-17-5       64-18-6  2.50  Ethanol/formic acid
+64-17-5       75-52-5  1.20  Ethanol/nitro-methane
+64-17-5       67-56-1  1.55  Ethanol/methanol
+64-17-5       124-38-9  .30  Ethanol/carbon dioxide
+64-17-5       74-86-2  .30  Ethanol/acetylene
+64-17-5       75-05-8  1.50  Ethanol/acetonitrile
+64-17-5       75-07-0  .80  Ethanol/acetaldehyde
+64-17-5       64-19-7  2.50  Ethanol/acetic acid
+64-17-5       79-24-3  1.20  Ethanol/nitro-ethane
+64-17-5       64-17-5  1.40  Ethanol/ethanol
+124-40-3       67-66-3  .30  Dimethyl amine/chloroform
+124-40-3       64-18-6  2.20  Dimethyl amine/formic acid
+124-40-3       75-52-5  1.40  Dimethyl amine/nitro-methane
+124-40-3       67-56-1  .20  Dimethyl amine/methanol
+124-40-3       124-38-9  .20  Dimethyl amine/carbon dioxide
+124-40-3       75-15-0  .10  Dimethyl amine/carbon disulfide
+124-40-3       79-01-6  .20  Dimethyl amine/trichloroethylene
+124-40-3       74-86-2  .50  Dimethyl amine/acetylene
+124-40-3       75-05-8  1.40  Dimethyl amine/acetonitrile
+124-40-3       74-85-1  .20  Dimethyl amine/ethylene
+124-40-3       75-07-0  .85  Dimethyl amine/acetaldehyde
+124-40-3       64-19-7  2.20  Dimethyl amine/acetic acid
+124-40-3       79-24-3  1.40  Dimethyl amine/nitro-ethane
+124-40-3       64-17-5  .20  Dimethyl amine/ethanol
+124-40-3       124-40-3  .17  Dimethyl amine/dimethyl amine
+107-21-1       67-66-3  .10  Ethylene glycol/chloroform
+107-21-1       64-18-6  2.50  Ethylene glycol/formic acid
+107-21-1       75-52-5  1.20  Ethylene glycol/nitro-methane
+107-21-1       67-56-1  1.55  Ethylene glycol/methanol
+107-21-1       124-38-9  .30  Ethylene glycol/carbon dioxide
+107-21-1       75-15-0  .15  Ethylene glycol/carbon disulfide
+107-21-1       74-86-2  .30  Ethylene glycol/acetylene
+107-21-1       107-21-1  1.55  Ethylene glycol/ethylene glycol
+115-07-1       64-18-6  .30  Propylene/formic acid
+115-07-1       75-52-5  .20  Propylene/nitro-methane
+115-07-1       75-05-8  .20  Propylene/acetonitrile
+115-07-1       64-19-7  .30  Propylene/acetic acid
+115-07-1       79-24-3  .20  Propylene/nitro-ethane
+115-07-1       124-40-3  .20  Propylene/dimethyl amine
+67-64-1       56-23-5  .20  Acetone/carbon tetrachloride
+67-64-1       67-66-3  1.26  Acetone/chloroform
+67-64-1       75-09-2  .40  Acetone/dichloromethane
+67-64-1       64-18-6  1.80  Acetone/formic acid
+67-64-1       75-52-5  1.63  Acetone/nitro-methane
+67-64-1       67-56-1  1.00  Acetone/methanol
+67-64-1       75-05-8  1.30  Acetone/acetonitrile
+67-64-1       75-07-0  1.00  Acetone/acetaldehyde
+67-64-1       64-19-7  1.80  Acetone/acetic acid
+67-64-1       79-24-3  1.63  Acetone/nitro-ethane
+67-64-1       64-17-5  1.00  Acetone/ethanol
+67-64-1       124-40-3  1.00  Acetone/dimethyl amine
+67-64-1       107-21-1  1.00  Acetone/ethylene glycol
+67-64-1       67-64-1  .90  Acetone/acetone
+79-20-9       56-23-5  .25  Methyl acetate/carbon tetrachloride
+79-20-9       67-66-3  1.55  Methyl acetate/chloroform
+79-20-9       75-09-2  .50  Methyl acetate/dichloromethane
+79-20-9       64-18-6  2.00  Methyl acetate/formic acid
+79-20-9       75-52-5  1.80  Methyl acetate/nitro-methane
+79-20-9       67-56-1  1.30  Methyl acetate/methanol
+79-20-9       75-05-8  1.40  Methyl acetate/acetonitrile
+79-20-9       75-07-0  .75  Methyl acetate/acetaldehyde
+79-20-9       64-19-7  2.00  Methyl acetate/acetic acid
+79-20-9       79-24-3  1.80  Methyl acetate/nitro-ethane
+79-20-9       64-17-5  1.30  Methyl acetate/ethanol
+79-20-9       124-40-3  1.10  Methyl acetate/dimethyl amine
+79-20-9       107-21-1  1.30  Methyl acetate/ethylene glycol
+79-20-9       67-64-1  1.10  Methyl acetate/acetone
+79-20-9       79-20-9  .85  Methyl acetate/methyl acetate
+79-09-4       56-23-5  .15  Propionic acid/carbon tetrachloride
+79-09-4       67-66-3  1.50  Propionic acid/chloroform
+79-09-4       75-09-2  .50  Propionic acid/dichloromethane
+79-09-4       64-18-6  4.50  Propionic acid/formic acid
+79-09-4       75-52-5  2.20  Propionic acid/nitro-methane
+79-09-4       67-56-1  2.50  Propionic acid/methanol
+79-09-4       124-38-9  .50  Propionic acid/carbon dioxide
+79-09-4       75-15-0  .25  Propionic acid/carbon disulfide
+79-09-4       79-01-6  .30  Propionic acid/trichloroethylene
+79-09-4       74-86-2  .60  Propionic acid/acetylene
+79-09-4       75-05-8  2.50  Propionic acid/acetonitrile
+79-09-4       74-85-1  .30  Propionic acid/ethylene
+79-09-4       75-07-0  1.60  Propionic acid/acetaldehyde
+79-09-4       64-19-7  4.50  Propionic acid/acetic acid
+79-09-4       79-24-3  2.20  Propionic acid/nitro-ethane
+79-09-4       64-17-5  2.50  Propionic acid/ethanol
+79-09-4       124-40-3  2.20  Propionic acid/dimethyl amine
+79-09-4       107-21-1  2.50  Propionic acid/ethylene glycol
+79-09-4       115-07-1  .30  Propionic acid/propylene
+79-09-4       67-64-1  1.80  Propionic acid/acetone
+79-09-4       79-20-9  2.00  Propionic acid/methyl acetate
+79-09-4       79-09-4  4.50  Propionic acid/propionic acid
+108-03-2       56-23-5  .30  1-nitropropane/carbon tetrachloride
+108-03-2       67-66-3  .80  1-nitropropane/chloroform
+108-03-2       75-09-2  .40  1-nitropropane/dichloromethane
+108-03-2       64-18-6  2.20  1-nitropropane/formic acid
+108-03-2       75-52-5  1.66  1-nitropropane/nitro-methane
+108-03-2       67-56-1  1.20  1-nitropropane/methanol
+108-03-2       124-38-9  .40  1-nitropropane/carbon dioxide
+108-03-2       75-15-0  .20  1-nitropropane/carbon disulfide
+108-03-2       79-01-6  .20  1-nitropropane/trichloroethylene
+108-03-2       74-86-2  .50  1-nitropropane/acetylene
+108-03-2       75-05-8  2.00  1-nitropropane/acetonitrile
+108-03-2       74-85-1  .30  1-nitropropane/ethylene
+108-03-2       75-07-0  1.40  1-nitropropane/acetaldehyde
+108-03-2       64-19-7  2.20  1-nitropropane/acetic acid
+108-03-2       79-24-3  1.66  1-nitropropane/nitro-ethane
+108-03-2       64-17-5  1.20  1-nitropropane/ethanol
+108-03-2       124-40-3  1.40  1-nitropropane/dimethyl amine
+108-03-2       107-21-1  1.20  1-nitropropane/ethylene glycol
+108-03-2       115-07-1  .20  1-nitropropane/propylene
+108-03-2       67-64-1  1.63  1-nitropropane/acetone
+108-03-2       79-20-9  1.80  1-nitropropane/methyl acetate
+108-03-2       79-09-4  2.20  1-nitropropane/propionic acid
+108-03-2       108-03-2  1.66  1-nitropropane/1-nitropropane
+79-46-9       56-23-5  .30  2-nitropropane/carbon tetrachloride
+79-46-9       67-66-3  .80  2-nitropropane/chloroform
+79-46-9       75-09-2  .40  2-nitropropane/dichloromethane
+79-46-9       64-18-6  2.20  2-nitropropane/formic acid
+79-46-9       75-52-5  1.66  2-nitropropane/nitro-methane
+79-46-9       67-56-1  1.20  2-nitropropane/methanol
+79-46-9       124-38-9  .40  2-nitropropane/carbon dioxide
+79-46-9       75-15-0  .20  2-nitropropane/carbon disulfide
+79-46-9       79-01-6  .20  2-nitropropane/trichloroethylene
+79-46-9       74-86-2  .50  2-nitropropane/acetylene
+79-46-9       75-05-8  2.00  2-nitropropane/acetonitrile
+79-46-9       74-85-1  .30  2-nitropropane/ethylene
+79-46-9       75-07-0  1.40  2-nitropropane/acetaldehyde
+79-46-9       64-19-7  2.20  2-nitropropane/acetic acid
+79-46-9       79-24-3  1.66  2-nitropropane/nitro-ethane
+79-46-9       64-17-5  1.20  2-nitropropane/ethanol
+79-46-9       124-40-3  1.40  2-nitropropane/dimethyl amine
+79-46-9       107-21-1  1.20  2-nitropropane/ethylene glycol
+79-46-9       115-07-1  .20  2-nitropropane/propylene
+79-46-9       67-64-1  1.63  2-nitropropane/acetone
+79-46-9       79-20-9  1.80  2-nitropropane/methyl acetate
+79-46-9       79-09-4  2.20  2-nitropropane/propionic acid
+79-46-9       108-03-2  1.66  2-nitropropane/1-nitropropane
+79-46-9       79-46-9  1.66  2-nitropropane/2-nitropropane
+71-23-8       67-66-3  .10  n-propanol/chloroform
+71-23-8       64-18-6  2.50  n-propanol/formic acid
+71-23-8       75-52-5  1.20  n-propanol/nitro-methane
+71-23-8       67-56-1  1.55  n-propanol/methanol
+71-23-8       124-38-9  .30  n-propanol/carbon dioxide
+71-23-8       75-15-0  .15  n-propanol/carbon disulfide
+71-23-8       74-86-2  .30  n-propanol/acetylene
+71-23-8       75-05-8  1.50  n-propanol/acetonitrile
+71-23-8       75-07-0  .80  n-propanol/acetaldehyde
+71-23-8       64-19-7  2.50  n-propanol/acetic acid
+71-23-8       79-24-3  1.20  n-propanol/nitro-ethane
+71-23-8       64-17-5  1.55  n-propanol/ethanol
+71-23-8       124-40-3  .20  n-propanol/dimethyl amine
+71-23-8       107-21-1  1.55  n-propanol/ethylene glycol
+71-23-8       67-64-1  1.00  n-propanol/acetone
+71-23-8       79-20-9  1.30  n-propanol/methyl acetate
+71-23-8       79-09-4  2.50  n-propanol/propionic acid
+71-23-8       108-03-2  1.20  n-propanol/1-nitropropane
+71-23-8       79-46-9  1.20  n-propanol/2-nitropropane
+71-23-8       71-23-8  1.40  n-propanol/n-propanol
+67-63-0       67-66-3  .10  I-propanol/chloroform
+67-63-0       64-18-6  2.50  I-propanol/formic acid
+67-63-0       75-52-5  1.20  I-propanol/nitro-methane
+67-63-0       67-56-1  1.55  I-propanol/methanol
+67-63-0       124-38-9  .30  I-propanol/carbon dioxide
+67-63-0       75-15-0  .15  I-propanol/carbon disulfide
+67-63-0       74-86-2  .30  I-propanol/acetylene
+67-63-0       75-05-8  1.50  I-propanol/acetonitrile
+67-63-0       75-07-0  .80  I-propanol/acetaldehyde
+67-63-0       64-19-7  2.50  I-propanol/acetic acid
+67-63-0       79-24-3  1.20  I-propanol/nitro-ethane
+67-63-0       64-17-5  1.55  I-propanol/ethanol
+67-63-0       124-40-3  .20  I-propanol/dimethyl amine
+67-63-0       107-21-1  1.55  I-propanol/ethylene glycol
+67-63-0       67-64-1  1.00  I-propanol/acetone
+67-63-0       79-20-9  1.30  I-propanol/methyl acetate
+67-63-0       79-09-4  2.50  I-propanol/propionic acid
+67-63-0       108-03-2  1.20  I-propanol/1-nitropropane
+67-63-0       79-46-9  1.20  I-propanol/2-nitropropane
+67-63-0       71-23-8  1.55  I-propanol/n-propanol
+67-63-0       67-63-0  1.32  I-propanol/i-propanol
+75-50-3       67-66-3  .30  Trimethylamine/chloroform
+75-50-3       64-18-6  2.20  Trimethylamine/formic acid
+75-50-3       75-52-5  1.40  Trimethylamine/nitro-methane
+75-50-3       67-56-1  .20  Trimethylamine/methanol
+75-50-3       124-38-9  .20  Trimethylamine/carbon dioxide
+75-50-3       75-15-0  .10  Trimethylamine/carbon disulfide
+75-50-3       79-01-6  .20  Trimethylamine/trichloroethylene
+75-50-3       74-86-2  .50  Trimethylamine/acetylene
+75-50-3       75-05-8  1.40  Trimethylamine/acetonitrile
+75-50-3       74-85-1  .20  Trimethylamine/ethylene
+75-50-3       75-07-0  .85  Trimethylamine/acetaldehyde
+75-50-3       64-19-7  2.20  Trimethylamine/acetic acid
+75-50-3       79-24-3  1.40  Trimethylamine/nitro-ethane
+75-50-3       64-17-5  .20  Trimethylamine/ethanol
+75-50-3       124-40-3  .20  Trimethylamine/dimethyl amine
+75-50-3       107-21-1  .20  Trimethylamine/ethylene glycol
+75-50-3       115-07-1  .20  Trimethylamine/propylene
+75-50-3       67-64-1  1.00  Trimethylamine/acetone
+75-50-3       79-20-9  1.10  Trimethylamine/methyl acetate
+75-50-3       79-09-4  2.20  Trimethylamine/propionic acid
+75-50-3       108-03-2  1.40  Trimethylamine/1-nitropropane
+75-50-3       79-46-9  1.40  Trimethylamine/2-nitropropane
+75-50-3       71-23-8  .20  Trimethylamine/n-propanol
+75-50-3       67-63-0  .20  Trimethylamine/i-propanol
+75-50-3       75-50-3  .6e-1  Trimethylamine/trimethylamine
+106-98-9       64-18-6  .30  Butene-1/formic acid
+106-98-9       75-52-5  .20  Butene-1/nitro-methane
+106-98-9       75-05-8  .20  Butene-1/acetonitrile
+106-98-9       64-19-7  .30  Butene-1/acetic acid
+106-98-9       79-24-3  .20  Butene-1/nitro-ethane
+106-98-9       124-40-3  .20  Butene-1/dimethyl amine
+106-98-9       79-09-4  .30  Butene-1/propionic acid
+106-98-9       108-03-2  .20  Butene-1/1-nitropropane
+106-98-9       79-46-9  .20  Butene-1/2-nitropropane
+106-98-9       75-50-3  .20  Butene-1/trimethylamine
+78-93-3       56-23-5  .20  2-butanone/carbon tetrachloride
+78-93-3       67-66-3  1.26  2-butanone/chloroform
+78-93-3       75-09-2  .40  2-butanone/dichloromethane
+78-93-3       64-18-6  1.80  2-butanone/formic acid
+78-93-3       75-52-5  1.63  2-butanone/nitro-methane
+78-93-3       67-56-1  1.00  2-butanone/methanol
+78-93-3       75-05-8  1.30  2-butanone/acetonitrile
+78-93-3       75-07-0  1.00  2-butanone/acetaldehyde
+78-93-3       64-19-7  1.80  2-butanone/acetic acid
+78-93-3       79-24-3  1.63  2-butanone/nitro-ethane
+78-93-3       64-17-5  1.00  2-butanone/ethanol
+78-93-3       124-40-3  1.00  2-butanone/dimethyl amine
+78-93-3       107-21-1  1.00  2-butanone/ethylene glycol
+78-93-3       67-64-1  .90  2-butanone/acetone
+78-93-3       79-20-9  1.10  2-butanone/methyl acetate
+78-93-3       79-09-4  1.80  2-butanone/propionic acid
+78-93-3       108-03-2  1.63  2-butanone/1-nitropropane
+78-93-3       79-46-9  1.63  2-butanone/2-nitropropane
+78-93-3       71-23-8  1.00  2-butanone/n-propanol
+78-93-3       67-63-0  1.00  2-butanone/i-propanol
+78-93-3       75-50-3  1.00  2-butanone/trimethylamine
+78-93-3       78-93-3  .90  2-butanone/2-butanone
+109-99-9       56-23-5  .10  Tetrahydrofuran/carbon tetrachloride
+109-99-9       67-66-3  .95  Tetrahydrofuran/chloroform
+109-99-9       75-09-2  .35  Tetrahydrofuran/dichloromethane
+109-99-9       64-18-6  1.20  Tetrahydrofuran/formic acid
+109-99-9       75-52-5  1.25  Tetrahydrofuran/nitro-methane
+109-99-9       67-56-1  .50  Tetrahydrofuran/methanol
+109-99-9       75-05-8  1.00  Tetrahydrofuran/acetonitrile
+109-99-9       75-07-0  .40  Tetrahydrofuran/acetaldehyde
+109-99-9       64-19-7  1.20  Tetrahydrofuran/acetic acid
+109-99-9       79-24-3  1.25  Tetrahydrofuran/nitro-ethane
+109-99-9       64-17-5  .50  Tetrahydrofuran/ethanol
+109-99-9       124-40-3  .70  Tetrahydrofuran/dimethyl amine
+109-99-9       107-21-1  .50  Tetrahydrofuran/ethylene glycol
+109-99-9       79-09-4  1.20  Tetrahydrofuran/propionic acid
+109-99-9       108-03-2  1.25  Tetrahydrofuran/1-nitropropane
+109-99-9       79-46-9  1.25  Tetrahydrofuran/2-nitropropane
+109-99-9       71-23-8  .50  Tetrahydrofuran/n-propanol
+109-99-9       67-63-0  .50  Tetrahydrofuran/i-propanol
+109-99-9       75-50-3  .70  Tetrahydrofuran/trimethylamine
+123-91-1       56-23-5  .10  1,4-Dioxane/carbon tetrachloride
+123-91-1       67-66-3  .95  1,4-Dioxane/chloroform
+123-91-1       75-09-2  .35  1,4-Dioxane/dichloromethane
+123-91-1       75-52-5  1.20  1,4-Dioxane/nitro-methane
+123-91-1       67-56-1  1.25  1,4-Dioxane/methanol
+123-91-1       124-38-9  .50  1,4-Dioxane/carbon dioxide
+123-91-1       75-05-8  1.00  1,4-Dioxane/acetonitrile
+123-91-1       75-07-0  .40  1,4-Dioxane/acetaldehyde
+123-91-1       64-19-7  1.20  1,4-Dioxane/acetic acid
+123-91-1       79-24-3  1.25  1,4-Dioxane/nitro-ethane
+123-91-1       64-17-5  .50  1,4-Dioxane/ethanol
+123-91-1       124-40-3  .20  1,4-Dioxane/dimethyl amine
+123-91-1       107-21-1  .50  1,4-Dioxane/ethylene glycol
+123-91-1       79-09-4  1.20  1,4-Dioxane/propionic acid
+123-91-1       108-03-2  1.25  1,4-Dioxane/1-nitropropane
+123-91-1       79-46-9  1.25  1,4-Dioxane/2-nitropropane
+123-91-1       71-23-8  .50  1,4-Dioxane/n-propanol
+123-91-1       67-63-0  .50  1,4-Dioxane/i-propanol
+123-91-1       75-50-3  .70  1,4-Dioxane/trimethylamine
+141-78-6       56-23-5  .25  Ethyl acetate/carbon tetrachloride
+141-78-6       67-66-3  1.55  Ethyl acetate/chloroform
+141-78-6       75-09-2  .50  Ethyl acetate/dichloromethane
+141-78-6       64-18-6  2.00  Ethyl acetate/formic acid
+141-78-6       75-52-5  1.80  Ethyl acetate/nitro-methane
+141-78-6       67-56-1  1.30  Ethyl acetate/methanol
+141-78-6       75-05-8  1.40  Ethyl acetate/acetonitrile
+141-78-6       75-07-0  .75  Ethyl acetate/acetaldehyde
+141-78-6       64-19-7  2.00  Ethyl acetate/acetic acid
+141-78-6       79-24-3  1.80  Ethyl acetate/nitro-ethane
+141-78-6       64-17-5  1.30  Ethyl acetate/ethanol
+141-78-6       124-40-3  1.10  Ethyl acetate/dimethyl amine
+141-78-6       107-21-1  1.30  Ethyl acetate/ethylene glycol
+141-78-6       67-64-1  1.10  Ethyl acetate/acetone
+141-78-6       79-20-9  .53  Ethyl acetate/methyl acetate
+141-78-6       79-09-4  2.00  Ethyl acetate/propionic acid
+141-78-6       108-03-2  1.80  Ethyl acetate/1-nitropropane
+141-78-6       79-46-9  1.80  Ethyl acetate/2-nitropropane
+141-78-6       71-23-8  1.30  Ethyl acetate/n-propanol
+141-78-6       67-63-0  1.30  Ethyl acetate/i-propanol
+141-78-6       75-50-3  1.10  Ethyl acetate/trimethylamine
+141-78-6       78-93-3  1.10  Ethyl acetate/2-butanone
+141-78-6       141-78-6  .53  Ethyl acetate/ethyl acetate
+71-36-3       67-66-3  .10  n-butanol/chloroform
+71-36-3       64-18-6  2.50  n-butanol/formic acid
+71-36-3       75-52-5  1.20  n-butanol/nitro-methane
+71-36-3       67-56-1  1.55  n-butanol/methanol
+71-36-3       124-38-9  .30  n-butanol/carbon dioxide
+71-36-3       75-15-0  .15  n-butanol/carbon disulfide
+71-36-3       74-86-2  .30  n-butanol/acetylene
+71-36-3       75-05-8  1.50  n-butanol/acetonitrile
+71-36-3       75-07-0  .80  n-butanol/acetaldehyde
+71-36-3       64-19-7  2.50  n-butanol/acetic acid
+71-36-3       79-24-3  1.20  n-butanol/nitro-ethane
+71-36-3       64-17-5  1.55  n-butanol/ethanol
+71-36-3       124-40-3  .20  n-butanol/dimethyl amine
+71-36-3       107-21-1  1.55  n-butanol/ethylene glycol
+71-36-3       67-64-1  1.00  n-butanol/acetone
+71-36-3       79-20-9  1.30  n-butanol/methyl acetate
+71-36-3       79-09-4  2.50  n-butanol/propionic acid
+71-36-3       108-03-2  1.20  n-butanol/1-nitropropane
+71-36-3       79-46-9  1.20  n-butanol/2-nitropropane
+71-36-3       71-23-8  1.55  n-butanol/n-propanol
+71-36-3       67-63-0  1.55  n-butanol/i-propanol
+71-36-3       75-50-3  .20  n-butanol/trimethylamine
+71-36-3       78-93-3  1.00  n-butanol/2-butanone
+71-36-3       109-99-9  .50  n-butanol/tetrahydrofuran
+71-36-3       123-91-1  .50  n-butanol/dioxane
+71-36-3       141-78-6  1.30  n-butanol/ethyl acetate
+71-36-3       71-36-3  2.20  n-butanol/n-butanol
+78-83-1       67-66-3  .10  I-butanol/chloroform
+78-83-1       64-18-6  2.50  I-butanol/formic acid
+78-83-1       75-52-5  1.20  I-butanol/nitro-methane
+78-83-1       67-56-1  1.55  I-butanol/methanol
+78-83-1       124-38-9  .30  I-butanol/carbon dioxide
+78-83-1       75-15-0  .15  I-butanol/carbon disulfide
+78-83-1       74-86-2  .30  I-butanol/acetylene
+78-83-1       75-05-8  1.50  I-butanol/acetonitrile
+78-83-1       75-07-0  .80  I-butanol/acetaldehyde
+78-83-1       64-19-7  2.50  I-butanol/acetic acid
+78-83-1       79-24-3  1.20  I-butanol/nitro-ethane
+78-83-1       64-17-5  1.55  I-butanol/ethanol
+78-83-1       124-40-3  .20  I-butanol/dimethyl amine
+78-83-1       107-21-1  1.55  I-butanol/ethylene glycol
+78-83-1       67-64-1  1.00  I-butanol/acetone
+78-83-1       79-20-9  1.30  I-butanol/methyl acetate
+78-83-1       79-09-4  2.50  I-butanol/propionic acid
+78-83-1       108-03-2  1.20  I-butanol/1-nitropropane
+78-83-1       79-46-9  1.20  I-butanol/2-nitropropane
+78-83-1       71-23-8  1.55  I-butanol/n-propanol
+78-83-1       67-63-0  1.55  I-butanol/i-propanol
+78-83-1       75-50-3  .20  I-butanol/trimethylamine
+78-83-1       78-93-3  1.00  I-butanol/2-butanone
+78-83-1       109-99-9  .50  I-butanol/tetrahydrofuran
+78-83-1       123-91-1  .50  I-butanol/dioxane
+78-83-1       141-78-6  1.30  I-butanol/ethyl acetate
+78-83-1       71-36-3  1.55  I-butanol/n-butanol
+78-83-1       78-83-1  1.90  I-butanol/i-butanol
+78-92-2       67-66-3  .10  Sec-butanol/chloroform
+78-92-2       64-18-6  2.50  Sec-butanol/formic acid
+78-92-2       75-52-5  1.20  Sec-butanol/nitro-methane
+78-92-2       67-56-1  1.55  Sec-butanol/methanol
+78-92-2       124-38-9  .30  Sec-butanol/carbon dioxide
+78-92-2       75-15-0  .15  Sec-butanol/carbon disulfide
+78-92-2       74-86-2  .30  Sec-butanol/acetylene
+78-92-2       75-05-8  1.50  Sec-butanol/acetonitrile
+78-92-2       75-07-0  .80  Sec-butanol/acetaldehyde
+78-92-2       64-19-7  2.50  Sec-butanol/acetic acid
+78-92-2       79-24-3  1.20  Sec-butanol/nitro-ethane
+78-92-2       64-17-5  1.55  Sec-butanol/ethanol
+78-92-2       124-40-3  .20  Sec-butanol/dimethyl amine
+78-92-2       107-21-1  1.55  Sec-butanol/ethylene glycol
+78-92-2       67-64-1  1.00  Sec-butanol/acetone
+78-92-2       79-20-9  1.30  Sec-butanol/methyl acetate
+78-92-2       79-09-4  2.50  Sec-butanol/propionic acid
+78-92-2       108-03-2  1.20  Sec-butanol/1-nitropropane
+78-92-2       79-46-9  1.20  Sec-butanol/2-nitropropane
+78-92-2       71-23-8  1.55  Sec-butanol/n-propanol
+78-92-2       67-63-0  1.55  Sec-butanol/i-propanol
+78-92-2       75-50-3  .20  Sec-butanol/trimethylamine
+78-92-2       78-93-3  1.00  Sec-butanol/2-butanone
+78-92-2       109-99-9  .50  Sec-butanol/tetrahydrofuran
+78-92-2       123-91-1  .50  Sec-butanol/dioxane
+78-92-2       141-78-6  1.30  Sec-butanol/ethyl acetate
+78-92-2       71-36-3  1.55  Sec-butanol/n-butanol
+78-92-2       78-83-1  1.55  Sec-butanol/i-butanol
+78-92-2       78-92-2  1.75  Sec-butanol/sec-butanol
+75-65-0       67-66-3  .10  Tert-butanol/chloroform
+75-65-0       64-18-6  2.50  Tert-butanol/formic acid
+75-65-0       75-52-5  1.20  Tert-butanol/nitro-methane
+75-65-0       67-56-1  1.55  Tert-butanol/methanol
+75-65-0       124-38-9  .30  Tert-butanol/carbon dioxide
+75-65-0       75-15-0  .15  Tert-butanol/carbon disulfide
+75-65-0       74-86-2  .30  Tert-butanol/acetylene
+75-65-0       75-05-8  1.50  Tert-butanol/acetonitrile
+75-65-0       75-07-0  .80  Tert-butanol/acetaldehyde
+75-65-0       64-19-7  2.50  Tert-butanol/acetic acid
+75-65-0       79-24-3  1.20  Tert-butanol/nitro-ethane
+75-65-0       64-17-5  1.55  Tert-butanol/ethanol
+75-65-0       124-40-3  .20  Tert-butanol/dimethyl amine
+75-65-0       107-21-1  1.55  Tert-butanol/ethylene glycol
+75-65-0       67-64-1  1.00  Tert-butanol/acetone
+75-65-0       79-20-9  1.30  Tert-butanol/methyl acetate
+75-65-0       79-09-4  2.50  Tert-butanol/propionic acid
+75-65-0       108-03-2  1.20  Tert-butanol/1-nitropropane
+75-65-0       79-46-9  1.20  Tert-butanol/2-nitropropane
+75-65-0       71-23-8  1.55  Tert-butanol/n-propanol
+75-65-0       67-63-0  1.55  Tert-butanol/i-propanol
+75-65-0       75-50-3  .20  Tert-butanol/trimethylamine
+75-65-0       78-93-3  1.00  Tert-butanol/2-butanone
+75-65-0       109-99-9  .50  Tert-butanol/tetrahydrofuran
+75-65-0       123-91-1  .50  Tert-butanol/dioxane
+75-65-0       141-78-6  1.30  Tert-butanol/ethyl acetate
+75-65-0       71-36-3  1.55  Tert-butanol/n-butanol
+75-65-0       78-83-1  1.55  Tert-butanol/i-butanol
+75-65-0       78-92-2  1.55  Tert-butanol/sec-butanol
+75-65-0       75-65-0  1.00  Tert-butanol/tert-butanol
+60-29-7       56-23-5  .10  Di-ethyl ether/carbon tetrachloride
+60-29-7       67-66-3  .95  Di-ethyl ether/chloroform
+60-29-7       75-09-2  .35  Di-ethyl ether/dichloromethane
+60-29-7       64-18-6  1.20  Di-ethyl ether/formic acid
+60-29-7       75-52-5  1.25  Di-ethyl ether/nitro-methane
+60-29-7       67-56-1  .50  Di-ethyl ether/methanol
+60-29-7       75-05-8  1.00  Di-ethyl ether/acetonitrile
+60-29-7       75-07-0  .40  Di-ethyl ether/acetaldehyde
+60-29-7       64-19-7  1.20  Di-ethyl ether/acetic acid
+60-29-7       79-24-3  1.25  Di-ethyl ether/nitro-ethane
+60-29-7       64-17-5  .50  Di-ethyl ether/ethanol
+60-29-7       124-40-3  .70  Di-ethyl ether/dimethyl amine
+60-29-7       107-21-1  .50  Di-ethyl ether/ethylene glycol
+60-29-7       79-09-4  1.20  Di-ethyl ether/propionic acid
+60-29-7       108-03-2  1.25  Di-ethyl ether/1-nitropropane
+60-29-7       79-46-9  1.25  Di-ethyl ether/2-nitropropane
+60-29-7       71-23-8  .50  Di-ethyl ether/n-propanol
+60-29-7       67-63-0  .50  Di-ethyl ether/i-propanol
+60-29-7       75-50-3  .70  Di-ethyl ether/trimethylamine
+60-29-7       71-36-3  .50  Di-ethyl ether/n-butanol
+60-29-7       78-83-1  .50  Di-ethyl ether/i-butanol
+60-29-7       78-92-2  .50  Di-ethyl ether/sec-butanol
+60-29-7       75-65-0  .50  Di-ethyl ether/tert-butanol
+110-80-5       67-66-3  .10  Ethyl cellosolve/chloroform
+110-80-5       64-18-6  2.50  Ethyl cellosolve/formic acid
+110-80-5       75-52-5  1.20  Ethyl cellosolve/nitro-methane
+110-80-5       67-56-1  1.55  Ethyl cellosolve/methanol
+110-80-5       124-38-9  .30  Ethyl cellosolve/carbon dioxide
+110-80-5       75-15-0  .15  Ethyl cellosolve/carbon disulfide
+110-80-5       74-86-2  .30  Ethyl cellosolve/acetylene
+110-80-5       75-05-8  1.50  Ethyl cellosolve/acetonitrile
+110-80-5       75-07-0  .80  Ethyl cellosolve/acetaldehyde
+110-80-5       64-19-7  2.50  Ethyl cellosolve/acetic acid
+110-80-5       79-24-3  1.20  Ethyl cellosolve/nitro-ethane
+110-80-5       64-17-5  1.55  Ethyl cellosolve/ethanol
+110-80-5       124-40-3  .20  Ethyl cellosolve/dimethyl amine
+110-80-5       107-21-1  1.55  Ethyl cellosolve/ethylene glycol
+110-80-5       67-64-1  1.00  Ethyl cellosolve/acetone
+110-80-5       79-20-9  1.30  Ethyl cellosolve/methyl acetate
+110-80-5       79-09-4  2.50  Ethyl cellosolve/propionic acid
+110-80-5       108-03-2  1.20  Ethyl cellosolve/1-nitropropane
+110-80-5       79-46-9  1.20  Ethyl cellosolve/2-nitropropane
+110-80-5       71-23-8  1.55  Ethyl cellosolve/n-propanol
+110-80-5       67-63-0  1.55  Ethyl cellosolve/i-propanol
+110-80-5       75-50-3  .20  Ethyl cellosolve/trimethylamine
+110-80-5       78-93-3  1.00  Ethyl cellosolve/2-butanone
+110-80-5       109-99-9  .50  Ethyl cellosolve/tetrahydrofuran
+110-80-5       123-91-1  .50  Ethyl cellosolve/dioxane
+110-80-5       141-78-6  1.30  Ethyl cellosolve/ethyl acetate
+110-80-5       71-36-3  1.55  Ethyl cellosolve/n-butanol
+110-80-5       78-83-1  1.55  Ethyl cellosolve/i-butanol
+110-80-5       78-92-2  1.55  Ethyl cellosolve/sec-butanol
+110-80-5       75-65-0  1.55  Ethyl cellosolve/tert-butanol
+110-80-5       60-29-7  .50  Ethyl cellosolve/di-ethyl ether
+110-80-5       110-80-5  1.55  Ethyl cellosolve/ethyl cellosolve
+109-89-7       67-66-3  .30  Diethyl amine/chloroform
+109-89-7       64-18-6  2.20  Diethyl amine/formic acid
+109-89-7       75-52-5  1.40  Diethyl amine/nitro-methane
+109-89-7       67-56-1  .20  Diethyl amine/methanol
+109-89-7       124-38-9  .20  Diethyl amine/carbon dioxide
+109-89-7       75-15-0  .10  Diethyl amine/carbon disulfide
+109-89-7       79-01-6  .20  Diethyl amine/trichloroethylene
+109-89-7       74-86-2  .50  Diethyl amine/acetylene
+109-89-7       75-05-8  1.40  Diethyl amine/acetonitrile
+109-89-7       74-85-1  .20  Diethyl amine/ethylene
+109-89-7       75-07-0  .85  Diethyl amine/acetaldehyde
+109-89-7       64-19-7  2.20  Diethyl amine/acetic acid
+109-89-7       79-24-3  1.40  Diethyl amine/nitro-ethane
+109-89-7       64-17-5  .20  Diethyl amine/ethanol
+109-89-7       124-40-3  .20  Diethyl amine/dimethyl amine
+109-89-7       107-21-1  .20  Diethyl amine/ethylene glycol
+109-89-7       115-07-1  .20  Diethyl amine/propylene
+109-89-7       67-64-1  1.00  Diethyl amine/acetone
+109-89-7       79-20-9  1.10  Diethyl amine/methyl acetate
+109-89-7       79-09-4  2.20  Diethyl amine/propionic acid
+109-89-7       108-03-2  1.40  Diethyl amine/1-nitropropane
+109-89-7       79-46-9  1.40  Diethyl amine/2-nitropropane
+109-89-7       71-23-8  .20  Diethyl amine/n-propanol
+109-89-7       67-63-0  .20  Diethyl amine/i-propanol
+109-89-7       75-50-3  .20  Diethyl amine/trimethylamine
+109-89-7       106-98-9  .20  Diethyl amine/butene-1
+109-89-7       78-93-3  1.00  Diethyl amine/2-butanone
+109-89-7       141-78-6  1.10  Diethyl amine/ethyl acetate
+109-89-7       71-36-3  .20  Diethyl amine/n-butanol
+109-89-7       78-83-1  .20  Diethyl amine/i-butanol
+109-89-7       78-92-2  .20  Diethyl amine/sec-butanol
+109-89-7       75-65-0  .20  Diethyl amine/tert-butanol
+109-89-7       60-29-7  .70  Diethyl amine/di-ethyl ether
+109-89-7       110-80-5  .20  Diethyl amine/ethyl cellosolve
+109-89-7       109-89-7  .21  Diethyl amine/diethyl amine
+98-01-1       56-23-5  .15  Furfural/carbon tetrachloride
+98-01-1       67-66-3  1.10  Furfural/chloroform
+98-01-1       75-09-2  .40  Furfural/dichloromethane
+98-01-1       64-18-6  1.60  Furfural/formic acid
+98-01-1       75-52-5  1.40  Furfural/nitro-methane
+98-01-1       67-56-1  .80  Furfural/methanol
+98-01-1       124-38-9  .20  Furfural/carbon dioxide
+98-01-1       75-15-0  .10  Furfural/carbon disulfide
+98-01-1       75-05-8  2.38  Furfural/acetonitrile
+98-01-1       75-07-0  .55  Furfural/acetaldehyde
+98-01-1       64-19-7  1.60  Furfural/acetic acid
+98-01-1       79-24-3  1.40  Furfural/nitro-ethane
+98-01-1       64-17-5  .80  Furfural/ethanol
+98-01-1       124-40-3  .85  Furfural/dimethyl amine
+98-01-1       107-21-1  .80  Furfural/ethylene glycol
+98-01-1       67-64-1  1.00  Furfural/acetone
+98-01-1       79-20-9  .75  Furfural/methyl acetate
+98-01-1       79-09-4  1.60  Furfural/propionic acid
+98-01-1       108-03-2  1.40  Furfural/1-nitropropane
+98-01-1       79-46-9  1.40  Furfural/2-nitropropane
+98-01-1       71-23-8  .80  Furfural/n-propanol
+98-01-1       67-63-0  .80  Furfural/i-propanol
+98-01-1       75-50-3  .85  Furfural/trimethylamine
+98-01-1       78-93-3  1.00  Furfural/2-butanone
+98-01-1       109-99-9  .40  Furfural/tetrahydrofuran
+98-01-1       123-91-1  .40  Furfural/dioxane
+98-01-1       141-78-6  .75  Furfural/ethyl acetate
+98-01-1       71-36-3  .80  Furfural/n-butanol
+98-01-1       78-83-1  .80  Furfural/i-butanol
+98-01-1       78-92-2  .80  Furfural/sec-butanol
+98-01-1       75-65-0  .80  Furfural/tert-butanol
+98-01-1       60-29-7  .40  Furfural/di-ethyl ether
+98-01-1       110-80-5  .80  Furfural/ethyl cellosolve
+98-01-1       109-89-7  .85  Furfural/diethyl amine
+98-01-1       98-01-1  .58  Furfural/furfural
+110-86-1       56-23-5  .15  Pyridine/carbon tetrachloride
+110-86-1       67-66-3  .30  Pyridine/chloroform
+110-86-1       64-18-6  1.00  Pyridine/formic acid
+110-86-1       75-52-5  1.30  Pyridine/nitro-methane
+110-86-1       67-56-1  .40  Pyridine/methanol
+110-86-1       79-01-6  .5e-1  Pyridine/trichloroethylene
+110-86-1       74-86-2  .15  Pyridine/acetylene
+110-86-1       75-05-8  1.30  Pyridine/acetonitrile
+110-86-1       74-85-1  .15  Pyridine/ethylene
+110-86-1       75-07-0  .40  Pyridine/acetaldehyde
+110-86-1       64-19-7  1.00  Pyridine/acetic acid
+110-86-1       79-24-3  1.30  Pyridine/nitro-ethane
+110-86-1       64-17-5  .40  Pyridine/ethanol
+110-86-1       124-40-3  .20  Pyridine/dimethyl amine
+110-86-1       107-21-1  .40  Pyridine/ethylene glycol
+110-86-1       115-07-1  .5e-1  Pyridine/propylene
+110-86-1       79-20-9  .30  Pyridine/methyl acetate
+110-86-1       79-09-4  1.00  Pyridine/propionic acid
+110-86-1       108-03-2  1.30  Pyridine/1-nitropropane
+110-86-1       79-46-9  1.30  Pyridine/2-nitropropane
+110-86-1       71-23-8  .40  Pyridine/n-propanol
+110-86-1       67-63-0  .40  Pyridine/i-propanol
+110-86-1       75-50-3  .20  Pyridine/trimethylamine
+110-86-1       106-98-9  .5e-1  Pyridine/butene-1
+110-86-1       141-78-6  .30  Pyridine/ethyl acetate
+110-86-1       71-36-3  .40  Pyridine/n-butanol
+110-86-1       78-83-1  .40  Pyridine/i-butanol
+110-86-1       78-92-2  .40  Pyridine/sec-butanol
+110-86-1       75-65-0  .40  Pyridine/tert-butanol
+110-86-1       110-80-5  .40  Pyridine/ethyl cellosolve
+110-86-1       109-89-7  .20  Pyridine/diethyl amine
+110-86-1       98-01-1  .40  Pyridine/furfural
+78-79-5       64-18-6  .30  Isoprene/formic acid
+78-79-5       75-52-5  .20  Isoprene/nitro-methane
+78-79-5       75-05-8  .20  Isoprene/acetonitrile
+78-79-5       64-19-7  .30  Isoprene/acetic acid
+78-79-5       79-24-3  .20  Isoprene/nitro-ethane
+78-79-5       124-40-3  .20  Isoprene/dimethyl amine
+78-79-5       79-09-4  .30  Isoprene/propionic acid
+78-79-5       108-03-2  .20  Isoprene/1-nitropropane
+78-79-5       79-46-9  .20  Isoprene/2-nitropropane
+78-79-5       75-50-3  .20  Isoprene/trimethylamine
+78-79-5       109-89-7  .20  Isoprene/diethyl amine
+78-79-5       110-86-1  .5e-1  Isoprene/pyridine
+108-90-7       56-23-5  .25  Chlorobenzene/carbon tetrachloride
+108-90-7       67-66-3  .10  Chlorobenzene/chloroform
+108-90-7       64-18-6  .40  Chlorobenzene/formic acid
+108-90-7       75-52-5  .50  Chlorobenzene/nitro-methane
+108-90-7       79-01-6  .10  Chlorobenzene/trichloroethylene
+108-90-7       74-86-2  .30  Chlorobenzene/acetylene
+108-90-7       75-05-8  .70  Chlorobenzene/acetonitrile
+108-90-7       74-85-1  .10  Chlorobenzene/ethylene
+108-90-7       75-07-0  .40  Chlorobenzene/acetaldehyde
+108-90-7       64-19-7  .40  Chlorobenzene/acetic acid
+108-90-7       79-24-3  .50  Chlorobenzene/nitro-ethane
+108-90-7       115-07-1  .10  Chlorobenzene/propylene
+108-90-7       67-64-1  .50  Chlorobenzene/acetone
+108-90-7       79-20-9  .60  Chlorobenzene/methyl acetate
+108-90-7       79-09-4  .40  Chlorobenzene/propionic acid
+108-90-7       108-03-2  .50  Chlorobenzene/1-nitropropane
+108-90-7       79-46-9  .50  Chlorobenzene/2-nitropropane
+108-90-7       106-98-9  .10  Chlorobenzene/butene-1
+108-90-7       78-93-3  .50  Chlorobenzene/2-butanone
+108-90-7       109-99-9  .30  Chlorobenzene/tetrahydrofuran
+108-90-7       123-91-1  .30  Chlorobenzene/dioxane
+108-90-7       141-78-6  .60  Chlorobenzene/ethyl acetate
+108-90-7       60-29-7  .30  Chlorobenzene/di-ethyl ether
+108-90-7       98-01-1  .40  Chlorobenzene/furfural
+108-90-7       78-79-5  .10  Chlorobenzene/isoprene
+98-95-3       56-23-5  .30  Nitro-benzene/carbon tetrachloride
+98-95-3       67-66-3  .80  Nitro-benzene/chloroform
+98-95-3       75-09-2  .40  Nitro-benzene/dichloromethane
+98-95-3       64-18-6  2.20  Nitro-benzene/formic acid
+98-95-3       75-52-5  1.66  Nitro-benzene/nitro-methane
+98-95-3       67-56-1  1.20  Nitro-benzene/methanol
+98-95-3       124-38-9  .40  Nitro-benzene/carbon dioxide
+98-95-3       75-15-0  .20  Nitro-benzene/carbon disulfide
+98-95-3       79-01-6  .20  Nitro-benzene/trichloroethylene
+98-95-3       74-86-2  .50  Nitro-benzene/acetylene
+98-95-3       75-05-8  2.00  Nitro-benzene/acetonitrile
+98-95-3       74-85-1  .30  Nitro-benzene/ethylene
+98-95-3       75-07-0  1.40  Nitro-benzene/acetaldehyde
+98-95-3       64-19-7  2.20  Nitro-benzene/acetic acid
+98-95-3       79-24-3  1.66  Nitro-benzene/nitro-ethane
+98-95-3       64-17-5  1.20  Nitro-benzene/ethanol
+98-95-3       124-40-3  1.40  Nitro-benzene/dimethyl amine
+98-95-3       107-21-1  1.20  Nitro-benzene/ethylene glycol
+98-95-3       115-07-1  .20  Nitro-benzene/propylene
+98-95-3       67-64-1  1.63  Nitro-benzene/acetone
+98-95-3       79-20-9  1.80  Nitro-benzene/methyl acetate
+98-95-3       79-09-4  2.20  Nitro-benzene/propionic acid
+98-95-3       108-03-2  1.66  Nitro-benzene/1-nitropropane
+98-95-3       79-46-9  1.66  Nitro-benzene/2-nitropropane
+98-95-3       71-23-8  1.20  Nitro-benzene/n-propanol
+98-95-3       67-63-0  1.20  Nitro-benzene/i-propanol
+98-95-3       106-98-9  .20  Nitro-benzene/butene-1
+98-95-3       78-93-3  1.63  Nitro-benzene/2-butanone
+98-95-3       109-99-9  1.25  Nitro-benzene/tetrahydrofuran
+98-95-3       123-91-1  1.25  Nitro-benzene/dioxane
+98-95-3       141-78-6  1.80  Nitro-benzene/ethyl acetate
+98-95-3       71-36-3  1.20  Nitro-benzene/n-butanol
+98-95-3       78-83-1  1.20  Nitro-benzene/i-butanol
+98-95-3       78-92-2  1.20  Nitro-benzene/sec-butanol
+98-95-3       75-65-0  1.20  Nitro-benzene/tert-butanol
+98-95-3       60-29-7  1.25  Nitro-benzene/di-ethyl ether
+98-95-3       110-80-5  1.20  Nitro-benzene/ethyl cellosolve
+98-95-3       109-89-7  1.40  Nitro-benzene/diethyl amine
+98-95-3       98-01-1  1.40  Nitro-benzene/furfural
+98-95-3       110-86-1  1.30  Nitro-benzene/pyridine
+98-95-3       78-79-5  .20  Nitro-benzene/isoprene
+98-95-3       108-90-7  .50  Nitro-benzene/chlorobenzene
+98-95-3       98-95-3  1.66  Nitro-benzene/nitro-benzene
+71-43-2       56-23-5  .25  Benzene/carbon tetrachloride
+71-43-2       67-66-3  .10  Benzene/chloroform
+71-43-2       64-18-6  .40  Benzene/formic acid
+71-43-2       75-52-5  .50  Benzene/nitro-methane
+71-43-2       79-01-6  .10  Benzene/trichloroethylene
+71-43-2       74-86-2  .30  Benzene/acetylene
+71-43-2       75-05-8  .70  Benzene/acetonitrile
+71-43-2       74-85-1  .10  Benzene/ethylene
+71-43-2       75-07-0  .40  Benzene/acetaldehyde
+71-43-2       64-19-7  .40  Benzene/acetic acid
+71-43-2       79-24-3  .50  Benzene/nitro-ethane
+71-43-2       115-07-1  .10  Benzene/propylene
+71-43-2       67-64-1  .50  Benzene/acetone
+71-43-2       79-20-9  .60  Benzene/methyl acetate
+71-43-2       79-09-4  .40  Benzene/propionic acid
+71-43-2       108-03-2  .50  Benzene/1-nitropropane
+71-43-2       79-46-9  .50  Benzene/2-nitropropane
+71-43-2       106-98-9  .10  Benzene/butene-1
+71-43-2       78-93-3  .50  Benzene/2-butanone
+71-43-2       109-99-9  .30  Benzene/tetrahydrofuran
+71-43-2       123-91-1  .30  Benzene/dioxane
+71-43-2       141-78-6  .60  Benzene/ethyl acetate
+71-43-2       60-29-7  .30  Benzene/di-ethyl ether
+71-43-2       98-01-1  .40  Benzene/furfural
+71-43-2       78-79-5  .10  Benzene/isoprene
+71-43-2       98-95-3  .50  Benzene/nitro-benzene
+108-95-2       56-23-5  .25  Phenol/carbon tetrachloride
+108-95-2       67-66-3  .10  Phenol/chloroform
+108-95-2       64-18-6  2.50  Phenol/formic acid
+108-95-2       75-52-5  1.20  Phenol/nitro-methane
+108-95-2       67-56-1  1.55  Phenol/methanol
+108-95-2       124-38-9  .30  Phenol/carbon dioxide
+108-95-2       74-86-2  .30  Phenol/acetylene
+108-95-2       75-05-8  1.50  Phenol/acetonitrile
+108-95-2       74-85-1  .10  Phenol/ethylene
+108-95-2       75-07-0  .80  Phenol/acetaldehyde
+108-95-2       64-19-7  2.50  Phenol/acetic acid
+108-95-2       79-24-3  1.20  Phenol/nitro-ethane
+108-95-2       64-17-5  1.55  Phenol/ethanol
+108-95-2       124-40-3  .20  Phenol/dimethyl amine
+108-95-2       107-21-1  1.55  Phenol/ethylene glycol
+108-95-2       115-07-1  .10  Phenol/propylene
+108-95-2       67-64-1  1.00  Phenol/acetone
+108-95-2       79-20-9  1.30  Phenol/methyl acetate
+108-95-2       79-09-4  2.50  Phenol/propionic acid
+108-95-2       108-03-2  1.20  Phenol/1-nitropropane
+108-95-2       79-46-9  1.20  Phenol/2-nitropropane
+108-95-2       71-23-8  1.55  Phenol/n-propanol
+108-95-2       67-63-0  1.55  Phenol/i-propanol
+108-95-2       75-50-3  .20  Phenol/trimethylamine
+108-95-2       106-98-9  .10  Phenol/butene-1
+108-95-2       78-93-3  1.00  Phenol/2-butanone
+108-95-2       109-99-9  .50  Phenol/tetrahydrofuran
+108-95-2       123-91-1  .50  Phenol/dioxane
+108-95-2       141-78-6  1.30  Phenol/ethyl acetate
+108-95-2       71-36-3  1.55  Phenol/n-butanol
+108-95-2       78-83-1  1.55  Phenol/i-butanol
+108-95-2       78-92-2  1.55  Phenol/sec-butanol
+108-95-2       75-65-0  1.55  Phenol/tert-butanol
+108-95-2       60-29-7  .50  Phenol/di-ethyl ether
+108-95-2       110-80-5  1.55  Phenol/ethyl cellosolve
+108-95-2       109-89-7  .20  Phenol/diethyl amine
+108-95-2       98-01-1  .80  Phenol/furfural
+108-95-2       110-86-1  .40  Phenol/pyridine
+108-95-2       78-79-5  .10  Phenol/isoprene
+108-95-2       108-95-2  .32  Phenol/phenol
+62-53-3       56-23-5  .25  Aniline/carbon tetrachloride
+62-53-3       67-66-3  .30  Aniline/chloroform
+62-53-3       64-18-6  2.20  Aniline/formic acid
+62-53-3       75-52-5  1.40  Aniline/nitro-methane
+62-53-3       67-56-1  .20  Aniline/methanol
+62-53-3       124-38-9  .20  Aniline/carbon dioxide
+62-53-3       75-15-0  .10  Aniline/carbon disulfide
+62-53-3       79-01-6  .20  Aniline/trichloroethylene
+62-53-3       74-86-2  .50  Aniline/acetylene
+62-53-3       75-05-8  1.40  Aniline/acetonitrile
+62-53-3       74-85-1  .20  Aniline/ethylene
+62-53-3       75-07-0  .85  Aniline/acetaldehyde
+62-53-3       64-19-7  2.20  Aniline/acetic acid
+62-53-3       79-24-3  1.40  Aniline/nitro-ethane
+62-53-3       64-17-5  .20  Aniline/ethanol
+62-53-3       124-40-3  .20  Aniline/dimethyl amine
+62-53-3       107-21-1  .20  Aniline/ethylene glycol
+62-53-3       115-07-1  .20  Aniline/propylene
+62-53-3       67-64-1  1.00  Aniline/acetone
+62-53-3       79-20-9  1.10  Aniline/methyl acetate
+62-53-3       79-09-4  2.20  Aniline/propionic acid
+62-53-3       108-03-2  1.40  Aniline/1-nitropropane
+62-53-3       79-46-9  1.40  Aniline/2-nitropropane
+62-53-3       71-23-8  .20  Aniline/n-propanol
+62-53-3       67-63-0  .20  Aniline/i-propanol
+62-53-3       75-50-3  .20  Aniline/trimethylamine
+62-53-3       106-98-9  .20  Aniline/butene-1
+62-53-3       78-93-3  1.00  Aniline/2-butanone
+62-53-3       109-99-9  .70  Aniline/tetrahydrofuran
+62-53-3       123-91-1  .70  Aniline/dioxane
+62-53-3       141-78-6  1.10  Aniline/ethyl acetate
+62-53-3       71-36-3  .20  Aniline/n-butanol
+62-53-3       78-83-1  .20  Aniline/i-butanol
+62-53-3       78-92-2  .20  Aniline/sec-butanol
+62-53-3       75-65-0  .20  Aniline/tert-butanol
+62-53-3       60-29-7  .70  Aniline/di-ethyl ether
+62-53-3       110-80-5  .20  Aniline/ethyl cellosolve
+62-53-3       109-89-7  .20  Aniline/diethyl amine
+62-53-3       98-01-1  .85  Aniline/furfural
+62-53-3       110-86-1  .20  Aniline/pyridine
+62-53-3       78-79-5  .20  Aniline/isoprene
+62-53-3       98-95-3  1.40  Aniline/nitro-benzene
+62-53-3       108-95-2  .20  Aniline/phenol
+62-53-3       62-53-3  .20  Aniline/aniline
+108-94-1       56-23-5  .20  Cyclohexanone/carbon tetrachloride
+108-94-1       67-66-3  1.26  Cyclohexanone/chloroform
+108-94-1       75-09-2  .40  Cyclohexanone/dichloromethane
+108-94-1       64-18-6  1.80  Cyclohexanone/formic acid
+108-94-1       75-52-5  1.63  Cyclohexanone/nitro-methane
+108-94-1       67-56-1  1.00  Cyclohexanone/methanol
+108-94-1       75-05-8  1.30  Cyclohexanone/acetonitrile
+108-94-1       75-07-0  1.00  Cyclohexanone/acetaldehyde
+108-94-1       64-19-7  1.80  Cyclohexanone/acetic acid
+108-94-1       79-24-3  1.63  Cyclohexanone/nitro-ethane
+108-94-1       64-17-5  1.00  Cyclohexanone/ethanol
+108-94-1       124-40-3  1.00  Cyclohexanone/dimethyl amine
+108-94-1       107-21-1  1.00  Cyclohexanone/ethylene glycol
+108-94-1       67-64-1  .90  Cyclohexanone/acetone
+108-94-1       79-20-9  1.10  Cyclohexanone/methyl acetate
+108-94-1       79-09-4  1.80  Cyclohexanone/propionic acid
+108-94-1       108-03-2  1.63  Cyclohexanone/1-nitropropane
+108-94-1       79-46-9  1.63  Cyclohexanone/2-nitropropane
+108-94-1       71-23-8  1.00  Cyclohexanone/n-propanol
+108-94-1       67-63-0  1.00  Cyclohexanone/i-propanol
+108-94-1       75-50-3  1.00  Cyclohexanone/trimethylamine
+108-94-1       78-93-3  .90  Cyclohexanone/2-butanone
+108-94-1       141-78-6  1.10  Cyclohexanone/ethyl acetate
+108-94-1       71-36-3  1.00  Cyclohexanone/n-butanol
+108-94-1       78-83-1  1.00  Cyclohexanone/i-butanol
+108-94-1       78-92-2  1.00  Cyclohexanone/sec-butanol
+108-94-1       75-65-0  1.00  Cyclohexanone/tert-butanol
+108-94-1       110-80-5  1.00  Cyclohexanone/ethyl cellosolve
+108-94-1       109-89-7  1.00  Cyclohexanone/diethyl amine
+108-94-1       98-01-1  1.00  Cyclohexanone/furfural
+108-94-1       108-90-7  .50  Cyclohexanone/chlorobenzene
+108-94-1       98-95-3  1.63  Cyclohexanone/nitro-benzene
+108-94-1       71-43-2  .50  Cyclohexanone/benzene
+108-94-1       108-95-2  1.00  Cyclohexanone/phenol
+108-94-1       62-53-3  1.00  Cyclohexanone/aniline
+108-94-1       108-94-1  .90  Cyclohexanone/cyclohexanone
+592-41-6       64-18-6  .30  Hexene-1/formic acid
+592-41-6       75-52-5  .20  Hexene-1/nitro-methane
+592-41-6       75-05-8  .20  Hexene-1/acetonitrile
+592-41-6       64-19-7  .30  Hexene-1/acetic acid
+592-41-6       79-24-3  .20  Hexene-1/nitro-ethane
+592-41-6       124-40-3  .20  Hexene-1/dimethyl amine
+592-41-6       79-09-4  .30  Hexene-1/propionic acid
+592-41-6       108-03-2  .20  Hexene-1/1-nitropropane
+592-41-6       79-46-9  .20  Hexene-1/2-nitropropane
+592-41-6       75-50-3  .20  Hexene-1/trimethylamine
+592-41-6       109-89-7  .20  Hexene-1/diethyl amine
+592-41-6       110-86-1  .5e-1  Hexene-1/pyridine
+592-41-6       108-90-7  .10  Hexene-1/chlorobenzene
+592-41-6       98-95-3  .10  Hexene-1/nitro-benzene
+592-41-6       71-43-2  .10  Hexene-1/benzene
+592-41-6       108-95-2  .10  Hexene-1/phenol
+592-41-6       62-53-3  .20  Hexene-1/aniline
+108-93-0       67-66-3  .10  Cyclohexanol/chloroform
+108-93-0       64-18-6  2.50  Cyclohexanol/formic acid
+108-93-0       75-52-5  1.20  Cyclohexanol/nitro-methane
+108-93-0       67-56-1  1.55  Cyclohexanol/methanol
+108-93-0       124-38-9  .30  Cyclohexanol/carbon dioxide
+108-93-0       75-15-0  .15  Cyclohexanol/carbon disulfide
+108-93-0       74-86-2  .30  Cyclohexanol/acetylene
+108-93-0       75-05-8  1.50  Cyclohexanol/acetonitrile
+108-93-0       75-07-0  .80  Cyclohexanol/acetaldehyde
+108-93-0       64-19-7  2.50  Cyclohexanol/acetic acid
+108-93-0       79-24-3  1.20  Cyclohexanol/nitro-ethane
+108-93-0       64-17-5  1.55  Cyclohexanol/ethanol
+108-93-0       124-40-3  .20  Cyclohexanol/dimethyl amine
+108-93-0       107-21-1  1.55  Cyclohexanol/ethylene glycol
+108-93-0       67-64-1  1.00  Cyclohexanol/acetone
+108-93-0       79-20-9  1.30  Cyclohexanol/methyl acetate
+108-93-0       79-09-4  2.50  Cyclohexanol/propionic acid
+108-93-0       108-03-2  1.20  Cyclohexanol/1-nitropropane
+108-93-0       79-46-9  1.20  Cyclohexanol/2-nitropropane
+108-93-0       71-23-8  1.55  Cyclohexanol/n-propanol
+108-93-0       67-63-0  1.55  Cyclohexanol/i-propanol
+108-93-0       75-50-3  .20  Cyclohexanol/trimethylamine
+108-93-0       78-93-3  1.00  Cyclohexanol/2-butanone
+108-93-0       109-99-9  .50  Cyclohexanol/tetrahydrofuran
+108-93-0       123-91-1  .50  Cyclohexanol/dioxane
+108-93-0       141-78-6  1.30  Cyclohexanol/ethyl acetate
+108-93-0       71-36-3  1.55  Cyclohexanol/n-butanol
+108-93-0       78-83-1  1.55  Cyclohexanol/i-butanol
+108-93-0       78-92-2  1.55  Cyclohexanol/sec-butanol
+108-93-0       75-65-0  1.55  Cyclohexanol/tert-butanol
+108-93-0       60-29-7  .50  Cyclohexanol/di-ethyl ether
+108-93-0       110-80-5  1.55  Cyclohexanol/ethyl cellosolve
+108-93-0       109-89-7  .20  Cyclohexanol/diethyl amine
+108-93-0       98-01-1  .80  Cyclohexanol/furfural
+108-93-0       110-86-1  .40  Cyclohexanol/pyridine
+108-93-0       108-95-2  1.55  Cyclohexanol/phenol
+108-93-0       62-53-3  .20  Cyclohexanol/aniline
+108-93-0       108-94-1  1.00  Cyclohexanol/cyclohexanone
+108-93-0       108-93-0  1.55  Cyclohexanol/cyclohexanol
+108-10-1       56-23-5  .20  Methylisobutylketone/carbon tetrachloride
+108-10-1       67-66-3  1.26  Methylisobutylketone/chloroform
+108-10-1       75-09-2  .40  Methylisobutylketone/dichloromethane
+108-10-1       64-18-6  1.80  Methylisobutylketone/formic acid
+108-10-1       75-52-5  1.63  Methylisobutylketone/nitro-methane
+108-10-1       67-56-1  1.00  Methylisobutylketone/methanol
+108-10-1       75-05-8  1.30  Methylisobutylketone/acetonitrile
+108-10-1       75-07-0  1.00  Methylisobutylketone/acetaldehyde
+108-10-1       64-19-7  1.80  Methylisobutylketone/acetic acid
+108-10-1       79-24-3  1.63  Methylisobutylketone/nitro-ethane
+108-10-1       64-17-5  1.00  Methylisobutylketone/ethanol
+108-10-1       124-40-3  1.00  Methylisobutylketone/dimethyl amine
+108-10-1       107-21-1  1.00  Methylisobutylketone/ethylene glycol
+108-10-1       67-64-1  .90  Methylisobutylketone/acetone
+108-10-1       79-20-9  1.10  Methylisobutylketone/methyl acetate
+108-10-1       79-09-4  1.80  Methylisobutylketone/propionic acid
+108-10-1       108-03-2  1.63  Methylisobutylketone/1-nitropropane
+108-10-1       79-46-9  1.63  Methylisobutylketone/2-nitropropane
+108-10-1       71-23-8  1.00  Methylisobutylketone/n-propanol
+108-10-1       67-63-0  1.00  Methylisobutylketone/i-propanol
+108-10-1       75-50-3  1.00  Methylisobutylketone/trimethylamine
+108-10-1       78-93-3  .90  Methylisobutylketone/2-butanone
+108-10-1       141-78-6  1.10  Methylisobutylketone/ethyl acetate
+108-10-1       71-36-3  1.00  Methylisobutylketone/n-butanol
+108-10-1       78-83-1  1.00  Methylisobutylketone/i-butanol
+108-10-1       78-92-2  1.00  Methylisobutylketone/sec-butanol
+108-10-1       75-65-0  1.00  Methylisobutylketone/tert-butanol
+108-10-1       110-80-5  1.00  Methylisobutylketone/ethyl cellosolve
+108-10-1       109-89-7  1.00  Methylisobutylketone/diethyl amine
+108-10-1       98-01-1  1.00  Methylisobutylketone/furfural
+108-10-1       108-90-7  .50  Methylisobutylketone/chlorobenzene
+108-10-1       98-95-3  1.63  Methylisobutylketone/nitro-benzene
+108-10-1       71-43-2  .50  Methylisobutylketone/benzene
+108-10-1       108-95-2  1.00  Methylisobutylketone/phenol
+108-10-1       62-53-3  1.00  Methylisobutylketone/aniline
+108-10-1       108-94-1  .90  Methylisobutylketone/cyclohexanone
+108-10-1       108-93-0  1.00  Methylisobutylketone/cyclohexanol
+108-10-1       108-10-1  .90  Methylisobutylketone/methylisobutylketone
+123-86-4       56-23-5  .25  n-butyl acetate/carbon tetrachloride
+123-86-4       67-66-3  1.55  n-butyl acetate/chloroform
+123-86-4       75-09-2  .50  n-butyl acetate/dichloromethane
+123-86-4       64-18-6  2.00  n-butyl acetate/formic acid
+123-86-4       75-52-5  1.80  n-butyl acetate/nitro-methane
+123-86-4       67-56-1  1.30  n-butyl acetate/methanol
+123-86-4       75-05-8  1.40  n-butyl acetate/acetonitrile
+123-86-4       75-07-0  .75  n-butyl acetate/acetaldehyde
+123-86-4       64-19-7  2.00  n-butyl acetate/acetic acid
+123-86-4       79-24-3  1.80  n-butyl acetate/nitro-ethane
+123-86-4       64-17-5  1.30  n-butyl acetate/ethanol
+123-86-4       124-40-3  1.10  n-butyl acetate/dimethyl amine
+123-86-4       107-21-1  1.30  n-butyl acetate/ethylene glycol
+123-86-4       67-64-1  1.10  n-butyl acetate/acetone
+123-86-4       79-20-9  .53  n-butyl acetate/methyl acetate
+123-86-4       79-09-4  2.00  n-butyl acetate/propionic acid
+123-86-4       108-03-2  1.80  n-butyl acetate/1-nitropropane
+123-86-4       79-46-9  1.80  n-butyl acetate/2-nitropropane
+123-86-4       71-23-8  1.30  n-butyl acetate/n-propanol
+123-86-4       67-63-0  1.30  n-butyl acetate/i-propanol
+123-86-4       75-50-3  1.10  n-butyl acetate/trimethylamine
+123-86-4       78-93-3  1.10  n-butyl acetate/2-butanone
+123-86-4       141-78-6  .53  n-butyl acetate/ethyl acetate
+123-86-4       71-36-3  1.30  n-butyl acetate/n-butanol
+123-86-4       78-83-1  1.30  n-butyl acetate/i-butanol
+123-86-4       78-92-2  1.30  n-butyl acetate/sec-butanol
+123-86-4       75-65-0  1.30  n-butyl acetate/tert-butanol
+123-86-4       110-80-5  1.30  n-butyl acetate/ethyl cellosolve
+123-86-4       109-89-7  1.10  n-butyl acetate/diethyl amine
+123-86-4       98-01-1  .75  n-butyl acetate/furfural
+123-86-4       110-86-1  .30  n-butyl acetate/pyridine
+123-86-4       108-90-7  .60  n-butyl acetate/chlorobenzene
+123-86-4       98-95-3  1.80  n-butyl acetate/nitro-benzene
+123-86-4       71-43-2  .60  n-butyl acetate/benzene
+123-86-4       108-95-2  1.30  n-butyl acetate/phenol
+123-86-4       62-53-3  1.10  n-butyl acetate/aniline
+123-86-4       108-94-1  1.10  n-butyl acetate/cyclohexanone
+123-86-4       108-93-0  1.30  n-butyl acetate/cyclohexanol
+123-86-4       108-10-1  1.10  n-butyl acetate/methylisobutylketone
+123-86-4       123-86-4  .53  n-butyl acetate/n-butyl acetate
+121-44-8       67-66-3  .30  Triethylamine/chloroform
+121-44-8       64-18-6  2.20  Triethylamine/formic acid
+121-44-8       75-52-5  1.40  Triethylamine/nitro-methane
+121-44-8       67-56-1  .20  Triethylamine/methanol
+121-44-8       124-38-9  .20  Triethylamine/carbon dioxide
+121-44-8       75-15-0  .10  Triethylamine/carbon disulfide
+121-44-8       79-01-6  .20  Triethylamine/trichloroethylene
+121-44-8       74-86-2  .50  Triethylamine/acetylene
+121-44-8       75-05-8  1.40  Triethylamine/acetonitrile
+121-44-8       74-85-1  .20  Triethylamine/ethylene
+121-44-8       75-07-0  .85  Triethylamine/acetaldehyde
+121-44-8       64-19-7  2.20  Triethylamine/acetic acid
+121-44-8       79-24-3  1.40  Triethylamine/nitro-ethane
+121-44-8       64-17-5  .20  Triethylamine/ethanol
+121-44-8       124-40-3  .20  Triethylamine/dimethyl amine
+121-44-8       107-21-1  .20  Triethylamine/ethylene glycol
+121-44-8       115-07-1  .20  Triethylamine/propylene
+121-44-8       67-64-1  1.00  Triethylamine/acetone
+121-44-8       79-20-9  1.10  Triethylamine/methyl acetate
+121-44-8       79-09-4  1.40  Triethylamine/propionic acid
+121-44-8       108-03-2  1.40  Triethylamine/1-nitropropane
+121-44-8       79-46-9  1.40  Triethylamine/2-nitropropane
+121-44-8       71-23-8  .20  Triethylamine/n-propanol
+121-44-8       67-63-0  .20  Triethylamine/i-propanol
+121-44-8       75-50-3  .20  Triethylamine/trimethylamine
+121-44-8       106-98-9  .20  Triethylamine/butene-1
+121-44-8       78-93-3  1.00  Triethylamine/2-butanone
+121-44-8       109-99-9  .70  Triethylamine/tetrahydrofuran
+121-44-8       123-91-1  .70  Triethylamine/dioxane
+121-44-8       141-78-6  1.10  Triethylamine/ethyl acetate
+121-44-8       71-36-3  .20  Triethylamine/n-butanol
+121-44-8       78-83-1  .20  Triethylamine/i-butanol
+121-44-8       78-92-2  .20  Triethylamine/sec-butanol
+121-44-8       75-65-0  .20  Triethylamine/tert-butanol
+121-44-8       60-29-7  .70  Triethylamine/di-ethyl ether
+121-44-8       110-80-5  .70  Triethylamine/ethyl cellosolve
+121-44-8       109-89-7  .20  Triethylamine/diethyl amine
+121-44-8       98-01-1  .85  Triethylamine/furfural
+121-44-8       110-86-1  .20  Triethylamine/pyridine
+121-44-8       78-79-5  .20  Triethylamine/isoprene
+121-44-8       108-95-2  .20  Triethylamine/phenol
+121-44-8       62-53-3  .20  Triethylamine/aniline
+121-44-8       108-94-1  1.00  Triethylamine/cyclohexanone
+121-44-8       592-41-6  .20  Triethylamine/hexene-1
+121-44-8       108-93-0  .20  Triethylamine/cyclohexanol
+121-44-8       108-10-1  1.00  Triethylamine/methylisobutylketone
+121-44-8       123-86-4  1.10  Triethylamine/n-butyl acetate
+121-44-8       121-44-8  .6e-1  Triethylamine/triethylamine
+108-88-3       56-23-5  .25  Toluene/carbon tetrachloride
+108-88-3       67-66-3  .10  Toluene/chloroform
+108-88-3       64-18-6  .40  Toluene/formic acid
+108-88-3       75-52-5  .50  Toluene/nitro-methane
+108-88-3       74-86-2  .30  Toluene/acetylene
+108-88-3       75-05-8  .70  Toluene/acetonitrile
+108-88-3       74-85-1  .10  Toluene/ethylene
+108-88-3       75-07-0  .40  Toluene/acetaldehyde
+108-88-3       64-19-7  .40  Toluene/acetic acid
+108-88-3       79-24-3  .50  Toluene/nitro-ethane
+108-88-3       115-07-1  .10  Toluene/propylene
+108-88-3       67-64-1  .50  Toluene/acetone
+108-88-3       79-20-9  .60  Toluene/methyl acetate
+108-88-3       79-09-4  .40  Toluene/propionic acid
+108-88-3       108-03-2  .50  Toluene/1-nitropropane
+108-88-3       79-46-9  .50  Toluene/2-nitropropane
+108-88-3       106-98-9  .10  Toluene/butene-1
+108-88-3       78-93-3  .50  Toluene/2-butanone
+108-88-3       109-99-9  .30  Toluene/tetrahydrofuran
+108-88-3       123-91-1  .30  Toluene/dioxane
+108-88-3       141-78-6  .60  Toluene/ethyl acetate
+108-88-3       60-29-7  .30  Toluene/di-ethyl ether
+108-88-3       110-80-5  .30  Toluene/ethyl cellosolve
+108-88-3       98-01-1  .40  Toluene/furfural
+108-88-3       78-79-5  .10  Toluene/isoprene
+108-88-3       98-95-3  .50  Toluene/nitro-benzene
+108-88-3       108-94-1  .50  Toluene/cyclohexanone
+108-88-3       592-41-6  .10  Toluene/hexene-1
+108-88-3       108-10-1  .50  Toluene/methylisobutylketone
+108-88-3       123-86-4  .60  Toluene/n-butyl acetate
+100-42-5       56-23-5  .25  Styrene/carbon tetrachloride
+100-42-5       67-66-3  .10  Styrene/chloroform
+100-42-5       64-18-6  .40  Styrene/formic acid
+100-42-5       75-52-5  .50  Styrene/nitro-methane
+100-42-5       74-86-2  .30  Styrene/acetylene
+100-42-5       75-05-8  .70  Styrene/acetonitrile
+100-42-5       74-85-1  .10  Styrene/ethylene
+100-42-5       75-07-0  .40  Styrene/acetaldehyde
+100-42-5       64-19-7  .40  Styrene/acetic acid
+100-42-5       79-24-3  .50  Styrene/nitro-ethane
+100-42-5       115-07-1  .10  Styrene/propylene
+100-42-5       67-64-1  .50  Styrene/acetone
+100-42-5       79-20-9  .60  Styrene/methyl acetate
+100-42-5       79-09-4  .40  Styrene/propionic acid
+100-42-5       108-03-2  .50  Styrene/1-nitropropane
+100-42-5       79-46-9  .50  Styrene/2-nitropropane
+100-42-5       106-98-9  .10  Styrene/butene-1
+100-42-5       78-93-3  .50  Styrene/2-butanone
+100-42-5       109-99-9  .30  Styrene/tetrahydrofuran
+100-42-5       123-91-1  .30  Styrene/dioxane
+100-42-5       141-78-6  .60  Styrene/ethyl acetate
+100-42-5       60-29-7  .30  Styrene/di-ethyl ether
+100-42-5       110-80-5  .30  Styrene/ethyl cellosolve
+100-42-5       98-01-1  .40  Styrene/furfural
+100-42-5       78-79-5  .10  Styrene/isoprene
+100-42-5       98-95-3  .50  Styrene/nitro-benzene
+100-42-5       108-94-1  .50  Styrene/cyclohexanone
+100-42-5       592-41-6  .10  Styrene/hexene-1
+100-42-5       108-10-1  .50  Styrene/methylisobutylketone
+100-42-5       123-86-4  .60  Styrene/n-butyl acetate
+100-41-4       56-23-5  .25  Ethyl benzene/carbon tetrachloride
+100-41-4       67-66-3  .10  Ethyl benzene/chloroform
+100-41-4       64-18-6  .40  Ethyl benzene/formic acid
+100-41-4       75-52-5  .50  Ethyl benzene/nitro-methane
+100-41-4       74-86-2  .30  Ethyl benzene/acetylene
+100-41-4       75-05-8  .70  Ethyl benzene/acetonitrile
+100-41-4       74-85-1  .10  Ethyl benzene/ethylene
+100-41-4       75-07-0  .40  Ethyl benzene/acetaldehyde
+100-41-4       64-19-7  .40  Ethyl benzene/acetic acid
+100-41-4       79-24-3  .50  Ethyl benzene/nitro-ethane
+100-41-4       115-07-1  .10  Ethyl benzene/propylene
+100-41-4       67-64-1  .50  Ethyl benzene/acetone
+100-41-4       79-20-9  .60  Ethyl benzene/methyl acetate
+100-41-4       79-09-4  .40  Ethyl benzene/propionic acid
+100-41-4       108-03-2  .50  Ethyl benzene/1-nitropropane
+100-41-4       79-46-9  .50  Ethyl benzene/2-nitropropane
+100-41-4       106-98-9  .10  Ethyl benzene/butene-1
+100-41-4       78-93-3  .50  Ethyl benzene/2-butanone
+100-41-4       109-99-9  .30  Ethyl benzene/tetrahydrofuran
+100-41-4       123-91-1  .30  Ethyl benzene/dioxane
+100-41-4       141-78-6  .60  Ethyl benzene/ethyl acetate
+100-41-4       60-29-7  .30  Ethyl benzene/di-ethyl ether
+100-41-4       110-80-5  .30  Ethyl benzene/ethyl cellosolve
+100-41-4       98-01-1  .40  Ethyl benzene/furfural
+100-41-4       78-79-5  .10  Ethyl benzene/isoprene
+100-41-4       98-95-3  .50  Ethyl benzene/nitro-benzene
+100-41-4       108-94-1  .50  Ethyl benzene/cyclohexanone
+100-41-4       592-41-6  .10  Ethyl benzene/hexene-1
+100-41-4       108-10-1  .50  Ethyl benzene/methylisobutylketone
+100-41-4       123-86-4  .60  Ethyl benzene/n-butyl acetate
+108-38-3       56-23-5  .25  M-xylene/carbon tetrachloride
+108-38-3       67-66-3  .10  M-xylene/chloroform
+108-38-3       64-18-6  .40  M-xylene/formic acid
+108-38-3       75-52-5  .50  M-xylene/nitro-methane
+108-38-3       74-86-2  .30  M-xylene/acetylene
+108-38-3       75-05-8  .70  M-xylene/acetonitrile
+108-38-3       74-85-1  .10  M-xylene/ethylene
+108-38-3       75-07-0  .40  M-xylene/acetaldehyde
+108-38-3       64-19-7  .40  M-xylene/acetic acid
+108-38-3       79-24-3  .50  M-xylene/nitro-ethane
+108-38-3       115-07-1  .10  M-xylene/propylene
+108-38-3       67-64-1  .50  M-xylene/acetone
+108-38-3       79-20-9  .60  M-xylene/methyl acetate
+108-38-3       79-09-4  .40  M-xylene/propionic acid
+108-38-3       108-03-2  .50  M-xylene/1-nitropropane
+108-38-3       79-46-9  .50  M-xylene/2-nitropropane
+108-38-3       106-98-9  .10  M-xylene/butene-1
+108-38-3       78-93-3  .50  M-xylene/2-butanone
+108-38-3       109-99-9  .30  M-xylene/tetrahydrofuran
+108-38-3       123-91-1  .30  M-xylene/dioxane
+108-38-3       141-78-6  .60  M-xylene/ethyl acetate
+108-38-3       60-29-7  .30  M-xylene/di-ethyl ether
+108-38-3       110-80-5  .30  M-xylene/ethyl cellosolve
+108-38-3       98-01-1  .40  M-xylene/furfural
+108-38-3       78-79-5  .10  M-xylene/isoprene
+108-38-3       98-95-3  .50  M-xylene/nitro-benzene
+108-38-3       108-94-1  .50  M-xylene/cyclohexanone
+108-38-3       592-41-6  .10  M-xylene/hexene-1
+108-38-3       108-10-1  .50  M-xylene/methylisobutylketone
+108-38-3       123-86-4  .60  M-xylene/n-butyl acetate
+95-47-6       56-23-5  .25  O-xylene/carbon tetrachloride
+95-47-6       67-66-3  .10  O-xylene/chloroform
+95-47-6       64-18-6  .40  O-xylene/formic acid
+95-47-6       75-52-5  .50  O-xylene/nitro-methane
+95-47-6       74-86-2  .30  O-xylene/acetylene
+95-47-6       75-05-8  .70  O-xylene/acetonitrile
+95-47-6       74-85-1  .10  O-xylene/ethylene
+95-47-6       75-07-0  .40  O-xylene/acetaldehyde
+95-47-6       64-19-7  .40  O-xylene/acetic acid
+95-47-6       79-24-3  .50  O-xylene/nitro-ethane
+95-47-6       115-07-1  .10  O-xylene/propylene
+95-47-6       67-64-1  .50  O-xylene/acetone
+95-47-6       79-20-9  .60  O-xylene/methyl acetate
+95-47-6       79-09-4  .40  O-xylene/propionic acid
+95-47-6       108-03-2  .50  O-xylene/1-nitropropane
+95-47-6       79-46-9  .50  O-xylene/2-nitropropane
+95-47-6       106-98-9  .10  O-xylene/butene-1
+95-47-6       78-93-3  .50  O-xylene/2-butanone
+95-47-6       109-99-9  .30  O-xylene/tetrahydrofuran
+95-47-6       123-91-1  .30  O-xylene/dioxane
+95-47-6       141-78-6  .60  O-xylene/ethyl acetate
+95-47-6       60-29-7  .30  O-xylene/di-ethyl ether
+95-47-6       110-80-5  .30  O-xylene/ethyl cellosolve
+95-47-6       98-01-1  .40  O-xylene/furfural
+95-47-6       78-79-5  .10  O-xylene/isoprene
+95-47-6       98-95-3  .50  O-xylene/nitro-benzene
+95-47-6       108-94-1  .50  O-xylene/cyclohexanone
+95-47-6       592-41-6  .10  O-xylene/hexene-1
+95-47-6       108-10-1  .50  O-xylene/methylisobutylketone
+95-47-6       123-86-4  .60  O-xylene/n-butyl acetate
+106-42-3       56-23-5  .25  P-xylene/carbon tetrachloride
+106-42-3       67-66-3  .10  P-xylene/chloroform
+106-42-3       64-18-6  .40  P-xylene/formic acid
+106-42-3       75-52-5  .50  P-xylene/nitro-methane
+106-42-3       74-86-2  .30  P-xylene/acetylene
+106-42-3       75-05-8  .70  P-xylene/acetonitrile
+106-42-3       74-85-1  .10  P-xylene/ethylene
+106-42-3       75-07-0  .40  P-xylene/acetaldehyde
+106-42-3       64-19-7  .40  P-xylene/acetic acid
+106-42-3       79-24-3  .50  P-xylene/nitro-ethane
+106-42-3       115-07-1  .10  P-xylene/propylene
+106-42-3       67-64-1  .50  P-xylene/acetone
+106-42-3       79-20-9  .60  P-xylene/methyl acetate
+106-42-3       79-09-4  .40  P-xylene/propionic acid
+106-42-3       108-03-2  .50  P-xylene/1-nitropropane
+106-42-3       79-46-9  .50  P-xylene/2-nitropropane
+106-42-3       106-98-9  .10  P-xylene/butene-1
+106-42-3       78-93-3  .50  P-xylene/2-butanone
+106-42-3       109-99-9  .30  P-xylene/tetrahydrofuran
+106-42-3       123-91-1  .30  P-xylene/dioxane
+106-42-3       141-78-6  .60  P-xylene/ethyl acetate
+106-42-3       60-29-7  .30  P-xylene/di-ethyl ether
+106-42-3       110-80-5  .30  P-xylene/ethyl cellosolve
+106-42-3       98-01-1  .40  P-xylene/furfural
+106-42-3       78-79-5  .10  P-xylene/isoprene
+106-42-3       98-95-3  .50  P-xylene/nitro-benzene
+106-42-3       108-94-1  .50  P-xylene/cyclohexanone
+106-42-3       592-41-6  .10  P-xylene/hexene-1
+106-42-3       108-10-1  .50  P-xylene/methylisobutylketone
+106-42-3       123-86-4  .60  P-xylene/n-butyl acetate
+7647-01-0       64-18-6  1.00  Hydrogen chloride/formic acid
+7647-01-0       75-52-5  1.20  Hydrogen chloride/nitro-methane
+7647-01-0       67-56-1  1.30  Hydrogen chloride/methanol
+7647-01-0       75-05-8  .50  Hydrogen chloride/acetonitrile
+7647-01-0       75-07-0  .75  Hydrogen chloride/acetaldehyde
+7647-01-0       64-19-7  1.00  Hydrogen chloride/acetic acid
+7647-01-0       79-24-3  1.20  Hydrogen chloride/nitro-ethane
+7647-01-0       64-17-5  1.38  Hydrogen chloride/ethanol
+7647-01-0       124-40-3  2.20  Hydrogen chloride/dimethyl amine
+7647-01-0       107-21-1  1.38  Hydrogen chloride/ethylene glycol
+7647-01-0       67-64-1  .50  Hydrogen chloride/acetone
+7647-01-0       79-20-9  .50  Hydrogen chloride/methyl acetate
+7647-01-0       79-09-4  1.00  Hydrogen chloride/propionic acid
+7647-01-0       108-03-2  1.20  Hydrogen chloride/1-nitropropane
+7647-01-0       79-46-9  1.20  Hydrogen chloride/2-nitropropane
+7647-01-0       71-23-8  1.38  Hydrogen chloride/n-propanol
+7647-01-0       67-63-0  1.38  Hydrogen chloride/i-propanol
+7647-01-0       75-50-3  2.20  Hydrogen chloride/trimethylamine
+7647-01-0       78-93-3  .50  Hydrogen chloride/2-butanone
+7647-01-0       141-78-6  .50  Hydrogen chloride/ethyl acetate
+7647-01-0       71-36-3  1.30  Hydrogen chloride/n-butanol
+7647-01-0       78-83-1  1.30  Hydrogen chloride/i-butanol
+7647-01-0       78-92-2  1.38  Hydrogen chloride/sec-butanol
+7647-01-0       75-65-0  1.38  Hydrogen chloride/tert-butanol
+7647-01-0       110-80-5  1.38  Hydrogen chloride/ethyl cellosolve
+7647-01-0       109-89-7  2.20  Hydrogen chloride/diethyl amine
+7647-01-0       98-01-1  .75  Hydrogen chloride/furfural
+7647-01-0       110-86-1  1.85  Hydrogen chloride/pyridine
+7647-01-0       98-95-3  1.20  Hydrogen chloride/nitro-benzene
+7647-01-0       108-95-2  1.38  Hydrogen chloride/phenol
+7647-01-0       62-53-3  2.20  Hydrogen chloride/aniline
+7647-01-0       108-94-1  .50  Hydrogen chloride/cyclohexanone
+7647-01-0       108-93-0  1.38  Hydrogen chloride/cyclohexanol
+7647-01-0       108-10-1  .50  Hydrogen chloride/methylisobutylketone
+7647-01-0       123-86-4  .50  Hydrogen chloride/n-butyl acetate
+7647-01-0       121-44-8  2.20  Hydrogen chloride/triethylamine
+7732-18-5       67-66-3  .10  Water/chloroform
+7732-18-5       64-18-6  2.50  Water/formic acid
+7732-18-5       75-52-5  1.20  Water/nitro-methane
+7732-18-5       67-56-1  1.55  Water/methanol
+7732-18-5       124-38-9  .30  Water/carbon dioxide
+7732-18-5       75-15-0  .15  Water/carbon disulfide
+7732-18-5       74-86-2  .30  Water/acetylene
+7732-18-5       75-05-8  1.50  Water/acetonitrile
+7732-18-5       75-07-0  .80  Water/acetaldehyde
+7732-18-5       64-19-7  2.50  Water/acetic acid
+7732-18-5       79-24-3  1.20  Water/nitro-ethane
+7732-18-5       64-17-5  1.55  Water/ethanol
+7732-18-5       124-40-3  .20  Water/dimethyl amine
+7732-18-5       107-21-1  1.55  Water/ethylene glycol
+7732-18-5       67-64-1  1.00  Water/acetone
+7732-18-5       79-20-9  1.30  Water/methyl acetate
+7732-18-5       79-09-4  2.50  Water/propionic acid
+7732-18-5       108-03-2  1.20  Water/1-nitropropane
+7732-18-5       79-46-9  1.20  Water/2-nitropropane
+7732-18-5       71-23-8  1.55  Water/n-propanol
+7732-18-5       67-63-0  1.55  Water/i-propanol
+7732-18-5       75-50-3  .20  Water/trimethylamine
+7732-18-5       78-93-3  1.00  Water/2-butanone
+7732-18-5       109-99-9  .50  Water/tetrahydrofuran
+7732-18-5       123-91-1  .50  Water/dioxane
+7732-18-5       141-78-6  1.30  Water/ethyl acetate
+7732-18-5       71-36-3  1.55  Water/n-butanol
+7732-18-5       78-83-1  1.55  Water/i-butanol
+7732-18-5       78-92-2  1.55  Water/sec-butanol
+7732-18-5       75-65-0  1.55  Water/tert-butanol
+7732-18-5       60-29-7  .50  Water/di-ethyl ether
+7732-18-5       110-80-5  1.55  Water/ethyl cellosolve
+7732-18-5       109-89-7  .20  Water/diethyl amine
+7732-18-5       98-01-1  .80  Water/furfural
+7732-18-5       110-86-1  .40  Water/pyridine
+7732-18-5       98-95-3  1.20  Water/nitro-benzene
+7732-18-5       108-95-2  1.55  Water/phenol
+7732-18-5       62-53-3  .20  Water/aniline
+7732-18-5       108-94-1  1.00  Water/cyclohexanone
+7732-18-5       108-93-0  1.55  Water/cyclohexanol
+7732-18-5       108-10-1  1.00  Water/methylisobutylketone
+7732-18-5       123-86-4  1.30  Water/n-butyl acetate
+7732-18-5       121-44-8  .20  Water/triethylamine
+7732-18-5       7647-01-0  1.38  Water/hydrogen chloride
+7732-18-5       7732-18-5  1.70  Water/water
+7783-06-4       64-18-6  .50  Hydrogen sulfide/formic acid
+7783-06-4       75-52-5  .60  Hydrogen sulfide/nitro-methane
+7783-06-4       67-56-1  .70  Hydrogen sulfide/methanol
+7783-06-4       124-38-9  .10  Hydrogen sulfide/carbon dioxide
+7783-06-4       75-05-8  .70  Hydrogen sulfide/acetonitrile
+7783-06-4       75-07-0  .15  Hydrogen sulfide/acetaldehyde
+7783-06-4       64-19-7  .50  Hydrogen sulfide/acetic acid
+7783-06-4       79-24-3  .60  Hydrogen sulfide/nitro-ethane
+7783-06-4       64-17-5  .70  Hydrogen sulfide/ethanol
+7783-06-4       124-40-3  .15  Hydrogen sulfide/dimethyl amine
+7783-06-4       107-21-1  .70  Hydrogen sulfide/ethylene glycol
+7783-06-4       67-64-1  .20  Hydrogen sulfide/acetone
+7783-06-4       79-20-9  .30  Hydrogen sulfide/methyl acetate
+7783-06-4       79-09-4  .50  Hydrogen sulfide/propionic acid
+7783-06-4       108-03-2  .60  Hydrogen sulfide/1-nitropropane
+7783-06-4       79-46-9  .60  Hydrogen sulfide/2-nitropropane
+7783-06-4       71-23-8  .70  Hydrogen sulfide/n-propanol
+7783-06-4       67-63-0  .70  Hydrogen sulfide/i-propanol
+7783-06-4       75-50-3  .15  Hydrogen sulfide/trimethylamine
+7783-06-4       78-93-3  .20  Hydrogen sulfide/2-butanone
+7783-06-4       109-99-9  .10  Hydrogen sulfide/tetrahydrofuran
+7783-06-4       123-91-1  .10  Hydrogen sulfide/dioxane
+7783-06-4       141-78-6  .30  Hydrogen sulfide/ethyl acetate
+7783-06-4       71-36-3  .70  Hydrogen sulfide/n-butanol
+7783-06-4       78-83-1  .70  Hydrogen sulfide/i-butanol
+7783-06-4       78-92-2  .70  Hydrogen sulfide/sec-butanol
+7783-06-4       75-65-0  .70  Hydrogen sulfide/tert-butanol
+7783-06-4       60-29-7  .10  Hydrogen sulfide/di-ethyl ether
+7783-06-4       110-80-5  .70  Hydrogen sulfide/ethyl cellosolve
+7783-06-4       109-89-7  .15  Hydrogen sulfide/diethyl amine
+7783-06-4       98-01-1  .15  Hydrogen sulfide/furfural
+7783-06-4       110-86-1  .10  Hydrogen sulfide/pyridine
+7783-06-4       108-90-7  .5e-1  Hydrogen sulfide/chlorobenzene
+7783-06-4       98-95-3  .60  Hydrogen sulfide/nitro-benzene
+7783-06-4       71-43-2  .5e-1  Hydrogen sulfide/benzene
+7783-06-4       108-95-2  .70  Hydrogen sulfide/phenol
+7783-06-4       62-53-3  .15  Hydrogen sulfide/aniline
+7783-06-4       108-94-1  .20  Hydrogen sulfide/cyclohexanone
+7783-06-4       108-93-0  .70  Hydrogen sulfide/cyclohexanol
+7783-06-4       108-10-1  .20  Hydrogen sulfide/methylisobutylketone
+7783-06-4       123-86-4  .30  Hydrogen sulfide/n-butyl acetate
+7783-06-4       121-44-8  .15  Hydrogen sulfide/triethylamine
+7783-06-4       108-88-3  .5e-1  Hydrogen sulfide/toluene
+7783-06-4       100-42-5  .5e-1  Hydrogen sulfide/styrene
+7783-06-4       100-41-4  .5e-1  Hydrogen sulfide/ethyl benzene
+7783-06-4       108-38-3  .5e-1  Hydrogen sulfide/m-xylene
+7783-06-4       95-47-6  .5e-1  Hydrogen sulfide/o-xylene
+7783-06-4       106-42-3  .5e-1  Hydrogen sulfide/p-xylene
+7783-06-4       7647-01-0  .50  Hydrogen sulfide/hydrogen chloride
+7783-06-4       7732-18-5  .70  Hydrogen sulfide/water
+7664-41-7       67-66-3  .30  Ammonia/chloroform
+7664-41-7       64-18-6  2.20  Ammonia/formic acid
+7664-41-7       75-52-5  1.40  Ammonia/nitro-methane
+7664-41-7       67-56-1  .20  Ammonia/methanol
+7664-41-7       124-38-9  .20  Ammonia/carbon dioxide
+7664-41-7       75-15-0  .10  Ammonia/carbon disulfide
+7664-41-7       79-01-6  .20  Ammonia/trichloroethylene
+7664-41-7       74-86-2  .50  Ammonia/acetylene
+7664-41-7       75-05-8  1.40  Ammonia/acetonitrile
+7664-41-7       74-85-1  .20  Ammonia/ethylene
+7664-41-7       75-07-0  .85  Ammonia/acetaldehyde
+7664-41-7       64-19-7  2.20  Ammonia/acetic acid
+7664-41-7       79-24-3  1.40  Ammonia/nitro-ethane
+7664-41-7       64-17-5  .20  Ammonia/ethanol
+7664-41-7       124-40-3  .20  Ammonia/dimethyl amine
+7664-41-7       107-21-1  .20  Ammonia/ethylene glycol
+7664-41-7       115-07-1  .20  Ammonia/propylene
+7664-41-7       67-64-1  1.00  Ammonia/acetone
+7664-41-7       79-20-9  1.10  Ammonia/methyl acetate
+7664-41-7       79-09-4  2.20  Ammonia/propionic acid
+7664-41-7       108-03-2  1.40  Ammonia/1-nitropropane
+7664-41-7       79-46-9  1.40  Ammonia/2-nitropropane
+7664-41-7       71-23-8  .20  Ammonia/n-propanol
+7664-41-7       67-63-0  .20  Ammonia/i-propanol
+7664-41-7       75-50-3  .20  Ammonia/trimethylamine
+7664-41-7       106-98-9  .20  Ammonia/butene-1
+7664-41-7       78-93-3  1.00  Ammonia/2-butanone
+7664-41-7       109-99-9  .70  Ammonia/tetrahydrofuran
+7664-41-7       123-91-1  .70  Ammonia/dioxane
+7664-41-7       141-78-6  1.10  Ammonia/ethyl acetate
+7664-41-7       71-36-3  .20  Ammonia/n-butanol
+7664-41-7       78-83-1  .20  Ammonia/i-butanol
+7664-41-7       78-92-2  .20  Ammonia/sec-butanol
+7664-41-7       75-65-0  .20  Ammonia/tert-butanol
+7664-41-7       60-29-7  .70  Ammonia/di-ethyl ether
+7664-41-7       110-80-5  .70  Ammonia/ethyl cellosolve
+7664-41-7       109-89-7  .20  Ammonia/diethyl amine
+7664-41-7       98-01-1  .85  Ammonia/furfural
+7664-41-7       110-86-1  .20  Ammonia/pyridine
+7664-41-7       78-79-5  .20  Ammonia/isoprene
+7664-41-7       98-95-3  1.40  Ammonia/nitro-benzene
+7664-41-7       108-95-2  .20  Ammonia/phenol
+7664-41-7       62-53-3  .20  Ammonia/aniline
+7664-41-7       108-94-1  1.00  Ammonia/cyclohexanone
+7664-41-7       592-41-6  .20  Ammonia/hexene-1
+7664-41-7       108-93-0  .20  Ammonia/cyclohexanol
+7664-41-7       108-10-1  1.00  Ammonia/methylisobutylketone
+7664-41-7       123-86-4  1.10  Ammonia/n-butyl acetate
+7664-41-7       121-44-8  .20  Ammonia/triethylamine
+7664-41-7       100-42-5  .20  Ammonia/styrene
+7664-41-7       7647-01-0  2.20  Ammonia/hydrogen chloride
+7664-41-7       7732-18-5  .20  Ammonia/water
+7664-41-7       7783-06-4  .15  Ammonia/hydrogen sulfide
+7446-09-5       64-18-6  .90  Sulfur dioxide/formic acid
+7446-09-5       75-52-5  1.00  Sulfur dioxide/nitro-methane
+7446-09-5       67-56-1  1.50  Sulfur dioxide/methanol
+7446-09-5       79-01-6  .20  Sulfur dioxide/trichloroethylene
+7446-09-5       74-86-2  .50  Sulfur dioxide/acetylene
+7446-09-5       75-05-8  .80  Sulfur dioxide/acetonitrile
+7446-09-5       74-85-1  .20  Sulfur dioxide/ethylene
+7446-09-5       75-07-0  .70  Sulfur dioxide/acetaldehyde
+7446-09-5       64-19-7  .90  Sulfur dioxide/acetic acid
+7446-09-5       79-24-3  1.00  Sulfur dioxide/nitro-ethane
+7446-09-5       64-17-5  1.50  Sulfur dioxide/ethanol
+7446-09-5       124-40-3  1.50  Sulfur dioxide/dimethyl amine
+7446-09-5       107-21-1  1.50  Sulfur dioxide/ethylene glycol
+7446-09-5       115-07-1  .20  Sulfur dioxide/propylene
+7446-09-5       67-64-1  .70  Sulfur dioxide/acetone
+7446-09-5       79-20-9  .80  Sulfur dioxide/methyl acetate
+7446-09-5       79-09-4  .90  Sulfur dioxide/propionic acid
+7446-09-5       108-03-2  1.00  Sulfur dioxide/1-nitropropane
+7446-09-5       79-46-9  1.00  Sulfur dioxide/2-nitropropane
+7446-09-5       71-23-8  1.50  Sulfur dioxide/n-propanol
+7446-09-5       67-63-0  1.50  Sulfur dioxide/i-propanol
+7446-09-5       75-50-3  1.50  Sulfur dioxide/trimethylamine
+7446-09-5       106-98-9  .20  Sulfur dioxide/butene-1
+7446-09-5       78-93-3  .70  Sulfur dioxide/2-butanone
+7446-09-5       109-99-9  .58  Sulfur dioxide/tetrahydrofuran
+7446-09-5       123-91-1  .58  Sulfur dioxide/dioxane
+7446-09-5       141-78-6  .80  Sulfur dioxide/ethyl acetate
+7446-09-5       71-36-3  1.50  Sulfur dioxide/n-butanol
+7446-09-5       78-83-1  1.50  Sulfur dioxide/i-butanol
+7446-09-5       78-92-2  1.50  Sulfur dioxide/sec-butanol
+7446-09-5       75-65-0  1.50  Sulfur dioxide/tert-butanol
+7446-09-5       60-29-7  .58  Sulfur dioxide/di-ethyl ether
+7446-09-5       110-80-5  1.50  Sulfur dioxide/ethyl cellosolve
+7446-09-5       109-89-7  1.50  Sulfur dioxide/diethyl amine
+7446-09-5       98-01-1  .70  Sulfur dioxide/furfural
+7446-09-5       110-86-1  1.00  Sulfur dioxide/pyridine
+7446-09-5       78-79-5  .20  Sulfur dioxide/isoprene
+7446-09-5       108-90-7  .30  Sulfur dioxide/chlorobenzene
+7446-09-5       98-95-3  1.00  Sulfur dioxide/nitro-benzene
+7446-09-5       71-43-2  .30  Sulfur dioxide/benzene
+7446-09-5       108-95-2  1.50  Sulfur dioxide/phenol
+7446-09-5       62-53-3  1.50  Sulfur dioxide/aniline
+7446-09-5       108-94-1  .70  Sulfur dioxide/cyclohexanone
+7446-09-5       592-41-6  .20  Sulfur dioxide/hexene-1
+7446-09-5       108-93-0  1.50  Sulfur dioxide/cyclohexanol
+7446-09-5       108-10-1  .70  Sulfur dioxide/methylisobutylketone
+7446-09-5       123-86-4  .80  Sulfur dioxide/n-butyl acetate
+7446-09-5       121-44-8  1.50  Sulfur dioxide/triethylamine
+7446-09-5       108-88-3  .30  Sulfur dioxide/toluene
+7446-09-5       100-42-5  .30  Sulfur dioxide/styrene
+7446-09-5       100-41-4  .30  Sulfur dioxide/ethyl benzene
+7446-09-5       108-38-3  .30  Sulfur dioxide/m-xylene
+7446-09-5       95-47-6  .30  Sulfur dioxide/o-xylene
+7446-09-5       106-42-3  .30  Sulfur dioxide/p-xylene
+7446-09-5       7732-18-5  1.50  Sulfur dioxide/water
+7446-09-5       7783-06-4  .50  Sulfur dioxide/hydrogen sulfide
+7446-09-5       7664-41-7  1.50  Sulfur dioxide/ammonia
+100-66-3       56-23-5  .25  Anisole/carbon tetrachloride
+100-66-3       67-66-3  .95  Anisole/chloroform
+100-66-3       75-09-2  .35  Anisole/dichloromethane
+100-66-3       64-18-6  1.20  Anisole/formic acid
+100-66-3       75-52-5  1.25  Anisole/nitro-methane
+100-66-3       67-56-1  .50  Anisole/methanol
+100-66-3       79-01-6  .10  Anisole/trichloroethylene
+100-66-3       74-86-2  .30  Anisole/acetylene
+100-66-3       75-05-8  1.00  Anisole/acetonitrile
+100-66-3       74-85-1  .10  Anisole/ethylene
+100-66-3       75-07-0  .40  Anisole/acetaldehyde
+100-66-3       64-19-7  1.20  Anisole/acetic acid
+100-66-3       79-24-3  1.25  Anisole/nitro-ethane
+100-66-3       64-17-5  .50  Anisole/ethanol
+100-66-3       124-40-3  .70  Anisole/dimethyl amine
+100-66-3       107-21-1  .50  Anisole/ethylene glycol
+100-66-3       115-07-1  .10  Anisole/propylene
+100-66-3       67-64-1  .50  Anisole/acetone
+100-66-3       79-20-9  .60  Anisole/methyl acetate
+100-66-3       79-09-4  1.20  Anisole/propionic acid
+100-66-3       108-03-2  1.25  Anisole/1-nitropropane
+100-66-3       79-46-9  1.25  Anisole/2-nitropropane
+100-66-3       71-23-8  .50  Anisole/n-propanol
+100-66-3       67-63-0  .50  Anisole/i-propanol
+100-66-3       75-50-3  .70  Anisole/trimethylamine
+100-66-3       106-98-9  .10  Anisole/butene-1
+100-66-3       78-93-3  .50  Anisole/2-butanone
+100-66-3       141-78-6  .60  Anisole/ethyl acetate
+100-66-3       71-36-3  .50  Anisole/n-butanol
+100-66-3       78-83-1  .50  Anisole/i-butanol
+100-66-3       78-92-2  .50  Anisole/sec-butanol
+100-66-3       75-65-0  .50  Anisole/tert-butanol
+100-66-3       110-80-5  .50  Anisole/ethyl cellosolve
+100-66-3       109-89-7  .70  Anisole/diethyl amine
+100-66-3       98-01-1  .40  Anisole/furfural
+100-66-3       78-79-5  .10  Anisole/isoprene
+100-66-3       108-90-7  .30  Anisole/chlorobenzene
+100-66-3       98-95-3  1.25  Anisole/nitro-benzene
+100-66-3       71-43-2  .30  Anisole/benzene
+100-66-3       108-95-2  .50  Anisole/phenol
+100-66-3       62-53-3  .70  Anisole/aniline
+100-66-3       108-94-1  .50  Anisole/cyclohexanone
+100-66-3       592-41-6  .10  Anisole/hexene-1
+100-66-3       108-93-0  .50  Anisole/cyclohexanol
+100-66-3       108-10-1  .50  Anisole/methylisobutylketone
+100-66-3       123-86-4  .60  Anisole/n-butyl acetate
+100-66-3       121-44-8  .70  Anisole/triethylamine
+100-66-3       108-88-3  .30  Anisole/toluene
+100-66-3       100-42-5  .30  Anisole/styrene
+100-66-3       100-41-4  .30  Anisole/ethyl benzene
+100-66-3       108-38-3  .30  Anisole/m-xylene
+100-66-3       95-47-6  .30  Anisole/o-xylene
+100-66-3       106-42-3  .30  Anisole/p-xylene
+100-66-3       7732-18-5  .50  Anisole/water
+100-66-3       7783-06-4  .10  Anisole/hydrogen sulfide
+100-66-3       7664-41-7  .70  Anisole/ammonia
+100-66-3       7446-09-5  .58  Anisole/sulfur dioxide
+107-13-1       56-23-5  .30  Acrylonitrile/carbon tetrachloride
+107-13-1       67-66-3  1.80  Acrylonitrile/chloroform
+107-13-1       75-09-2  .60  Acrylonitrile/dichloromethane
+107-13-1       64-18-6  .40  Acrylonitrile/formic acid
+107-13-1       75-52-5  2.00  Acrylonitrile/nitro-methane
+107-13-1       67-56-1  1.50  Acrylonitrile/methanol
+107-13-1       79-01-6  .20  Acrylonitrile/trichloroethylene
+107-13-1       74-86-2  .50  Acrylonitrile/acetylene
+107-13-1       75-05-8  1.65  Acrylonitrile/acetonitrile
+107-13-1       74-85-1  .20  Acrylonitrile/ethylene
+107-13-1       75-07-0  2.38  Acrylonitrile/acetaldehyde
+107-13-1       64-19-7  2.50  Acrylonitrile/acetic acid
+107-13-1       79-24-3  2.00  Acrylonitrile/nitro-ethane
+107-13-1       64-17-5  1.50  Acrylonitrile/ethanol
+107-13-1       124-40-3  1.40  Acrylonitrile/dimethyl amine
+107-13-1       115-07-1  .20  Acrylonitrile/propylene
+107-13-1       67-64-1  1.30  Acrylonitrile/acetone
+107-13-1       79-20-9  1.40  Acrylonitrile/methyl acetate
+107-13-1       79-09-4  2.50  Acrylonitrile/propionic acid
+107-13-1       108-03-2  2.00  Acrylonitrile/1-nitropropane
+107-13-1       79-46-9  2.00  Acrylonitrile/2-nitropropane
+107-13-1       71-23-8  1.50  Acrylonitrile/n-propanol
+107-13-1       67-63-0  1.50  Acrylonitrile/i-propanol
+107-13-1       75-50-3  1.40  Acrylonitrile/trimethylamine
+107-13-1       106-98-9  .20  Acrylonitrile/butene-1
+107-13-1       78-93-3  1.30  Acrylonitrile/2-butanone
+107-13-1       109-99-9  1.00  Acrylonitrile/tetrahydrofuran
+107-13-1       123-91-1  1.00  Acrylonitrile/dioxane
+107-13-1       141-78-6  1.40  Acrylonitrile/ethyl acetate
+107-13-1       71-36-3  1.50  Acrylonitrile/n-butanol
+107-13-1       78-83-1  1.50  Acrylonitrile/i-butanol
+107-13-1       78-92-2  1.50  Acrylonitrile/sec-butanol
+107-13-1       75-65-0  1.50  Acrylonitrile/tert-butanol
+107-13-1       60-29-7  1.00  Acrylonitrile/di-ethyl ether
+107-13-1       110-80-5  1.50  Acrylonitrile/ethyl cellosolve
+107-13-1       109-89-7  1.40  Acrylonitrile/diethyl amine
+107-13-1       98-01-1  2.38  Acrylonitrile/furfural
+107-13-1       110-86-1  1.30  Acrylonitrile/pyridine
+107-13-1       78-79-5  .20  Acrylonitrile/isoprene
+107-13-1       108-90-7  .70  Acrylonitrile/chlorobenzene
+107-13-1       98-95-3  2.00  Acrylonitrile/nitro-benzene
+107-13-1       71-43-2  .70  Acrylonitrile/benzene
+107-13-1       108-95-2  1.50  Acrylonitrile/phenol
+107-13-1       62-53-3  1.40  Acrylonitrile/aniline
+107-13-1       108-94-1  1.30  Acrylonitrile/cyclohexanone
+107-13-1       592-41-6  .20  Acrylonitrile/hexene-1
+107-13-1       108-93-0  1.50  Acrylonitrile/cyclohexanol
+107-13-1       108-10-1  1.30  Acrylonitrile/methylisobutylketone
+107-13-1       123-86-4  1.40  Acrylonitrile/n-butyl acetate
+107-13-1       121-44-8  1.40  Acrylonitrile/triethylamine
+107-13-1       108-88-3  .70  Acrylonitrile/toluene
+107-13-1       100-42-5  .70  Acrylonitrile/styrene
+107-13-1       100-41-4  .70  Acrylonitrile/ethyl benzene
+107-13-1       108-38-3  .70  Acrylonitrile/m-xylene
+107-13-1       95-47-6  .70  Acrylonitrile/o-xylene
+107-13-1       106-42-3  .70  Acrylonitrile/p-xylene
+107-13-1       7647-01-0  .50  Acrylonitrile/hydrogen chloride
+107-13-1       7732-18-5  1.50  Acrylonitrile/water
+107-13-1       7783-06-4  .70  Acrylonitrile/hydrogen sulfide
+107-13-1       7664-41-7  1.40  Acrylonitrile/ammonia
+107-13-1       7446-09-5  .80  Acrylonitrile/sulfur dioxide
+107-13-1       100-66-3  1.00  Acrylonitrile/anisole
+107-13-1       107-13-1  1.65  Acrylonitrile/acrylonitrile

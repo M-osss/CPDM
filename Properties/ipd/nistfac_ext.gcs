@@ -1,0 +1,77 @@
+[NISTFAC]
+# GC structural data
+119-36-8 1 1 15 4 16 1 37 1 58 1 # Methyl salicylate
+103-73-1 1 1 15 5 16 1 60 1 # Phenetole
+93-89-0 1 1 2 1 15 5 16 1 58 1 # Ethyl benzoate
+122-79-2 15 5 16 1 51 1 # Phenyl acetate
+75-31-0 1 2 68 1 # Isopropylamine
+463-57-0 2 1 34 2 # Methane-diol
+4433-56-1 1 1 3 1 34 2 # Ethane-1,1-diol
+110-80-5 1 1 2 1 39 1 # 2-ethoxyethanol
+112-36-7 1 2 2 3 60 3 # Diethylene glycol diethyl ether
+101-84-8 15 10 16 2 206 1 # Diphenyl ether
+506-30-9 1 1 2 18 94 1 # Arachidic acid
+123-63-7 1 3 61 3 # Paraldehyde
+109-06-8 1 1 77 1 # 2-methylpyridine
+108-99-6 1 1 77 1 # 3-methylpyridine
+108-89-4 1 1 77 1 # 4-methylpyridine
+108-48-5 1 2 78 1 # 2,6-dimethylpyridine
+589-93-5 1 2 78 1 # 2,5-dimethylpyridine
+127-27-5 1 3 2 7 3 2 4 3 5 1 32 1 94 1 # Pimaric acid
+1945-53-5 1 4 2 7 3 2 4 2 9 1 32 1 94 1 # Palustric acid
+5835-26-7 1 3 2 7 3 2 4 3 5 1 32 1 94 1 # Isopimaric acid
+514-10-3 1 4 2 6 3 3 4 2 32 2 94 1 # Abietic acid
+1740-19-8 1 4 2 5 3 2 4 2 15 3 16 3 94 1 # Dehydroabietic acid
+471-77-2 1 4 2 7 3 2 4 2 9 1 32 1 94 1 # Neoabietic acid
+83-46-5 1 6 2 11 3 8 4 2 32 1 34 1 # Sitosterol
+98-55-5 1 3 4 1 27 3 28 1 32 1 34 1 # Alpha-terpineol
+99-86-5 1 3 3 1 27 2 32 2 # Alpha-terpinene
+80-56-8 1 3 8 1 27 2 28 2 29 1 # Alpha-pinene
+95-15-8 15 5 16 2 144 1 # Benzothiophene
+95-15-8 144 1 # Benzothiophene
+95-15-8 15 5 144 1 # Benzothiophene
+95-15-8 15 5 16 2 144 1 # Benzothiophene
+99-86-5 1 3 3 1 8 2 27 2 # Alpha-terpinene
+98-55-5 1 3 4 1 27 3 28 1 32 1 34 1 # Alpha-terpineol
+99-86-5 1 3 3 1 27 2 # Alpha-terpinene
+99-86-5 1 3 3 1 27 2 32 2 # Alpha-terpinene
+83-46-5 1 6 2 11 3 8 4 2 34 1 # Sitosterol
+83-46-5 1 6 2 11 3 8 4 2 32 1 34 1 # Sitosterol
+5835-26-7 1 3 2 7 3 2 4 3 5 1 32 1 94 1 # Isopimaric acid
+1945-53-5 1 4 2 7 3 2 4 2 9 1 32 1 94 1 # Palustric acid
+2177-47-1 1 1 15 4 16 2 27 1 32 1 # 2-methylindene
+2177-47-1 1 1 15 4 17 1 19 1 27 1 32 1 # 2-methylindene
+2177-47-1 1 1 15 4 16 2 27 1 32 1 # 2-methylindene
+109-99-9 27 3 63 1 # Tetrahydrofuran
+50-00-0 60 1 # Formaldehyde
+75-09-2 102 1 # Dichloromethane
+87-61-6 15 3 109 3 # 1,2,3-trichlorobenzene
+108-70-3 15 3 109 3 # 1,3,5-trichlorobenzene
+767-59-9 1 1 15 4 17 2 28 1 30 1 # 1-methylindene
+95-13-6 6 1 15 4 17 2 27 1 # Indene
+83-32-9 15 6 17 4 27 2 # Acenaphthene
+86-73-7 15 8 17 4 27 1 # Fluorene
+86-73-7 15 8 17 4 27 1 # Fluorene
+496-11-7 15 4 17 2 27 3 # Indane
+496-11-7 15 4 17 2 27 3 # Indane
+123-91-1 27 2 63 2 # 1,4-dioxane
+123-91-1 27 2 63 2 # 1,4-dioxane
+100-66-3 15 5 17 1 59 1 # Anisole
+74-85-1 2 2 # Ethylene
+74-86-2 3 2 # Acetylene
+107-21-1 38 1 # Ethylene glycol
+75-21-8 27 1 63 1 # Ethylene oxide
+79-01-6 8 1 108 3 # Trichloroethylene
+75-87-6 48 1 106 1 # Trichloroacetaldehyde
+79-02-7 48 1 103 1 # Dichloroacetaldehyde
+590-19-2 1 1 2 1 8 1 # 1,2-butadiene
+590-19-2 1 1 2 1 8 1 # 1,2-butadiene
+110-86-1 76 1 # Pyridine
+140-31-8 2 1 27 2 67 1 72 1 75 1 # N-aminoethyl piperazine
+4028-66-4 15 2 16 1 18 3 59 1 # 2,4,6-trimethylanisole
+90-00-6 1 1 15 4 19 1 37 1 # o-ethylphenol
+1004-66-6 15 3 16 1 18 2 59 1 # 2,6-dimethylanisole
+496-16-2 15 4 16 2 27 1 63 1 # 2,3-dihydrobenzofuran
+578-58-5 15 4 16 1 18 1 59 1 # 2-methylanisole
+107-19-7 2 1 34 1 13 1 # Propargyl alcohol
+110-65-6 2 2 34 2 14 1 # 2-butyne-1,4-diol

@@ -1,0 +1,354 @@
+
+ ---------------------------------------------
+             ===  ChemSep ===
+ Copyright 2008 Harry Kooijman and Ross Taylor
+      Interaction Parameters Data (IPD)
+ ---------------------------------------------
+        VANLAAR parameters at P=1atm.
+ ---------------------------------------------
+ Data: ID1  ID2  A12  A21 comments
+ ---------------------------------------------
+      First compilation by Andrew Mason
+
+[IPD]
+Comment=Van Laar parameters @ 1atm.
+Units=Ä
+#
+# ID/CASN       ID/CASN    A12         A21         Name/Name Comments
+67-64-1     7732-18-5    .9972    .6105    Acetone/Water
+67-64-1     67-56-1    .2635    .2801    Acetone/Methanol
+67-64-1     64-17-5    .2574    .2879    Acetone/Ethanol
+67-64-1     71-43-2    .2039    .1563    Acetone/Benzene
+67-64-1     56-23-5    .3889    .3301    Acetone/Carbon tetrachloride
+67-64-1     67-66-3    -.3045    -.2709    Acetone/Chloroform
+71-43-2     56-23-5    .360e-1    .509e-1    Benzene/Carbon tetrachloride
+71-43-2     67-56-1    .7518    .8975    Benzene/Methanol
+71-43-2     67-66-3    -.858e-1    -.566e-1    Benzene/Chloroform
+67-66-3     67-56-1    .4104    .8263    Chloroform/Methanol
+64-17-5     67-56-1    .88e-2    .254e-1    Ethanol/Methanol
+64-17-5     7732-18-5    1.6648    .9401    Ethanol/Water
+67-56-1     7732-18-5    .3861    .2439    Methanol/Water
+75-05-8     7732-18-5    2.2972    1.5555    Acetonitrile/Water p70 1/1a
+75-07-0     7732-18-5    .7522    2.3011    Acetaldehyde/Water p83 1/1a
+75-21-8     7732-18-5    1.7468    4.0289    Ethyleneoxide/Water p88 1/1a
+7732-18-5     64-19-7    .5721    1.0740    Water/Aceticacid p100 1/1a
+7732-18-5     123-39-7    2.1468    .1839    Water/n-Methylformamide p114 1/1a
+7732-18-5     67-68-5    -1.4693    -3.2522    Water/Dimethylsulfoxide p164 1/1a
+75-04-7     7732-18-5    -.1563    -.9774    Ethylamine/Water p177 1/1a
+7732-18-5     107-15-3    -.5899    -1.7747    Water/Ethylenediamine p178 1/1a
+107-13-1     7732-18-5    3.5902    2.0948    Acrylonitrile/Water p182 1/1a
+7732-18-5     79-10-7    1.1851    1.4208    Water/Acrylicacid p186 1/1a
+107-05-1     7732-18-5    3.6710    2.8859    3-chloro-1-propene/Water p188 1/1a
+107-12-0     7732-18-5    3.6840    1.8787    Propionitrile/Water p189 1/1a
+107-18-6     7732-18-5    1.9432    1.0637    Allylalcohol/Water p208 1/1a
+123-38-6     7732-18-5    3.3583    2.2768    Propionicaldehyde/Water p209 1/1a
+7732-18-5     79-09-4    .7322    2.2568    Water/Propionicacid p215 1/1a
+7732-18-5     110-88-3    1.6471    2.4727    Water/1,3,5-trioxane p225 1/1a
+7732-18-5     68-12-2    .2780    .4066    Water/N,n-dimethylformamide p232 1/1a
+71-23-8     7732-18-5    2.7205    1.1655    1-propanol/Water p238 1/1a
+67-63-0     7732-18-5    2.4807    1.0937    2-propanol/Water p244 1/1a
+109-87-5     7732-18-5    2.9393    2.3702    Dimethoxymethane/Water p252 1/1a
+75-31-0     7732-18-5    1.8810    .3030    Isopropylamine/Water p266 1/1a
+107-10-8     7732-18-5    1.4482    .4283    Propylamine/Water p267 1/1a
+78-93-3     7732-18-5    3.2199    1.8344    2-Butanone/Water p277 1/1a
+78-84-2     7732-18-5    2.3268    2.7574    Isobutyraldehyde/Water p280 1/1a
+109-99-9     7732-18-5    2.6309    2.0222    Tetrahydrofuran/Water p283 1/1a
+7732-18-5     123-91-1    1.5399    1.9418    Water/1,4-Dioxane p301 1/1a
+141-78-6     7732-18-5    2.3302    2.5599    Ethylacetate/Water p304 1/1a
+7732-18-5     126-33-0    1.2711    2.1170    Water/Sulfolane p307 1/1a
+7732-18-5     127-19-5    .4881    .4753    Water/N,n-dimethylacetamide p325 1/1a
+7732-18-5     110-91-8    .9708    .1545    Water/Morpholine p327 1/1a
+7732-18-5     71-36-3    1.2739    3.9771    Water/n-butanol p329 1/1a
+78-83-1     7732-18-5    3.7964    1.4144    isobutanol/Water p339 1/1a
+75-65-0     7732-18-5    3.1522    1.0948    Tert-butanol/Water p343 1/1a
+60-29-7     7732-18-5    4.4617    1.6312    Diethylether/Water p344 1/1a
+7732-18-5     110-63-4    1.3528    2.3354    Water/1,4-butanediol p346 1/1a
+7732-18-5     513-85-9    -.8814    -.1048    Water/2,3-butanediol p348 1/1a
+7732-18-5     111-46-6    .9145    1.7007    Water/diethylenegylcol p352 1/1a
+109-73-9     7732-18-5    3.0399    .5653    n-Butylamine/Water p354 1/1a
+7732-18-5     98-01-1    1.3478    3.9291    Water/Furfural p361 1/1a
+7732-18-5     110-86-1    .8141    2.5624    Water/Pyridine p365 1/1a
+7732-18-5     120-94-5    .4096    .3010    Water/n-Methylpyrrolidone p377 1/1a
+7732-18-5     123-51-3    .7333    4.0757    Water/3-methylbutanol p382 1/1a
+7732-18-5     75-85-4    1.7146    2.7108    Water/2-methyl-2-butanol p384 1/1a
+7732-18-5     108-95-2    .8510    3.9695    Water/Phenol p398 1/1a
+7732-18-5     62-53-3    1.4001    3.6213    Water/Aniline p401 1/1a
+7732-18-5     109-06-8    .5939    2.9698    Water/2-methylpyridine p402 1/1a
+7732-18-5     108-99-6    .6323    3.5113    Water/3-methylpyridine p405 1/1a
+7732-18-5     108-89-4    .5746    3.7757    Water/4-methylpyridine p408 1/1a
+7732-18-5     100-63-0    1.3582    2.3457    Water/Phenylhydrazine p409 1/1a
+7732-18-5     108-94-1    1.1388    4.3059    Water/Cyclohexanone p410 1/1a
+7732-18-5     141-79-7    2.1092    3.5824    Water/Mesityloxide p411 1/1a
+7732-18-5     108-93-0    1.5249    2.7588    Water/Cyclohexanol p415 1/1a
+7732-18-5     123-86-4    1.3081    4.4893    Water/n-Butylacetate p417 1/1a
+108-20-3     7732-18-5    5.5623    3.0475    Diisopropylether/Water p421 1/1a
+7732-18-5     111-27-3    1.4979    3.8455    Water/1-hexanol p426 1/1a
+7732-18-5     626-93-7    1.7951    2.9193    Water/2-hexanol p427 1/1a
+7732-18-5     111-76-2    .9801    2.8740    Water/2-butoxy-ethanol p429 1/1a
+7732-18-5     100-51-6    1.2414    4.2093    Water/Benzylalcohol p450 1/1a
+7732-18-5     108-48-5    .8129    3.1205    Water/2,6-Dimethylpyridine p457 1/1a
+7732-18-5     123-92-2    1.9539    2.9543    Water/Isopentylacetate p459 1/1a
+7732-18-5     98-86-2    2.0332    6.6459    Water/Acetophenone p460 1/1a
+7732-18-5     91-22-5    1.0333    4.0736    Water/Quinoline p463 1/1a
+7732-18-5     98-82-8    2.5889    4.3317    Water/Isopropylbenzene p465 1/1a
+67-56-1     56-23-5    2.8974    1.7987    Methanol/Tetrachloromethane p18 1/2c
+67-56-1     75-25-2    1.8490    1.5241    Methanol/Tribromomethane p19 1/2c
+67-66-3     67-56-1    .9798    1.9747    Chloroform/Methanol p24 1/2c
+75-09-2     67-56-1    1.0014    2.6116    Dichloromethane/Methanol p26 1/2c
+67-56-1     75-12-7    .5072    .7862    Methanol/Formamide p30 1/2c
+75-01-4     67-56-1    1.2002    3.3231    VinylCloride/Methanol p36 1/2c
+67-56-1     75-05-8    .8096    .9249    Methanol/Acetonitrile p41 1/2c
+67-56-1     107-06-2    1.9954    1.4675    Methanol/1,2-Dichloroethane p43 1/2c
+67-56-1     64-19-7    -.2464    -.4174    Methanol/AceticAcid p46 1/2c
+107-31-3     67-56-1    1.1127    1.3319    MethylFormate/Methanol p50 1/2c
+67-56-1     64-17-5    -.245e-1    -.667e-1    Methanol/Ethanol p59 1/2c
+67-56-1     67-68-5    -1.1591    -1.3936    Methanol/Dimethylsulfoxide p61 1/2c
+124-40-3     67-56-1    -3.0488    -1.8334    Dimethylamine/Methanol p64 1/2c
+67-64-1     67-56-1    .5815    .5938    Acetone/Methanol p70 1/2c
+123-38-6     67-56-1    -.3146    -.4466    PropionicAldehyde/Methanol p79 1/2c
+75-56-9     67-56-1    .7603    1.2821    PropyleneOxide/Methanol p80 1/2c
+79-20-9     67-56-1    1.1252    1.1520    MethylAcetate/Methanol p82 1/2c
+67-56-1     79-09-4    -.1654    -.2275    Methanol/PropionicAcid p87 1/2c
+67-56-1     68-12-2    -.6254    -.1833    Methanol/n,n-Dimethylformamide p88 1/2c
+67-56-1     71-23-8    .441e-1    .756e-1    Methanol/Propanol p94 1/2c
+109-87-5     67-56-1    1.3791    1.2961    Dimethoxymethane/Methanol p97 1/2c
+67-56-1     110-02-1    1.7277    .9473    Methanol/Thiophene p101 1/2c
+106-99-0     67-56-1    1.5634    2.3936    1,3-Butadiene/Methanol p103 1/2c
+67-56-1     96-33-3    .9831    1.2511    Methanol/Methylacrylate p104 1/2c
+67-56-1     109-99-9    .6504    .8551    Methanol/Tetrahydrofuran p108 1/2c
+67-56-1     123-91-1    .9118    1.1253    Methanol/1,4-Dioxane p113 1/2c
+67-56-1     126-33-0    1.3074    1.6826    Methanol/Sulfolane p120 1/2c
+106-97-8     67-56-1    1.9980    2.4633    Butane/Methanol p126 1/2c
+67-56-1     71-36-3    .1494    .3762    Methanol/1-Butanol p127 1/2c
+67-56-1     78-92-2    -.3752    -.631e-1    Methanol/2-Butanol p128 1/2c
+67-56-1     75-65-0    -.1830    -.3792    Methanol/Tert-Butanol p131 1/2c
+60-29-7     67-56-1    1.1748    1.4536    DiethylEther/Methanol p132 1/2c
+67-56-1     110-63-4    -.989e-1    -.1554    Methanol/1,4-Butanediol p137 1/2c
+67-56-1     110-86-1    .506e-1    .526e-1    Methanol/Pyridine p141 1/2c
+542-92-7     67-56-1    1.7417    2.8019    Cyclopentadiene/Methanol p144 1/2c
+78-79-5     67-56-1    1.5925    2.6712    Isoprene/Methanol p145 1/2c
+1574-41-0     67-56-1    1.7478    2.7219    1,3-Pentadiene(CIS)/Methanol p147 1/2c
+2004-70-8     67-56-1    1.7646    2.7275    Trans-1,3-Pentadiene/Methanol p148 1/2c
+67-56-1     80-62-6    1.3028    1.4563    Methanol/MethylMethacrylate p149 1/2c
+513-35-9     67-56-1    1.9819    2.8285    2-Methyl-2-Butene/Methanol p154 1/2c
+67-56-1     563-80-4    .6785    .9574    Methanol/Methylisopropyl Ketone p155 1/2c
+67-56-1     96-22-0    .7392    1.0573    Methanol/3-Pentanone p156 1/2c
+67-56-1     110-89-4    -1.0795    -1.5253    Methanol/Piperidine p157 1/2c
+1634-04-4     67-56-1    1.0764    1.4438    MethylTert-ButylEther/Methanol p160 1/2c
+67-56-1     392-56-3    2.3663    1.9832    Methanol/Hexafluorobenzene p164 1/2c
+67-56-1     108-90-7    2.3248    1.9249    Methanol/Chlorobenzene p174 1/2c
+67-56-1     71-43-2    2.0532    1.7870    Methanol/Benzene p189 1/2c
+67-56-1     62-53-3    .7646    .8873    Methanol/Aniline p192 1/2c
+67-56-1     109-06-8    -.2974    -.3878    Methanol/2-Methylpyridine p195 1/2c
+67-56-1     108-99-6    -.4378    -.4202    Methanol/3-Methylpyridine p196 1/2c
+67-56-1     108-89-4    -.3077    -.4198    Methanol/4-Methylpyridine p198 1/2c
+67-56-1     110-83-8    2.8816    2.0794    Methanol/Cyclohexene p203 1/2c
+67-56-1     110-82-7    2.6920    2.3070    Methanol/Cyclohexane p210 1/2c
+592-41-6     67-56-1    2.2702    2.4053    1-Hexene/Methanol p212 1/2c
+67-56-1     123-86-4    1.2176    1.1378    Methanol/n-ButylAcetate p214 1/2c
+67-56-1     110-54-3    2.6821    2.7708    Methanol/Hexane p219 1/2c
+67-56-1     121-44-8    .9233    .3398    Methanol/Triethylamine p226 1/2c
+67-56-1     108-88-3    2.1799    2.0107    Methanol/Toluene p234 1/2c
+67-56-1     108-48-5    -.4039    -.3470    Methanol/2,6-Dimethylpyridine p239 1/2c
+67-56-1     592-76-7    2.2980    2.5175    Methanol/1-Heptene p241 1/2c
+67-56-1     108-87-2    2.6562    2.7015    Methanol/Methylcyclohexane p242 1/2c
+67-56-1     142-82-5    2.5999    2.5809    Methanol/n-Heptane p243 1/2c
+67-56-1     100-41-4    2.0924    2.2268    Methanol/Ethylbenzene p245 1/2c
+67-56-1     108-38-3    2.0245    2.2888    Methanol/M-xylene p246 1/2c
+67-56-1     106-42-3    2.0592    2.2779    Methanol/P-xylene p247 1/2c
+67-56-1     111-66-0    2.1775    2.5915    Methanol/1-Octene p248 1/2c
+67-56-1     111-65-9    2.4420    2.7142    Methanol/Octane p249 1/2c
+67-56-1     540-84-1    2.4741    2.5627    Methanol/2,2,4-Trimethylpentane p250 1/2c
+67-56-1     112-53-8    .3686    1.7547    Methanol/1-Dodecanol p252 1/2c
+67-56-1     112-80-1    .6730    1.2200    Methanol/Oleic Acid p253 1/2c
+56-23-5     67-56-1    1.5308    2.4095    Tetrachloromethane/Methanol p268 1/2c
+67-66-3     64-17-5    .7153    1.7144    Chloroform/Ethanol p280 1/2c
+75-09-2     64-17-5    .8738    1.8988    Dichloromethane/Ethanol p284 1/2c
+64-17-5     127-18-4    1.7898    1.7987    Ethanol/Tetrachloroethylene p285 1/2c
+64-17-5     75-05-8    1.1958    1.3032    Ethanol/Acetonitrile p289 1/2c
+64-17-5     107-06-2    1.8347    1.4186    Ethanol/1,2-Dichloroethane p292 1/2c
+64-17-5     64-19-7    -.2774    -.3831    Ethanol/Acetic Acid p293 1/2c
+64-17-5     107-21-1    .6634    2.2565    Ethanol/1,2-Ethanediol p297 1/2c
+124-40-3     64-17-5    -3.8450    -1.6234    Dimethylamine/Ethanol p299 1/2c
+67-64-1     64-17-5    .6148    .4488    Acetone/Ethanol p301 1/2c
+79-20-9     64-17-5    1.1496    .8731    MethylAcetate/Ethanol p313 1/2c
+64-17-5     67-63-0    .222e-1    .742e-1    Ethanol/2-Propanol p316 1/2c
+64-17-5     57-55-6    .1987    .5679    Ethanol/1,2-Propanediol p319 1/2c
+64-17-5     110-02-1    1.8086    1.2892    Ethanol/Thiophene p320 1/2c
+108-05-4     64-17-5    1.0038    .9212    VinylAcetate/Ethanol p323 1/2c
+64-17-5     78-93-3    .5667    .5921    Ethanol/2-Butanone p326 1/2c
+109-99-9     64-17-5    .4294    .6635    Tetrahydrofuran/Ethanol p328 1/2c
+64-17-5     123-91-1    .4452    .9526    Ethanol/1,4-Dioxane p330 1/2c
+141-78-6     64-17-5    .8647    .7897    EthylAcetate/Ethanol p332 1/2c
+64-17-5     126-33-0    1.4387    2.1599    Ethanol/Sulfolane p341 1/2c
+64-17-5     110-91-8    -.2736    -.6807    Ethanol/Morpholine p345 1/2c
+64-17-5     78-92-2    .1826    .513e-1    Ethanol/2-Butanol p346 1/2c
+64-17-5     78-83-1    .1386    .2838    Ethanol/2-Methyl-1-Propanol p348 1/2c
+109-73-9     64-17-5    -1.3428    -.9916    Butylamine/Ethanol p351 1/2c
+109-89-7     64-17-5    -1.4017    -.5753    Diethylamine/Ethanol p352 1/2c
+64-17-5     110-86-1    -.140e-1    -.1699    Ethanol/Pyridine p356 1/2c
+78-79-5     64-17-5    1.5833    2.3436    Isoprene/Ethanol p358 1/2c
+64-17-5     80-62-6    1.2213    1.2386    Ethanol/MethylMethacrylate p360 1/2c
+513-35-9     64-17-5    1.7083    2.4809    2-Methyl-2-Butene/Ethanol p365 1/2c
+64-17-5     563-80-4    .8153    .6233    Ethanol/Methylisopropyl Ketone p366 1/2c
+64-17-5     109-60-4    1.0300    1.3683    Ethanol/PropylAcetate p367 1/2c
+78-78-4     64-17-5    1.9451    2.3686    2-Methylbutane/Ethanol p373 1/2c
+109-66-0     64-17-5    1.8682    2.5299    Pentane/Ethanol p375 1/2c
+64-17-5     108-86-1    2.6396    1.6477    Ethanol/Bromobenzene p378 1/2c
+64-17-5     108-90-7    2.5812    1.4605    Ethanol/Chlorobezene p380 1/2c
+64-17-5     71-43-2    1.7420    1.4315    Ethanol/Benzene p385 1/2c
+64-17-5     62-53-3    .5275    1.9052    Ethanol/Aniline p410 1/2c
+64-17-5     109-06-8    -.1344    -.2500    Ethanol/2-Methylpyridine p411 1/2c
+64-17-5     108-99-6    -.795e-1    -.1691    Ethanol/3-Methylpyridine p412 1/2c
+64-17-5     110-82-7    2.4890    2.0198    Ethanol/Cyclohexane p413 1/2c
+592-41-6     64-17-5    1.8185    2.2272    1-Hexene/Ethanol p420 1/2c
+64-17-5     108-93-0    .1466    1.0042    Ethanol/Cyclohexanol p421 1/2c
+64-17-5     123-86-4    .7860    1.1967    Ethanol/ButylAcetate p424 1/2c
+110-54-3     64-17-5    2.0652    2.4447    Hexane/Ethanol p428 1/2c
+64-17-5     108-88-3    2.0355    1.5564    Ethanol/Toluene p441 1/2c
+64-17-5     100-66-3    .3768    2.6617    Ethanol/Anisole p445 1/2c
+64-17-5     108-39-4    -1.6043    -1.2114    Ethanol/3-Methylphenol p446 1/2c
+64-17-5     108-48-5    -.1110    -.1092    Ethanol/2,6-Dimethylpyridine p447 1/2c
+64-17-5     628-63-7    1.0722    1.2172    Ethanol/Pentylacetate p449 1/2c
+64-17-5     142-82-5    2.5125    2.2797    Ethanol/n-Heptane p457 1/2c
+64-17-5     100-41-4    1.8036    1.7989    Ethanol/Ethylbezene p460 1/2c
+64-17-5     106-42-3    1.7570    1.8862    Ethanol/P-xylene p461 1/2c
+64-17-5     111-65-9    2.5481    2.3648    Ethanol/Octane p462 1/2c
+64-17-5     540-84-1    2.1688    2.1627    Ethanol/2,2,4-Trimethylpentane p467 1/2c
+64-17-5     544-76-3    2.9536    1.6714    Ethanol/Hexadecane p470 1/2c
+64-17-5     112-80-1    .4461    .9440    Ethanol/Oleicacid p471 1/2c
+56-23-5     71-23-8    1.0879    2.5978    Tertachloromethane/1-Propanol p472 1/2c
+71-23-8     127-18-4    1.4721    1.5104    1-Propanol/Tetrachloroethylene p473 1/2c
+79-01-6     71-23-8    1.1384    1.5539    Trichloroethylene/1-Propanol p474 1/2c
+107-06-2     71-23-8    1.0532    1.2679    1,2-Dichloroethane/1-Propanol p477 1/2c
+124-40-3     71-23-8    -1.0839    -1.5354    Dimethylamine/1-Propanol p484 1/2c
+71-23-8     79-09-4    -.3039    -.2867    1-Propanol/Propionicacid p486 1/2c
+71-23-8     109-86-4    .5033    .2291    1-Propanol/2-Methoxy-ethanol p490 1/2c
+107-10-8     71-23-8    -1.4310    -1.0775    Propylamine/1-Propanol p492 1/2c
+71-23-8     79-41-4    -.1432    -.9545    1-Propanol/Methacrylicacid p495 1/2c
+78-93-3     71-23-8    .4824    .4916    2-Butanone/1-Propanol p496 1/2c
+109-99-9     71-23-8    .1977    .3244    Tetrahydrofuran/1-Propanol p497 1/2c
+109-69-3     71-23-8    1.3166    2.2650    Butylchloride/1-Propanol p502 1/2c
+71-23-8     78-83-1    -.535e-1    -.461e-1    1-Propanol/2-Methyl-1-Propanol p504 1/2c
+109-73-9     71-23-8    -1.4753    -1.3046    Butylamine/1-Propanol p506 1/2c
+71-23-8     110-86-1    -.1211    -.3170    1-Propanol/Pyridine p513 1/2c
+71-23-8     80-62-6    .7288    .8529    1-Propanol/Methylmethacrylate p514 1/2c
+71-23-8     109-60-4    .5389    .6075    1-Propnaol/Propylacetate p516 1/2c
+392-56-3     71-23-8    1.7984    2.1530    Hexafluorobenzene/1-Propnaol p523 1/2c
+71-43-2     71-23-8    1.2578    1.6210    Benzene/1-Propanol p529 1/2c
+71-23-8     109-06-8    -.2918    -.4980    1-Propanol/2-Methylpyridine p538 1/2c
+71-23-8     108-99-6    -.2201    -.4044    1-Propanol/3-Methylpyridine p539 1/2c
+71-23-8     108-89-4    -.2892    -.5054    1-Propanol/4-Methylpyridine p540 1/2c
+110-82-7     71-23-8    .9329    2.6146    Cyclohexane/1-Propanol p542 1/2c
+71-23-8     106-36-5    2.2574    .1040    1-Propanol/Propylpropionate p545 1/2c
+110-54-3     71-23-8    1.9297    2.3101    Hexane/1-Propanol p547 1/2c
+71-23-8     142-84-7    .430e-1    .857e-1    1-Propanol/Dipropylamine p551 1/2c
+121-44-8     71-23-8    .3139    .7042    Triethylamine/1-Propanol p552 1/2c
+71-23-8     107-46-0    1.0812    1.4820    1-Propanol/Hexamethyldisiloxane p555 1/2c
+71-23-8     108-88-3    1.2735    1.2856    1-Propanol/Toluene p556 1/2c
+71-23-8     108-48-5    -.2707    -.3751    1-Propnaol/2,6-Dimethylpyridine p557 1/2c
+71-23-8     142-82-5    2.0901    2.0603    1-Propanol/n-Heptane p573 1/2c
+71-23-8     100-41-4    1.1861    1.3046    1-Propanol/Ethylbenzene p574 1/2c
+71-23-8     111-65-9    1.3754    1.9060    1-Propanol/Octane p576 1/2c
+71-23-8     112-30-1    .1604    .7358    1-Propanol/1-Decanol 579 1/2c
+56-23-5     71-43-2    .863e-1    .1235    Tetrachloromethane/Benzene p21 1/7
+71-43-2     75-25-2    .1032    .3273    Benzene/Tribromomethane p59 1/7
+67-66-3     71-43-2    -.1725    -.2408    Chloroform/Benzene p72 1/7
+74-88-4     71-43-2    .1148    .1500    MethylIodide/Benzene p84 1/7
+71-43-2     75-52-5    1.2929    1.0705    Benzene/Nitromethane p87 1/7
+75-15-0     71-43-2    .8434    .8037    CarbonDisulfide/Benzene p90 1/7
+76-13-1     71-43-2    .8350    .6006    1,1,2-Trichloro-1,2,2-Trifluoroethane/Benzene p105 1/7
+71-43-2     127-18-4    .2628    .2180    Benzene/Tetrachloroethylene p112 1/7
+71-43-2     79-01-6    .371e-1    .107e-1    Benzene/Trichloroethylene p117 1/7
+71-43-2     76-01-7    -.764e-1    -.481e-1    Benzene/Pentachloroethane p119 1/7
+71-43-2     79-34-5    -.4075    -.5126    Benzene/1,1,2,2-tetrachloroethane p120 1/7
+71-55-6     71-43-2    .248e-1    .409e-1    1,1,1-trichloroethane/Benzene p121 1/7
+71-43-2     106-93-4    .3341    .2671    Benzene/1,2-Dibromoethane p136 1/7
+71-43-2     107-06-2    .510e-1    .156e-1    Benzene/1,2-Dichloroethane p142 1/7
+75-03-6     71-43-2    .6690    .7950    EthylIodide/Benzene p160 1/7
+71-43-2     123-39-7    1.4360    2.6544    Benzene/n-Methylformamide p161 1/7
+71-43-2     79-24-3    .5796    .8006    Benzene/Nitroethane p163 1/7
+71-43-2     67-68-5    1.1096    1.6234    Benzene/Dimethylsulfoxide p166 1/7
+71-43-2     107-15-3    1.2656    1.0816    Benzene/Ethylenediamine p170 1/7
+71-43-2     68-12-2    .3648    .2528    Benzene/n,n-dimethylformamide p178 1/7
+71-43-2     108-03-2    .7674    .4649    Benzene/1-Nitropropane p185 1/7
+71-43-2     79-46-9    .3219    .9975    Benzene/2-Nitropropane p186 1/7
+71-43-2     110-02-1    .1532    .813e-1    Benzene/Thiophene p188 1/7
+71-43-2     126-33-0    1.0206    1.3356    Benzene/Sulfolane p191 1/7
+109-73-9     71-43-2    .2590    .1954    Butylamine/Benzene p199 1/7
+75-64-9     71-43-2    .6575    .2918    Tert.Butylamine/Benzene p202 1/7
+71-43-2     110-86-1    .1568    .2693    Benzene/Pyridine p221 1/7
+71-43-2     392-56-3    .217e-1    .1853    Benzene/Hexafluorobenzene p226 1/7
+71-43-2     106-46-7    .287e-1    .5767    Benzene/P-Dichlorobenzene p238 1/7
+71-43-2     108-86-1    .501e-1    .8042    Benzene/Bromobenzene p241 1/7
+71-43-2     108-90-7    .1075    .988e-1    Benzene/Chlorobenzene p250 1/7
+71-43-2     98-95-3    .3101    1.2714    Benzene/Nitrobenzene p254 1/7
+71-43-2     62-53-3    .4423    1.1323    Benzene/Aniline p264 1/7
+71-43-2     105-60-2    1.0126    1.7495    Benzene/6-Caprolactam p271 1/7
+71-43-2     108-91-8    -.1458    -.3785    Benzene/Cyclohexylamine p274 1/7
+71-43-2     121-44-8    .1578    .2041    Benzene/Triethylamine p275 1/7
+71-43-2     100-47-0    .2536    .9494    Benzene/Benzonitrile p278 1/7
+71-43-2     108-88-3    -.139e-1    -.170e-1    Benzene/Toluene p285 1/7
+71-43-2     100-60-7    .2699    .2920    Benzene/n-Methylcyclohexylamine p302 1/7
+71-43-2     108-38-3    2.0615    .209e-1    Benzene/m-Xylene p307 1/7
+71-43-2     106-42-3    -.717e-1    -.367e-1    Benzene/p-Xylene p310 1/7
+71-43-2     91-66-7    .1530    .5019    Benzene/n,n-Diethylaniline p312 1/7
+71-43-2     98-82-8    .983e-1    .7766    Benzene/Isopropylbenzene p322 1/7
+56-23-5     108-88-3    .100e-1    1.6361    Tetrachloromethane/Toluene p332 1/7
+67-66-3     108-88-3    -.953e-1    -.2435    Chloroform/Toluene p352 1/7
+75-15-0     108-88-3    .6400    .1789    CarbonDisulfide/Toluene p356 1/7
+79-01-6     108-88-3    -.764e-1    -.2109    Trichloroethylene/Toluenep 370 1/7
+75-05-8     108-88-3    1.2112    1.2422    Acetonitrile/Toluene p373 1/7
+624-83-9     108-88-3    -.1419    -.842e-1    MethylIsocyanate/Toluene p376 1/7
+108-88-3     79-24-3    .6916    .8841    Toluene/ Nitroethane p385 1/7
+108-88-3     67-68-5    1.3057    1.9098    Toluene/Dimethylsulfoxide p386 1/7
+108-88-3     107-15-3    1.2492    1.1930    Toluene/Ethylenediamine p387 1/7
+107-12-0     108-88-3    1.0413    .6886    Propionitrile/Toluene p388 1/7
+108-88-3     68-12-2    1.1407    .5119    Toluene/n,n-Dimethylformamide p394 1/7
+110-02-1     108-88-3    .2867    .4270    Thiophene/Toluene 395 1/7
+108-88-3     126-33-0    .4150    4.9443    Toluene/Sulfolane p399 1/7
+109-89-7     108-88-3    -.1875    -.7561    Diethylamine/Toluene p400 1/7
+108-88-3     110-86-1    .2337    .2652    Toluene/Pyridine p407 1/7
+392-56-3     108-88-3    .274e-1    2.1703    Hexafluorobenzene/Toluene p408 1/7
+108-88-3     108-86-1    -.448e-1    -.591e-1    Toluene/Bromobenzene p415 1/7
+108-88-3     108-90-7    -.439e-1    -.425e-1    Toluene/Chlorobenzene p417 1/7
+462-06-6     108-88-3    .274e-1    .676e-1    Fluorobenzene/Toluene p418 1/7
+108-88-3     98-95-3    .4066    .6500    Toluene/Nitrobenzene p422 1/7
+108-88-3     62-53-3    .4752    .4999    Toluene/Aniline p426 1/7
+108-88-3     109-06-8    .3070    .3892    Toluene/2-Methylpyridine p432 1/7
+108-88-3     108-99-6    .6134    .2707    Toluene/3-Methylpyridine p433 1/7
+108-88-3     100-47-0    .4903    .1582    Toluene/Benzonitrile p435 1/7
+108-88-3     100-41-4    .160e-1    .747e-1    Toluene/Ethylbenzene p443 1/7
+108-88-3     106-42-3    -.578e-1    -.7971    Toluene/p-Xylene p444 1/7
+107-13-1     100-42-5    .5103    .8290    Acrylonitrile/Styrene p446 1/7
+100-41-4     100-42-5    .3043    .366e-1    Ethylbenzene/Styrene p451 1/7
+100-42-5     98-83-9    .742e-1    .4645    Styrene/Alpha-MethylStyrene p456 1/7
+100-42-5     103-65-1    .429e-1    .2104    Styrene/Propylbenzene p457 1/7
+56-23-5     100-41-4    -.2872    -.334e-1    Tetrachloromethane/Ethylbenzene p464 1/7
+75-05-8     100-41-4    .9358    1.5877    Acetonitrile/Ethylbenzene p465 1/7
+107-06-2     100-41-4    -.6757    -.1231    1,2-Dichloroethane/Ethylbenzene p466 1/7
+107-13-1     100-41-4    .6087    1.6298    Acrylonitrile/Ethylbenzene p467 1/7
+100-41-4     98-95-3    .4822    .6118    Ethylbenzene/Nitrobenzene p470 1/7
+100-41-4     62-53-3    .8578    .8530    Ethylbenzene/Aniline p473 1/7
+100-41-4     104-51-8    -.1115    -.1175    Ethylbenzene/Butylbenzene p477 1/7
+108-38-3     68-12-2    .9869    .9324    m-Xylene/n,n-Dimethylformamide p481 1/7
+110-86-1     108-38-3    .3317    .2940    Pyridine/m-Xylene p482 1/7
+108-38-3     62-53-3    .8465    .5828    m-Xylene/Aniline p483 1/7
+95-47-6     76-01-7    -.4234    -.1285    o-Xylene/Pentachloroethane p489 1/7
+107-06-2     95-47-6    .683e-1    .2300    1,2-Dichloroethane/o-Xylene p490 1/7
+107-15-3     95-47-6    1.1097    1.7235    Ethylenediamine/o-Xylene p491 1/7
+95-47-6     68-12-2    .9467    1.0366    o-Xylene/n,n-Dimethylformamide p493 1/7
+56-23-5     106-42-3    -.2550    -.505e-1    Tetrachloromethane/p-Xylene p498 1/7
+75-05-8     106-42-3    .8001    1.7143    Acetonitrile/p-Xylene p499 1/7
+107-06-2     106-42-3    .633e-1    .2698    1,2-Dichloroethane/p-Xylene p500 1/7
+106-42-3     68-12-2    1.0368    .8749    p-Xylene/n,n-Dimethylformamide p501 1/7
+392-56-3     106-42-3    -.5447    -.9403    Hexafluorobenzene/p-Xylene p502 1/7
+108-90-7     106-42-3    -.1340    -.888e-1    Chlorobenzene/p-Xylene p508 1/7
+106-42-3     62-53-3    .7823    .8218    p-Xylene/Aniline p509 1/7
+56-23-5     98-82-8    -.1647    -.1552    Tetrachloromethane/Isopropylbenzene p510 1/7
+103-65-1     98-95-3    .5824    .6257    Propylbenzene/Nitrobenzene p511 1/7
+95-63-6     526-73-8    .7306    .4e-3    1,2,4-Trimethylbenzene/1,2,3-Trimethylbenzene p515 1/7
+104-51-8     98-95-3    .6182    .6773    Butylbenzene/Nitrobenzene p527 1/7
+99-87-6     62-53-3    .8487    .6125    P-Cymene/Aniline p529 1/7
+91-57-6     90-12-0    .545e-1    .204e-1    2-Methylnaphthalene/1-Methylnaphthalene p531 1/7
+

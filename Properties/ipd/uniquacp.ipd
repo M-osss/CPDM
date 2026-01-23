@@ -1,0 +1,228 @@
+
+ ---------------------------------------------
+             ===  CHEMSEP 2  ===
+ Copyright 2008 Harry Kooijman and Ross Taylor
+      Interaction Parameters Data (IPD)
+ ---------------------------------------------
+ UNIQUAC parameters from
+  Computer Calculations for Multicomponent
+   Vapor-Liquid and Liquid-Liquid Equilibria,
+   J.M. Prausnitz  T. Anderson  E. Grens,
+   C. Eckert  R. Hsieh  J. O'Connell,
+   Prentice-Hall (1980).
+ ---------------------------------------------
+ Data: ID1  ID2  A12  A21 comments
+ ---------------------------------------------
+
+[IPD]
+Comment=DECHEMA Prausnitz et al.
+Units=K
+#
+# ID/CASN       ID/CASN    A12         A21         Name/Name Comments
+1333-74-0       67-56-1  3.94  218.00  Hydrogen/Methanol
+1333-74-0       67-64-1  3.23  218.00  Hydrogen/Acetone
+1333-74-0       71-43-2  1.97  810.00  Hydrogen/Benzene
+1333-74-0       110-54-3  2.99  -4.00  Hydrogen/n-Hexane
+1333-74-0       108-38-3  2.09  765.00  Hydrogen/m-Xylene
+1333-74-0       111-65-9  -.5e-1  1646.00  Hydrogen/n-Octane
+1333-74-0       7732-18-5  9.97  -880.00  Hydrogen/Water
+1333-74-0       7664-41-7  .68  1344.00  Hydrogen/Ammonia
+7727-37-9       106-97-8  -1.67  814.00  Nitrogen/n-Butane
+7727-37-9       110-54-3  .7e-1  336.00  Nitrogen/n-Hexane
+7727-37-9       7732-18-5  3.76  913.00  Nitrogen/Water
+7727-37-9       7664-41-7  -3.35  2098.00  Nitrogen/Ammonia
+630-08-0       67-56-1  .83  552.00  Carbon monoxide/Methanol
+630-08-0       67-64-1  .48  408.00  Carbon monoxide/Acetone
+630-08-0       71-43-2  -1.04  1062.00  Carbon monoxide/Benzene
+630-08-0       111-65-9  -3.38  1878.00  Carbon monoxide/n-Octane
+74-82-8       67-64-1  -.26  471.00  Methane/Acetone
+74-82-8       74-98-6  -2.01  604.00  Methane/Propane
+74-82-8       106-97-8  -2.05  731.00  Methane/n-Butane
+74-82-8       109-66-0  -1.32  509.00  Methane/n-Pentane
+74-82-8       71-43-2  -.38  473.00  Methane/Benzene
+74-82-8       110-54-3  -.6e-1  94.00  Methane/n-Hexane
+74-82-8       124-18-5  -.24  150.00  Methane/n-Decane
+56-23-5       75-05-8  458.86  -40.18  Carbon Tetrachloride/Acetonitrile
+56-23-5       64-17-5  1192.49  -135.27  Carbon Tetrachloride/Ethanol
+56-23-5       98-01-1  476.85  -100.42  Carbon Tetrachloride/Furfural
+56-23-5       71-43-2  -37.52  43.39  Carbon Tetrachloride/Benzene
+56-23-5       110-82-7  98.18  -84.82  Carbon Tetrachloride/Cyclohexane
+56-23-5       96-37-7  161.96  -129.21  Carbon Tetrachloride/Methylcyclopentane
+56-23-5       108-88-3  -168.53  203.67  Carbon Tetrachloride/Toluene
+56-23-5       142-82-5  88.30  -59.13  Carbon Tetrachloride/n-Heptane
+67-66-3       56-23-5  -14.74  38.19  Chloroform/Carbon Tetrachloride
+67-66-3       64-18-6  461.38  90.36  Chloroform/Formic Acid
+67-66-3       67-56-1  926.31  -143.50  Chloroform/Methanol
+67-66-3       64-19-7  346.43  -98.44  Chloroform/Acetic Acid
+67-66-3       64-17-5  888.68  -203.03  Chloroform/Ethanol
+67-66-3       141-78-6  24.16  -119.49  Chloroform/Ethyl Acetate
+67-66-3       71-43-2  4.98  -50.53  Chloroform/Benzene
+64-18-6       64-19-7  -144.58  241.64  Formic Acid/Acetic Acid
+75-52-5       56-23-5  .59  398.40  Nitromethane/Carbon Tetrachloride
+75-52-5       71-43-2  73.79  82.20  Nitromethane/Benzene
+67-56-1       56-23-5  -29.64  1127.95  Methanol/Carbon Tetrachloride
+67-56-1       64-17-5  660.19  -292.39  Methanol/Ethanol
+67-56-1       67-63-0  -24.85  31.22  Methanol/i-Propanol
+67-56-1       78-93-3  -164.22  803.49  Methanol/2-Butanone
+67-56-1       141-78-6  -107.54  579.61  Methanol/Ethyl Acetate
+67-56-1       109-89-7  -374.88  676.42  Methanol/Diethyl Amine
+67-56-1       71-43-2  -86.89  1284.21  Methanol/Benzene
+67-56-1       110-82-7  6.02  1364.12  Methanol/Cyclohexane
+67-56-1       108-10-1  -105.94  688.03  Methanol/Methylisobutylketone
+67-56-1       110-54-3  -2.66  1636.05  Methanol/n-Hexane
+67-56-1       79-29-8  -7.18  1463.90  Methanol/2,3-Dimethylbutane
+67-56-1       121-44-8  -186.66    664.29   Methanol/Triethylamine
+67-56-1       108-88-3  -43.91  951.82  Methanol/Toluene
+67-56-1       142-82-5  2.49  1419.32  Methanol/n-Heptane
+67-56-1       7732-18-5  -51.80  96.32  Methanol/Water
+67-56-1       100-66-3  -48.39  782.28  Methanol/Anisole
+75-15-0       67-56-1  1166.49  138.15  Carbon Disulfide/Methanol
+75-15-0       67-64-1  157.31  103.91  Carbon Disulfide/Acetone
+75-05-8       71-43-2  60.28  89.57  Acetonitrile/Benzene
+75-05-8       142-82-5  23.71  545.79  Acetonitrile/n-Heptane
+75-07-0       64-19-7  458.43  -212.77  Acetaldehyde/Acetic Acid
+75-07-0       108-05-4  -117.74  243.51  Acetaldehyde/Vinyl Acetate
+64-19-7       108-88-3  -67.91  298.09  Acetic Acid/Toluene
+64-19-7       142-82-5  -8.49  342.57  Acetic Acid/n-Heptane
+79-24-3       56-23-5  73.06  295.06  Nitroethane/Carbon Tetrachloride
+79-24-3       71-23-8  574.22  -94.39  Nitroethane/n-Propanol
+79-24-3       71-43-2  16.61  46.05  Nitroethane/Benzene
+74-84-0       142-82-5  264.89  -112.61  Ethane/n-Heptane
+64-17-5       75-05-8  68.72  430.51  Ethanol/Acetonitrile
+64-17-5       107-06-2  -105.66  929.71  Ethanol/1,2-Dichloroethane
+64-17-5       64-19-7  -210.53  244.67  Ethanol/Acetic Acid
+64-17-5       71-23-8  210.95  -67.70  Ethanol/n-Propanol
+64-17-5       75-65-0  -2.62  9.24  Ethanol/Tert-Butanol
+64-17-5       71-43-2  -128.88  997.41  Ethanol/Benzene
+64-17-5       110-82-7  -113.70  1269.49  Ethanol/Cyclohexane
+64-17-5       96-37-7  -118.27  1383.93  Ethanol/Methylcyclopentane
+64-17-5       110-54-3  -108.93  1441.57  Ethanol/n-Hexane
+64-17-5       108-88-3  -132.12  1083.75  Ethanol/Toluene
+64-17-5       108-87-2  -117.57  1340.56  Ethanol/Methyl Cycloclohexane
+64-17-5       142-82-5  -117.60  1224.27  Ethanol/n-Heptane
+64-17-5       111-65-9  -109.08  1385.91  Ethanol/n-Octane
+64-17-5       540-84-1  -120.42  1449.61  Ethanol/2,2,4-Trimethylpentane
+64-17-5       124-18-5  -127.48  1254.65  Ethanol/n-Decane
+64-17-5       7732-18-5  57.80  77.05  Ethanol/Water
+67-64-1       56-23-5  -92.32  246.68  Acetone/Carbon Tetrachloride
+67-64-1       67-66-3  -171.71  93.96  Acetone/Chloroform
+67-64-1       75-05-8  -176.38  261.53  Acetone/Acetonitrile
+67-64-1       67-56-1  359.10  -96.90  Acetone/Methanol
+67-64-1       64-19-7  461.81  -262.30  Acetone/Acetic Acid
+67-64-1       64-17-5  404.49  -131.25  Acetone/Ethanol
+67-64-1       98-01-1  -101.30  195.63  Acetone/Furfural
+67-64-1       71-43-2  -180.58  304.02  Acetone/Benzene
+67-64-1       110-54-3  -33.08  261.51  Acetone/n-Hexane
+67-64-1       7732-18-5  530.99  -100.71  Acetone/Water
+67-64-1       108-05-4  -82.48  110.60  Acetone/Vinyl Acetate
+79-20-9       67-66-3  -187.87  121.17  Methyl Acetate/Chloroform
+79-20-9       67-56-1  516.12  -95.31  Methyl Acetate/Methanol
+79-20-9       64-17-5  506.85  -120.60  Methyl Acetate/Ethanol
+79-20-9       71-43-2  203.46  -143.88  Methyl Acetate/Benzene
+79-09-4       108-10-1  -78.49  136.46  Propionic Acid/Methylisobutylketone
+79-09-4       111-65-9  -183.20  556.12  Propionic Acid/n-Octane
+108-03-2       56-23-5  -95.68  267.13  1-Nitropropane/Carbon Tetrachloride
+108-03-2       71-43-2  535.16  -246.81  1-Nitropropane/Benzene
+79-46-9       56-23-5  -134.32  307.25  2-Nitropropane/Carbon Tetrachloride
+79-46-9       71-43-2  794.91  -344.15  2-Nitropropane/Benzene
+79-46-9       110-54-3  -32.95  252.20  2-Nitropropane/n-Hexane
+71-23-8       56-23-5  -166.93  1336.03  n-Propanol/Carbon Tetrachloride
+71-23-8       64-19-7  299.33  445.77  n-Propanol/Acetic Acid
+71-23-8       71-43-2  -155.10  928.50  n-Propanol/Benzene
+71-23-8       110-54-3  -144.11  1326.05  n-Propanol/n-Hexane
+71-23-8       108-88-3  -195.40  818.34  n-Propanol/Toluene
+71-23-8       142-82-5  -160.43  1306.22  n-Propanol/n-Heptane
+71-23-8       7732-18-5  78.37  583.03  n-Propanol/Water
+67-63-0       141-78-6  -190.57  522.07  i-Propanol/Ethyl Acetate
+67-63-0       71-43-2  -145.52  854.75  i-Propanol/Benzene
+67-63-0       142-82-5  -162.54  1295.60  i-Propanol/n-Heptane
+67-63-0       7732-18-5  217.23  11.59  i-Propanol/Water
+67-63-0       540-84-1  -198.06  994.00  i-Propanol/2,2,4-Trimethylpentane
+106-98-9       75-28-5  -23.03  35.11  Butene-1/i-Butane
+106-98-9       74-98-6  126.71  -98.63  Butene-1/Propane
+106-98-9       106-97-8  -23.03  35.11  Butene-1/n-Butane
+78-93-3       108-88-3  -82.85  123.57  2-Butanone/Toluene
+78-93-3       142-82-5  -75.13  242.53  2-Butanone/n-Heptane
+78-93-3       7732-18-5  509.67  -11.75  2-Butanone/Water
+123-91-1       71-43-2  363.78  -197.65  Dioxane/Benzene
+141-78-6       64-19-7  -214.39  63.04  Ethyl Acetate/Acetic Acid
+141-78-6       64-17-5  571.73  -167.61  Ethyl Acetate/Ethanol
+141-78-6       71-23-8  539.64  -190.31  Ethyl Acetate/n-Propanol
+141-78-6       98-01-1  -19.15  48.52  Ethyl Acetate/Furfural
+141-78-6       71-43-2  233.81  -181.49  Ethyl Acetate/Benzene
+141-78-6       108-88-3  309.41  -214.26  Ethyl Acetate/Toluene
+141-78-6       100-41-4  137.11  -105.50  Ethyl Acetate/Ethyl Benzene
+141-78-6       7732-18-5  1000.87  -174.08  Ethyl Acetate/Water
+71-36-3       56-23-5  -188.77  1248.17  n-Butanol/Carbon Tetrachloride
+71-36-3       64-19-7  -296.30  546.68  n-Butanol/Acetic Acid
+71-36-3       110-54-3  -159.24  1370.74  n-Butanol/n-Hexane
+71-36-3       142-82-5  -251.11  1291.98  n-Butanol/n-Heptane
+71-36-3       111-65-9  -236.21  1098.91  n-Butanol/n-Octane
+78-83-1       71-43-2  -162.39  861.06  i-Butanol/Benzene
+78-92-2       71-43-2  784.99  -168.83  Sec-Butanol/Benzene
+75-65-0       71-43-2  744.89  -165.40  Tert-Butanol/Benzene
+75-65-0       7732-18-5  204.54  54.77  Tert-Butanol/Water
+60-29-7       64-17-5  733.67  -179.02  Di-Ethyl Ether/Ethanol
+98-01-1       106-98-9  49.12  242.10  Furfural/Butene-1
+98-01-1       106-97-8  88.87  257.71  Furfural/n-Butane
+98-01-1       75-28-5  97.14  268.00  Furfural/i-Butane
+98-01-1       71-43-2  71.00  12.00  Furfural/Benzene
+98-01-1       110-82-7  41.17  354.83  Furfural/Cyclohexane
+287-92-3       71-43-2  15.19  33.15  Cyclopentane/Benzene
+109-66-0       67-64-1  266.31  -22.83  n-Pentane/Acetone
+71-43-2       78-93-3  350.47  -226.16  Benzene/2-Butanone
+71-43-2       71-36-3  928.90  -181.24  Benzene/n-Butanol
+71-43-2       110-54-3  -77.13  132.43  Benzene/n-Hexane
+71-43-2       108-88-3  -220.57  330.69  Benzene/Toluene
+62-53-3       96-37-7  54.36  228.71  Aniline/Methylcyclopentane
+71-43-2       7732-18-5  2057.42  115.13  Benzene/Water
+110-82-7       75-52-5  517.19  105.01  Cyclohexane/Nitromethane
+110-82-7       71-23-8  1284.75  -173.42  Cyclohexane/n-Propanol
+110-82-7       71-36-3  1393.11  -196.90  Cyclohexane/n-Butanol
+110-82-7       71-43-2  -32.57  88.26  Cyclohexane/Benzene
+110-82-7       96-37-7  144.37  -118.82  Cyclohexane/Methylcyclopentane
+110-82-7       110-54-3  172.73  -145.56  Cyclohexane/n-Hexane
+110-82-7       108-88-3  83.67  -44.04  Cyclohexane/Toluene
+110-82-7       142-82-5  -76.36  98.22  Cyclohexane/Heptane
+592-41-6       64-17-5  1222.95  -107.26  Hexene-1/Ethanol
+96-37-7       71-43-2  56.47  -6.47  Methylcyclopentane/Benzene
+96-37-7       108-88-3  89.77  -48.05  Methylcyclopentane/Toluene
+110-54-3       79-24-3  230.64  -5.86  n-Hexane/Nitroethane
+110-54-3       62-53-3  283.76  34.82  n-Hexane/Aniline
+110-54-3       96-37-7  -138.84  162.13  n-Hexane/Methylcyclopentane
+110-54-3       108-88-3  34.27  4.30  n-Hexane/Toluene
+108-88-3       98-01-1  74.87  244.12  Toluene/Furfural
+108-87-2       108-88-3  210.35  -134.19  Methyl Cyclohexane/Toluene
+142-82-5       71-43-2  245.42  -135.93  n-Heptane/Benzene
+142-82-5       71-43-2  122.21  -55.81  n-Heptane/Benzene
+142-82-5       108-88-3  108.24  -72.96  n-Heptane/Toluene
+111-65-9       79-24-3  333.48  -30.98  n-Octane/Nitroethane
+111-65-9       67-63-0  1107.44  -166.18  n-Octane/i-Propanol
+540-84-1       79-24-3  236.48  10.66  224-Trimethylpentane/Nitroethane
+540-84-1       98-01-1  410.08  -4.98  224-Trimethylpentane/Furfural
+540-84-1       71-43-2  80.91  -27.13  224-Trimethylpentane/Benzene
+540-84-1       110-82-7  141.01  -112.66  224-Trimethylpentane/Cyclohexane
+540-84-1       108-88-3  141.11  -94.60  224-Trimethylpentane/Toluene
+124-18-5       71-23-8  1137.20  -201.82  n-Decane/n-Propanol
+124-18-5       71-36-3  1430.77  -259.67  n-Decane/n-Butanol
+124-18-5       67-63-0  1074.76  -207.27  n-Decane/Isopropanol
+7732-18-5       64-18-6  -508.85  1019.29  Water/Formic Acid
+7732-18-5       75-05-8  122.02  122.07  Water/Acetonitrile
+7732-18-5       64-19-7  -299.90  530.94  Water/Acetic Acid
+7732-18-5       79-24-3  138.44  920.08  Water/Nitroethane
+7732-18-5       79-09-4  -188.72  540.10  Water/Propionic Acid
+7732-18-5       123-91-1  -328.70  927.26  Water/Dioxane
+7732-18-5       106-98-9  590.17  777.95  Water/Butene-1
+7732-18-5       75-28-5  646.79  1173.23  Water/i-Butane
+7732-18-5       71-36-3  1097.59  38.69  Water/n-Butanol
+7732-18-5       98-01-1  -263.37  193.29  Water/Furfural
+7732-18-5       108-88-3  305.71  1371.36  Water/Toluene
+7732-18-5       107-13-1  155.78  471.21  Water/Acrylonitrile
+7732-18-5       590-18-1  356.45  -18.31  Water/Cisbutene
+7732-18-5       624-64-6  356.45  -18.31  Water/Transbutene-2
+7732-18-5       115-11-7  346.74  657.50  Water/Isobutene
+7732-18-5       106-99-0  496.10  270.60  Water/Butadiene
+107-13-1       75-05-8  183.65  -142.35  Acrylonitrile/Acetonitrile
+108-05-4       64-19-7  330.03  -124.12  Vinyl Acetate/Acetic Acid
+108-05-4       7732-18-5  1557.23  131.36  Vinyl Acetate/Water
+

@@ -1,0 +1,222 @@
+
+ ---------------------------------------------
+             ===  ChemSep ===
+ Copyright 2009 Harry Kooijman and Ross Taylor
+      Interaction Parameters Data (IPD)
+ ---------------------------------------------
+               API-SRK EOS
+Parameters from API Technical Data Book, 8th Ed.
+ ---------------------------------------------
+ Data: ID1  ID2  k12  comments
+ ---------------------------------------------
+
+[IPD]
+Comment=API-SRK interaction parameters
+#
+# CASN            CASN            k12     Name/Name Comments
+  74-84-0         74-85-1         0.0157  Ethane/Ethylene
+  74-98-6         115-07-1        0.0073  Propane/Propylene
+  106-97-8        75-28-5         -0.0047 n-Butane/Isobutane
+  106-97-8        106-98-9        0.0042  n-Butane/1-Butene
+  75-28-5         115-11-7        0.0024  Isobutane/Isobutene
+  110-54-3        592-41-6        0.003   n-Hexane/1-Hexene
+  7727-37-9       7783-06-4       0.148   Nitrogen/Hydrogen sulfide
+  630-08-0        7783-06-4       0.070   Carbon monoxide/Hydrogen sulfide
+  124-38-9        7783-06-4       0.109   Carbon dioxide/Hydrogen sulfide
+  74-82-8         7783-06-4       0.091   Methane/Hydrogen sulfide
+  74-84-0         7783-06-4       0.085   Ethane/Hydrogen sulfide
+  74-98-6         7783-06-4       0.087   Propane/Hydrogen sulfide
+  106-97-8        7783-06-4       0.056   n-Butane/Hydrogen sulfide
+  75-28-5         7783-06-4       0.055   Isobutane/Hydrogen sulfide
+  109-66-0        7783-06-4       0.066   n-Pentane/Hydrogen sulfide
+  78-78-4         7783-06-4       0.080   2-Methylbutane/Hydrogen sulfide
+  463-82-1        7783-06-4       0.042   Neonentane/Hydrogen sulfide
+  110-54-3        7783-06-4       0.068   n-Hexane/Hydrogen sulfide
+  142-82-5        7783-06-4       0.019   n-Heptane/Hydrogen sulfide
+  111-84-2        7783-06-4       0.054   n-Nonane/Hydrogen sulfide
+  124-18-5        7783-06-4       0.003   n-Decane/Hydrogen sulfide
+  110-82-7        7783-06-4       0.079   Cyclohexane/Hydrogen sulfide
+  108-87-2        7783-06-4       0.078   Methylcyclohexane/Hydrogen sulfide
+  1678-91-7       7783-06-4       0.055   Ethylcyclohexane/Hydrogen sulfide
+  2207-04-7       7783-06-4       0.036   n-Propylcyclohexane/Hydrogen sulfide
+  696-29-7        7783-06-4       0.042   Isopropylcyclohexane/Hydrogen sulfide
+  71-43-2         7783-06-4       0.009   Benzene/Hydrogen sulfide
+  108-88-3        7783-06-4       0.014   Toluene/Hydrogen sulfide
+  108-38-3        7783-06-4       0.022   m-Xylene/Hydrogen sulfide
+  7783-06-4       7727-37-9       0.148   Hydrogen sulfide/Nitrogen
+  630-08-0        7727-37-9       0.011   Carbon monoxide/Nitrogen
+  124-38-9        7727-37-9       -0.046  Carbon dioxide/Nitrogen
+  1333-74-0       7727-37-9       0.009   Hydrogen/Nitrogen
+  74-82-8         7727-37-9       0.040   Methane/Nitrogen
+  74-84-0         7727-37-9       0.020   Ethane/Nitrogen
+  74-98-6         7727-37-9       0.086   Propane/Nitrogen
+  106-97-8        7727-37-9       0.060   n-Butane/Nitrogen
+  75-28-5         7727-37-9       0.085   Isobutane/Nitrogen
+  109-66-0        7727-37-9       0.092   n-Pentane/Nitrogen
+  78-78-4         7727-37-9       0.107   2-Methylbutane/Nitrogen
+  110-54-3        7727-37-9       0.155   n-Hexane/Nitrogen
+  124-18-5        7727-37-9       0.124   n-Decane/Nitrogen
+  108-87-2        7727-37-9       0.090   Methylcyclohexane/Nitrogen
+  1678-91-7       7727-37-9       0.092   Ethylcyclohexane/Nitrogen
+  74-85-1         7727-37-9       0.044   Ethene/Nitrogen
+  115-07-1        7727-37-9       0.085   Propene/Nitrogen
+  71-43-2         7727-37-9       0.170   Benzene/Nitrogen
+  108-88-3        7727-37-9       0.219   Toluene/Nitrogen
+  108-38-3        7727-37-9       0.230   m-Xylene/Nitrogen
+  108-67-8        7727-37-9       0.225   Mesitylene/Nitrogen
+  119-64-2        7727-37-9       0.304   Tetralin/Nitrogen
+  7783-06-4       630-08-0        0.070   Hydrogen sulfide/Carbon monoxide
+  7727-37-9       630-08-0        0.011   Nitrogen/Carbon monoxide
+  124-38-9        630-08-0        -0.082  Carbon dioxide/Carbon monoxide
+  1333-74-0       630-08-0        0.004   Hydrogen/Carbon monoxide
+  74-82-8         630-08-0        0.015   Methane/Carbon monoxide
+  74-98-6         630-08-0        0.040   Propane/Carbon monoxide
+  111-65-9        630-08-0        0.190   n-Octane/Carbon monoxide
+  124-18-5        630-08-0        0.629   n-Decane/Carbon monoxide
+  544-76-3        630-08-0        0.256   n-Hexadecane/Carbon monoxide
+  71-43-2         630-08-0        0.072   Benzene/Carbon monoxide
+  7783-06-4       124-38-9        0.109   Hydrogen sulfide/Carbon dioxide
+  7727-37-9       124-38-9        -0.046  Nitrogen/Carbon dioxide
+  630-08-0        124-38-9        -0.082  Carbon monoxide/Carbon dioxide
+  1333-74-0       124-38-9        -0.046  Hydrogen/Carbon dioxide
+  74-82-8         124-38-9        0.097   Methane/Carbon dioxide
+  74-84-0         124-38-9        0.132   Ethane/Carbon dioxide
+  74-98-6         124-38-9        0.130   Propane/Carbon dioxide
+  106-97-8        124-38-9        0.134   n-Butane/Carbon dioxide
+  75-28-5         124-38-9        0.129   Isobutane/Carbon dioxide
+  109-66-0        124-38-9        0.145   n-Pentane/Carbon dioxide
+  78-78-4         124-38-9        0.137   2-Methylbutane/Carbon dioxide
+  463-82-1        124-38-9        0.111   Neonentane/Carbon dioxide
+  110-54-3        124-38-9        0.117   n-Hexane/Carbon dioxide
+  142-82-5        124-38-9        0.121   n-Heptane/Carbon dioxide
+  111-65-9        124-38-9        0.123   n-Octane/Carbon dioxide
+  111-84-2        124-38-9        0.099   n-Nonane/Carbon dioxide
+  124-18-5        124-38-9        0.134   n-Decane/Carbon dioxide
+  544-76-3        124-38-9        0.147   n-Hexadecane/Carbon dioxide
+  630-02-4        124-38-9        0.106   n-Octacosane/Carbon dioxide
+  75-19-4         124-38-9        0.110   Cyclopropane/Carbon dioxide
+  287-92-3        124-38-9        0.136   Cyclopentane/Carbon dioxide
+  110-82-7        124-38-9        0.083   Cyclohexane/Carbon dioxide
+  108-87-2        124-38-9        0.103   Methylcyclohexane/Carbon dioxide
+  1678-91-7       124-38-9        0.096   Ethylcyclohexane/Carbon dioxide
+  74-85-1         124-38-9        0.057   Ethene/Carbon dioxide
+  115-07-1        124-38-9        0.069   Propene/Carbon dioxide
+  106-98-9        124-38-9        0.061   1-Butene/Carbon dioxide
+  71-43-2         124-38-9        0.096   Benzene/Carbon dioxide
+  108-88-3        124-38-9        0.096   Toluene/Carbon dioxide
+  108-38-3        124-38-9        0.076   m-Xylene/Carbon dioxide
+  106-42-3        124-38-9        0.096   p-Xylene/Carbon dioxide
+  100-41-4        124-38-9        0.126   Ethylbenzene/Carbon dioxide
+  100-42-5        124-38-9        0.067   Styrene/Carbon dioxide
+  103-65-1        124-38-9        0.070   n-Propylbenzene/Carbon dioxide
+  98-82-8         124-38-9        0.090   Isopropylbenzene/Carbon dioxide
+  98-83-9         124-38-9        0.090   lsopropenylbenzene/Carbon dioxide
+  95-63-6         124-38-9        0.076   1,2,4-Trimethylbenzene/Carbon dioxide
+  108-67-8        124-38-9        0.058   Mesitylene/Carbon dioxide
+  101-81-5        124-38-9        0.134   Diphenylmethane/Carbon dioxide
+  90-12-0         124-38-9        0.116   1-Methylnaphthalene/Carbon dioxide
+  119-64-2        124-38-9        0.155   Tetralin/Carbon dioxide
+  85-01-8         124-38-9        0.230   Phenanthrene/Carbon dioxide
+  7727-37-9       1333-74-0       0.009   Nitrogen/Hydrogen
+  630-08-0        1333-74-0       0.004   Carbon monoxide/Hydrogen
+  124-38-9        1333-74-0       -0.046  Carbon dioxide/Hydrogen
+  74-82-8         1333-74-0       0.002   Methane/Hydrogen
+  74-84-0         1333-74-0       0.032   Ethane/Hydrogen
+  74-98-6         1333-74-0       0.135   Propane/Hydrogen
+  106-97-8        1333-74-0       0.194   n-Butane/Hydrogen
+  109-66-0        1333-74-0       0.202   n-Pentane/Hydrogen
+  110-54-3        1333-74-0       0.211   n-Hexane/Hydrogen
+  142-82-5        1333-74-0       0.505   n-Heptane/Hydrogen
+  111-65-9        1333-74-0       1.000   n-Octane/Hydrogen
+  540-84-1        1333-74-0       0.634   2,2,4-Trimethylpentane/Hydrogen
+  124-18-5        1333-74-0       0.853   n-Decane/Hydrogen
+  544-76-3        1333-74-0       0.044   n-Hexadecane/Hydrogen
+  630-02-4        1333-74-0       -0.041  n-Octacosane/Hydrogen
+  110-82-7        1333-74-0       0.361   Cyclohexane/Hydrogen
+  108-87-2        1333-74-0       0.604   Methylcyclohexane/Hydrogen
+  74-85-1         1333-74-0       0.076   Ethene/Hydrogen
+  115-07-1        1333-74-0       0.178   Propene/Hydrogen
+  71-43-2         1333-74-0       0.530   Benzene/Hydrogen
+  108-38-3        1333-74-0       0.906   m-Xylene/Hydrogen
+  100-18-5        1333-74-0       0.327   p-Diisopropylbenzene/Hydrogen
+  99-87-6         1333-74-0       0.610   p-Cymene/Hydrogen
+  101-81-5        1333-74-0       0.767   Diphenylmethane/Hydrogen
+  90-12-0         1333-74-0       0.740   1-Methylnaphthalene/Hydrogen
+  119-64-2        1333-74-0       0.898   Tetralin/Hydrogen
+  85-01-8         1333-74-0       1.000   Phenanthrene/Hydrogen
+  776-35-2        1333-74-0       0.784   9,10-Dihydrophenanthrene/Hydrogen
+  7783-06-4       74-82-8         0.091   Hydrogen sulfide/Methane
+  7727-37-9       74-82-8         0.040   Nitrogen/Methane
+  630-08-0        74-82-8         0.015   Carbon monoxide/Methane
+  124-38-9        74-82-8         0.097   Carbon dioxide/Methane
+  1333-74-0       74-82-8         0.002   Hydrogen/Methane
+  74-84-0         74-82-8         0.003   Ethane/Methane
+  109-66-0        74-82-8         0.018   n-Pentane/Methane
+  110-54-3        74-82-8         0.026   n-Hexane/Methane
+  142-82-5        74-82-8         0.015   n-Heptane/Methane
+  111-65-9        74-82-8         0.054   n-Octane/Methane
+  124-18-5        74-82-8         0.042   n-Decane/Methane
+  544-76-3        74-82-8         0.033   n-Hexadecane/Methane
+  110-82-7        74-82-8         0.036   Cyclohexane/Methane
+  1678-91-7       74-82-8         0.002   Ethylcyclohexane/Methane
+  71-43-2         74-82-8         0.039   Benzene/Methane
+  108-88-3        74-82-8         0.061   Toluene/Methane
+  108-38-3        74-82-8         0.042   m-Xylene/Methane
+  108-67-8        74-82-8         0.044   Mesitylene/Methane
+  101-81-5        74-82-8         0.114   Diphenylmethane/Methane
+  90-12-0         74-82-8         0.088   1-Methylnaphthalene/Methane
+  119-64-2        74-82-8         0.171   Tetralin/Methane
+  85-01-8         74-82-8         0.253   Phenanthrene/Methane
+  776-35-2        74-82-8         0.129   9,10-Dihydrophenanthrene/Methane
+  106-97-8        67-56-1         0.2015  n-Butane/Methanol
+  75-28-5         67-56-1         0.2411  Isobutane/Methanol
+  109-66-0        67-56-1         0.1746  n-Pentane/Methanol
+  110-54-3        67-56-1         0.0932  n-Hexane/Methanol
+  79-29-8         67-56-1         0.0777  2,3-Dirnethylbutane/Methanol
+  107-83-5        67-56-1         0.1432  2-Methylpentane/Methanol
+  96-14-0         67-56-1         0.1144  3-Methylpentane/Methanol
+  111-65-9        67-56-1         0.0786  n-Octane/Methanol
+  540-84-1        67-56-1         0.0616  2,2,4-Trimethylpentane/Methanol
+  96-37-7         67-56-1         0.098   Methylcyclopentane/Methanol
+  110-82-7        67-56-1         0.1374  Cyclohexane/Methanol
+  108-87-2        67-56-1         0.0716  Methylcyclohexane/Methanol
+  592-41-6        67-56-1         0.0759  1-Hexene/Methanol
+  592-76-7        67-56-1         0.0707  1 -Heptene/Methanol
+  625-65-0        67-56-1         0.0454  2,4-Dimethyl-2-pentene/Methanol
+  111-66-0        67-56-1         0.0675  1-Octene/Methanol
+  110-83-8        67-56-1         0.1122  Cyclohexene/Methanol
+  71-43-2         67-56-1         0.1147  Benzene/Methanol
+  108-88-3        67-56-1         0.133   Toluene/Methanol
+  108-38-3        67-56-1         0.0997  m-Xylene/Methanol
+  100-41-4        67-56-1         0.0976  Ethylbenzene/Methanol
+  106-97-8        64-17-5         0.0709  n-Butane/Ethanol
+  142-82-5        64-17-5         0.0759  n-Heptane/Ethanol
+  111-65-9        64-17-5         0.096   n-Octane/Ethanol
+  540-84-1        64-17-5         0.0399  2,2,4-Trimethylpentane/Ethanol
+  111-84-2        64-17-5         0.0863  n-Nonane/Ethanol
+  1120-21-4       64-17-5         0.0356  n-Undecane/Ethanol
+  96-37-7         64-17-5         0.0852  Methylcyclopentane/Ethanol
+  110-82-7        64-17-5         0.11    Cyclohexane/Ethanol
+  108-87-2        64-17-5         0.0774  Methylcyclohexane/Ethanol
+  71-43-2         64-17-5         0.1108  Benzene/Ethanol
+  108-88-3        64-17-5         0.1145  Toluene/Ethanol
+  106-42-3        64-17-5         0.1413  p-Xylene/Ethanol
+  100-41-4        64-17-5         0.1284  Ethylbenzene/Ethanol
+  106-97-8        1634-04-4       0.0183  n-Butane/MTBE
+  78-78-4         1634-04-4       0.0163  Isopentane/MTBE
+  111-65-9        1634-04-4       0.0172  n-Octane/MTBE
+  540-84-1        1634-04-4       0.0236  2,2,4-Trimethylpentane/MTBE
+  108-87-2        1634-04-4       0.0293  Methylcyclohexane/MTBE
+  106-98-9        1634-04-4       0.001   1-Butene/MTBE
+  115-11-7        1634-04-4       -0.0169 Isobutene/MTBE
+  592-76-7        1634-04-4       -0.0008 1 -Heptene/MTBE
+  106-99-0        1634-04-4       -0.0052 1,3-Butadiene/MTBE
+  71-43-2         1634-04-4       -0.0009 Benzene/MTBE
+  108-88-3        1634-04-4       -0.0009 Toluene/MTBE
+  67-56-1         1634-04-4       -0.034  Methanol/MTBE
+  142-82-5        108-20-3        0.0077  n-Heptane/DIPE
+  110-82-7        108-20-3        -0.0112 Cyclohexane/DIPE
+  71-43-2         108-20-3        -0.0154 Benzene/DIPE
+  108-88-3        108-20-3        -0.011  Toluene/DIPE
+  100-41-4        108-20-3        -0.0088 Ethylbenzene/DIPE
+

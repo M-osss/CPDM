@@ -1,0 +1,106 @@
+  93    Total number of main groups 
+   1     CH2
+   2     C=C
+   3     ACH
+   4     ACCH2
+   5     OH
+   6     CH3OH
+   7     H2O
+   8     ACOH
+   9     CH2CO
+  10     CHO
+  11     CCOO
+  12     HCOO
+  13     CH2O
+  14     CNH2
+  15     CNH
+  16     (C)3N
+  17     ACNH2
+  18     Pyridine
+  19     CCN
+  20     COOH
+  21     CCl
+  22     CCl2
+  23     CCl3
+  24     CCl4
+  25     ACCl
+  26     CNO2
+  27     ACNO2
+  28     CS2
+  29     CH3SH
+  30     Furfural
+  31     DOH
+  32     I
+  33     Br
+  34     C~C
+  35     Me2SO
+  36     ACRY
+  37     ClCC
+  38     ACF
+  39     DMF
+  40     CF2
+  41     COO
+  42     SiH2
+  43     SiO
+  44     NMP
+  45     CClF
+  46     CON
+  47     OCCOH
+  48     CH2S
+  49     Morph
+  50     Thioph
+  51     NCO
+  53     Anhydrides
+  54     OCOO
+  55     Sulfones
+  56     HCONR
+  57     ACCN
+  58     Lactames
+  59     Lactones
+  60     Peroxides
+  61     Acetals
+  62     ACNR2
+  63     ACNHR
+  64     ACBr
+  200    He                 
+  201    Ar                 
+  202    Ne                 
+  203    Kr                 
+  204    Xe                 
+  205    H2                 
+  206    F2                 
+  207    Cl2                
+  208    Br2                
+  209    N2                 
+  210    O2                 
+  211    O3                 
+  212    NO                 
+  213    NO3                
+  214    CO                 
+  215    CO2                
+  216    SO2                
+  217    HF                 
+  218    HCl                
+  219    Hbr                
+  220    HI                 
+  221    HCN                
+  222    H2S                
+  223    NH3                
+  224    CH4                
+  225    CF4                
+  226    SF6                
+  227    COS                
+  228    ClNO
+  230    C2H6  
+#
+224      CH4      1      CH2       0.010592      0.001094
+224      CH4      3      ACH        0.000509      0.002178
+224      CH4      4      ACCH2      0.01018      0.008429
+230      C2H6     1      CH2        0.000065      0.000955
+230      C2H6     4      ACCH2     0.000086      0.051615
+215      CO2      1      CH2       0.000080      0.00577
+215      CO2      3      ACH        0.00105       0.00785
+215      CO2      4      ACCH2      0.00105       0.00785
+209      N2       1      CH2        0.036193     0.001980
+209      N2       3      ACH       0.006569     0.001061
+209      N2       4      ACCH2      0.01502      0.003968

@@ -1,0 +1,111 @@
+110 Total number of subgroups. CGTfHv.gct by Mcg from con-gani+cg2unif
+  1 CH3          1 CH2         0.464 4.1160002  15.034 CH3 
+  2 CH2          1 CH2         0.9246 4.6500001  14.026 CH2 
+  3 CH           1 CH2         0.3557 2.7709999  13.018 CH 
+  4 C            1 CH2         1.6479 1.284  12.010 C 
+  5 CH2=CH       2 C=C         1.6472 6.7140002  27.044 CH2=CH 
+  6 CH=CH        2 C=C         1.6322 7.3699999  26.036 CH=CH 
+  7 CH2=C        2 C=C         1.7898999 6.7969999  26.036 CH2=C 
+  8 CH=C         2 C=C         2.0018001 8.1780005  25.028 CH=C 
+  9 C=C          2 C=C         5.1174998 9.342  24.020 C=C 
+ 10 ACH          3 ACH         1.4669 4.098  13.018 ACH 
+ 11 AC           3 ACH         0.2098 12.552  12.010 AC 
+ 12 ACCH3        4 ACCH2       1.8635 9.776  27.044 ACCH3 
+ 13 ACCH2        4 ACCH2       0.4177 10.1850004  26.036 ACCH2 
+ 14 ACCH         4 ACCH2       -1.7567 8.8339996  25.028 ACCH 
+ 15 OH           5 OH          3.5978999 24.5289993  17.008 OH 
+ 16 CH3OH        6 CH3OH       0 0  32.042 error:CH3OH 
+ 17 H2O          7 H2O         0 0  18.016 error:H2O 
+ 18 ACOH         8 ACOH        13.7349005 40.2459984  29.018 ACOH 
+ 19 CH3CO        9 CH2CO       4.8776002 18.9990005  43.044 CH3CO 
+ 20 CH2CO        9 CH2CO       5.6622 20.0410004  42.036 CH2CO 
+ 21 CHO         10 CHO         4.2926998 12.9090004  29.018 CHO 
+ 22 CH3COO      11 CCOO        4.0823002 22.7089996  59.044 CH3COO 
+ 23 CH2COO      11 CCOO        3.5272 17.7590008  58.036 CH2COO 
+ 24 HCOO        12 HCOO        4.2249999 0  45.018 HCOO 
+ 25 CH3O        13 CH2O        2.9247999 10.9189997  31.034 CH3O 
+ 26 CH2O        13 CH2O        2.0695 7.4780002  30.026 CH2O 
+ 27 CH-O        13 CH2O        4.0352001 5.7080002  29.018 CH-O 
+ 28 FCH2O       13 CH2O        4.5047002 11.2270002  49.026 FCH2O 
+ 29 CH3NH2      14 CNH2        0 0  31.058 error:CH3NH2 
+ 30 CH2NH2      14 CNH2        6.7684002 14.599  30.500 CH2NH2 
+ 31 CHNH2       14 CNH2        4.1187 11.8760004  29.042 CHNH2 
+ 32 CH3NH       15 CNH         4.5341001 14.4519997  30.500 CH3NH 
+ 33 CH2NH       15 CNH         6.0609002 14.4809999  29.042 CH2NH 
+ 34 CHNH        15 CNH         3.4100001 0  28.034 CHNH 
+ 35 CH3N        16 (C)3N       4.0580001 6.947  29.042 CH3N 
+ 36 CH2N        16 (C)3N       0.9544 6.9180002  28.034 CH2N 
+ 37 ACNH2       17 ACNH2       10.1030998 28.4529991  28.034 ACNH2 
+ 38 C5H5N       18 Pyridine    0 0  79.098 error:C5H5N 
+ 39 C5H4N       18 Pyridine    0 31.5230007  78.090 C5H4N 
+ 40 C5H3N       18 Pyridine    12.6274996 31.0049992  77.082 C5H3N 
+ 41 CH3CN       19 CCN         0 0  41.052 error:CH3CN 
+ 42 CH2CN       19 CCN         4.1859002 23.3400002  40.044 CH2CN 
+ 43 COOH        20 COOH        11.5629997 43.0460014  45.018 COOH 
+ 44 HCOOH       20 COOH        0 0  46.026 error:HCOOH 
+ 45 CH2Cl       21 CCl         3.3376 13.7799997  49.483 CH2Cl 
+ 46 CHCl        21 CCl         2.9933 11.9849997  48.475 CHCl 
+ 47 CCl         21 CCl         9.8409004 9.8179998  47.467 CCl 
+ 48 CH2Cl2      22 CCl2        0 0  84.940 error:CH2Cl2 
+ 49 CHCl2       22 CCl2        5.1637998 19.2080002  83.932 CHCl2 
+ 50 CCl2        22 CCl2        10.2336998 0  82.924 CCl2 
+ 51 CHCl3       23 CCl3        0 0 119.389 error:CHCl3 
+ 52 CCl3        23 CCl3        0 17.5739994 118.381 CCl3 
+ 53 CCl4        24 CCl4        0 0 153.838 error:CCl4 
+ 54 ACCl        25 ACCl        2.7335999 11.8830004  47.467 ACCl 
+ 55 CH3NO2      26 CNO2        0 0  61.042 error:CH3NO2 
+ 56 CH2NO2      26 CNO2        5.5423999 30.6439991  60.034 CH2NO2 
+ 57 CHNO2       26 CNO2        4.9738002 26.2770004  59.026 CHNO2 
+ 58 ACNO2       27 ACNO2       8.4723997 0  58.018 ACNO2 
+ 59 CS2         28 CS2         0 0  76.142 error:CS2 
+ 60 CH3SH       29 CH3SH       0 0  48.108 error:CH3SH 
+ 61 CH2SH       29 CH3SH       3.0044 14.9309998  47.100 CH2SH 
+ 62 Furfural    30 Furfural    0 0  96.090 error:Furfural 
+ 63 (CH2OH)2    31 DOH         0 0  60.052 error:(CH2OH)2 
+ 64 I           32 I           4.6089001 14.3640003 126.92  I 
+ 65 Br          33 Br          3.7442 11.4230003  79.916 Br 
+ 66 CH~C        34 C~C         3.9105999 7.7509999  25.028 CH~C 
+ 67 C~C         34 C~C         9.5792999 11.5489998  24.020 C~C 
+ 68 Me2SO       35 Me2SO       0 0  78.131 error:Me2SO 
+ 69 ACRY        36 ACRY        0 0  53.060 error:ACRY 
+ 70 Cl(C=C)     37 ClCC        1.5598 0  35.450 Cl(C=C) 
+ 71 ACF         38 ACF         2.5014999 4.8769999  31.010 ACF 
+ 72 DMF-1       39 DMF         0 0  73.090 error:DMF-1 
+ 73 DMF-2       39 DMF         0 0  71.090 error:DMF-2 
+ 74 CF3         40 CF2         3.2411001 8.901  69.010 CF3 
+ 75 CF2         40 CF2         0 1.86  50.010 CF2 
+ 76 CF          40 CF2         0 8.901  31.010 CF 
+ 77 COO         41 COO         3.4447999 0  44.010 COO 
+ 78 SiH3        42 SiH2        0 0  31.110 error:SiH3 
+ 79 SiH2        42 SiH2        0 0  30.102 error:SiH2 
+ 80 SiH         42 SiH2        0 0  29.094 error:SiH 
+ 81 Si          42 SiH2        0 0  28.086 error:Si 
+ 82 SiH2O       43 SiO         0 0  46.101 error:SiH2O 
+ 83 SiHO        43 SiO         0 0  45.093 error:SiHO 
+ 84 SiO         43 SiO         0 0  44.085 error:SiO 
+ 85 NMP         44 NMP         0 0  99.130 error:NMP 
+ 86 CCl3F       45 CClF        0 0 137.368 error:CCl3F 
+ 87 CCl2F       45 CClF        7.4755998 13.3219995 101.916 CCl2F 
+ 88 HCCl2F      45 CClF        0 0 102.923 error:HCCl2F 
+ 89 HCClF       45 CClF        0 0  86.469 HCClF 
+ 90 CClF2       45 CClF        2.7523 8.3009996  85.461 CClF2 
+ 91 HCClF2      45 CClF        0 0  86.469 error:HCClF2 
+ 92 CClF3       45 CClF        0 0 104.459 error:CClF3 
+ 93 CCl2F2      45 CClF        0 0 120.914 error:CCl2F2 
+ 94 CONH2       46 CON         31.2786007 0  44.033 CONH2 
+ 95 CONHCH3     46 CON         0 0  58.060 CONHCH3 
+ 96 CONHCH2     46 CON         0 51.7869987  57.053 CONHCH2 
+ 97 CON(CH3)2   46 CON         11.3769999 0  72.087 CON(CH3)2 
+ 98 CONCH3CH2   46 CON         0 0  71.079 CONCH3CH2 
+ 99 CON(CH2)2   46 CON         0 0  70.071 CON(CH2)2 
+100 C2H5O2      47 OCCOH       0 0  61.061 C2H5O2 
+101 C2H4O2      47 OCCOH       0 0  60.053 C2H4O2 
+102 CH3S        48 CH2S        5.0506001 16.9209995  47.079 CH3S 
+103 CH2S        48 CH2S        3.1468 17.1170006  46.091 CH2S 
+104 CHS         48 CH2S        0 13.2650003  45.083 CHS 
+105 Morpholine  49 MORPH       0 0  87.122 error:Morpholine 
+106 C4H4S       50 Thiophene   0 0  84.140 error:C4H4S 
+108 C4H2S       50 Thiophene   0 0  82.125 C4H2S 
+107 C4H3S       50 Thiophene   0 27.9659996  83.133 C4H3S 
+109 CH2=C=CH     2 C=C         3.3439 12.3179998  39.054 CH2=C=CH 
+120 OCOO 54 OCOO 10  0.0 60.01

@@ -1,0 +1,14 @@
+1 Total number of new main groups
+cy-CHNH2
+#
+# https://pubs.acs.org/doi/pdf/10.1021/acs.iecr.9b03971
+#
+1 CH2 230 cy-CHNH2 -820.04 8.9857
+3 ACH 230 cy-CHNH2 81.198 -366.15
+4 ACCH2 230 cy-CHNH2 41.978 2246.0
+5 OH 230 cy-CHNH2 1947.3 -1235.5
+6 CH3OH 230 cy-CHNH2 -1118.2 -190.67
+7 H2O 230 cy-CHNH2 1259.2 -544.35
+230 cy-CHNH2 17 ACNH2 -519.55 -1375.0
+230 cy-CHNH2 78 cy-CH2 379.88 314.72
+
