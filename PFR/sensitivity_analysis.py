@@ -1,17 +1,8 @@
-"""Sensitivity Analysis for Stage-2 PFR Heat Transfer Model.
+"""Sensitivity analysis for Stage-2 PFR heat transfer model.
 
-Iterates through parameter combinations and records C2H4 outlet mole fraction.
-Results saved to CSV for analysis.
+Iterates parameter combinations, records C2H4 outlet mole fractions to CSV/JSON.
 
-Usage:
-    python sensitivity_analysis.py
-    
-Parameters varied:
-    - Inlet temperature (T_in)
-    - Inlet pressure (P_in)
-    - Furnace temperature (T_furnace)
-    - Inlet velocity (v_z0)
-    - N2 dilution fraction
+Parameters varied: T_in, P_in, T_furnace, v_z0, N2 dilution.
 """
 from __future__ import annotations
 
@@ -27,7 +18,6 @@ from typing import Any, Dict, List, Tuple
 
 import numpy as np
 
-# Handle imports
 try:
     from .pfr_heattransfer import Stage2State, solve_stage2
     from .pfr_ideal import get_species_index, make_diluted_feed, FEED_FORMULA
@@ -48,25 +38,9 @@ def run_single_case(
     L: float = 10.0,
     verbose: bool = False,
 ) -> Dict[str, Any]:
-    """Run a single Stage-2 simulation and extract results.
-    
-    Args:
-        T_in: inlet gas temperature [K]
-        P_in: inlet pressure [Pa]
-        T_furnace: furnace temperature [K]
-        v_z0: inlet velocity [m/s]
-        n2_fraction: N2 dilution mole fraction (0 to 1)
-        D_inner: tube inner diameter [m]
-        L: tube length [m]
-        verbose: print progress
-    
-    Returns:
-        dict with input parameters and output results
-    """
-    # Create feed with specified dilution
+    """Run one Stage-2 simulation and return input params + output metrics."""
     feed = make_diluted_feed("C2H6", n2_fraction)
     
-    # Create state with specified parameters
     state = Stage2State(
         D_inner=D_inner,
         L=L,
@@ -74,20 +48,18 @@ def run_single_case(
         P_in=P_in,
         v_z0=v_z0,
         T_furnace=T_furnace,
-        Nz=50,  # Reduced for faster computation
+        Nz=50,
         Nr_wall=3,
     )
     
     try:
-        # Run simulation
         result = solve_stage2(
             state, 
             feed=feed, 
-            max_outer_iter=30,  # Reduced for speed
+            max_outer_iter=30,
             verbose=False
         )
         
-        # Extract results
         spec_idx = get_species_index()
         Y_out = result["Y"][:, -1]
         Y_out = np.clip(Y_out, 0, None)
@@ -97,14 +69,12 @@ def run_single_case(
         Y_in = np.clip(Y_in, 0, None)
         Y_in /= Y_in.sum()
         
-        # Get species indices
         i_eth = spec_idx.get("C2H6", -1)
         i_ene = spec_idx.get("C2H4", -1)
         i_ace = spec_idx.get("C2H2", -1)
         i_h2 = spec_idx.get("H2", -1)
         i_n2 = spec_idx.get("N2", -1)
         
-        # Compute metrics
         Y_C2H6_out = Y_out[i_eth] if i_eth >= 0 else 0
         Y_C2H4_out = Y_out[i_ene] if i_ene >= 0 else 0
         Y_C2H2_out = Y_out[i_ace] if i_ace >= 0 else 0
@@ -113,19 +83,16 @@ def run_single_case(
         
         Y_C2H6_in = Y_in[i_eth] if i_eth >= 0 else 0
         
-        # Conversion and selectivity
         conversion = 1.0 - Y_C2H6_out / Y_C2H6_in if Y_C2H6_in > 1e-10 else 0
         ethane_reacted = Y_C2H6_in - Y_C2H6_out
         selectivity_C2H4 = Y_C2H4_out / ethane_reacted if ethane_reacted > 1e-10 else 0
         selectivity_C2H2 = Y_C2H2_out / ethane_reacted if ethane_reacted > 1e-10 else 0
         
-        # Temperature profile
         T_out = result["T_gas"][-1]
         T_wall_out = result["T_wall_inner"][-1]
         q_avg = np.mean(result["q_inner"]) / 1e3  # kW/m2
         
         return {
-            # Input parameters
             "T_in_K": T_in,
             "P_in_bar": P_in / 1e5,
             "T_furnace_K": T_furnace,
@@ -133,7 +100,6 @@ def run_single_case(
             "n2_fraction": n2_fraction,
             "D_inner_mm": D_inner * 1000,
             "L_m": L,
-            # Output results
             "converged": result["converged"],
             "n_iter": result["n_iter"],
             "T_out_K": T_out,
@@ -185,25 +151,11 @@ def run_sensitivity_analysis(
     output_csv: str = "sensitivity_results.csv",
     output_json: str = "sensitivity_results.json",
 ) -> List[Dict[str, Any]]:
-    """Run sensitivity analysis over parameter grid.
-    
-    Args:
-        T_in_values: list of inlet temperatures [K]
-        P_in_values: list of inlet pressures [Pa]
-        T_furnace_values: list of furnace temperatures [K]
-        v_z0_values: list of inlet velocities [m/s]
-        n2_fraction_values: list of N2 dilution fractions
-        output_csv: CSV output filename
-        output_json: JSON output filename
-    
-    Returns:
-        list of result dicts
-    """
-    # Default parameter ranges
+    """Run sensitivity analysis over parameter grid. Saves CSV + JSON."""
     if T_in_values is None:
         T_in_values = [900.0, 950.0, 1000.0, 1050.0]
     if P_in_values is None:
-        P_in_values = [5e5, 10e5, 20e5]  # 5, 10, 20 bar
+        P_in_values = [5e5, 10e5, 20e5]
     if T_furnace_values is None:
         T_furnace_values = [1300.0, 1400.0, 1500.0]
     if v_z0_values is None:
@@ -211,7 +163,6 @@ def run_sensitivity_analysis(
     if n2_fraction_values is None:
         n2_fraction_values = [0.0, 0.3, 0.5]
     
-    # Generate all combinations
     param_grid = list(itertools.product(
         T_in_values,
         P_in_values,
@@ -253,7 +204,6 @@ def run_sensitivity_analysis(
         )
         results.append(result)
         
-        # Print quick summary
         if result["converged"]:
             print(f"    -> Conv={result['conversion']*100:.1f}%, "
                   f"Y_C2H4={result['Y_C2H4_out']*100:.2f}%, "
@@ -261,7 +211,6 @@ def run_sensitivity_analysis(
         else:
             print(f"    -> FAILED: {result.get('error', 'did not converge')}")
     
-    # Save to CSV
     csv_path = ROOT / output_csv
     fieldnames = list(results[0].keys())
     with open(csv_path, "w", newline="") as f:
@@ -270,7 +219,6 @@ def run_sensitivity_analysis(
         writer.writerows(results)
     print(f"\nResults saved to: {csv_path}")
     
-    # Save to JSON (for detailed analysis)
     json_path = ROOT / output_json
     with open(json_path, "w") as f:
         json.dump({
@@ -290,7 +238,6 @@ def run_sensitivity_analysis(
         }, f, indent=2)
     print(f"JSON saved to: {json_path}")
     
-    # Print summary statistics
     print("\n" + "=" * 60)
     print("SUMMARY")
     print("=" * 60)
@@ -316,7 +263,6 @@ def run_sensitivity_analysis(
               f"max={max(sel_values)*100:.1f}%, "
               f"mean={np.mean(sel_values)*100:.1f}%")
         
-        # Best case for C2H4 yield (conversion * selectivity)
         yields = [(r, r["conversion"] * r["selectivity_C2H4"]) 
                   for r in converged_results 
                   if r["conversion"] is not None and r["selectivity_C2H4"] is not None]
@@ -331,18 +277,10 @@ def run_sensitivity_analysis(
 
 
 if __name__ == "__main__":
-    # Run with default parameters
-    # Can be customized by modifying the lists below
-    
     results = run_sensitivity_analysis(
-        # Temperature range (K)
         T_in_values=[950.0, 1000.0, 1100, 1200, 1300],
-        # Pressure range (Pa) - 5, 10, 20 bar
         P_in_values=[2e5, 5e5, 10e5, 20e5, 40e5],
-        # Furnace temperature (K)
         T_furnace_values=[1500.0],
-        # Velocity (m/s)
         v_z0_values=[5.0, 10.0],
-        # N2 dilution
         n2_fraction_values=[0.3],
     )
