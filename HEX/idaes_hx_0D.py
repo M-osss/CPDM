@@ -18,8 +18,6 @@ def main():
     m = pyo.ConcreteModel()
     m.fs = FlowsheetBlock(dynamic=False)
 
-    # Using Peng-Robinson equation of state for realistic liquid behavior
-    # and temperature-dependent property correlations
     props_config = {
         "components": {
             "h2o": {
@@ -32,11 +30,10 @@ def main():
                 "entr_mol_liq_comp": Perrys.entr_mol_liq_comp,
                 "entr_mol_ig_comp": NIST.entr_mol_ig_comp,
                 "parameter_data": {
-                    "mw": (18.015e-3, pyunits.kg/pyunits.mol),  # molecular weight
+                    "mw": (18.015e-3, pyunits.kg/pyunits.mol),
                     "pressure_crit": (220.64e5, pyunits.Pa),
                     "temperature_crit": (647.14, pyunits.K),
-                    "omega": 0.344,  # acentric factor
-                    # Perry's parameters for liquid density
+                    "omega": 0.344,
                     "dens_mol_liq_comp_coeff": {
                         'eqn_type': 1,
                         '1': (5.459, pyunits.kmol/pyunits.m**3),
@@ -44,7 +41,6 @@ def main():
                         '3': (647.13, pyunits.K),
                         '4': (0.081, pyunits.dimensionless),
                     },
-                    # Perry's parameters for liquid heat capacity
                     "cp_mol_liq_comp_coeff": {
                         '1': (2.7637e5, pyunits.J/pyunits.mol/pyunits.K),
                         '2': (-2.0901e3, pyunits.J/pyunits.mol/pyunits.K**2),
@@ -52,7 +48,6 @@ def main():
                         '4': (-1.4116e-2, pyunits.J/pyunits.mol/pyunits.K**4),
                         '5': (9.3701e-6, pyunits.J/pyunits.mol/pyunits.K**5),
                     },
-                    # NIST Shomate parameters for ideal gas heat capacity
                     "cp_mol_ig_comp_coeff": {
                         'A': 30.092,
                         'B': 6.832514,
@@ -63,10 +58,8 @@ def main():
                         'G': 223.3967,
                         'H': -241.8264,
                     },
-                    # Enthalpy of formation
                     "enth_mol_form_liq_comp_ref": (-285.83e3, pyunits.J/pyunits.mol),
                     "enth_mol_form_vap_comp_ref": (-241.82e3, pyunits.J/pyunits.mol),
-                    # Standard entropy
                     "entr_mol_form_liq_comp_ref": (69.95, pyunits.J/pyunits.mol/pyunits.K),
                     "entr_mol_form_vap_comp_ref": (188.84, pyunits.J/pyunits.mol/pyunits.K),
                 },
@@ -81,11 +74,10 @@ def main():
                 "entr_mol_liq_comp": Perrys.entr_mol_liq_comp,
                 "entr_mol_ig_comp": NIST.entr_mol_ig_comp,
                 "parameter_data": {
-                    "mw": (92.138e-3, pyunits.kg/pyunits.mol),  # molecular weight
+                    "mw": (92.138e-3, pyunits.kg/pyunits.mol),
                     "pressure_crit": (41.06e5, pyunits.Pa),
                     "temperature_crit": (591.8, pyunits.K),
-                    "omega": 0.262,  # acentric factor
-                    # Perry's parameters for liquid density
+                    "omega": 0.262,
                     "dens_mol_liq_comp_coeff": {
                         'eqn_type': 1,
                         '1': (0.8488, pyunits.kmol/pyunits.m**3),
@@ -93,7 +85,6 @@ def main():
                         '3': (591.8, pyunits.K),
                         '4': (0.2878, pyunits.dimensionless),
                     },
-                    # Perry's parameters for liquid heat capacity
                     "cp_mol_liq_comp_coeff": {
                         '1': (1.4014e5, pyunits.J/pyunits.mol/pyunits.K),
                         '2': (-1.5230e2, pyunits.J/pyunits.mol/pyunits.K**2),
@@ -101,7 +92,6 @@ def main():
                         '4': (0.0, pyunits.J/pyunits.mol/pyunits.K**4),
                         '5': (0.0, pyunits.J/pyunits.mol/pyunits.K**5),
                     },
-                    # NIST Shomate parameters for ideal gas heat capacity
                     "cp_mol_ig_comp_coeff": {
                         'A': -24.35,
                         'B': 512.5,
@@ -112,10 +102,8 @@ def main():
                         'G': 0.0,
                         'H': 50.0,
                     },
-                    # Enthalpy of formation
                     "enth_mol_form_liq_comp_ref": (12.0e3, pyunits.J/pyunits.mol),
                     "enth_mol_form_vap_comp_ref": (50.0e3, pyunits.J/pyunits.mol),
-                    # Standard entropy
                     "entr_mol_form_liq_comp_ref": (220.96, pyunits.J/pyunits.mol/pyunits.K),
                     "entr_mol_form_vap_comp_ref": (320.77, pyunits.J/pyunits.mol/pyunits.K),
                 },
@@ -125,7 +113,7 @@ def main():
             "Liq": {
                 "type": LiquidPhase,
                 "equation_of_state": Cubic,
-                "equation_of_state_options": {"type": CubicType.PR},  # Peng-Robinson EoS
+                "equation_of_state_options": {"type": CubicType.PR},
             }
         },
         "base_units": {
@@ -154,50 +142,45 @@ def main():
     }
     m.fs.props = GenericParameterBlock(**props_config)
 
-    # Create heat exchanger with realistic configuration
     m.fs.hex = HeatExchanger(
         hot_side={"property_package": m.fs.props, 
-                  "has_pressure_change": True},  # Account for pressure drop
+                  "has_pressure_change": True},
         cold_side={"property_package": m.fs.props,
-                   "has_pressure_change": True},  # Account for pressure drop
+                   "has_pressure_change": True},
     )
 
-    # Get time index
     t0 = m.fs.time.first()
     
-    # Fix hot side inlet conditions
-    m.fs.hex.hot_side.properties_in[t0].flow_mol.fix(100)  # mol/s
-    m.fs.hex.hot_side.properties_in[t0].pressure.fix(101325)  # Pa
-    m.fs.hex.hot_side.properties_in[t0].temperature.fix(473.15) # K (200°C)
+    # Hot side inlet
+    m.fs.hex.hot_side.properties_in[t0].flow_mol.fix(100)       # mol/s
+    m.fs.hex.hot_side.properties_in[t0].pressure.fix(101325)     # Pa
+    m.fs.hex.hot_side.properties_in[t0].temperature.fix(473.15)  # K (200 C)
     m.fs.hex.hot_side.properties_in[t0].mole_frac_comp['h2o'].fix(0.999)
     m.fs.hex.hot_side.properties_in[t0].mole_frac_comp['toluene'].fix(0.001)
 
-    # Fix cold side inlet conditions
-    m.fs.hex.cold_side.properties_in[t0].flow_mol.fix(100)  # mol/s
-    m.fs.hex.cold_side.properties_in[t0].pressure.fix(202650)  # Pa
-    m.fs.hex.cold_side.properties_in[t0].temperature.fix(323.15)  # K (50°C)
+    # Cold side inlet
+    m.fs.hex.cold_side.properties_in[t0].flow_mol.fix(100)       # mol/s
+    m.fs.hex.cold_side.properties_in[t0].pressure.fix(202650)    # Pa
+    m.fs.hex.cold_side.properties_in[t0].temperature.fix(323.15) # K (50 C)
     m.fs.hex.cold_side.properties_in[t0].mole_frac_comp['toluene'].fix(0.999)
     m.fs.hex.cold_side.properties_in[t0].mole_frac_comp['h2o'].fix(0.001)
     
-    # Fix hot side outlet temperature
-    m.fs.hex.hot_side.properties_out[t0].temperature.fix(373.15) # K (100°C)
+    # Hot side outlet temperature
+    m.fs.hex.hot_side.properties_out[t0].temperature.fix(373.15) # K (100 C)
     
-    # Fix pressure changes (realistic pressure drops)
-    m.fs.hex.hot_side.deltaP[t0].fix(-5000)  # 5 kPa pressure drop
-    m.fs.hex.cold_side.deltaP[t0].fix(-10000)  # 10 kPa pressure drop
+    # Pressure drops
+    m.fs.hex.hot_side.deltaP[t0].fix(-5000)   # 5 kPa
+    m.fs.hex.cold_side.deltaP[t0].fix(-10000)  # 10 kPa
     
-    # Fix overall heat transfer coefficient (realistic value)
-    m.fs.hex.overall_heat_transfer_coefficient[t0].fix(800)  # W/m2/K
+    # Overall HTC [W/m2/K]
+    m.fs.hex.overall_heat_transfer_coefficient[t0].fix(800)
     
-    # Initialize the heat exchanger
     m.fs.hex.initialize(outlvl=idaeslog.INFO)
 
-    # Solve the model
     solver = get_solver()
     results = solver.solve(m, tee=True)
 
-    # Print results
-    print("\n--- IDAES HEAT EXCHANGER RESULTS (REALISTIC MODEL) ---")
+    print("\n--- IDAES HEAT EXCHANGER RESULTS ---")
     print(f"Heat Duty: {pyo.value(m.fs.hex.heat_duty[t0]) / 1000:.2f} kW")
     print(f"Heat Transfer Area: {pyo.value(m.fs.hex.area):.2f} m^2")
     print("\n--- HOT STREAM (Water) ---")
@@ -206,8 +189,6 @@ def main():
     print(f"Inlet Pressure: {pyo.value(m.fs.hex.hot_side.properties_in[t0].pressure)/1000:.1f} kPa")
     print(f"Outlet Pressure: {pyo.value(m.fs.hex.hot_side.properties_out[t0].pressure)/1000:.1f} kPa")
     print(f"Pressure Drop: {-pyo.value(m.fs.hex.hot_side.deltaP[t0])/1000:.1f} kPa")
-    
-    # Print hot stream properties
     print(f"Inlet Density: {pyo.value(m.fs.hex.hot_side.properties_in[t0].dens_mol):.1f} mol/m³")
     print(f"Inlet Cp: {pyo.value(m.fs.hex.hot_side.properties_in[t0].cp_mol):.1f} J/mol/K")
     
@@ -217,8 +198,6 @@ def main():
     print(f"Inlet Pressure: {pyo.value(m.fs.hex.cold_side.properties_in[t0].pressure)/1000:.1f} kPa")
     print(f"Outlet Pressure: {pyo.value(m.fs.hex.cold_side.properties_out[t0].pressure)/1000:.1f} kPa")
     print(f"Pressure Drop: {-pyo.value(m.fs.hex.cold_side.deltaP[t0])/1000:.1f} kPa")
-    
-    # Print cold stream properties
     print(f"Inlet Density: {pyo.value(m.fs.hex.cold_side.properties_in[t0].dens_mol):.1f} mol/m³")
     print(f"Inlet Cp: {pyo.value(m.fs.hex.cold_side.properties_in[t0].cp_mol):.1f} J/mol/K")
     
@@ -226,7 +205,7 @@ def main():
     print(f"LMTD: {pyo.value(m.fs.hex.delta_temperature[t0]):.2f} K")
     print(f"Overall HTC: {pyo.value(m.fs.hex.overall_heat_transfer_coefficient[t0]):.1f} W/m^2/K")
     
-    # Calculate and display effectiveness
+    # Effectiveness
     C_hot = m.fs.hex.hot_side.properties_in[t0].flow_mol * \
             m.fs.hex.hot_side.properties_in[t0].cp_mol
     C_cold = m.fs.hex.cold_side.properties_in[t0].flow_mol * \
@@ -239,7 +218,6 @@ def main():
     
     print("------------------------------------")
     
-    # Check solver status
     if results.solver.termination_condition == pyo.TerminationCondition.optimal:
         print("\nSolver converged to optimal solution!")
     else:
