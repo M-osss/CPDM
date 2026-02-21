@@ -1,0 +1,276 @@
+
+0000000000000000000000000000000000000000000000000000000000000000000
+@idaes_heat_exchanger.py 
+2026-02-16 20:09:38 [INFO] idaes.init.fs.hex.hot_side.properties_in: Starting initialization
+2026-02-16 20:09:38 [INFO] idaes.init.fs.hex.hot_side.properties_in: State variable initialization completed.
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.hot_side.properties_in: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.hot_side.properties_out: Starting initialization
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.hot_side.properties_out: State variable initialization completed.
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.hot_side.properties_out: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.hot_side: Initialization Complete
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.cold_side.properties_in: Starting initialization
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.cold_side.properties_in: State variable initialization completed.
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.cold_side.properties_in: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.cold_side.properties_out: Starting initialization
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.cold_side.properties_out: State variable initialization completed.
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.cold_side.properties_out: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 20:09:40 [INFO] idaes.init.fs.hex.cold_side: Initialization Complete
+2026-02-16 20:09:41 [INFO] idaes.init.fs.hex: Initialization Completed, optimal - Optimal Solution Found
+Ipopt 3.13.2: nlp_scaling_method=gradient-based
+tol=1e-06
+max_iter=200
+
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+
+This version of Ipopt was compiled from source code available at
+    https://github.com/IDAES/Ipopt as part of the Institute for the Design of
+    Advanced Energy Systems Process Systems Engineering Framework (IDAES PSE
+    Framework) Copyright (c) 2018-2019. See https://github.com/IDAES/idaes-pse.
+
+This version of Ipopt was compiled using HSL, a collection of Fortran codes
+    for large-scale scientific computation.  All technical papers, sales and
+    publicity material resulting from use of the HSL codes within IPOPT must
+    contain the following acknowledgement:
+        HSL, a collection of Fortran codes for large-scale scientific
+        computation. See http://www.hsl.rl.ac.uk.
+******************************************************************************
+
+This is Ipopt version 3.13.2, running with linear solver ma27.
+
+Number of nonzeros in equality constraint Jacobian...:       70
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:       42
+
+Total number of variables............................:       30
+                     variables with only lower bounds:        5
+                variables with lower and upper bounds:       21
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:       30
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  0.0000000e+00 8.94e+03 1.00e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  0.0000000e+00 1.61e+02 2.32e-01  -1.0 1.61e+02    -  9.90e-01 1.00e+00h  1
+   2  0.0000000e+00 1.14e-02 8.91e-01  -1.0 1.61e+02    -  9.90e-01 1.00e+00h  1
+   3  0.0000000e+00 7.78e-08 7.93e-03  -1.0 1.92e-07    -  9.91e-01 1.00e+00h  1
+
+Number of Iterations....: 3
+
+                                   (scaled)                 (unscaled)
+Objective...............:   0.0000000000000000e+00    0.0000000000000000e+00
+Dual infeasibility......:   0.0000000000000000e+00    0.0000000000000000e+00
+Constraint violation....:   2.8612427986124897e-13    7.7765434980392456e-08
+Complementarity.........:   0.0000000000000000e+00    0.0000000000000000e+00
+Overall NLP error.......:   2.8612427986124897e-13    7.7765434980392456e-08
+
+
+Number of objective function evaluations             = 4
+Number of objective gradient evaluations             = 4
+Number of equality constraint evaluations            = 4
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 4
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 3
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.000
+Total CPU secs in NLP function evaluations           =      0.000
+
+EXIT: Optimal Solution Found.
+
+--- IDAES HEAT EXCHANGER RESULTS (REALISTIC MODEL) ---
+Heat Duty: 864.35 kW
+Heat Transfer Area: 15.18 m^2
+
+--- HOT STREAM (Water) ---
+Inlet Temperature: 473.15 K (200.0°C)
+Outlet Temperature: 373.15 K (100.0°C)
+Inlet Pressure: 101.3 kPa
+Outlet Pressure: 96.3 kPa
+Pressure Drop: 5.0 kPa
+Inlet Density: 39112.6 mol/m³
+Inlet Cp: 92.4 J/mol/K
+
+--- COLD STREAM (Toluene) ---
+Inlet Temperature: 323.15 K (50.0°C)
+Outlet Temperature: 375.58 K (102.4°C)
+Inlet Pressure: 202.7 kPa
+Outlet Pressure: 192.7 kPa
+Pressure Drop: 10.0 kPa
+Inlet Density: 9119.9 mol/m³
+Inlet Cp: 154.8 J/mol/K
+
+--- HEAT EXCHANGER ---
+LMTD: 71.15 K
+Overall HTC: 800.0 W/m^2/K
+Effectiveness: 0.624
+------------------------------------
+
+Solver converged to optimal solution!
+00000000000000000000000000000000000000000000000000000000000000000000000000000
+
+
+@mixture_heat_exchanger.py 
+INDUSTRIAL HEAT EXCHANGER MODEL (DATABASE-DRIVEN) - CORRECTED
+================================================================================
+Hot side: ['water']
+Cold side: ['benzene']
+
+Hot inlet: 773.1K, 101.3 kPa
+Cold inlet: 323.1K, 101.3 kPa
+Operation mode: T_cold_out = 600.15
+DESIGN MODE: Calculated Area = 523.35 m^2 for U = 800 W/m^2.K
+
+--- SIMULATION RESULTS ---
+Heat Duty: 111778.69 kW
+Hot Stream Outlet: 713.20 K (440.05 C)
+Cold Stream Outlet: 600.15 K (327.00 C)
+  Cold stream: benzene changed phase from liquid to vapor
+Heat Exchanger Area: 523.35 m^2
+00000000000000000000000000000000000000000000000000000000000000000000000000000
+@idaes_hex_lmtd.py 
+
+================================================================================
+IDAES HeatExchanger (LMTD): Water-Toluene-Nitrogen Heat Exchange
+Components: water, toluene, nitrogen
+================================================================================
+
+2026-02-16 21:50:46 [INFO] idaes.init.fs.hx.hot_side.properties_in: Starting initialization
+2026-02-16 21:50:46 [INFO] idaes.init.fs.hx.hot_side.properties_in: State variable initialization completed.
+2026-02-16 21:50:46 [INFO] idaes.init.fs.hx.hot_side.properties_in: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 21:50:46 [INFO] idaes.init.fs.hx.hot_side.properties_out: Starting initialization
+2026-02-16 21:50:46 [INFO] idaes.init.fs.hx.hot_side.properties_out: State variable initialization completed.
+2026-02-16 21:50:47 [INFO] idaes.init.fs.hx.hot_side.properties_out: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 21:50:47 [INFO] idaes.init.fs.hx.hot_side: Initialization Complete
+2026-02-16 21:50:47 [INFO] idaes.init.fs.hx.cold_side.properties_in: Starting initialization
+2026-02-16 21:50:47 [INFO] idaes.init.fs.hx.cold_side.properties_in: State variable initialization completed.
+2026-02-16 21:50:47 [INFO] idaes.init.fs.hx.cold_side.properties_in: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 21:50:47 [INFO] idaes.init.fs.hx.cold_side.properties_out: Starting initialization
+2026-02-16 21:50:47 [INFO] idaes.init.fs.hx.cold_side.properties_out: State variable initialization completed.
+2026-02-16 21:50:47 [INFO] idaes.init.fs.hx.cold_side.properties_out: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 21:50:47 [INFO] idaes.init.fs.hx.cold_side: Initialization Complete
+2026-02-16 21:50:47 [INFO] idaes.init.fs.hx: Initialization Completed, optimal - Optimal Solution Found
+
+--- IDAES HeatExchanger (LMTD, database-driven properties) ---
+Solver termination: optimal
+Heat duty: 240.456 kW
+Area: 12.453 m^2
+LMTD (delta_temperature): 32.183 K
+Hot in/out T: 373.15 -> 343.15 K
+Cold in/out T: 323.15 -> 324.62 K
+Hot dP: 8.00 kPa | Cold dP: 12.00 kPa
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+@idaes_hex_lmtd.py 
+IDAES HeatExchanger (LMTD): Hydrocarbon Heat Exchange
+Components: methane, ethane, propane, butane
+================================================================================
+
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.hot_side.properties_in: Starting initialization
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.hot_side.properties_in: State variable initialization completed.
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.hot_side.properties_in: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.hot_side.properties_out: Starting initialization
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.hot_side.properties_out: State variable initialization completed.
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.hot_side.properties_out: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.hot_side: Initialization Complete
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.cold_side.properties_in: Starting initialization  
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.cold_side.properties_in: State variable initialization completed.
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.cold_side.properties_in: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.cold_side.properties_out: Starting initialization 
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.cold_side.properties_out: State variable initialization completed.
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.cold_side.properties_out: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx.cold_side: Initialization Complete
+2026-02-16 22:20:28 [INFO] idaes.init.fs.hx: Initialization Completed, optimal - Optimal Solution Found
+
+--- IDAES HeatExchanger (LMTD, database-driven properties) ---
+Solver termination: optimal
+Heat duty: 776.763 kW
+Area: 4.785 m^2
+LMTD (delta_temperature): 270.548 K
+
+--- HOT STREAM ---
+Inlet:  T=700.00 K  P=500.0 kPa  flow=50.00 mol/s
+        composition: methane=0.0100, ethane=0.4900, propane=0.4900, butane=0.0100
+Outlet: T=500.00 K  P=492.0 kPa  dP=8.0 kPa
+        composition: methane=0.0100, ethane=0.4900, propane=0.4900, butane=0.0100
+
+--- COLD STREAM ---
+Inlet:  T=280.00 K  P=600.0 kPa  flow=200.00 mol/s
+        composition: methane=0.7000, ethane=0.2900, propane=0.0050, butane=0.0050
+Outlet: T=371.70 K  P=588.0 kPa  dP=12.0 kPa
+        composition: methane=0.7000, ethane=0.2900, propane=0.0050, butane=0.0050
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+@idaes_hex_ntu.py 
+IDAES HeatExchangerNTU: Water-Toluene-Nitrogen Heat Exchange
+Components: water, toluene, nitrogen
+================================================================================
+
+2026-02-16 22:40:27 [INFO] idaes.init.fs.hx.hot_side.properties_in: Starting initialization
+2026-02-16 22:40:27 [INFO] idaes.init.fs.hx.hot_side.properties_in: State variable initialization completed.
+2026-02-16 22:40:27 [INFO] idaes.init.fs.hx.hot_side.properties_in: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:40:27 [INFO] idaes.init.fs.hx.hot_side.properties_out: Starting initialization
+2026-02-16 22:40:27 [INFO] idaes.init.fs.hx.hot_side.properties_out: State variable initialization completed.
+2026-02-16 22:40:28 [INFO] idaes.init.fs.hx.hot_side.properties_out: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:40:28 [INFO] idaes.init.fs.hx.hot_side: Initialization Complete
+2026-02-16 22:40:28 [INFO] idaes.init.fs.hx.cold_side.properties_in: Starting initialization
+2026-02-16 22:40:28 [INFO] idaes.init.fs.hx.cold_side.properties_in: State variable initialization completed.
+2026-02-16 22:40:28 [INFO] idaes.init.fs.hx.cold_side.properties_in: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:40:28 [INFO] idaes.init.fs.hx.cold_side.properties_out: Starting initialization
+2026-02-16 22:40:28 [INFO] idaes.init.fs.hx.cold_side.properties_out: State variable initialization completed.
+2026-02-16 22:40:28 [INFO] idaes.init.fs.hx.cold_side.properties_out: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:40:28 [INFO] idaes.init.fs.hx.cold_side: Initialization Complete
+2026-02-16 22:40:28 [INFO] idaes.init.fs.hx: Initialization Completed, optimal - Optimal Solution Found
+
+--- IDAES HeatExchangerNTU ---
+Solver termination: optimal
+Area: 50.000 m^2
+U: 600.000 W/m^2/K
+Effectiveness: 0.8000
+NTU: 3.6987
+Cratio: 0.4630
+Heat duty: -324.441 kW
+Hot in/out T: 373.15 -> 332.44 K
+Cold in/out T: 323.15 -> 328.54 K
+Hot dP: 8.00 kPa | Cold dP: 12.00 kPa
+000000000000000000000000000000000000000000000000000000
+@idaes_hex_lc.py 
+IDAES HeatExchangerLC: Water-Toluene Liquid (Liquid Phase Only)
+Components: water, toluene
+================================================================================
+
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.hot_side.properties_in: Starting initialization
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.hot_side.properties_in: State variable initialization completed.
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.hot_side.properties_in: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.hot_side.properties_out: Starting initialization
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.hot_side.properties_out: State variable initialization completed.
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.hot_side.properties_out: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.hot_side: Initialization Complete
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.cold_side.properties_in: Starting initialization  
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.cold_side.properties_in: State variable initialization completed.
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.cold_side.properties_in: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.cold_side.properties_out: Starting initialization 
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.cold_side.properties_out: State variable initialization completed.
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.cold_side.properties_out: Property initialization: optimal - Optimal Solution Found.
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx.cold_side: Initialization Complete
+2026-02-16 22:52:03 [INFO] idaes.init.fs.hx: Initialization Completed, optimal - Optimal Solution Found
+
+--- IDAES HeatExchangerLumpedCapacitance ---
+Solver termination: optimal
+Area: 50.000 m^2
+UA hot/cold: 20000.00 / 20000.00 W/K
+Wall T: 344.78 K
+Heat duty: 255.702 kW
+Hot out T: 341.98 K | Cold out T: 339.40 K
+000000000000000000000000000000000000000000000000000000
+@idaes_hex_1d.py 
+0000000000000000000000000000000000
+
+
+
+
+
+
