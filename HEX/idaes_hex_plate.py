@@ -46,7 +46,9 @@ def main():
       (`idaes.models_extra.column_models.properties.MEA_solvent`), which includes
       viscosity and thermal conductivity required by PHE correlations.
     - No ChemSep/IPD extraction is used here because the PHE model expects
-      transport properties in the IDAES modular property framework.
+      transport properties in the IDAES modular property framework. 
+    - It is fine for you to use other model system (or create your own) in hex_component_properties.py. MEA-CO2 capture system is just an example. 
+    - Note: there is NOT any separation processes involved in this model. This is just a heat exchanger system with demonstrated Rich stream VS Lean stream heat exchange in common indsutrial process.
     """
     m = pyo.ConcreteModel()
     m.fs = FlowsheetBlock(dynamic=False)
@@ -109,4 +111,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
