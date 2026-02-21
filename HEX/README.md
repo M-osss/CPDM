@@ -1,4 +1,4 @@
-# DWSIM Heat Exchanger Models
+# Heat Exchanger Models
 
 Heat exchanger unit models for process simulation. All 10 models pass the integrated test suite (`python test_all_hex_models.py`).
 
@@ -55,3 +55,4 @@ python idaes_hex_ntu.py hydrocarbon      # hydrocarbon mix
 **Where to edit parameters:**
 - **Self-contained** (idaes_heat_exchanger, mixture_heat_exchanger, idaes_hex_plate, idaes_hex_boiler, idaes_hex_boiler_2d): Edit the INPUT PARAMETERS block at the top of each file.
 - **Database-driven** (idaes_hex_lmtd, ntu, lc, 1d, shell_tube_1d): Edit the system preset in `hex_component_properties.py` for flow, T, P, composition. Valid systems: liquid, water_toluene, water_toluene_nitrogen, hydrocarbon, co2_capture. power_plant is not supported; use idaes_hex_boiler or idaes_hex_boiler_2d.
+
