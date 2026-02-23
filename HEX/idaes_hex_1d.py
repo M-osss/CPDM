@@ -96,19 +96,14 @@ def _check_two_phase_warning(m, t0, x0, xm, x1):
     
     for loc_name, props_block in check_points:
         try:
-            # Access temperature and pressure from the properties block
-            # props_block is already indexed by [t0, x], so access directly
             T = pyo.value(props_block.temperature)
             P = pyo.value(props_block.pressure)
-            # Warn if temperature is very high (>500K) and pressure is moderate
-            # This is a conservative check for potential vaporization
-            if T > 500 and P < 2e6:  # >500K and <20 bar
+            if T > 500 and P < 2e6:
                 if not any(loc_name in loc for loc in warning_locations):
                     warning_locations.append(
                         f"{loc_name} (T={T:.1f}K, P={P/1e5:.2f}bar)"
                     )
         except (AttributeError, ValueError, TypeError, KeyError):
-            # Skip if property not accessible
             continue
     
     if two_phase_detected or warning_locations:
@@ -214,10 +209,8 @@ def main(system_name: str = "water_toluene", geometry_overrides: dict = None):
             cold_mole_fracs[comp_id] = 1e-20
             missing_count += 1
     
-    # Normalize only if we added missing components and sum != 1.0
     total = sum(cold_mole_fracs.values())
     if missing_count > 0 and abs(total - 1.0) > 1e-6:
-        # Adjust the small values proportionally to maintain sum = 1.0
         adjustment = (1.0 - cold_sum) / missing_count
         for cas in components_list:
             comp_id = comp_id_map[cas]
@@ -227,8 +220,6 @@ def main(system_name: str = "water_toluene", geometry_overrides: dict = None):
     for comp_id, mole_frac in cold_mole_fracs.items():
         m.fs.hx.cold_side_inlet.mole_frac_comp[t0, comp_id].fix(mole_frac)
 
-    # Initialize and solve
-    # Provide state arguments to help initialization
     hot_state_args = {
         "flow_mol": hot["flow_mol"],
         "temperature": hot["temperature"],
@@ -240,9 +231,6 @@ def main(system_name: str = "water_toluene", geometry_overrides: dict = None):
         "pressure": cold["pressure"],
     }
     
-    # Estimate initial heat duty: Q = U*A*LMTD (rough estimate)
-    # LMTD ≈ (Th_in - Tc_out) - (Th_out - Tc_in) / ln((Th_in - Tc_out)/(Th_out - Tc_in))
-    # Simplified: assume Th_out ≈ Th_in - 50K, Tc_out ≈ Tc_in + 50K
     Th_in = hot["temperature"]
     Tc_in = cold["temperature"]
     Th_out_guess = Th_in - 50.0
@@ -253,7 +241,7 @@ def main(system_name: str = "water_toluene", geometry_overrides: dict = None):
         lmtd = (dT1 - dT2) / pyo.log(dT1 / dT2)
     else:
         lmtd = (dT1 + dT2) / 2.0
-    duty_guess = geom["heat_transfer_coefficient"] * geom["area"] * lmtd  # W
+    duty_guess = geom["heat_transfer_coefficient"] * geom["area"] * lmtd
     
     try:
         m.fs.hx.initialize(
@@ -273,11 +261,9 @@ def main(system_name: str = "water_toluene", geometry_overrides: dict = None):
     x1 = m.fs.hx.hot_side.length_domain.last()
     xm = sorted(list(m.fs.hx.hot_side.length_domain))[len(list(m.fs.hx.hot_side.length_domain)) // 2]
 
-    # Check for two-phase conditions (run regardless of solver status)
     try:
         _check_two_phase_warning(m, t0, x0, xm, x1)
     except Exception as e:
-        # Log but don't fail - the check is advisory
         print(f"\nNote: Two-phase check encountered an issue (non-critical): {type(e).__name__}")
 
     print("\n--- IDAES HeatExchanger1D (database-driven properties) ---")
@@ -299,7 +285,6 @@ def main(system_name: str = "water_toluene", geometry_overrides: dict = None):
         f"{pyo.value(m.fs.hx.cold_side.properties[t0, x1].temperature):.2f} K"
     )
 
-    # Transport correlations availability (ChemSep XML) – for correlation-based h/dP work.
     print("\nTransport correlation presence (ChemSep XML):")
     for spec in ["7732-18-5", "108-88-3"]:
         av = pdb.check_property_availability(spec)

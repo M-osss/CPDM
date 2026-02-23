@@ -1,8 +1,4 @@
-"""Stage-2: 2-D Heat Transfer Augmentation for Ethane Pyrolysis PFR.
-
-Extends Stage-1 with tube wall radial conduction, WSGG radiative transfer,
-and coupled inner/outer boundary conditions. Operator-split coupling.
-"""
+"""Stage-2: wall conduction, WSGG radiation, operator-split coupling."""
 from __future__ import annotations
 
 import math
@@ -38,17 +34,16 @@ ROOT = Path(__file__).resolve().parent
 DEFAULT_N2_DILUTION = 0.1
 FEED_FORMULA = {"C2H6": 1.0 - DEFAULT_N2_DILUTION, "N2": DEFAULT_N2_DILUTION}
 
-STEFAN_BOLTZMANN = 5.670374419e-8  # W/(m2 K4)
+STEFAN_BOLTZMANN = 5.670374419e-8
 PI = math.pi
 
 
 @dataclass
 class WallMaterial:
-    """Tube wall material properties (Inconel 800H default)."""
     name: str = "Inconel 800H"
-    rho: float = 7940.0       # kg/m3
-    k: float = 25.0           # W/(m K) at ~1000K
-    cp: float = 500.0         # J/(kg K)
+    rho: float = 7940.0
+    k: float = 25.0
+    cp: float = 500.0
     emissivity: float = 0.85
     
     def thermal_diffusivity(self) -> float:
@@ -57,11 +52,6 @@ class WallMaterial:
 
 @dataclass
 class WSGGModel:
-    """Weighted Sum of Gray Gases for radiative properties.
-    
-    Smith et al. (1982) coefficients for H2O-CO2 mixtures.
-    For dry hydrocarbon pyrolysis, gas radiation is weak.
-    """
     kappa: np.ndarray = field(default_factory=lambda: np.array([0.0, 0.4, 6.5, 130.0]))
     
     b_matrix: np.ndarray = field(default_factory=lambda: np.array([
@@ -89,7 +79,6 @@ class WSGGModel:
     
     def emissivity_gas(self, T: float, P_partial_atm: float, 
                        path_length: float) -> float:
-        """Gas emissivity: eps_g = sum_i a_i(T) * [1 - exp(-kappa_i * P * L)]"""
         if P_partial_atm < 1e-6:
             return 0.01
         
@@ -103,13 +92,11 @@ class WSGGModel:
 
 
 def nusselt_dittus_boelter(Re: float, Pr: float, heating: bool = True) -> float:
-    """Nu = 0.023 Re^0.8 Pr^n; n=0.4 heating, 0.3 cooling."""
     n = 0.4 if heating else 0.3
     return 0.023 * Re**0.8 * Pr**n
 
 
 def nusselt_gnielinski(Re: float, Pr: float) -> float:
-    """Gnielinski correlation. Valid Re > 3000, 0.5 < Pr < 2000."""
     if Re < 3000:
         Re = 3000
     
@@ -124,13 +111,11 @@ def prandtl_number(mu: float, cp_mass: float, k: float) -> float:
 
 
 def gas_thermal_conductivity(T: float, Y: np.ndarray) -> float:
-    """Mixture thermal conductivity [W/(m K)] via simplified Eucken."""
     return 0.02 + 7e-5 * T
 
 
 @dataclass
 class TubeWall:
-    """Radial wall conduction model with finite-volume discretization."""
     r_inner: float
     r_outer: float
     Nr: int = 5
@@ -152,7 +137,6 @@ class TubeWall:
         return (self.r_outer - self.r_inner) / (self.Nr - 1)
     
     def steady_state_conduction(self, q_inner: float, T_outer: float) -> np.ndarray:
-        """Analytical: T(r) = T_outer + (q_inner * r_i / k) * ln(r_o / r)."""
         k = self.material.k
         r_i = self.r_inner
         r_o = self.r_outer
@@ -166,7 +150,6 @@ class TubeWall:
     
     def solve_transient(self, q_inner: float, h_outer: float, T_furnace: float,
                         dt: float) -> np.ndarray:
-        """Crank-Nicolson advance of wall temperature by dt."""
         Nr = self.Nr
         dr = self.dr
         alpha = self.material.thermal_diffusivity()
@@ -201,12 +184,10 @@ class TubeWall:
                    + c_m_exp * self.T_wall[i-1] \
                    + c_p_exp * self.T_wall[i+1]
         
-        # Inner BC: -k dT/dr = q_inner (ghost point)
         diag[0] = 1.0
         sup[0] = -1.0
         rhs[0] = -q_inner * dr / k
         
-        # Outer BC: -k dT/dr = h_outer (T - T_furnace)
         Bi = h_outer * dr / k
         diag[-1] = 1.0 + Bi
         sub[-1] = -1.0
@@ -231,16 +212,15 @@ class TubeWall:
 
 @dataclass
 class Stage2State:
-    """Operating state for Stage-2 PFR with heat transfer."""
     D_inner: float = 0.025
-    wall_thickness: float = 0.008   # m
-    L: float = 12.0                 # m
-    T_in: float = 1000.0            # K
-    P_in: float = 10.0 * 101325.0   # Pa
-    v_z0: float = 20               # m/s
-    T_furnace: float = 1450.0       # K
+    wall_thickness: float = 0.008
+    L: float = 12.0
+    T_in: float = 1000.0
+    P_in: float = 10.0 * 101325.0
+    v_z0: float = 20
+    T_furnace: float = 1450.0
     mechanism_path: Path | str | None = "reduced"
-    h_outer: float = 30.0           # W/(m2 K)
+    h_outer: float = 30.0
     Nz: int = 100
     Nr_wall: int = 5
     
@@ -278,10 +258,6 @@ def compute_inner_heat_flux(T_gas: float, T_wall_inner: float,
                            Y: np.ndarray, P: float, D: float,
                            v_z: float, rho: float, mu: float,
                            wsgg: WSGGModel) -> Tuple[float, float, float]:
-    """Heat flux from wall to gas: q = h_i(T_wall - T_gas) + q_rad.
-    
-    Returns (q_total, q_conv, q_rad).
-    """
     MW = get_MW_array()
     MW_mix = float(np.dot(Y, MW))
     species_keys = _get_kinetics()[1]
@@ -303,10 +279,9 @@ def compute_inner_heat_flux(T_gas: float, T_wall_inner: float,
     h_i = Nu * k_gas / D
     q_conv = h_i * (T_wall_inner - T_gas)
     
-    # Radiative: mean beam length ~ 0.9D
     L_beam = 0.9 * D
     P_atm = P / 101325.0
-    P_participating = 0.0  # negligible for dry pyrolysis
+    P_participating = 0.0
     eps_g = wsgg.emissivity_gas(T_gas, P_participating * P_atm, L_beam)
     eps_w = 0.85
     
@@ -318,7 +293,6 @@ def compute_inner_heat_flux(T_gas: float, T_wall_inner: float,
 
 def compute_outer_heat_flux(T_wall_outer: float, T_furnace: float,
                            h_outer: float, eps_wall: float = 0.85) -> Tuple[float, float, float]:
-    """Furnace-to-wall flux: convective + radiative. Returns (q_total, q_conv, q_rad)."""
     q_conv = h_outer * (T_furnace - T_wall_outer)
     q_rad = eps_wall * STEFAN_BOLTZMANN * (T_furnace**4 - T_wall_outer**4)
     return q_conv + q_rad, q_conv, q_rad
@@ -326,7 +300,6 @@ def compute_outer_heat_flux(T_wall_outer: float, T_furnace: float,
 
 def stage2_ode(z: float, y: np.ndarray, state: Stage2State,
                q_flux_func: Callable[[float], float]) -> np.ndarray:
-    """RHS of Stage-2 PFR: y = [Y_0..Y_{n-1}, T, P]. Same as Stage-1 but q''(z) from wall model."""
     set_mechanism_path(state.mechanism_path)
     species_formula, _, nu, *_ = _get_kinetics()
     n_spec = len(species_formula)
@@ -372,7 +345,6 @@ def solve_stage2(state: Stage2State,
                 tol_T: float = 1.0,
                 relax: float = 0.3,
                 verbose: bool = True) -> Dict[str, Any]:
-    """Operator-split solver: iterate between wall heat flux and gas-phase ODEs."""
     set_mechanism_path(state.mechanism_path)
     species_formula = get_species_list()
     spec_idx = get_species_index()
@@ -402,7 +374,7 @@ def solve_stage2(state: Stage2State,
         state.T_wall_outer[iz] = state.T_in + 50
         state.T_wall_inner[iz] = state.T_in + 30
     
-    q_inner_profile = np.ones(Nz) * 20000.0  # 20 kW/m2 initial guess
+    q_inner_profile = np.ones(Nz) * 20000.0
     state.q_inner = q_inner_profile.copy()
     
     converged = False
@@ -410,7 +382,6 @@ def solve_stage2(state: Stage2State,
         T_gas_old = T_gas.copy()
         q_old = state.q_inner.copy()
         
-        # Compute heat flux from current wall state
         q_inner_new = np.zeros(Nz)
         
         for iz in range(Nz):
@@ -445,7 +416,6 @@ def solve_stage2(state: Stage2State,
             frac = idx - i0
             return (1 - frac) * q_inner_profile[i0] + frac * q_inner_profile[i1]
         
-        # Integrate species/T/P ODEs
         y0 = np.concatenate([Y0, [state.T_in, state.P_in]])
         
         sol = solve_ivp(
@@ -475,7 +445,6 @@ def solve_stage2(state: Stage2State,
             Y_gas[:, iz] = np.clip(Y_gas[:, iz], 1e-15, 1.0)
             Y_gas[:, iz] /= Y_gas[:, iz].sum()
         
-        # Update wall temperatures
         for iz in range(Nz):
             Y = Y_gas[:, iz]
             T = T_gas[iz]
@@ -505,7 +474,7 @@ def solve_stage2(state: Stage2State,
                 
                 res = q_out - q_in
                 
-                if abs(res) < 50:  # W/m2
+                if abs(res) < 50:
                     T_wi = T_wi_calc
                     break
                 

@@ -1,11 +1,4 @@
-"""Stage-3: Axial Dispersion Model for Ethane Pyrolysis PFR.
-
-Extends Stage-2 with axial dispersion (species + energy), Danckwerts BCs,
-D_ax(z) from Taylor-Aris or turbulent correlations, and OpenFOAM case generation.
-
-  Species: dY_i/dz = (1/v_z) * Sigma_j nu_ij * Omega_j + (D_ax / v_z) * d2Y_i/dz2
-  Energy:  dT/dz   = (1/(rho Cp v_z)) * [Q_rxn + 4q''/D] + (alpha_ax / v_z) * d2T/dz2
-"""
+"""Stage-3: axial dispersion, Danckwerts BCs, Taylor-Aris."""
 from __future__ import annotations
 
 import json
@@ -55,12 +48,10 @@ PI = math.pi
 
 
 def taylor_aris_dispersion(D_mol: float, v_z: float, D_tube: float) -> float:
-    """Taylor-Aris axial dispersion for laminar flow [m2/s]."""
     return D_mol + (v_z**2 * D_tube**2) / (192 * D_mol)
 
 
 def turbulent_dispersion(v_z: float, D_tube: float, Re: float) -> float:
-    """Turbulent axial dispersion using Levenspiel correlation [m2/s]."""
     if Re < 2300:
         D_mol = 1e-5
         return taylor_aris_dispersion(D_mol, v_z, D_tube)
@@ -70,35 +61,33 @@ def turbulent_dispersion(v_z: float, D_tube: float, Re: float) -> float:
 
 
 def estimate_molecular_diffusivity(T: float, P: float, MW1: float, MW2: float) -> float:
-    """Estimate binary diffusivity via Fuller correlation [m2/s]."""
-    V_A = 40.0   # avg hydrocarbon diffusion volume
-    V_B = 6.12   # H2
+    V_A = 40.0
+    V_B = 6.12
     
     P_atm = P / 101325.0
-    M_A = MW1 * 1000  # g/mol
+    M_A = MW1 * 1000
     M_B = MW2 * 1000
 
     D_AB = (1.013e-2 * T**1.75 * math.sqrt(1/M_A + 1/M_B)) / \
            (P_atm * (V_A**(1/3) + V_B**(1/3))**2)
     
-    return D_AB * 1e-4  # cm2/s -> m2/s
+    return D_AB * 1e-4
 
 
 @dataclass
 class Stage3State:
-    """Configuration for Stage-3 PFR with axial dispersion."""
-    D: float = 0.025              # tube diameter [m]
-    L: float = 10.0               # tube length [m]
-    T_in: float = 1100.0          # inlet temperature [K]
-    P_in: float = 5.0 * 101325   # inlet pressure [Pa]
-    v_z0: float = 5               # inlet velocity [m/s]
+    D: float = 0.025
+    L: float = 10.0
+    T_in: float = 1100.0
+    P_in: float = 5.0 * 101325
+    v_z0: float = 5
     mechanism_path: Path | str | None = "reduced"
-    Nz: int = 100                 # axial nodes
+    Nz: int = 100
     use_taylor_aris: bool = False
-    D_ax_constant: float | None = None       # optional constant D_ax [m2/s]
-    alpha_ax_constant: float | None = None   # optional constant thermal dispersivity [m2/s]
-    q_flux_profile: np.ndarray | None = None # q''(z) [W/m2]
-    q_flux_constant: float | None = None     # constant heat flux [W/m2]
+    D_ax_constant: float | None = None
+    alpha_ax_constant: float | None = None
+    q_flux_profile: np.ndarray | None = None
+    q_flux_constant: float | None = None
     Pe_min: float = 10.0
     Pe_max: float = 1000.0
     
@@ -131,7 +120,6 @@ class Stage3State:
 
 def compute_D_ax_profile(state: Stage3State, T: np.ndarray, P: np.ndarray,
                          Y: np.ndarray) -> np.ndarray:
-    """Compute axial dispersion coefficient profile D_ax(z) [m2/s]."""
     Nz = state.Nz
     D_ax = np.zeros(Nz)
     
@@ -161,7 +149,6 @@ def compute_D_ax_profile(state: Stage3State, T: np.ndarray, P: np.ndarray,
 
 def compute_alpha_ax_profile(state: Stage3State, T: np.ndarray, P: np.ndarray,
                             Y: np.ndarray, D_ax: np.ndarray) -> np.ndarray:
-    """Thermal axial dispersivity from turbulent Prandtl analogy [m2/s]."""
     if state.alpha_ax_constant is not None:
         return np.ones(state.Nz) * state.alpha_ax_constant
     
@@ -175,11 +162,6 @@ def solve_dispersion_fd(state: Stage3State,
                        tol: float = 1e-5,
                        relax: float = 0.3,
                        verbose: bool = True) -> Dict[str, Any]:
-    """Solve Stage-3 PFR with axial dispersion using perturbation on plug flow.
-    
-    1. Solve plug-flow via Stage-1 implicit BDF
-    2. Apply iterative dispersion corrections (valid for Pe > ~50)
-    """
     try:
         from .pfr_ideal import run_pfr
     except ImportError:
@@ -341,7 +323,6 @@ def solve_dispersion_fd(state: Stage3State,
 def _solve_species_fd(state: Stage3State, Y: np.ndarray, T: np.ndarray,
                      P: np.ndarray, i_sp: int, Y_in: float,
                      D_ax: np.ndarray) -> np.ndarray:
-    """Solve species equation with FD + Danckwerts BCs."""
     Nz = state.Nz
     dz = state.dz
     
@@ -369,13 +350,11 @@ def _solve_species_fd(state: Stage3State, Y: np.ndarray, T: np.ndarray,
         
         Pe_local = v_z * dz / D_loc
         
-        # Upwind for convection, central for diffusion
         a[iz] = 1.0 / dz**2 + v_z / (D_loc * dz)
         b[iz] = -2.0 / dz**2 - v_z / (D_loc * dz)
         c[iz] = 1.0 / dz**2
         d[iz] = -R_i / (C_total * D_loc)
     
-    # Inlet: Danckwerts BC
     iz = 0
     v_z = state.v_z0
     D_loc = max(D_ax[iz], 1e-6)
@@ -384,7 +363,6 @@ def _solve_species_fd(state: Stage3State, Y: np.ndarray, T: np.ndarray,
     c[0] = -1.0
     d[0] = v_z * dz / D_loc * Y_in
     
-    # Outlet: zero gradient
     a[-1] = -1.0
     b[-1] = 1.0
     d[-1] = 0.0
@@ -395,7 +373,6 @@ def _solve_species_fd(state: Stage3State, Y: np.ndarray, T: np.ndarray,
 
 def _solve_energy_fd(state: Stage3State, Y: np.ndarray, T: np.ndarray,
                     P: np.ndarray, alpha_ax: np.ndarray) -> np.ndarray:
-    """Solve energy equation with FD + Danckwerts BCs."""
     Nz = state.Nz
     dz = state.dz
     
@@ -433,12 +410,10 @@ def _solve_energy_fd(state: Stage3State, Y: np.ndarray, T: np.ndarray,
         c[iz] = 1.0 / dz**2
         d[iz] = -S
     
-    # Inlet: fixed temperature
     b[0] = 1.0
     c[0] = 0.0
     d[0] = state.T_in
     
-    # Outlet: zero gradient
     a[-1] = -1.0
     b[-1] = 1.0
     d[-1] = 0.0
@@ -449,7 +424,6 @@ def _solve_energy_fd(state: Stage3State, Y: np.ndarray, T: np.ndarray,
 
 def _solve_tridiag(a: np.ndarray, b: np.ndarray, c: np.ndarray,
                   d: np.ndarray) -> np.ndarray:
-    """Thomas algorithm for tridiagonal systems."""
     n = len(d)
     
     c_prime = np.zeros(n)
@@ -476,7 +450,6 @@ def _solve_tridiag(a: np.ndarray, b: np.ndarray, c: np.ndarray,
 def generate_openfoam_case(state: Stage3State,
                           output_dir: str | Path,
                           stage2_result: Dict[str, Any] | None = None) -> None:
-    """Generate OpenFOAM case directory (axisymmetric wedge, k-omega SST)."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     
@@ -854,7 +827,6 @@ RAS
 def _write_reaction_sources(filepath: Path, species_list: List[str],
                            state: Stage3State,
                            stage2_result: Dict[str, Any] | None) -> None:
-    """Write tabulated reaction source terms as JSON."""
     Nz = state.Nz
     z = state.z_nodes.tolist()
     
@@ -897,7 +869,6 @@ def _write_reaction_sources(filepath: Path, species_list: List[str],
 
 def _write_boundary_conditions(bc_dir: Path, state: Stage3State,
                               stage2_result: Dict[str, Any] | None) -> None:
-    """Write IC/BC files for velocity, pressure, temperature."""
     
     content_U = f"""FoamFile
 {{
@@ -1032,7 +1003,6 @@ boundaryField
 
 def import_openfoam_dispersion(case_dir: str | Path,
                               time_dir: str = "1000") -> Dict[str, np.ndarray]:
-    """Import axial dispersion data from OpenFOAM results (placeholder)."""
     case_dir = Path(case_dir)
     time_path = case_dir / time_dir
     
@@ -1099,7 +1069,6 @@ def print_stage3_results(result: Dict[str, Any]) -> None:
 
 def compare_with_plug_flow(dispersion_result: Dict[str, Any],
                           plug_flow_result: Any) -> Dict[str, float]:
-    """Compare Stage-3 dispersion model with Stage-1/2 plug flow."""
     spec_idx = get_species_index()
     i_eth = spec_idx.get("C2H6", 0)
     i_ene = spec_idx.get("C2H4", 0)

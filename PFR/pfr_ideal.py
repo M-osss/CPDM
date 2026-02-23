@@ -1,10 +1,4 @@
-"""Stage-1: Ideal 1-D Plug-Flow Reactor model for ethane pyrolysis.
-
-State vector y = [Y_0 .. Y_{n-1}, T, P]
-  dY_i/dz = (1/v_z) * sum_j nu_ij * Omega_j
-  dT/dz   = (1/(rho Cp v_z)) * [(-dH_R) sum_j Omega_j + 4 q''/D]
-  dP/dz   = -(4f/D) * rho v_z^2 / 2  (Darcy-Weisbach, Blasius f)
-"""
+"""Ideal 1-D PFR for ethane pyrolysis."""
 from __future__ import annotations
 
 import json
@@ -76,12 +70,12 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent
 
-R_GAS = 8.314462618  # J/mol/K
-D_TUBE = 0.005       # m
-L_TUBE = 15.0        # m
-T_SET = 1000.0       # K
-P_IN = 2.0 * 101_325.0  # Pa
-V_Z0 = 20.0         # m/s
+R_GAS = 8.314462618
+D_TUBE = 0.005
+L_TUBE = 15.0
+T_SET = 1000.0
+P_IN = 2.0 * 101_325.0
+V_Z0 = 20.0
 TARGET_CONVERSION = 0.65
 
 DEFAULT_N2_DILUTION = 0.1
@@ -106,7 +100,6 @@ def get_mechanism_path() -> Path:
 
 
 def _build_kinetics(mechanism_path: Path) -> tuple:
-    """Parse mechanism and build numpy arrays for rate evaluation."""
     rxns = parse_csv_mechanism(mechanism_path)
     
     valid_rxns: List[Reaction] = []
@@ -224,7 +217,6 @@ def get_species_index() -> Dict[str, int]:
 
 
 def _get_MW_array() -> np.ndarray:
-    """Molecular weights [kg/mol] for all species."""
     _, species_keys, *_ = _get_kinetics()
     db = props._get_db()
     mw = []
@@ -242,14 +234,12 @@ def get_MW_array() -> np.ndarray:
 
 
 def mixture_viscosity(Y: np.ndarray, T: float) -> float:
-    """Molar-fraction weighted viscosity [Pa s]."""
     _, species_keys, *_ = _get_kinetics()
     mu = np.array([gas_viscosity(T, key) for key in species_keys])
     return float(np.dot(Y, mu))
 
 
 def mixture_cp(Y: np.ndarray, T: float, P: float = None, use_eos: bool = True) -> float:
-    """Molar Cp [J/mol/K] = ideal (NASA7) + residual (PPR78)."""
     species_formula, species_keys, *_ = _get_kinetics()
     cps = np.array([cp_molar(T, key) for key in species_keys])
     Cp_ideal = float(np.dot(Y, cps))
@@ -262,7 +252,6 @@ def mixture_cp(Y: np.ndarray, T: float, P: float = None, use_eos: bool = True) -
 
 
 def mixture_density(Y: np.ndarray, T: float, P: float, use_eos: bool = True) -> float:
-    """Mass density [kg/m3] via PPR78 EOS (or ideal gas if use_eos=False)."""
     species_formula, species_keys, *_ = _get_kinetics()
     MW = get_MW_array()
     MW_mix = float(np.dot(Y, MW))
@@ -280,7 +269,6 @@ def mixture_molar_mass(Y: np.ndarray) -> float:
 
 
 def mixture_concentration(Y: np.ndarray, T: float, P: float, use_eos: bool = True) -> float:
-    """Total molar concentration [mol/m3] via PPR78 EOS."""
     if use_eos:
         species_formula, *_ = _get_kinetics()
         Z = compressibility_factor(species_formula, Y, T, P)
@@ -291,7 +279,6 @@ def mixture_concentration(Y: np.ndarray, T: float, P: float, use_eos: bool = Tru
 
 
 def reaction_rate_constants(T: float) -> np.ndarray:
-    """Forward Arrhenius rate constants k_f(T). Reference T = 298 K."""
     kinetics = _get_kinetics()
     A = kinetics[3]
     n_exp = kinetics[4]
@@ -312,12 +299,6 @@ def _get_equilibrium_calculator() -> EquilibriumCalculator:
 
 def omega_rates(C: np.ndarray, T: float, P: float, 
                 include_reverse: bool = True) -> np.ndarray:
-    """Net reaction rates Omega_j [mol/m3/s].
-    
-    Forward: k_f * prod(C_reactants^order)
-    Reverse: k_r * prod(C_products^order), k_r = k_f / Kc
-    Third-body: multiply by [M] = P/(Z*R*T)
-    """
     kinetics = _get_kinetics()
     reactant_orders = kinetics[6]
     has_third_body = kinetics[7]
@@ -358,7 +339,6 @@ def omega_rates(C: np.ndarray, T: float, P: float,
 
 
 def omega_rates_detailed(C: np.ndarray, T: float, P: float) -> tuple:
-    """Return (omega_forward, omega_reverse, omega_net) for analysis."""
     kinetics = _get_kinetics()
     reactant_orders = kinetics[6]
     has_third_body = kinetics[7]
@@ -381,7 +361,6 @@ def omega_rates_detailed(C: np.ndarray, T: float, P: float) -> tuple:
 
 
 def delta_H_reaction(T: float) -> np.ndarray:
-    """dH_j(T) for each reaction [J/mol] from NASA7 enthalpies."""
     kinetics = _get_kinetics()
     species_formula = kinetics[0]
     species_keys = kinetics[1]
@@ -406,7 +385,6 @@ def estimate_heat_flux(T: float = T_SET, P: float = P_IN,
                        Y0: np.ndarray | None = None,
                        target_conversion: float = TARGET_CONVERSION,
                        mechanism_path: Path | str | None = None) -> float:
-    """Estimate constant q'' [W/m2] for near-isothermal operation."""
     species_formula, species_keys, nu, *_ = _get_kinetics(mechanism_path)
     spec_idx = get_species_index()
     n_spec = len(species_formula)
@@ -417,7 +395,7 @@ def estimate_heat_flux(T: float = T_SET, P: float = P_IN,
             Y0[spec_idx[sp]] = frac
         Y0 /= Y0.sum()
     
-    dH_main = 137e3  # J/mol, C2H6 -> C2H4 + H2
+    dH_main = 137e3
     
     C_total = mixture_concentration(Y0, T, P, use_eos=True)
     A_cross = math.pi * (D_TUBE / 2) ** 2
@@ -458,7 +436,6 @@ def make_diluted_feed(hydrocarbon: str = "C2H6", n2_fraction: float = 0.5) -> Di
 
 
 def ode_pfr(z: float, y: np.ndarray, state: PFRState) -> np.ndarray:
-    """RHS of PFR ODE. State vector: y = [Y_0..Y_{n-1}, T, P]."""
     species_formula, _, nu, *_ = _get_kinetics(state.mechanism_path)
     n_spec = len(species_formula)
     
@@ -495,7 +472,7 @@ def ode_pfr(z: float, y: np.ndarray, state: PFRState) -> np.ndarray:
     
     Re = rho * v_z * state.D / mu_mix
     Re = max(Re, 100.0)
-    f = 0.0791 * Re ** (-0.25)  # Blasius
+    f = 0.0791 * Re ** (-0.25)
     dPdz = -4.0 * f / state.D * 0.5 * rho * v_z ** 2
     
     return np.concatenate([dYdz, [dTdz, dPdz]])
@@ -507,7 +484,6 @@ def run_pfr(L: float = L_TUBE, T_in: float = T_SET, P_in: float = P_IN,
             q_flux: float | None = None,
             max_step: float = 0.01,
             mechanism_path: Path | str | None = None) -> Any:
-    """Integrate PFR from z=0 to z=L. Returns scipy OdeSolution."""
     if mechanism_path is not None:
         set_mechanism_path(mechanism_path)
     species_formula = get_species_list()

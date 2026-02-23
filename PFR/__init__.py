@@ -1,4 +1,4 @@
-"""DWSIM_PFR: Stage-1 Ideal Plug-Flow Reactor for ethane pyrolysis."""
+"""Ideal PFR for ethane pyrolysis."""
 
 from .kinetics_parser import parse_csv_mechanism, Reaction
 from .props import (

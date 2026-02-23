@@ -14,31 +14,21 @@ from idaes.core.solvers import get_solver
 import idaes.logger as idaeslog
 
 
-# =============================================================================
-# INPUT PARAMETERS — edit this section only
-# =============================================================================
-
-# --- Hot side inlet ---
-HOT_FLOW_MOL       = 100        # mol/s
-HOT_TEMPERATURE_IN  = 473.15    # K  (200 °C)
-HOT_PRESSURE_IN     = 101325    # Pa
+# edit these
+HOT_FLOW_MOL       = 100
+HOT_TEMPERATURE_IN  = 473.15
+HOT_PRESSURE_IN     = 101325
 HOT_MOLE_FRACS      = {"h2o": 0.999, "toluene": 0.001}
 
-# --- Cold side inlet ---
-COLD_FLOW_MOL       = 100       # mol/s
-COLD_TEMPERATURE_IN = 323.15    # K  (50 °C)
-COLD_PRESSURE_IN    = 101325    # Pa
+COLD_FLOW_MOL       = 100
+COLD_TEMPERATURE_IN = 323.15
+COLD_PRESSURE_IN    = 101325
 COLD_MOLE_FRACS     = {"toluene": 0.999, "h2o": 0.001}
 
-# --- Specifications / design ---
-HOT_TEMPERATURE_OUT = 373.15    # K  (100 °C)  — fixed outlet temperature spec
-HOT_DELTA_P         = -5000     # Pa  (negative = pressure drop)
-COLD_DELTA_P        = -10000    # Pa
-OVERALL_HTC         = 800       # W/m²/K
-
-# =============================================================================
-# END INPUT PARAMETERS
-# =============================================================================
+HOT_TEMPERATURE_OUT = 373.15
+HOT_DELTA_P         = -5000
+COLD_DELTA_P        = -10000
+OVERALL_HTC         = 800
 
 
 def main():
@@ -177,7 +167,6 @@ def main():
 
     t0 = m.fs.time.first()
 
-    # --- Apply input parameters ---
     m.fs.hex.hot_side.properties_in[t0].flow_mol.fix(HOT_FLOW_MOL)
     m.fs.hex.hot_side.properties_in[t0].pressure.fix(HOT_PRESSURE_IN)
     m.fs.hex.hot_side.properties_in[t0].temperature.fix(HOT_TEMPERATURE_IN)
@@ -200,7 +189,6 @@ def main():
     solver = get_solver()
     results = solver.solve(m, tee=True)
 
-    # --- Results ---
     print("\n--- IDAES HEAT EXCHANGER RESULTS ---")
     print(f"Heat Duty: {pyo.value(m.fs.hex.heat_duty[t0]) / 1000:.2f} kW")
     print(f"Heat Transfer Area: {pyo.value(m.fs.hex.area):.2f} m^2")

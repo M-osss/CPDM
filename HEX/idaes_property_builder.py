@@ -65,14 +65,12 @@ def build_component_from_databases(
     _value_or_raise(pc, f"Missing Pc for {cas_or_name}")
     _value_or_raise(mw_kg_per_kmol, f"Missing MW for {cas_or_name}")
     if omega is None:
-        # Cubic EOS can still run with omega, but treat as required for realism.
         raise ValueError(f"Missing omega for {cas_or_name}")
 
     display_name = crit.get("name") or cas_or_name
     cas = crit.get("cas")
     comp_id = _safe_id(cas_or_name if cas_or_name else (cas or display_name))
 
-    # --- Liquid density (Perry's eqn_type 1 preferred)
     dens = pdb.get_perrys_density_coefficients(cas_or_name)
     if dens:
         dens_method = Perrys.dens_mol_liq_comp
@@ -84,15 +82,12 @@ def build_component_from_databases(
             "4": (dens["4"], pyunits.dimensionless),
         }
     elif allow_constant_liq_density_fallback:
-        # Fallback: constant liquid molar density is a blunt approximation.
-        # Use 55.5 kmol/m3 as a generic "waterlike" default unless user overrides.
         dens_method = Constant.dens_mol_liq_comp
         dens_param = (55.5, pyunits.kmol / pyunits.m**3)
     else:
         dens_method = None
         dens_param = None
 
-    # --- Liquid Cp (Perry's 5-term polynomial preferred)
     cp_liq = pdb.get_perrys_cp_liq_coefficients(cas_or_name)
     if cp_liq:
         cp_liq_method = Perrys.cp_mol_liq_comp
@@ -105,26 +100,23 @@ def build_component_from_databases(
         }
     elif allow_constant_liq_cp_fallback:
         cp_liq_method = Constant.cp_mol_liq_comp
-        cp_liq_param = (75e3, pyunits.J / pyunits.kmol / pyunits.K)  # crude default
+        cp_liq_param = (75e3, pyunits.J / pyunits.kmol / pyunits.K)
     else:
         cp_liq_method = None
         cp_liq_param = None
 
-    # --- Ideal gas Cp (RPP4 from ChemSep RPPHeatCapacityCp preferred)
     ig_cp_rpp = pdb.get_rpp_ig_cp_coefficients(cas_or_name) if prefer_rpp_ig_cp else None
     if ig_cp_rpp:
         cp_ig_method = RPP4.cp_mol_ig_comp
         enth_ig_method = RPP4.enth_mol_ig_comp
         entr_ig_method = RPP4.entr_mol_ig_comp
 
-        # ChemSep coefficients are in J/kmol/K^n; RPP4 expects J/mol/K^n.
         cp_ig_param = {
             "A": (ig_cp_rpp["A"] / 1000.0, pyunits.J / pyunits.mol / pyunits.K),
             "B": (ig_cp_rpp["B"] / 1000.0, pyunits.J / pyunits.mol / pyunits.K**2),
             "C": (ig_cp_rpp["C"] / 1000.0, pyunits.J / pyunits.mol / pyunits.K**3),
             "D": (ig_cp_rpp["D"] / 1000.0, pyunits.J / pyunits.mol / pyunits.K**4),
         }
-        # Entropy/formation refs: use 0 by default; offsets cancel in HX duties.
         enth_form = 0.0
         entr_form = 0.0
     elif allow_constant_ig_cp_fallback:
@@ -156,9 +148,7 @@ def build_component_from_databases(
 
     if cp_liq_method is Perrys.cp_mol_liq_comp and isinstance(cp_liq_param, dict):
         parameter_data["cp_mol_liq_comp_coeff"] = cp_liq_param
-        # Required by Perrys.entr_mol_liq_comp (offset is arbitrary for HX work)
         parameter_data["entr_mol_form_liq_comp_ref"] = (0.0, pyunits.J / pyunits.mol / pyunits.K)
-        # Only used if include_enthalpy_of_formation=True (we keep False by default)
         parameter_data["enth_mol_form_liq_comp_ref"] = (0.0, pyunits.J / pyunits.mol)
     elif cp_liq_method is Constant.cp_mol_liq_comp:
         parameter_data["cp_mol_liq_comp_coeff"] = cp_liq_param
@@ -179,7 +169,6 @@ def build_component_from_databases(
         "parameter_data": parameter_data,
     }
 
-    # Attach methods (only when available)
     if dens_method is not None:
         component_config["dens_mol_liq_comp"] = dens_method
     if cp_liq_method is not None:
@@ -286,7 +275,6 @@ def build_generic_parameter_block_config(
 
 
 def validate_config_dict(config_dict: Dict[str, Any]) -> None:
-    # Minimal structural validation (avoid deep IDAES internals here).
     for k in ("components", "phases", "state_definition", "base_units"):
         if k not in config_dict:
             raise ValueError(f"Invalid property config: missing key '{k}'")

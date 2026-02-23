@@ -7,11 +7,7 @@ System structure:
   used directly (no override from INPUT_PARAMETERS). INPUT_PARAMETERS overrides geometry only.
 """
 
-# =============================================================================
-# INPUT PARAMETERS — geometry overrides only. Stream data (flow, T, P, composition)
-# is taken from the system presets below (EASY_SYSTEM, HYDROCARBON_SYSTEM, etc.).
-# Edit the system's hot_stream/cold_stream directly to change flowrates and conditions.
-# =============================================================================
+# geometry overrides; stream data from system presets below
 
 INPUT_PARAMETERS = {
     "geometry": {
@@ -43,13 +39,9 @@ INPUT_PARAMETERS = {
     },
 }
 
-# =============================================================================
-# END INPUT PARAMETERS
-# =============================================================================
 
 
 def _deep_merge(base, override):
-    """Merge override into base; return new dict. None in override skips that key."""
     if override is None:
         return dict(base)
     result = dict(base)
@@ -268,7 +260,6 @@ GEOMETRY_DEFAULTS = {
 
 
 def _filter_composition(comp_dict, component_ids):
-    """Keep only composition keys that exist in component_ids; renormalize to sum=1."""
     if comp_dict is None:
         return comp_dict
     ids_set = {c["identifier"] for c in component_ids}
@@ -280,8 +271,6 @@ def _filter_composition(comp_dict, component_ids):
 
 
 def get_system(system_name: str = None):
-    """Return system for database-driven models (lmtd, ntu, lc, 1d, shell_tube).
-    power_plant is not supported; use idaes_hex_boiler or idaes_hex_boiler_2d instead."""
     systems = {
         "water_toluene_nitrogen": EASY_SYSTEM,
         "water_toluene": WATER_TOLUENE_LIQUID,

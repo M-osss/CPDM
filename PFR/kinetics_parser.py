@@ -1,4 +1,4 @@
-"""Kinetics parser for reduced_by_GS_mechanism_reactions.csv."""
+"""Parse reduced_by_GS_mechanism_reactions.csv."""
 from __future__ import annotations
 
 import csv
@@ -12,10 +12,8 @@ ROOT = Path(__file__).resolve().parent
 CSV_PATH = ROOT / "reduced_by_GS_mechanism_reactions.csv"
 
 class Reaction(dict):
-    """Small helper so mypy / IDE knows keys."""
-
     @property
-    def A(self) -> float:  # 1/s or (m^3/mol/s) depending order
+    def A(self) -> float:
         return self["A_si"]
 
     @property
@@ -23,7 +21,7 @@ class Reaction(dict):
         return self["n"]
 
     @property
-    def Ea(self) -> float:  # J/mol
+    def Ea(self) -> float:
         return self["Ea_si"]
 
     @property
@@ -31,15 +29,10 @@ class Reaction(dict):
         return self["stoich"]
 
 
-N_A = 6.02214076e23  # Avogadro's number
+N_A = 6.02214076e23
 
 def _arrhenius_SI(A_raw: str, Ea_raw: str, energy_unit: str, 
                   order: int, has_third_body: bool) -> tuple[float, float]:
-    """Return (A, Ea) in SI units: A [m³/mol]^(order-1)/s, Ea [J/mol].
-    
-    CSV uses molecule-based cm³ units; third-body M reactions increase
-    effective order by 1.
-    """
     A = float(eval(A_raw.replace("^", "**")))
     Ea = float(eval(Ea_raw.replace("^", "**")))
     
@@ -49,16 +42,16 @@ def _arrhenius_SI(A_raw: str, Ea_raw: str, energy_unit: str,
     elif unit == "j":
         pass
     else:
-        Ea *= 1e3  # assume kJ default
+        Ea *= 1e3
     
     eff_order = order + (1 if has_third_body else 0)
     
     if eff_order == 1:
-        pass  # unimolecular, no conversion
+        pass
     elif eff_order == 2:
-        A = A * N_A * 1e-6  # cm³/molecule/s -> m³/mol/s
+        A = A * N_A * 1e-6
     elif eff_order == 3:
-        A = A * (N_A ** 2) * (1e-6 ** 2)  # termolecular
+        A = A * (N_A ** 2) * (1e-6 ** 2)
     else:
         raise ValueError(f"Unsupported reaction order: {eff_order}")
     
@@ -66,7 +59,6 @@ def _arrhenius_SI(A_raw: str, Ea_raw: str, energy_unit: str,
 
 
 def _parse_stoich(label: str) -> tuple[Dict[str, float], bool]:
-    """Parse stoichiometry from reaction label. Returns (stoich_dict, has_third_body)."""
     left, right = label.split("=")
     has_M = False
     def _side(part: str, sign: int):

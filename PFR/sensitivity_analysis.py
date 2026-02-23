@@ -1,9 +1,4 @@
-"""Sensitivity analysis for Stage-2 PFR heat transfer model.
-
-Iterates parameter combinations, records C2H4 outlet mole fractions to CSV/JSON.
-
-Parameters varied: T_in, P_in, T_furnace, v_z0, N2 dilution.
-"""
+"""Sensitivity analysis for Stage-2 PFR."""
 from __future__ import annotations
 
 import csv
@@ -38,7 +33,6 @@ def run_single_case(
     L: float = 10.0,
     verbose: bool = False,
 ) -> Dict[str, Any]:
-    """Run one Stage-2 simulation and return input params + output metrics."""
     feed = make_diluted_feed("C2H6", n2_fraction)
     
     state = Stage2State(
@@ -90,7 +84,7 @@ def run_single_case(
         
         T_out = result["T_gas"][-1]
         T_wall_out = result["T_wall_inner"][-1]
-        q_avg = np.mean(result["q_inner"]) / 1e3  # kW/m2
+        q_avg = np.mean(result["q_inner"]) / 1e3
         
         return {
             "T_in_K": T_in,
@@ -151,7 +145,6 @@ def run_sensitivity_analysis(
     output_csv: str = "sensitivity_results.csv",
     output_json: str = "sensitivity_results.json",
 ) -> List[Dict[str, Any]]:
-    """Run sensitivity analysis over parameter grid. Saves CSV + JSON."""
     if T_in_values is None:
         T_in_values = [900.0, 950.0, 1000.0, 1050.0]
     if P_in_values is None:
