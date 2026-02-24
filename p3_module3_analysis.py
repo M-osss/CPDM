@@ -330,3 +330,140 @@ plt.tight_layout()
 plt.savefig("part_c_optimum.png", dpi=200, bbox_inches="tight")
 plt.close()
 print("\nSaved: part_c_optimum.png")
+
+# =====================================================================
+# PART D: Maximize K/C subject to K >= 4, X+Y <= 10, X >= 0, Y >= 0
+#   C = 1 + 0.4*X + 1.1*Y + T
+# =====================================================================
+print("\n" + "=" * 70)
+print("PART D: MAXIMIZE BENEFIT-TO-COST RATIO  K/C")
+print("  C = 1 + 0.4X + 1.1Y + T")
+print("  subject to: K >= 4,  X+Y <= 10,  X >= 0,  Y >= 0")
+print("=" * 70)
+
+def cost(X, Y, T):
+    return 1.0 + 0.4*X + 1.1*Y + T
+
+def ratio(X, Y, T):
+    return K_model(X, Y, T) / cost(X, Y, T)
+
+best_overall = {"ratio": -np.inf}
+
+for T_val, T_name in [(0, "A"), (1, "B")]:
+    res = minimize(
+        lambda xy: -ratio(xy[0], xy[1], T_val),
+        x0=[3.0, 3.0],
+        bounds=[(0, None), (0, None)],
+        constraints=[
+            {"type": "ineq", "fun": lambda xy: 10 - xy[0] - xy[1]},
+            {"type": "ineq", "fun": lambda xy: K_model(xy[0], xy[1], T_val) - 4.0},
+        ],
+        method="SLSQP"
+    )
+
+    # Multi-start to avoid local optima
+    for x0 in [[0.1, 3], [0.1, 5], [0.1, 7], [5, 0.1], [8, 0.1],
+                [1, 1], [0, 5], [7, 0], [2, 4], [4, 2], [0, 3.5]]:
+        r = minimize(
+            lambda xy: -ratio(xy[0], xy[1], T_val),
+            x0=x0,
+            bounds=[(0, None), (0, None)],
+            constraints=[
+                {"type": "ineq", "fun": lambda xy: 10 - xy[0] - xy[1]},
+                {"type": "ineq", "fun": lambda xy: K_model(xy[0], xy[1], T_val) - 4.0},
+            ],
+            method="SLSQP"
+        )
+        if r.success and -r.fun > -res.fun:
+            K_check = K_model(r.x[0], r.x[1], T_val)
+            if K_check >= 4.0 - 1e-6 and r.x[0] >= -1e-6 and r.x[1] >= -1e-6 and r.x[0]+r.x[1] <= 10+1e-6:
+                res = r
+
+    X_o, Y_o = max(res.x[0], 0), max(res.x[1], 0)
+    K_o = K_model(X_o, Y_o, T_val)
+    C_o = cost(X_o, Y_o, T_val)
+    R_o = K_o / C_o
+
+    print(f"\n  Thickener {T_name} (T={T_val}):")
+    print(f"    X* = {X_o:.4f} g/L")
+    print(f"    Y* = {Y_o:.4f} g/L")
+    print(f"    X+Y = {X_o+Y_o:.4f} g/L")
+    print(f"    K*  = {K_o:.4f} log units  (>= 4 check: {'PASS' if K_o >= 4-1e-4 else 'FAIL'})")
+    print(f"    C*  = {C_o:.4f}")
+    print(f"    K/C = {R_o:.4f}")
+
+    if R_o > best_overall["ratio"]:
+        best_overall = {"X": X_o, "Y": Y_o, "T": T_val, "T_name": T_name,
+                        "K": K_o, "C": C_o, "ratio": R_o}
+
+# Brute-force verification over fine grid
+print("\n--- Brute-force grid verification ---")
+best_grid = {"ratio": -np.inf}
+for T_val in [0, 1]:
+    for xi in np.linspace(0, 10, 2001):
+        for yi in np.linspace(0, 10 - xi, 2001):
+            k = K_model(xi, yi, T_val)
+            if k >= 4.0:
+                c = cost(xi, yi, T_val)
+                r = k / c
+                if r > best_grid["ratio"]:
+                    best_grid = {"X": xi, "Y": yi, "T": T_val, "K": k,
+                                 "C": c, "ratio": r}
+
+if best_grid["ratio"] > -np.inf:
+    bg = best_grid
+    T_nm = "A" if bg["T"] == 0 else "B"
+    print(f"  Grid best: X={bg['X']:.4f}, Y={bg['Y']:.4f}, T={T_nm}, "
+          f"K={bg['K']:.4f}, C={bg['C']:.4f}, K/C={bg['ratio']:.4f}")
+else:
+    print("  No feasible point found on grid")
+
+print("\n" + "=" * 70)
+print("OPTIMAL FORMULA (max K/C, K >= 4)")
+print("=" * 70)
+bo = best_overall
+print(f"  Compound X:  {bo['X']:.4f} g/L")
+print(f"  Compound Y:  {bo['Y']:.4f} g/L")
+print(f"  X + Y:       {bo['X']+bo['Y']:.4f} g/L")
+print(f"  Thickener:   {bo['T_name']} (T={bo['T']})")
+print(f"  K =          {bo['K']:.4f} log units")
+print(f"  C =          {bo['C']:.4f}")
+print(f"  K/C =        {bo['ratio']:.4f}")
+
+# --- Figure 4: K/C contour with optimum ---
+fig4, axes4 = plt.subplots(1, 2, figsize=(14, 6))
+for ax, T_val, label in zip(axes4, [0, 1], ["Thickener A (T=0)", "Thickener B (T=1)"]):
+    Kg = K_model(Xg, Yg, T_val)
+    Cg = cost(Xg, Yg, T_val)
+    Rg = Kg / Cg
+    feasible = mask & (Kg >= 4.0)
+    Rg_masked = np.where(feasible, Rg, np.nan)
+
+    contour = ax.contourf(Xg, Yg, Rg_masked, levels=20, cmap="viridis")
+    cs = ax.contour(Xg, Yg, Rg_masked, levels=20, colors="k", linewidths=0.3)
+    ax.clabel(cs, inline=True, fontsize=7, fmt="%.2f")
+    fig4.colorbar(contour, ax=ax, label="K/C")
+
+    K_boundary = K_model(Xg, Yg, T_val)
+    ax.contour(Xg, Yg, np.where(mask, K_boundary, np.nan),
+               levels=[4.0], colors="red", linewidths=2, linestyles="--")
+
+    ax.plot([0, 10], [10, 0], "k--", linewidth=1.0, alpha=0.5)
+
+    if T_val == bo["T"]:
+        ax.plot(bo["X"], bo["Y"], "r*", markersize=18, markeredgecolor="black",
+                markeredgewidth=1.2, zorder=10,
+                label=f"Optimum ({bo['X']:.2f}, {bo['Y']:.2f})\nK/C = {bo['ratio']:.2f}")
+
+    ax.set_xlabel("X (g/L)", fontsize=12)
+    ax.set_ylabel("Y (g/L)", fontsize=12)
+    ax.set_title(label, fontsize=13)
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 10)
+    ax.legend(loc="upper right", fontsize=9)
+
+fig4.suptitle("K/C ratio (feasible region: K ≥ 4, X+Y ≤ 10)", fontsize=13, y=1.02)
+plt.tight_layout()
+plt.savefig("part_d_ratio.png", dpi=200, bbox_inches="tight")
+plt.close()
+print("\nSaved: part_d_ratio.png")
