@@ -150,3 +150,183 @@ print("\n--- Coefficient Interpretations ---")
 for name, val in final_model.params.items():
     p = final_model.pvalues[name]
     print(f"  {name:15s}: coeff = {val:+.4f}, p = {p:.4f}")
+
+# =====================================================================
+# PART C: Plot the model and find optimal formula
+# =====================================================================
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from scipy.optimize import minimize
+
+b = model_full.params
+def K_model(X, Y, T):
+    return (b["Intercept"] + b["X"]*X + b["Y"]*Y
+            + b["I(X ** 2)"]*X**2 + b["I(Y ** 2)"]*Y**2
+            + b["X:Y"]*X*Y + b["T"]*T)
+
+# --- Figure 1: Contour plots for both thickeners ---
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+x_range = np.linspace(0, 10, 300)
+y_range = np.linspace(0, 10, 300)
+Xg, Yg = np.meshgrid(x_range, y_range)
+mask = Xg + Yg <= 10
+
+for ax, T_val, label in zip(axes, [0, 1], ["Thickener A (T=0)", "Thickener B (T=1)"]):
+    Kg = K_model(Xg, Yg, T_val)
+    Kg_masked = np.where(mask, Kg, np.nan)
+
+    contour = ax.contourf(Xg, Yg, Kg_masked, levels=20, cmap="RdYlGn")
+    cs = ax.contour(Xg, Yg, Kg_masked, levels=20, colors="k", linewidths=0.3)
+    ax.clabel(cs, inline=True, fontsize=7, fmt="%.1f")
+    fig.colorbar(contour, ax=ax, label="K (log units)")
+
+    ax.plot([0, 10], [10, 0], "k--", linewidth=1.5, label="X + Y = 10")
+
+    sub = df[df["T"] == T_val]
+    ax.scatter(sub["X"], sub["Y"], c="black", edgecolors="white", s=50, zorder=5, label="Data points")
+
+    ax.set_xlabel("X (g/L)", fontsize=12)
+    ax.set_ylabel("Y (g/L)", fontsize=12)
+    ax.set_title(label, fontsize=13)
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 10)
+    ax.legend(loc="upper right", fontsize=9)
+
+fig.suptitle(
+    r"$K = 1.671 + 0.635X + 0.955Y - 0.037X^2 - 0.073Y^2 - 0.279XY + 0.549T$",
+    fontsize=13, y=1.02)
+plt.tight_layout()
+plt.savefig("part_c_contour.png", dpi=200, bbox_inches="tight")
+plt.close()
+print("\nSaved: part_c_contour.png")
+
+# --- Figure 2: 3D surface for thickener B ---
+fig2 = plt.figure(figsize=(10, 7))
+ax3d = fig2.add_subplot(111, projection="3d")
+
+Kg_B = K_model(Xg, Yg, 1)
+Kg_B_masked = np.where(mask, Kg_B, np.nan)
+
+surf = ax3d.plot_surface(Xg, Yg, Kg_B_masked, cmap="RdYlGn",
+                         edgecolor="none", alpha=0.9)
+fig2.colorbar(surf, ax=ax3d, shrink=0.5, label="K (log units)")
+
+sub_B = df[df["T"] == 1]
+ax3d.scatter(sub_B["X"], sub_B["Y"], sub_B["K"], c="black", s=40, zorder=5,
+             depthshade=False, label="Data (Thickener B)")
+
+ax3d.set_xlabel("X (g/L)")
+ax3d.set_ylabel("Y (g/L)")
+ax3d.set_zlabel("K (log units)")
+ax3d.set_title("Thickener B: K vs X, Y", fontsize=13)
+ax3d.view_init(elev=30, azim=225)
+ax3d.legend()
+plt.savefig("part_c_3d_surface.png", dpi=200, bbox_inches="tight")
+plt.close()
+print("Saved: part_c_3d_surface.png")
+
+# =====================================================================
+# OPTIMIZATION: maximize K subject to X+Y <= 10, X >= 0, Y >= 0
+# =====================================================================
+print("\n" + "=" * 70)
+print("OPTIMIZATION: Best hand sanitizer formula")
+print("=" * 70)
+
+for T_val, T_name in [(0, "A"), (1, "B")]:
+    result = minimize(
+        lambda xy: -K_model(xy[0], xy[1], T_val),
+        x0=[2, 2],
+        bounds=[(0, None), (0, None)],
+        constraints=[{"type": "ineq", "fun": lambda xy: 10 - xy[0] - xy[1]}],
+        method="SLSQP"
+    )
+    X_opt, Y_opt = result.x
+    K_opt = -result.fun
+    print(f"\n  Thickener {T_name} (T={T_val}):")
+    print(f"    X* = {X_opt:.4f} g/L")
+    print(f"    Y* = {Y_opt:.4f} g/L")
+    print(f"    X* + Y* = {X_opt + Y_opt:.4f} g/L")
+    print(f"    K* = {K_opt:.4f} log units")
+
+# Also check boundary / corner points for thickener B
+print("\n--- Grid search verification (Thickener B) ---")
+best_K = -np.inf
+best_xy = (0, 0)
+for xi in np.linspace(0, 10, 10001):
+    for yi in [0, 10 - xi]:
+        if yi < 0:
+            continue
+        k_val = K_model(xi, yi, 1)
+        if k_val > best_K:
+            best_K = k_val
+            best_xy = (xi, yi)
+
+# Also check interior critical point via gradient = 0
+# dK/dX = b1 + 2*b3*X + b5*Y = 0
+# dK/dY = b2 + 2*b4*Y + b5*X = 0
+A_mat = np.array([[2*b["I(X ** 2)"], b["X:Y"]],
+                  [b["X:Y"], 2*b["I(Y ** 2)"]]])
+b_vec = np.array([-b["X"], -b["Y"]])
+try:
+    crit = np.linalg.solve(A_mat, b_vec)
+    X_crit, Y_crit = crit
+    if X_crit >= 0 and Y_crit >= 0 and X_crit + Y_crit <= 10:
+        K_crit = K_model(X_crit, Y_crit, 1)
+        print(f"  Interior critical point: X={X_crit:.4f}, Y={Y_crit:.4f}, K={K_crit:.4f}")
+    else:
+        print(f"  Interior critical point ({X_crit:.4f}, {Y_crit:.4f}) outside feasible region")
+except np.linalg.LinAlgError:
+    print("  No interior critical point (singular Hessian)")
+
+print(f"  Boundary grid best: X={best_xy[0]:.4f}, Y={best_xy[1]:.4f}, K={best_K:.4f}")
+
+# Final optimal
+T_opt = 1
+res_final = minimize(
+    lambda xy: -K_model(xy[0], xy[1], T_opt),
+    x0=[2, 2],
+    bounds=[(0, None), (0, None)],
+    constraints=[{"type": "ineq", "fun": lambda xy: 10 - xy[0] - xy[1]}],
+    method="SLSQP"
+)
+X_star, Y_star = res_final.x
+K_star = -res_final.fun
+
+print("\n" + "=" * 70)
+print("OPTIMAL HAND SANITIZER FORMULA")
+print("=" * 70)
+print(f"  Compound X concentration: {X_star:.4f} g/L")
+print(f"  Compound Y concentration: {Y_star:.4f} g/L")
+print(f"  X + Y = {X_star + Y_star:.4f} g/L  (< 10 g/L constraint satisfied)")
+print(f"  Thickener: B")
+print(f"  Predicted K = {K_star:.4f} log units")
+print(f"  ({10**(K_star):.1f}-fold germ reduction, i.e. {(1 - 10**(-K_star))*100:.4f}% kill rate)")
+
+# --- Figure 3: Contour with optimum marked ---
+fig3, ax3 = plt.subplots(figsize=(8, 7))
+Kg_B = K_model(Xg, Yg, 1)
+Kg_B_masked = np.where(mask, Kg_B, np.nan)
+contour = ax3.contourf(Xg, Yg, Kg_B_masked, levels=25, cmap="RdYlGn")
+cs = ax3.contour(Xg, Yg, Kg_B_masked, levels=25, colors="k", linewidths=0.3)
+ax3.clabel(cs, inline=True, fontsize=7, fmt="%.1f")
+fig3.colorbar(contour, ax=ax3, label="K (log units)")
+ax3.plot([0, 10], [10, 0], "k--", linewidth=1.5, label="X + Y = 10")
+ax3.plot(X_star, Y_star, "r*", markersize=20, markeredgecolor="black",
+         markeredgewidth=1.2, zorder=10,
+         label=f"Optimum ({X_star:.2f}, {Y_star:.2f})\nK = {K_star:.2f}")
+sub_B = df[df["T"] == 1]
+ax3.scatter(sub_B["X"], sub_B["Y"], c="black", edgecolors="white", s=50, zorder=5,
+            label="Data (Thickener B)")
+ax3.set_xlabel("X (g/L)", fontsize=12)
+ax3.set_ylabel("Y (g/L)", fontsize=12)
+ax3.set_title("Thickener B: Optimal Sanitizer Formula", fontsize=13)
+ax3.set_xlim(0, 10)
+ax3.set_ylim(0, 10)
+ax3.legend(loc="upper right", fontsize=10)
+plt.tight_layout()
+plt.savefig("part_c_optimum.png", dpi=200, bbox_inches="tight")
+plt.close()
+print("\nSaved: part_c_optimum.png")
