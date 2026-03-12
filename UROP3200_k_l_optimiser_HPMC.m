@@ -22,7 +22,7 @@ exp_CC = [0.371, 0.456, 0.523, 0.554, 0.595, 0.722, 0.594, 0.498, 0.454, 0.438, 
 % Other parameters to set
 w_ccini = 303.37; % [=] mg
 C_b_ini = exp_CC(:,1);
-k_l_initial = [5];
+k_l_initial = [5, 5];
 
 % HPMC_k_l_optimiser(w_ccini, C_b_ini, B_s, k_g, g, zhat_mult, C_P, exp_tt, exp_CC, k_l_initial)
 
@@ -79,67 +79,71 @@ for i = 1:length(C_P)
 end
 
 % Add an overall title to the figure
-sgtitle(sprintf('Cocrystal Dissolution - Effect of Polymer Concentration (C_P = [%s]) with Optimal k_l = %.6f mg/L', ...
-        strjoin(arrayfun(@(x) sprintf('%.1f', x), C_P, 'UniformOutput', false), ', '), k_l_opt), ...
+sgtitle(sprintf('Cocrystal Dissolution - Polymer Concentration Effect\nOptimal k_l_{nuc} = %.4f, k_l_{growth} = %.4f', k_l_opt(1), k_l_opt(2)), ...
         'FontSize', 14, 'FontWeight', 'bold');
 
 function [k_l_opt, model_CC, CC_full, tt_full] = HPMC_k_l_optimiser(w_ccini, C_b_ini, B_s, k_g, g, zhat_mult, C_P, exp_tt, exp_CC, k_l_initial)
 
 polymer_idx = find(C_P > 0);
 
-fprintf('\n=== Optimization (base MATLAB: fminbnd + fminsearch) ===\n');
-fprintf('C_P=0 excluded from objective (k_l has no effect on control)\n');
-fprintf('Polymer inhibition applied to: B_s, G_b, G_s\n\n');
+fprintf('\n=== 2-Parameter Optimization: k_l_nuc, k_l_growth ===\n');
+fprintf('C_P=0 excluded from objective (polymer inhibition inactive for control)\n');
+fprintf('Separate inhibition: nucleation (B_s) vs growth (G_s, G_b)\n\n');
 
-% --- Step 1: Coarse grid search to map the landscape ---
-n_grid = 40;
-k_l_grid = logspace(-3, 2, n_grid);
-err_grid = zeros(1, n_grid);
+% --- Step 1: 2D grid search ---
+n_grid = 15;
+k_l_nuc_vals = logspace(-3, 2, n_grid);
+k_l_growth_vals = logspace(-3, 2, n_grid);
+err_grid = inf(n_grid, n_grid);
 
-fprintf('Grid search (%d points, k_l = 0.001 to 100)...\n', n_grid);
+fprintf('2D Grid search (%dx%d = %d evaluations)...\n', n_grid, n_grid, n_grid^2);
 for i = 1:n_grid
-    err_grid(i) = error_func(k_l_grid(i));
-end
-
-[best_grid_err, best_idx] = min(err_grid);
-fprintf('  Best grid point: k_l = %.4f, SSE = %.6f\n', k_l_grid(best_idx), best_grid_err);
-
-% Plot the SSE landscape
-figure('Name', 'k_l Optimization Landscape');
-semilogx(k_l_grid, err_grid, 'b-o', 'MarkerSize', 4, 'LineWidth', 1.2);
-xlabel('k_l'); ylabel('SSE (polymer cases)');
-title('Objective Function Landscape'); grid on;
-
-% --- Step 2: fminbnd (bounded 1D optimizer, base MATLAB) ---
-opts_bnd = optimset('TolX', 1e-12, 'MaxIter', 1000, 'Display', 'off');
-
-% Search in multiple sub-ranges to avoid local minima
-ranges = [1e-4, 1e-1; 1e-1, 1; 1, 10; 10, 100];
-best_k_l = k_l_grid(best_idx);
-best_err = best_grid_err;
-
-for r = 1:size(ranges, 1)
-    [k_trial, e_trial] = fminbnd(@error_func, ranges(r,1), ranges(r,2), opts_bnd);
-    if e_trial < best_err
-        best_err = e_trial;
-        best_k_l = k_trial;
-        fprintf('  fminbnd [%.0e, %.0e]: k_l = %.6f, SSE = %.6f *\n', ranges(r,1), ranges(r,2), k_trial, e_trial);
+    for j = 1:n_grid
+        err_grid(i,j) = error_func([k_l_nuc_vals(i), k_l_growth_vals(j)]);
     end
 end
 
-% --- Step 3: Refine with fminsearch from best point ---
-opts_fms = optimset('TolFun', 1e-12, 'TolX', 1e-12, 'MaxIter', 2000, ...
-    'MaxFunEvals', 5000, 'Display', 'off');
+[best_grid_err, min_idx] = min(err_grid(:));
+[best_i, best_j] = ind2sub([n_grid, n_grid], min_idx);
+best_k_l = [k_l_nuc_vals(best_i), k_l_growth_vals(best_j)];
+best_err = best_grid_err;
+fprintf('  Best grid: k_l_nuc=%.4f, k_l_growth=%.4f, SSE=%.6f\n', best_k_l(1), best_k_l(2), best_grid_err);
 
-% Multi-start fminsearch from several seeds
-seeds = [best_k_l, k_l_grid(best_idx), 0.01, 0.1, 1, 5, 10, 50];
-for s = 1:length(seeds)
+% Plot 2D SSE landscape
+figure('Name', 'k_l 2D Optimization Landscape');
+contourf(log10(k_l_growth_vals), log10(k_l_nuc_vals), log10(err_grid), 20);
+colorbar;
+xlabel('log_{10}(k_l_{growth})'); ylabel('log_{10}(k_l_{nuc})');
+title('log_{10}(SSE) Landscape'); hold on;
+plot(log10(best_k_l(2)), log10(best_k_l(1)), 'rp', 'MarkerSize', 15, 'MarkerFaceColor', 'r');
+hold off;
+
+% --- Step 2: Multi-start fminsearch ---
+opts_fms = optimset('TolFun', 1e-14, 'TolX', 1e-14, 'MaxIter', 10000, ...
+    'MaxFunEvals', 20000, 'Display', 'off');
+
+% Collect top grid points as seeds
+[~, sorted_idx] = sort(err_grid(:));
+seeds = zeros(0, 2);
+for s = 1:min(8, numel(sorted_idx))
+    [si, sj] = ind2sub([n_grid, n_grid], sorted_idx(s));
+    seeds(end+1, :) = [k_l_nuc_vals(si), k_l_growth_vals(sj)];
+end
+
+manual_seeds = [k_l_initial(:)'; 0.01 0.01; 0.1 0.1; 1 1; 5 5; 10 10; ...
+                0.01 1; 1 0.01; 0.1 10; 10 0.1; 50 50; 0.5 5; 5 0.5; ...
+                0.001 0.1; 0.1 0.001; 100 1; 1 100; 0.05 0.5; 0.5 0.05];
+seeds = [seeds; manual_seeds];
+
+fprintf('Running fminsearch from %d seeds...\n', size(seeds,1));
+for s = 1:size(seeds,1)
     try
-        [k_trial, e_trial] = fminsearch(@error_func_bounded, seeds(s), opts_fms);
-        if e_trial < best_err && k_trial > 0
+        [k_trial, e_trial] = fminsearch(@error_func_bounded, seeds(s,:), opts_fms);
+        if e_trial < best_err && all(k_trial > 0)
             best_err = e_trial;
             best_k_l = k_trial;
-            fprintf('  fminsearch (seed=%.2f): k_l = %.6f, SSE = %.6f *\n', seeds(s), k_trial, e_trial);
+            fprintf('  seed [%.3f, %.3f]: k_l_nuc=%.6f, k_l_growth=%.6f, SSE=%.6f *\n', ...
+                seeds(s,1), seeds(s,2), k_trial(1), k_trial(2), e_trial);
         end
     catch
     end
@@ -161,9 +165,10 @@ ss_tot_all = sum(sum((exp_CC - mean(exp_CC, 'all')).^2));
 R2_total = 1 - (ss_res_all / ss_tot_all);
 
 fprintf('\n=== Results ===\n');
-fprintf('Optimal k_l: %.6f\n', k_l_opt);
-fprintf('R^2 (polymer cases only, C_P>0): %.4f\n', R2_polymer);
-fprintf('R^2 (all cases including control): %.4f\n', R2_total);
+fprintf('Optimal k_l_nuc:    %.6f\n', k_l_opt(1));
+fprintf('Optimal k_l_growth: %.6f\n', k_l_opt(2));
+fprintf('R^2 (polymer cases, C_P>0): %.4f\n', R2_polymer);
+fprintf('R^2 (all cases):            %.4f\n', R2_total);
 
 fprintf('\nPer-curve R^2:\n');
 for i = 1:length(C_P)
@@ -173,15 +178,15 @@ for i = 1:length(C_P)
     fprintf('  C_P = %4.1f: R^2 = %.4f\n', C_P(i), R2_i);
 end
 
-% Polymer inhibition at optimal k_l
-fprintf('\nPolymer inhibition factor (1 - C_P/(k_l + C_P)) at optimal k_l:\n');
+fprintf('\nPolymer inhibition at optimal parameters:\n');
 for i = 1:length(C_P)
-    inh = C_P(i) / (k_l_opt + C_P(i));
-    fprintf('  C_P = %4.1f: %.1f%% inhibition of nucleation and growth\n', C_P(i), inh*100);
+    inh_nuc = C_P(i) / (k_l_opt(1) + C_P(i));
+    inh_growth = C_P(i) / (k_l_opt(2) + C_P(i));
+    fprintf('  C_P = %4.1f: nucleation %.1f%%, growth %.1f%%\n', C_P(i), inh_nuc*100, inh_growth*100);
 end
 
     function err = error_func(k_l_val)
-        if k_l_val <= 0
+        if any(k_l_val <= 0)
             err = 1e10;
             return;
         end
@@ -194,8 +199,8 @@ end
     end
 
     function err = error_func_bounded(k_l_val)
-        if k_l_val <= 0
-            err = 1e10 + abs(k_l_val) * 1e8;
+        if any(k_l_val <= 0)
+            err = 1e10 + sum(abs(k_l_val(k_l_val <= 0))) * 1e8;
             return;
         end
         err = error_func(k_l_val);
@@ -333,6 +338,10 @@ Cstosat_d = 2*Cstosat_cf;
 
 C_ds = 1.20; % concentration of drug on surface
 
+if isscalar(k_l)
+    k_l = [k_l, k_l];
+end
+
 params = struct(...
         't_char', t_char,  ...
         'V_t', V_t, 'r_ccini', r_ccini, 'rho', rho, ...
@@ -415,7 +424,8 @@ function dXdt_scaled = f(t,X,~)
         zhat = params.zhat;
         C_ds = params.C_ds;
         Csol_d = params.Csol_d;
-        k_l = params.k_l;
+        k_l_nuc = params.k_l(1);
+        k_l_growth = params.k_l(2);
 
         % moment equation for surface
         mu_s0_scaled = X(1,1);
@@ -453,13 +463,14 @@ function dXdt_scaled = f(t,X,~)
 
         B_b = k_nub*(S_b-1)^n_ub;
 
-        polymer_inh = 1 - C_P/(k_l + C_P);
+        polymer_inh_nuc = 1 - C_P/(k_l_nuc + C_P);
+        polymer_inh_growth = 1 - C_P/(k_l_growth + C_P);
 
-        G_b = k_g *(S_b-1)^g * polymer_inh;
+        G_b = k_g *(S_b-1)^g * polymer_inh_growth;
 
-        B_s_eff = B_s * polymer_inh;
+        B_s_eff = B_s * polymer_inh_nuc;
 
-        G_s = k_g *(S_s-1)^g * polymer_inh;
+        G_s = k_g *(S_s-1)^g * polymer_inh_growth;
 
         % Scaling of moment differential equations of surface
 
