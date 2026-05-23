@@ -219,7 +219,39 @@ r = p.add_run(f"DCFROR ≈ {R['IRR']*100:.2f}%.  ")
 r.bold = True
 p.add_run('Since the DCFROR substantially exceeds the 20 % hurdle, the project is economically attractive.')
 
-add_heading('1.7  Summary of Q1 results', level=2)
+add_heading('1.7  Robustness checks (subtleties verified)', level=2)
+checks = [
+    ('MACRS disposal accounting',
+     'Textbook convention used: Y1–Y5 take full rates 20/32/19.20/11.52/11.52 % (Σ = 94.24 %) and the un-recovered 5.76 % becomes a disposal loss in Y5. '
+     'Under the strict IRS half-year-of-disposal rule, Y5 depreciation would instead be 5.76 % and the disposal loss 11.52 %. '
+     'In both treatments the Y5 total deductible amount is identical (5.76 % + 5.76 % = 11.52 % = USD 4.608 M), so Y5 tax = USD 4.514 M and Y5 cash flow = USD 52.487 M either way. '
+     'NPV and IRR are therefore invariant to which MACRS-disposal convention is used.'),
+    ('Tax treatment of the development cost X',
+     'I capitalised X as a non-depreciable, non-deductible pre-operating outlay (conservative). '
+     'If instead X is expensed in Year 0 against parent-company taxable income, an immediate tax shield of 0.15 × X = USD 3,148,193 is added to Y0. '
+     'NPV(20 %) then rises to ≈ USD 28.0 M and DCFROR to ≈ 34.5 %.'),
+    ('Timing convention for pre-operating cash outlays',
+     'I lumped X, equipment and working capital at Year 0 (operations Y1–Y5) — the standard textbook treatment used in most plant-economics courses. '
+     'Two alternatives were tested: '
+     '(i) A pure 1-year time-shift of the whole cash-flow stream (entire profile pushed back by the development year). '
+     'Mathematically this divides NPV by (1+r) but leaves the IRR root unchanged: NPV(20 %) ≈ USD 20.7 M, DCFROR ≈ 32.5 %. '
+     '(ii) Separating the outlays — X at Y0, equipment + WC (USD 60 M) at Y1, operating cash flows at Y2–Y6 — which postpones the bulk of capex by one year but also postpones revenue: NPV(20 %) ≈ USD 17.2 M, DCFROR ≈ 28.9 %. '
+     'In every case NPV is positive and DCFROR exceeds the 20 % hurdle, so the accept-the-project conclusion is robust to the timing assumption.'),
+    ('Production = sales',
+     'Variable cost is given per unit "produced". Assumed no inventory build-up, so production = sales = 500,000 units / yr.'),
+    ('Advertising deductibility',
+     'Treated as an annual tax-deductible operating expense (standard for HK profits tax).'),
+    ('Working capital',
+     'Single injection at start-up, fully recovered at end of Year 5 (no tax effect on recovery).'),
+    ('Discount-rate / convention',
+     'End-of-year cash flow convention at i = 20 % p.a., consistent with the discrete annual cash-flow table.'),
+]
+for k, v in checks:
+    p = doc.add_paragraph(style='List Bullet')
+    r = p.add_run(k + ': '); r.bold = True
+    p.add_run(v)
+
+add_heading('1.8  Summary of Q1 results', level=2)
 t = doc.add_table(rows=1, cols=2)
 t.style = 'Light Grid Accent 1'
 t.rows[0].cells[0].text = 'Metric'
@@ -329,7 +361,28 @@ for u, kg in [(0.40, 7300), (0.60, 10950), (0.75, 13700), (0.90, 16425)]:
     rr[3].text = f'≈ USD {lcoh*1.0:.1f}'  # FCEV ~1 kg / 100 km
 add_para('*Toyota Mirai consumption ≈ 0.86 kg H₂ / 100 km; rounded to 1 kg / 100 km. Gasoline-ICE equivalent: 7 L/100 km × HK$ 25 /L (~USD 3.2 /L) ≈ USD 22 / 100 km.', italic=True)
 
-add_heading('A5. Benchmark and conclusion', level=3)
+add_heading('A5. Parity with gasoline on the three stated criteria', level=3)
+t = doc.add_table(rows=1, cols=3)
+t.style = 'Light Grid Accent 1'
+for i, h in enumerate(['Criterion', 'Gasoline reference', 'This H₂ facility']):
+    t.rows[0].cells[i].text = h
+parity = [
+    ('Cost per 100 km of service',
+     '7 L gasoline × HK$25/L ≈ USD 22 / 100 km',
+     '≈ 1 kg H₂ × LCOH = USD 18–31 / 100 km (USD 14–18 with cluster procurement)'),
+    ('Refuelling time (5 kg fill)',
+     '≈ 3–5 min',
+     '≈ 3–5 min via H70 fast-fill (–40 °C pre-cooled cascade), bounded by SAE J2601 protocol'),
+    ('User convenience',
+     'Self-service nozzle, card payment, ~24 / 7 access',
+     'Self-service H70 nozzle with break-away coupling, RFID + Octopus / app payment, geofenced 24/7 access, identical UX'),
+]
+for r0 in parity:
+    rr = t.add_row().cells
+    for i, v in enumerate(r0):
+        rr[i].text = v
+
+add_heading('A6. Benchmark and conclusion', level=3)
 bench = [
     'At design utilisation, distributed H₂ from this PSA route delivers H₂ at ≈ USD 18–31 / kg depending on utilisation. Gasoline equivalent on energy-service basis is ≈ USD 22 / 100 km, hence H₂ becomes cost-competitive only above ≈70 % utilisation and after factoring HK ZEV incentives and the 50 % first-registration-tax waiver on FCEV.',
     'A residential cluster roll-out of ≈ 50 sites yields economy of scale on PSA, compressor and dispenser procurement (≈25 % FCI reduction) and shared maintenance crew, dropping LCOH to ≈ USD 14–18 / kg — broadly comparable with gasoline on a per-km basis.',
