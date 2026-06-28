@@ -1,0 +1,130 @@
+{
+  "inputs": {
+    "M_tank_kg": 400.0,
+    "mdot_kg_per_h": 200.0,
+    "lift_m": 1.0,
+    "N_steps": 33,
+    "riser_h_cm": 3.0,
+    "tread_l_cm": 20.0,
+    "widths_cm": [
+      5.0,
+      10.0,
+      15.0
+    ],
+    "manning_n": 0.012,
+    "rho": 998.2,
+    "mu": 0.001002,
+    "sigma": 0.0728
+  },
+  "per_width": [
+    {
+      "width_cm": 5.0,
+      "q": 0.001113114717602796,
+      "Re_film": 4435.573297848746,
+      "Gamma": 1.111111111111111,
+      "regime": "nappe",
+      "yc_over_h": 0.1672434146914889,
+      "yc_mm": 5.0173024407446665,
+      "Vc": 0.2218552161742093,
+      "t_tread": 1.0701759888335027,
+      "t_fall": 0.0782061887005775,
+      "transit_time_s": 37.896611858624645,
+      "holdup_mass_total_kg": 1.9619893128614216,
+      "holdup_frac_of_tank": 0.004904973282153554,
+      "y_max_mm": 7.200222473494166,
+      "splash_h_cm": 3.2508651220372338,
+      "wetted_len_cm": 18.264954909967237,
+      "nappe_overshoot": false,
+      "freeboard_min_cm": 5.956331054079976
+    },
+    {
+      "width_cm": 10.0,
+      "q": 0.000556557358801398,
+      "Re_film": 2217.786648924373,
+      "Gamma": 0.5555555555555555,
+      "regime": "nappe",
+      "yc_over_h": 0.1053567493130522,
+      "yc_mm": 3.1607024793915657,
+      "Vc": 0.17608660176978608,
+      "t_tread": 1.4428265790009651,
+      "t_fall": 0.0782061887005775,
+      "transit_time_s": 50.19408133415091,
+      "holdup_mass_total_kg": 2.6451820615017696,
+      "holdup_frac_of_tank": 0.006612955153754424,
+      "y_max_mm": 4.813505110910773,
+      "splash_h_cm": 3.1580351239695785,
+      "wetted_len_cm": 18.622893799434866,
+      "nappe_overshoot": false,
+      "freeboard_min_cm": 5.459078452590984
+    },
+    {
+      "width_cm": 15.0,
+      "q": 0.00037103823920093203,
+      "Re_film": 1478.5244326162488,
+      "Gamma": 0.37037037037037035,
+      "regime": "nappe",
+      "yc_over_h": 0.08040224765851454,
+      "yc_mm": 2.412067429755436,
+      "Vc": 0.15382581540788529,
+      "t_tread": 1.7327194188987434,
+      "t_fall": 0.0782061887005775,
+      "transit_time_s": 59.76054505077759,
+      "holdup_mass_total_kg": 3.1766522679810296,
+      "holdup_frac_of_tank": 0.007941630669952574,
+      "y_max_mm": 3.850316390112887,
+      "splash_h_cm": 3.1206033714877717,
+      "wetted_len_cm": 18.79698692531907,
+      "nappe_overshoot": false,
+      "freeboard_min_cm": 5.258452515748591
+    }
+  ],
+  "manning_sensitivity_W5cm_s": {
+    "0.011": 37.279985084202096,
+    "0.013": 38.504247087010945
+  },
+  "pump": {
+    "Q_m3_per_h": 0.2003606491685033,
+    "Q_L_per_min": 3.3393441528083883,
+    "hydraulic_power_W": 0.545,
+    "shaft_power_W_est": 1.5571428571428574,
+    "turnover_h_per_pass": 2.0,
+    "passes": 5,
+    "total_runtime_h": 10.0,
+    "dT_per_pass_C_worstcase": 0.006702193072350892
+  },
+  "evaporation": {
+    "5cm": {
+      "film_area_m2": 0.33000000000000007,
+      "evap_kg_per_h_still": 0.016500000000000004,
+      "evap_kg_per_h_airflow": 0.09900000000000002
+    },
+    "10cm": {
+      "film_area_m2": 0.6600000000000001,
+      "evap_kg_per_h_still": 0.03300000000000001,
+      "evap_kg_per_h_airflow": 0.19800000000000004
+    },
+    "15cm": {
+      "film_area_m2": 0.99,
+      "evap_kg_per_h_still": 0.0495,
+      "evap_kg_per_h_airflow": 0.297
+    }
+  },
+  "regime_headroom": {
+    "5cm": {
+      "Gamma_kg_per_m_s": 1.111111111111111,
+      "skimming_onset_kg_per_h": 2868.449246556449
+    },
+    "10cm": {
+      "Gamma_kg_per_m_s": 0.5555555555555555,
+      "skimming_onset_kg_per_h": 5736.898493112898
+    },
+    "15cm": {
+      "Gamma_kg_per_m_s": 0.37037037037037035,
+      "skimming_onset_kg_per_h": 8605.347739669345
+    }
+  },
+  "min_wetting_band_kg_per_m_s": [
+    0.07,
+    0.3
+  ]
+}
