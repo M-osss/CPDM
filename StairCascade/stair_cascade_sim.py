@@ -56,6 +56,7 @@ from dataclasses import dataclass, field, asdict
 
 import numpy as np
 from scipy.integrate import solve_ivp
+from scipy.optimize import brentq
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -115,15 +116,15 @@ def friction_slope(y: float, q: float, W: float, n: float) -> float:
     return n * n * V * V / R ** (4.0 / 3.0)
 
 
-def reynolds_film(W: float) -> float:
+def reynolds_film(W: float, mdot: float = MDOT) -> float:
     """Falling-film Reynolds number Re = 4*Gamma/mu, Gamma = mdot/W."""
-    gamma = MDOT / W
+    gamma = mdot / W
     return 4.0 * gamma / MU
 
 
-def wetting_rate(W: float) -> float:
+def wetting_rate(W: float, mdot: float = MDOT) -> float:
     """Mass flow per unit width Gamma [kg/(m.s)]."""
-    return MDOT / W
+    return mdot / W
 
 
 # --------------------------------------------------------------------------- #
@@ -158,11 +159,11 @@ def tread_profile(q: float, W: float, n: float, wetted_len: float,
     return s, y
 
 
-def step_hydraulics(W: float, n: float = MANNING_N):
+def step_hydraulics(W: float, n: float = MANNING_N, mdot: float = MDOT):
     """
-    Full per-step hydraulic summary for a given channel width.
+    Full per-step hydraulic summary for a given channel width (NAPPE model).
     """
-    q = Q_VOL / W                       # unit discharge [m2/s]
+    q = (mdot / RHO) / W                # unit discharge [m2/s]
     yc = critical_depth(q)
     Vc = q / yc                         # critical velocity = brink velocity (control)
 
@@ -211,16 +212,73 @@ def step_hydraulics(W: float, n: float = MANNING_N):
 
 
 # --------------------------------------------------------------------------- #
+# Skimming-flow model (used when yc/h exceeds the skimming onset)
+# --------------------------------------------------------------------------- #
+# In skimming flow the water no longer cascades step-by-step. It flows as a
+# coherent, highly-aerated supercritical sheet over the "pseudo-bottom" formed
+# by the outer step edges (slope theta = atan(h/l)), while stable recirculating
+# vortices fill the triangular step cavities underneath. The relevant model is
+# therefore uniform (normal-depth) open-channel flow on the inclined
+# pseudo-bottom with a large skimming-flow friction factor, NOT a per-tread
+# free overfall.
+SKIMMING_F = 0.20      # equivalent Darcy friction factor for skimming flow
+                       # (Chanson: ~0.2 typical; range ~0.17-1.0)
+SKIMMING_C_AIR = 0.40  # depth-averaged air concentration (flow bulking)
+
+
+def skimming_hydraulics(W: float, mdot: float = MDOT, f: float = SKIMMING_F):
+    """Uniform skimming flow on the inclined pseudo-bottom."""
+    q = (mdot / RHO) / W
+    theta = math.atan(H_STEP / L_STEP)
+    S = math.sin(theta)                       # gravity-driving slope
+    chord = math.hypot(H_STEP, L_STEP)        # inclined length per step
+    L_incl = N_STEPS * chord
+    yc = critical_depth(q)
+
+    # normal depth d (perpendicular to pseudo-bottom) from Darcy-Weisbach:
+    #   Sf = f V^2 / (8 g R) = S , with V = q/d
+    def resid(d):
+        R = hydraulic_radius(d, W)
+        V = q / d
+        return f * V * V / (8.0 * G * R) - S
+
+    dn = brentq(resid, 1e-5, 1.0)
+    V = q / dn
+    Fr = V / math.sqrt(G * dn * math.cos(theta))
+    d_bulk = dn / (1.0 - SKIMMING_C_AIR)      # aerated (bulked) depth
+
+    # transit time along the inclined pseudo-bottom (uniform-velocity estimate)
+    transit = L_incl / V
+
+    # hold-up = mainstream sheet on the pseudo-bottom + cavity recirculation
+    sheet_mass = dn * L_incl * W * RHO
+    cavity_vol_step = 0.5 * H_STEP * L_STEP * W        # triangular cavity volume
+    cavity_mass = cavity_vol_step * N_STEPS * RHO      # water-filled (upper bound)
+    holdup = sheet_mass + cavity_mass
+
+    return {
+        "model": "skimming",
+        "q": q, "yc": yc, "dn": dn, "d_bulk": d_bulk, "V": V, "Fr": Fr,
+        "theta_deg": math.degrees(theta), "L_incl": L_incl,
+        "transit_time_s": transit,
+        "holdup_sheet_kg": sheet_mass, "holdup_cavity_kg": cavity_mass,
+        "holdup_total_kg": holdup,
+        # perpendicular water+spray envelope above the pseudo-bottom
+        "water_envelope_m": d_bulk + max(0.02, 0.5 * d_bulk),
+    }
+
+
+# --------------------------------------------------------------------------- #
 # Flow-regime classification (nappe vs skimming)
 # --------------------------------------------------------------------------- #
-def regime(W: float):
+def regime(W: float, mdot: float = MDOT):
     """
     Classify the cascade flow regime using Chanson's stepped-spillway criteria.
 
     Skimming flow onset:  (yc/h)_onset = 1.057 - 0.465 (h/l)   [Chanson 1994]
     Nappe flow if yc/h < onset (with a transition band just below).
     """
-    q = Q_VOL / W
+    q = (mdot / RHO) / W
     yc = critical_depth(q)
     ratio = yc / H_STEP
     onset = 1.057 - 0.465 * (H_STEP / L_STEP)
@@ -260,9 +318,10 @@ class WidthResult:
     profile_y: list = field(default_factory=list, repr=False)
 
 
-def analyse_width(W: float, n: float = MANNING_N) -> WidthResult:
-    h = step_hydraulics(W, n)
-    reg = regime(W)
+def analyse_width(W: float, n: float = MANNING_N,
+                  mdot: float = MDOT) -> WidthResult:
+    h = step_hydraulics(W, n, mdot)
+    reg = regime(W, mdot)
 
     transit = N_STEPS * (h["t_tread"] + h["t_fall"])
     holdup_mass = N_STEPS * h["mass_step"]
@@ -273,8 +332,8 @@ def analyse_width(W: float, n: float = MANNING_N) -> WidthResult:
     return WidthResult(
         width_cm=W * 100,
         q=h["q"],
-        Re_film=reynolds_film(W),
-        Gamma=wetting_rate(W),
+        Re_film=reynolds_film(W, mdot),
+        Gamma=wetting_rate(W, mdot),
         regime=reg["regime"],
         yc_over_h=reg["yc_over_h"],
         yc_mm=h["yc"] * 1000,
@@ -297,12 +356,12 @@ def analyse_width(W: float, n: float = MANNING_N) -> WidthResult:
 # --------------------------------------------------------------------------- #
 # Pump / recirculation analysis
 # --------------------------------------------------------------------------- #
-def pump_and_recirculation(passes: int = 5):
-    Q = Q_VOL
+def pump_and_recirculation(passes: int = 5, mdot: float = MDOT):
+    Q = mdot / RHO
     P_hyd = RHO * G * Q * LIFT                      # hydraulic power [W]
     eff = 0.35                                      # small-pump efficiency guess
     P_shaft = P_hyd / eff
-    turnover_h = M_TANK / (MDOT * 3600.0)           # hours per pass
+    turnover_h = M_TANK / (mdot * 3600.0)           # hours per pass
     total_h = passes * turnover_h
     # Temperature rise if all shaft power dumped to the 400 kg (worst case)
     cp = 4182.0
@@ -313,6 +372,7 @@ def pump_and_recirculation(passes: int = 5):
         "hydraulic_power_W": P_hyd,
         "shaft_power_W_est": P_shaft,
         "turnover_h_per_pass": turnover_h,
+        "turnover_min_per_pass": turnover_h * 60.0,
         "passes": passes,
         "total_runtime_h": total_h,
         "dT_per_pass_C_worstcase": dT_per_pass,
@@ -357,6 +417,198 @@ def evaporation_estimate(W: float):
     return {"film_area_m2": area,
             "evap_kg_per_h_still": rate_still,
             "evap_kg_per_h_airflow": rate_airflow}
+
+
+# --------------------------------------------------------------------------- #
+# Regime-aware per-width analysis (auto-selects nappe vs skimming model)
+# --------------------------------------------------------------------------- #
+def analyse_scenario_width(W: float, mdot: float, n: float = MANNING_N):
+    """
+    Pick the correct hydraulic model for the (W, mdot) operating point and
+    return a unified result dict. Also flags when the nappe model breaks down
+    (deepest tread film >= riser height => pools merge => really transition).
+    """
+    reg = regime(W, mdot)
+    label = reg["regime"]
+    yc = critical_depth((mdot / RHO) / W)
+
+    nappe = step_hydraulics(W, n, mdot)
+    nappe_transit = N_STEPS * (nappe["t_tread"] + nappe["t_fall"])
+    nappe_holdup = N_STEPS * nappe["mass_step"]
+    pools_merge = nappe["y_max"] >= H_STEP        # film overtops the riser
+
+    res = {
+        "width_cm": W * 100,
+        "regime": label,
+        "yc_over_h": reg["yc_over_h"],
+        "yc_mm": yc * 1000,
+        "Gamma": wetting_rate(W, mdot),
+        "Re_film": reynolds_film(W, mdot),
+        "pools_merge_flag": pools_merge,
+    }
+
+    if label == "skimming" or pools_merge:
+        sk = skimming_hydraulics(W, mdot)
+        res.update({
+            "model_used": "skimming",
+            "transit_time_s": sk["transit_time_s"],
+            "velocity_ms": sk["V"],
+            "Fr": sk["Fr"],
+            "dn_mm": sk["dn"] * 1000,
+            "d_bulk_mm": sk["d_bulk"] * 1000,
+            "holdup_total_kg": sk["holdup_total_kg"],
+            "holdup_sheet_kg": sk["holdup_sheet_kg"],
+            "holdup_cavity_kg": sk["holdup_cavity_kg"],
+            "water_envelope_cm": sk["water_envelope_m"] * 100,
+            "y_max_mm": sk["d_bulk"] * 1000,
+        })
+        if label != "skimming":
+            res["regime"] = "transition (nappe model broke down -> skimming)"
+    else:
+        res.update({
+            "model_used": "nappe",
+            "transit_time_s": nappe_transit,
+            "velocity_ms": nappe["Vc"],
+            "holdup_total_kg": nappe_holdup,
+            "holdup_sheet_kg": nappe_holdup,     # all in the tread film
+            "holdup_cavity_kg": 0.0,
+            "y_max_mm": nappe["y_max"] * 1000,
+            "splash_h_cm": nappe["splash_h"] * 100,
+            "water_envelope_cm": (nappe["y_max"] + nappe["splash_h"]) * 100,
+        })
+    res["holdup_frac_of_tank"] = res["holdup_total_kg"] / M_TANK
+    return res
+
+
+# --------------------------------------------------------------------------- #
+# Wrap-around-the-cube geometry
+# --------------------------------------------------------------------------- #
+def wrap_geometry(cube_edge: float = 1.0):
+    """
+    Wrap the 33-step run helically around a cube of side `cube_edge`.
+    Returns flight/turn counts and the bend superelevation at the corners.
+    """
+    steps_per_face = int(cube_edge / L_STEP + 1e-9)        # 1.0 / 0.20 = 5
+    flight_len = steps_per_face * L_STEP
+    n_flights = math.ceil(N_STEPS / steps_per_face)
+    n_turns = n_flights - 1
+    total_drop = N_STEPS * H_STEP
+    loops = n_flights / 4.0
+    horiz_run = N_STEPS * L_STEP
+    return {
+        "cube_edge_m": cube_edge,
+        "steps_per_face": steps_per_face,
+        "flight_len_m": flight_len,
+        "n_flights": n_flights,
+        "n_turns": n_turns,
+        "loops_around_cube": loops,
+        "total_drop_m": total_drop,
+        "straight_run_m": horiz_run,
+        "fits_cube_height": total_drop <= cube_edge,
+    }
+
+
+def bend_superelevation(W: float, V: float, r_bend: float):
+    """
+    Outer-wall rise at a 90 deg bend, dz = V^2 * W / (g * r_bend).
+    A small r_bend (sharp cube corner) gives a large rise -> extra local
+    freeboard / a stilling landing is needed at each turn.
+    """
+    return V * V * W / (G * r_bend)
+
+
+# --------------------------------------------------------------------------- #
+# Roof clearance with an overhead lamp
+# --------------------------------------------------------------------------- #
+def roof_clearance(water_envelope_m: float, lamp_dia_m: float = 0.04,
+                   gap_below_lamp_m: float = 0.03,
+                   gap_above_lamp_m: float = 0.03):
+    """
+    Required interior clear height (perpendicular to the treads / pseudo-bottom)
+    when a cylindrical lamp runs overhead along each flight:
+
+        clearance = water+spray envelope
+                  + gap (keep lamp dry / un-fouled)
+                  + lamp diameter
+                  + gap (mounting + lamp cooling, lamp-to-roof)
+    """
+    no_lamp = water_envelope_m * 1.5            # previous rule (50% margin)
+    with_lamp = (water_envelope_m + gap_below_lamp_m
+                 + lamp_dia_m + gap_above_lamp_m)
+    return {
+        "water_envelope_cm": water_envelope_m * 100,
+        "clearance_no_lamp_cm": no_lamp * 100,
+        "clearance_with_lamp_cm": with_lamp * 100,
+        "lamp_dia_cm": lamp_dia_m * 100,
+    }
+
+
+# --------------------------------------------------------------------------- #
+# Scenario runner
+# --------------------------------------------------------------------------- #
+def run_scenario(mdot_kg_per_h: float, label: str, passes: int = 10):
+    mdot = mdot_kg_per_h / 3600.0
+    print("\n" + "=" * 74)
+    print(f"SCENARIO: {label}  (mdot = {mdot_kg_per_h:.0f} kg/h "
+          f"= {mdot_kg_per_h/60:.2f} kg/min)")
+    print("=" * 74)
+    results = [analyse_scenario_width(W, mdot) for W in WIDTHS]
+
+    hdr = (f"{'W[cm]':>6}{'regime':>14}{'yc/h':>7}{'model':>10}"
+           f"{'V[m/s]':>8}{'transit[s]':>11}{'holdup[kg]':>11}"
+           f"{'ymax[mm]':>9}{'envel[cm]':>10}")
+    print(hdr)
+    print("-" * len(hdr))
+    for r in results:
+        print(f"{r['width_cm']:>6.0f}{r['regime'][:13]:>14}{r['yc_over_h']:>7.2f}"
+              f"{r['model_used']:>10}{r['velocity_ms']:>8.2f}"
+              f"{r['transit_time_s']:>11.1f}{r['holdup_total_kg']:>11.2f}"
+              f"{r['y_max_mm']:>9.1f}{r['water_envelope_cm']:>10.1f}")
+    for r in results:
+        if r["holdup_cavity_kg"] > 0:
+            print(f"   W={r['width_cm']:.0f}cm hold-up split: "
+                  f"sheet {r['holdup_sheet_kg']:.2f} kg + "
+                  f"cavity vortices {r['holdup_cavity_kg']:.2f} kg")
+
+    pump = pump_and_recirculation(passes=passes, mdot=mdot)
+    print(f"\nPump: {pump['Q_m3_per_h']:.2f} m3/h ({pump['Q_L_per_min']:.1f} L/min), "
+          f"hydraulic {pump['hydraulic_power_W']:.1f} W, "
+          f"shaft ~{pump['shaft_power_W_est']:.0f} W")
+    print(f"Tank turnover {pump['turnover_min_per_pass']:.1f} min/pass; "
+          f"{passes} passes -> {pump['total_runtime_h']:.2f} h")
+
+    # roof / lamp recommendation per width
+    print("\nRoof clearance (perpendicular), 4 cm lamp overhead per flight:")
+    for r in results:
+        rc = roof_clearance(r["water_envelope_cm"] / 100.0, lamp_dia_m=0.04)
+        print(f"   W={r['width_cm']:.0f}cm: envelope {rc['water_envelope_cm']:.1f} cm "
+              f"-> no-lamp {rc['clearance_no_lamp_cm']:.1f} cm, "
+              f"with-lamp {rc['clearance_with_lamp_cm']:.1f} cm")
+    return results, pump
+
+
+def run_wrap_report(mdot_kg_per_h: float):
+    mdot = mdot_kg_per_h / 3600.0
+    wg = wrap_geometry(1.0)
+    print("\n" + "=" * 74)
+    print("WRAP AROUND A 1 m^3 CUBE")
+    print("=" * 74)
+    print(f"steps/face {wg['steps_per_face']} ({wg['flight_len_m']:.2f} m flight), "
+          f"{wg['n_flights']} flights, {wg['n_turns']} corner turns, "
+          f"{wg['loops_around_cube']:.2f} loops")
+    print(f"total drop {wg['total_drop_m']:.2f} m (cube height "
+          f"{wg['cube_edge_m']:.0f} m -> fits: {wg['fits_cube_height']}); "
+          f"straight run {wg['straight_run_m']:.1f} m folded into "
+          f"{wg['cube_edge_m']:.0f} m footprint")
+    print("\nCorner superelevation (outer-wall rise) at each 90 deg turn:")
+    for W in WIDTHS:
+        rsc = analyse_scenario_width(W, mdot)
+        V = rsc["velocity_ms"]
+        for r_bend in (0.05, 0.10):
+            dz = bend_superelevation(W, V, r_bend)
+            print(f"   W={W*100:.0f}cm, V={V:.2f} m/s, r_bend={r_bend*100:.0f}cm "
+                  f"-> rise {dz*100:.1f} cm")
+    return wg
 
 
 # --------------------------------------------------------------------------- #
@@ -469,6 +721,20 @@ def main():
              **{f"y_{int(r.width_cm)}": np.array(r.profile_y) for r in results})
 
     print("\nWrote results.json and profiles.npz to", HERE)
+
+    # --- High-flow scenario requested: 50 kg/min = 3000 kg/h ---
+    hi_results, hi_pump = run_scenario(3000.0, "high flow, 50 kg/min", passes=10)
+    wg = run_wrap_report(3000.0)
+
+    out["scenario_50kg_min"] = {
+        "mdot_kg_per_h": 3000.0,
+        "per_width": hi_results,
+        "pump": hi_pump,
+        "wrap_geometry": wg,
+    }
+    with open(os.path.join(HERE, "results.json"), "w") as f:
+        json.dump(out, f, indent=2)
+
     return out, results
 
 

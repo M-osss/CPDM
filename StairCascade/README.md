@@ -8,9 +8,11 @@ clearance, and pump / recirculation sizing for channel widths of 5, 10 and
 
 ## Files
 
-- `stair_cascade_sim.py` — model and analysis (run this).
-- `make_plots.py` — figures (`fig_profiles.png`, `fig_summary.png`, `fig_cascade.png`).
-- `results.json` — machine-readable results.
+- `stair_cascade_sim.py` — model and analysis (run this; prints the design-flow
+  block, the 50 kg/min scenario, and the wrap-around report).
+- `make_plots.py` — figures (`fig_profiles.png`, `fig_summary.png`,
+  `fig_cascade.png`, `fig_scenarios.png`, `fig_roof_lamp.png`).
+- `results.json` — machine-readable results (both flow rates).
 - `requirements.txt` — `numpy`, `scipy`, `matplotlib`.
 
 ```
@@ -206,6 +208,132 @@ Pump heat into the water is negligible: ≈0.007 °C per pass worst-case.
    biofilm; stainless steel resists corrosion but the loop should be drainable
    and cleanable.
 
+## Follow-up: 50 kg/min flow, wrap-around, hold-up, lamp + roof
+
+Run `python StairCascade/stair_cascade_sim.py` — the high-flow scenario and the
+wrap-around report print after the design-flow block. Figures
+`fig_scenarios.png` and `fig_roof_lamp.png` cover this section.
+
+### 1. Running at 50 kg/min (= 3000 kg/h, 15x the design flow)
+
+The model auto-selects the correct regime. **The regime changes** at this
+flow:
+
+| W [cm] | yc/h | regime | model | velocity | transit time | hold-up | water+spray envelope |
+|---|---|---|---|---|---|---|---|
+| 5  | 1.02 | **skimming** | skimming sheet | 0.81 m/s | **8 s** | 11.8 kg | 5.4 cm |
+| 10 | 0.64 | high nappe | per-tread cascade | 0.43 m/s | **17 s** | 12.0 kg | 6.3 cm |
+| 15 | 0.49 | nappe | per-tread cascade | 0.38 m/s | **20 s** | 14.2 kg | 5.5 cm |
+
+What changed versus 200 kg/h:
+
+- **5 cm crosses into skimming flow** (yc/h = 1.02 > 0.99 onset). Water no
+  longer cascades step-by-step; it shoots over the step edges as a fast,
+  aerated supercritical sheet with recirculating vortices filling the step
+  cavities. Modelled as uniform flow on the inclined pseudo-bottom (slope
+  8.5°, skimming friction factor f ≈ 0.2), not as a per-tread overfall.
+- **Transit time drops sharply** (38→8 s at 5 cm, 60→20 s at 15 cm): 15x more
+  flow means much higher velocity.
+- **Hold-up rises ~5x** to 12–14 kg (still only ≤3.5 % of the 400 kg tank — no
+  flooding).
+- **Tank turnover = 8 min/pass** (was 2 h). 10 passes = 1.3 h. This flow is
+  what makes "pump everything through many times" practical.
+- **Pump:** duty is now 3.0 m³/h @ 1 m (≈8 W hydraulic, ~23 W shaft). At this
+  flow a **small centrifugal circulator is a reasonable choice** — the earlier
+  objection (centrifugal starved at 0.2 m³/h) goes away. A positive-displacement
+  pump still gives steadier metering if exact per-pass volume matters.
+- **Caveat — model edge:** the 10 cm "nappe" film reaches 23 mm on a 30 mm
+  riser, i.e. it is close to the point where consecutive pools merge into
+  transition/skimming. Treat the 10 cm number as ±25 % and verify with CFD if
+  it is the chosen design. The 5 cm skimming sheet is heavily aerated
+  ("white water"); its bulked depth (~34 mm) and spray drive the roof sizing.
+
+### 2. Wrapping the staircase around a 1 m³ cube
+
+Geometry (auto-computed): **5 steps per face** (1.0 m flight), **7 flights**,
+**6 corner turns**, **1.75 loops** around the cube. Total drop 0.99 m fits the
+1 m cube height; the 6.6 m straight run folds into a 1 m × 1 m footprint.
+
+- **Straight-run hydraulics are unchanged.** Transit time, film depth and
+  hold-up depend on the slope and the flow per unit width, not on the plan
+  layout. Folding the run around a cube does not change the per-flight
+  numbers above.
+- **The 6 corners do change things.** At each 90° turn the moving water climbs
+  the outer wall (superelevation `Δz = V²·W/(g·r_bend)`):
+
+  | W [cm] | V [m/s] | Δz at r=5 cm | Δz at r=10 cm |
+  |---|---|---|---|
+  | 5  | 0.81 | 6.7 cm | 3.4 cm |
+  | 10 | 0.43 | 3.8 cm | 1.9 cm |
+  | 15 | 0.38 | 4.4 cm | 2.2 cm |
+
+  So at sharp corners the water surface rises **3–7 cm** on the outside, with
+  splashing and secondary flow. **Put a small stilling landing/pool at each of
+  the 6 corners** to kill momentum and redistribute the sheet, raise the wall
+  and roof locally by the superelevation, and expect minor extra head loss
+  (transit time up a few percent at most). Corners are also natural **lamp
+  gaps** → UV/illumination dead zones (see below).
+
+### 3. What the hold-up is, and where it sits
+
+**Hold-up = the water resident on the staircase at any instant** (water "in
+transit"), as opposed to the ~400 kg in the tank and the small amount in the
+pipes. Numerically it equals `transit_time × mass_flow`.
+
+- **At 200 kg/h (nappe):** 2–3 kg total, located as the **3.9–7.2 mm film
+  flowing across each of the 33 treads** (drawing down to critical depth at
+  every brink), plus a negligible amount in the falling nappes. ~60–95 g per
+  step.
+- **At 50 kg/min:** 12–14 kg total.
+  - Nappe widths (10, 15 cm): a thicker **1.8–2.3 cm film on each tread**.
+  - Skimming width (5 cm): it **splits in two** — the fast **sheet skimming
+    over the step edges (~6.9 kg)** plus **recirculating vortices trapped in
+    the triangular step cavities under the pseudo-bottom (~4.9 kg)**. The
+    cavity water is a new component that only exists in skimming flow.
+- Even at the high flow the hold-up is ≤3.5 % of the tank, so the staircase
+  cannot accumulate a meaningful fraction of the inventory and there is no
+  flooding risk; the tank always holds ≥386 kg.
+
+### 4. Overhead lamp and required roof headroom
+
+A 3–4 cm-diameter lamp running the length of each straight flight (≈1.0 m, 5
+steps → ~7 lamps total) sits in the headroom. (A 3–4 cm quartz lamp dosing
+recirculated water that passes "many times" is consistent with **UV
+disinfection** — dose accumulates over passes.) The lamp must stay **dry and
+un-fouled**: water on a hot quartz UV lamp causes thermal-shock cracking and
+scale fouling kills UV transmission.
+
+Required interior clear height (perpendicular to the treads):
+
+```
+clear height = water+spray envelope
+             + 3 cm gap (keep lamp dry/clean)
+             + 4 cm lamp diameter
+             + 3 cm gap (mounting + lamp cooling)
+```
+
+| condition | envelope | clear height WITHOUT lamp | clear height WITH 4 cm lamp |
+|---|---|---|---|
+| 200 kg/h, W 5–15 cm | 4–6 cm | ~6–9 cm | **13–15 cm** |
+| 50 kg/min, W 5 cm (skimming) | 5.4 cm | 8 cm | **15.4 cm** |
+| 50 kg/min, W 10 cm (worst) | 6.3 cm | 9 cm | **16.3 cm** |
+| 50 kg/min, W 15 cm | 5.5 cm | 8 cm | **15.5 cm** |
+
+**Yes — you need more headroom.** Two compounding reasons: (a) 50 kg/min makes
+the water thicker and splashier than the 4–7 mm design-flow film, and (b) the
+lamp plus its dry-gap and mounting eat ~10 cm of height on their own.
+
+Recommendation:
+
+- **≈16–18 cm interior clear height along the flights** (up from the ~10 cm
+  recommended without a lamp), measured perpendicular to the treads, roof
+  parallel to the 8.5° slope.
+- **≈20–22 cm at the 6 corners** to cover the 3–7 cm superelevation/splash.
+- Centre the lamp above the channel, keep the ≥3 cm air gap above the splash
+  crest, and fit a transparent splash guard if the envelope is uncertain. The
+  6 corners have no lamp → accept UV/illumination dead bands there (the corner
+  stilling pools also mix the flow, which helps even out dose between passes).
+
 ## Key assumptions / limitations
 
 - Steady, 1-D, depth-averaged open-channel flow per tread; brink = critical
@@ -218,3 +346,14 @@ Pump heat into the water is negligible: ≈0.007 °C per pass worst-case.
   discussed but not resolved by the 1-D model; they set the ±~20 % uncertainty
   band and the 15 cm wetting caveat. A full free-surface CFD (VOF) run would be
   the next fidelity step if sub-10 % accuracy is needed.
+- Skimming model (high-flow 5 cm case): uniform normal-depth flow on the
+  pseudo-bottom with an equivalent Darcy friction factor f = 0.2 (literature
+  range 0.17–1.0; transit time scales with √f) and a depth-averaged air
+  concentration of 0.4 for bulking; the step-cavity hold-up is taken as the
+  full triangular cavity volume (upper bound — real cavities are part-aerated).
+  The velocity is taken as the normal-depth value over the whole length
+  (ignores the short acceleration reach near the crest), so the 8 s transit is
+  a slight under-estimate.
+- Corner superelevation uses the standard `V²W/(g·r)` bend formula; the actual
+  rise depends on the corner detail (mitre, radius, landing) and is a sizing
+  guide, not a precise value.

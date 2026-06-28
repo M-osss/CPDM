@@ -88,6 +88,7 @@
     "hydraulic_power_W": 0.545,
     "shaft_power_W_est": 1.5571428571428574,
     "turnover_h_per_pass": 2.0,
+    "turnover_min_per_pass": 120.0,
     "passes": 5,
     "total_runtime_h": 10.0,
     "dT_per_pass_C_worstcase": 0.006702193072350892
@@ -126,5 +127,91 @@
   "min_wetting_band_kg_per_m_s": [
     0.07,
     0.3
-  ]
+  ],
+  "scenario_50kg_min": {
+    "mdot_kg_per_h": 3000.0,
+    "per_width": [
+      {
+        "width_cm": 5.0,
+        "regime": "skimming",
+        "yc_over_h": 1.0172082305830834,
+        "yc_mm": 30.516246917492502,
+        "Gamma": 16.666666666666668,
+        "Re_film": 66533.5994677312,
+        "pools_merge_flag": true,
+        "model_used": "skimming",
+        "transit_time_s": 8.231760067928262,
+        "velocity_ms": 0.8107424077304712,
+        "Fr": 1.8138028042122492,
+        "dn_mm": 20.594359694075255,
+        "d_bulk_mm": 34.32393282345876,
+        "holdup_total_kg": 11.800890056606887,
+        "holdup_sheet_kg": 6.859800056606886,
+        "holdup_cavity_kg": 4.941090000000001,
+        "water_envelope_cm": 5.432393282345877,
+        "y_max_mm": 34.32393282345876,
+        "holdup_frac_of_tank": 0.029502225141517218
+      },
+      {
+        "width_cm": 10.0,
+        "regime": "nappe",
+        "yc_over_h": 0.6408010309189723,
+        "yc_mm": 19.22403092756917,
+        "Gamma": 8.333333333333334,
+        "Re_film": 33266.7997338656,
+        "pools_merge_flag": false,
+        "model_used": "nappe",
+        "transit_time_s": 16.933341873532328,
+        "velocity_ms": 0.4342669034124676,
+        "holdup_total_kg": 11.960448038677727,
+        "holdup_sheet_kg": 11.960448038677727,
+        "holdup_cavity_kg": 0.0,
+        "y_max_mm": 23.13133695400717,
+        "splash_h_cm": 3.961201546378458,
+        "water_envelope_cm": 6.274335241779175,
+        "holdup_frac_of_tank": 0.02990112009669432
+      },
+      {
+        "width_cm": 15.0,
+        "regime": "nappe",
+        "yc_over_h": 0.4890227111572038,
+        "yc_mm": 14.670681334716114,
+        "Gamma": 5.555555555555556,
+        "Re_film": 22177.866489243737,
+        "pools_merge_flag": false,
+        "model_used": "nappe",
+        "transit_time_s": 19.611265587344153,
+        "velocity_ms": 0.37936708330265684,
+        "holdup_total_kg": 14.192051133520913,
+        "holdup_sheet_kg": 14.192051133520913,
+        "holdup_cavity_kg": 0.0,
+        "y_max_mm": 17.898425760088244,
+        "splash_h_cm": 3.733534066735805,
+        "water_envelope_cm": 5.52337664274463,
+        "holdup_frac_of_tank": 0.035480127833802284
+      }
+    ],
+    "pump": {
+      "Q_m3_per_h": 3.0054097375275495,
+      "Q_L_per_min": 50.09016229212583,
+      "hydraulic_power_W": 8.175,
+      "shaft_power_W_est": 23.35714285714286,
+      "turnover_h_per_pass": 0.13333333333333333,
+      "turnover_min_per_pass": 8.0,
+      "passes": 10,
+      "total_runtime_h": 1.3333333333333333,
+      "dT_per_pass_C_worstcase": 0.006702193072350892
+    },
+    "wrap_geometry": {
+      "cube_edge_m": 1.0,
+      "steps_per_face": 5,
+      "flight_len_m": 1.0,
+      "n_flights": 7,
+      "n_turns": 6,
+      "loops_around_cube": 1.75,
+      "total_drop_m": 0.99,
+      "straight_run_m": 6.6000000000000005,
+      "fits_cube_height": true
+    }
+  }
 }
