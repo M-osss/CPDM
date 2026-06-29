@@ -35,7 +35,8 @@
       "splash_h_cm": 3.2508651220372338,
       "wetted_len_cm": 18.264954909967237,
       "nappe_overshoot": false,
-      "freeboard_min_cm": 5.956331054079976
+      "freeboard_min_cm": 5.956331054079976,
+      "cycle_time_s": 38.03939617091735
     },
     {
       "width_cm": 10.0,
@@ -55,7 +56,8 @@
       "splash_h_cm": 3.1580351239695785,
       "wetted_len_cm": 18.622893799434866,
       "nappe_overshoot": false,
-      "freeboard_min_cm": 5.459078452590984
+      "freeboard_min_cm": 5.459078452590984,
+      "cycle_time_s": 50.33686564644361
     },
     {
       "width_cm": 15.0,
@@ -75,7 +77,8 @@
       "splash_h_cm": 3.1206033714877717,
       "wetted_len_cm": 18.79698692531907,
       "nappe_overshoot": false,
-      "freeboard_min_cm": 5.258452515748591
+      "freeboard_min_cm": 5.258452515748591,
+      "cycle_time_s": 59.90332936307029
     }
   ],
   "manning_sensitivity_W5cm_s": {
@@ -150,7 +153,9 @@
         "holdup_cavity_kg": 4.941090000000001,
         "water_envelope_cm": 5.432393282345877,
         "y_max_mm": 34.32393282345876,
-        "holdup_frac_of_tank": 0.029502225141517218
+        "holdup_frac_of_tank": 0.029502225141517218,
+        "exit_fall_s": 0.14278431229270644,
+        "cycle_time_s": 8.374544380220968
       },
       {
         "width_cm": 10.0,
@@ -169,7 +174,9 @@
         "y_max_mm": 23.13133695400717,
         "splash_h_cm": 3.961201546378458,
         "water_envelope_cm": 6.274335241779175,
-        "holdup_frac_of_tank": 0.02990112009669432
+        "holdup_frac_of_tank": 0.02990112009669432,
+        "exit_fall_s": 0.14278431229270644,
+        "cycle_time_s": 17.076126185825036
       },
       {
         "width_cm": 15.0,
@@ -188,7 +195,9 @@
         "y_max_mm": 17.898425760088244,
         "splash_h_cm": 3.733534066735805,
         "water_envelope_cm": 5.52337664274463,
-        "holdup_frac_of_tank": 0.035480127833802284
+        "holdup_frac_of_tank": 0.035480127833802284,
+        "exit_fall_s": 0.14278431229270644,
+        "cycle_time_s": 19.75404989963686
       }
     ],
     "pump": {

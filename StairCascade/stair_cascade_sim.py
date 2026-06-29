@@ -83,6 +83,12 @@ H_STEP = 0.03                 # riser height [m]
 L_STEP = 0.20                 # tread length [m]
 WIDTHS = [0.05, 0.10, 0.15]   # channel widths to test [m]
 
+# Nominal free-fall drop from the last (bottom) brink into the tank surface.
+# Net elevation: pump lifts +1.0 m, the cascade drops N*h = 0.99 m, so the
+# bottom step sits ~0.01 m above the start; a small launch gap to the tank
+# surface is assumed. The exit fall is a fraction of a second (minor).
+EXIT_DROP = 0.10              # [m]
+
 # Stainless steel: hydraulically smooth metal.
 # Manning n for clean smooth metal/steel ~ 0.011-0.013. Use 0.012 nominal.
 MANNING_N = 0.012
@@ -314,6 +320,7 @@ class WidthResult:
     wetted_len_cm: float
     nappe_overshoot: bool
     freeboard_min_cm: float
+    cycle_time_s: float = 0.0
     profile_s: list = field(default_factory=list, repr=False)
     profile_y: list = field(default_factory=list, repr=False)
 
@@ -348,6 +355,7 @@ def analyse_width(W: float, n: float = MANNING_N,
         wetted_len_cm=h["wetted_len"] * 100,
         nappe_overshoot=h["overshoot"],
         freeboard_min_cm=freeboard * 100,
+        cycle_time_s=transit + math.sqrt(2.0 * EXIT_DROP / G),
         profile_s=h["profile_s"].tolist(),
         profile_y=h["profile_y"].tolist(),
     )
@@ -477,6 +485,9 @@ def analyse_scenario_width(W: float, mdot: float, n: float = MANNING_N):
             "water_envelope_cm": (nappe["y_max"] + nappe["splash_h"]) * 100,
         })
     res["holdup_frac_of_tank"] = res["holdup_total_kg"] / M_TANK
+    # Cycle of one parcel: top stair -> bottom stair -> fall into tank.
+    res["exit_fall_s"] = math.sqrt(2.0 * EXIT_DROP / G)
+    res["cycle_time_s"] = res["transit_time_s"] + res["exit_fall_s"]
     return res
 
 
@@ -569,6 +580,12 @@ def run_scenario(mdot_kg_per_h: float, label: str, passes: int = 10):
             print(f"   W={r['width_cm']:.0f}cm hold-up split: "
                   f"sheet {r['holdup_sheet_kg']:.2f} kg + "
                   f"cavity vortices {r['holdup_cavity_kg']:.2f} kg")
+    print(f"\nCycle time (1st stair -> bottom -> tank, "
+          f"exit fall {results[0]['exit_fall_s']:.2f} s):")
+    for r in results:
+        print(f"   W={r['width_cm']:.0f}cm: {r['cycle_time_s']:.1f} s "
+              f"(descent {r['transit_time_s']:.1f} s + exit "
+              f"{r['exit_fall_s']:.2f} s)")
 
     pump = pump_and_recirculation(passes=passes, mdot=mdot)
     print(f"\nPump: {pump['Q_m3_per_h']:.2f} m3/h ({pump['Q_L_per_min']:.1f} L/min), "
@@ -666,6 +683,13 @@ def main():
               f"{r.yc_mm:>8.2f}{r.Re_film:>9.0f}{r.transit_time_s:>11.1f}"
               f"{r.holdup_mass_total_kg:>11.3f}{r.y_max_mm:>9.2f}"
               f"{r.freeboard_min_cm:>14.1f}")
+
+    print("\nCycle time (1st stair -> bottom -> tank, exit fall %.2f s):"
+          % math.sqrt(2.0 * EXIT_DROP / G))
+    for r in results:
+        print(f"   W={r.width_cm:.0f}cm: {r.cycle_time_s:.1f} s "
+              f"(descent {r.transit_time_s:.1f} s + exit "
+              f"{math.sqrt(2.0 * EXIT_DROP / G):.2f} s)")
 
     print("\nNappe per step: t_fall = %.3f s, "
           "landing %.1f-%.1f cm from riser (wetted tread %.1f-%.1f cm)"

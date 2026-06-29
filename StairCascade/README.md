@@ -8,6 +8,8 @@ clearance, and pump / recirculation sizing for channel widths of 5, 10 and
 
 ## Files
 
+- `REPORT.md` — full engineering report (specifications, sample calculations,
+  results, cycle time, pump recommendation, roof/lamp, wrap-around, pitfalls).
 - `stair_cascade_sim.py` — model and analysis (run this; prints the design-flow
   block, the 50 kg/min scenario, and the wrap-around report).
 - `make_plots.py` — figures (`fig_profiles.png`, `fig_summary.png`,
