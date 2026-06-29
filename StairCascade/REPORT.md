@@ -152,6 +152,256 @@ Tank turnover = M/ṁ :  400/200 = 2.0 h ;  400/3000 = 0.133 h = 8.0 min
    = 0.811²·0.05/(9.81·0.05) = 6.7 cm  (outer-wall rise at a 90° corner)
 ```
 
+### 3.5 Calculation map for every reported column
+
+This section explains how each number in the results tables is produced. It is
+the same calculation chain used in `stair_cascade_sim.py`.
+
+#### A. Unit conversions
+
+All calculations are SI internally:
+
+```
+ṁ [kg/s] = ṁ [kg/h] / 3600
+Q [m³/s] = ṁ / ρ
+W [m]    = W [cm] / 100
+h [m]    = 0.03
+l [m]    = 0.20
+```
+
+Example:
+
+```
+200 kg/h  → ṁ = 200/3600 = 0.0556 kg/s
+Q         = 0.0556/998.2 = 5.566×10⁻⁵ m³/s = 3.34 L/min
+
+50 kg/min → ṁ = 50/60 = 0.833 kg/s
+Q         = 0.833/998.2 = 8.348×10⁻⁴ m³/s = 50.1 L/min
+```
+
+#### B. Flow per unit width `q`
+
+The same pump flow spread over a wider channel gives a smaller unit-width flow:
+
+```
+q = Q/W
+```
+
+At 200 kg/h:
+
+```
+W = 5 cm  → q = 5.566e-5/0.05 = 1.113e-3 m²/s
+W = 10 cm → q = 5.566e-5/0.10 = 5.566e-4 m²/s
+W = 15 cm → q = 5.566e-5/0.15 = 3.710e-4 m²/s
+```
+
+This is why the narrow channel runs faster: the same water is squeezed into a
+smaller width, so the depth and velocity change.
+
+#### C. Critical depth and regime
+
+For a rectangular channel, critical depth is
+
+```
+yc = (q²/g)^(1/3)
+```
+
+Then compare `yc/h` with the stepped-channel skimming onset:
+
+```
+(yc/h)_onset = 1.057 − 0.465(h/l) = 0.987
+```
+
+Interpretation:
+
+- `yc/h < 0.987` → nappe/cascade.
+- `yc/h ≥ 0.987` → skimming.
+
+At 50 kg/min, W = 5 cm:
+
+```
+q  = 8.348e-4/0.05 = 0.01670 m²/s
+yc = (0.01670²/9.81)^(1/3) = 0.0305 m
+yc/h = 0.0305/0.030 = 1.02 > 0.987 → skimming
+```
+
+At 50 kg/min, W = 10 cm:
+
+```
+q  = 8.348e-4/0.10 = 0.00835 m²/s
+yc = 0.0192 m
+yc/h = 0.64 < 0.987 → still nappe/high-nappe
+```
+
+#### D. Nappe-flow velocity, landing distance and wetted tread
+
+In nappe flow the brink acts as the control section, so the brink depth is
+critical and the brink velocity is
+
+```
+Vc = q/yc
+```
+
+The falling nappe drops one riser (`h = 0.03 m`):
+
+```
+t_fall = √(2h/g) = 0.0782 s
+x_land = Vc·t_fall
+wetted tread = l − x_land
+```
+
+At 200 kg/h, W = 5 cm:
+
+```
+Vc = 0.001113/0.00502 = 0.222 m/s
+x_land = 0.222·0.0782 = 0.0174 m = 1.7 cm
+wetted tread = 20 − 1.7 = 18.3 cm
+```
+
+This confirms the jet lands on the next tread and does not overshoot it.
+
+#### E. Nappe-flow depth profile and hold-up
+
+The water depth on each tread is not assumed constant. It is computed by
+integrating the gradually-varied-flow equation:
+
+```
+dy/dx = −Sf/(1 − Fr²)
+Sf  = n²(q/y)²/R^(4/3)
+Fr² = q²/(g y³)
+R   = Wy/(W+2y)
+```
+
+The boundary condition is `y = yc` at the brink. The model integrates upstream
+from the brink to the landing point. That gives a depth profile `y(x)`.
+
+The water volume on one tread is the cross-sectional water area integrated over
+the wetted length:
+
+```
+volume_step = W ∫ y dx
+mass_step   = ρ·volume_step
+```
+
+The total staircase hold-up in nappe flow is
+
+```
+hold-up = N·mass_step
+```
+
+The residence time on a tread is mass on that tread divided by mass flow:
+
+```
+t_tread = mass_step/ṁ = (∫y dx)/q
+```
+
+Total staircase descent time:
+
+```
+T_descent = N·(t_tread + t_fall)
+```
+
+The film-residence component is equivalent to
+
+```
+T_film = tread-film hold-up / ṁ
+```
+
+Example check, 200 kg/h, W = 5 cm:
+
+```
+hold-up = 1.962 kg
+ṁ       = 0.0556 kg/s
+film hold-up/ṁ = 1.962/0.0556 = 35.3 s
+```
+
+The difference between 35.3 s and the reported 37.9 s is the explicit free-fall
+time in the nappes (`33·0.0782 = 2.58 s`). The film hold-up is on the treads;
+the falling-jet hold-up is small but still contributes to parcel travel time.
+
+#### F. Skimming-flow normal depth, velocity and hold-up
+
+For skimming flow the water no longer stops and re-forms on every tread. It
+flows over a pseudo-bottom at angle `θ = atan(h/l) = 8.53°`. The model solves
+normal depth `d` from
+
+```
+Sf = sinθ = f V²/(8 g R)
+V = q/d
+R = Wd/(W+2d)
+```
+
+This equation is solved numerically because `R` contains `d`.
+
+After `d` is known:
+
+```
+V = q/d
+T_descent = L_incl/V
+L_incl = N·√(h²+l²)
+```
+
+The total skimming hold-up has two parts:
+
+```
+sheet hold-up  = ρ·d·L_incl·W
+cavity hold-up = ρ·(0.5·h·l·W)·N
+total hold-up  = sheet + cavity
+```
+
+The cavity term is the water trapped in the triangular recirculation zones
+inside each step. This term is absent in nappe flow.
+
+#### G. Cycle time from first stair back to tank
+
+The report uses:
+
+```
+cycle time = staircase descent time + bottom exit fall time
+exit fall  = √(2·0.10/g) = 0.143 s
+```
+
+The exit fall is small. It is included so the stated cycle explicitly ends at
+the bottom tank, not at the last stair edge.
+
+The pipe/pump-up travel time is not included in the headline cycle because it
+depends on the actual pipe length and diameter. For the recommended pipe sizes,
+it is typically ~1–2 s and does not control the result. Tank turnover controls
+the time between repeated passes of the same parcel.
+
+#### H. Roof/freeboard and lamp clearance
+
+For no lamp, the report uses:
+
+```
+minimum clear height = 1.5·(water depth + splash allowance)
+```
+
+For a 4 cm lamp above the water:
+
+```
+clear height = water+spray envelope
+             + 3 cm dry gap below lamp
+             + 4 cm lamp diameter
+             + 3 cm mounting/cooling gap above lamp
+```
+
+Example, high-flow W = 10 cm:
+
+```
+water+spray envelope = 6.3 cm
+clear height = 6.3 + 3 + 4 + 3 = 16.3 cm
+```
+
+Corners get extra headroom because the water surface rises on the outer wall:
+
+```
+corner rise Δz = V²W/(g r_bend)
+```
+
+The recommendation of 20–22 cm at corners is the flight clearance plus the
+3–7 cm bend rise, rounded upward for splash.
+
 ---
 
 ## 4. Results
@@ -198,14 +448,30 @@ successive passes of a given parcel is governed instead by tank turnover
 
 ## 5. Hold-up — definition and location
 
-Hold-up = water resident on the staircase at any instant (water "in transit"),
-= transit time × mass flow. It is **not** the tank inventory.
+Reported hold-up = liquid physically supported by the staircase at any instant:
+the tread films in nappe flow, or the skimming sheet plus step-cavity vortices
+in skimming flow. It is **not** the tank inventory.
 
-- **200 kg/h (nappe):** 2–3 kg, as the 3.9–7.2 mm film flowing across each of
-  the 33 treads (drawing to critical depth at every brink), ~60–95 g/step.
-- **50 kg/min:** 12–14 kg. Nappe widths → a thicker 1.8–2.3 cm tread film.
-  Skimming (5 cm) → splits into the fast sheet over the step edges (~6.9 kg)
-  plus recirculating vortices in the triangular step cavities (~4.9 kg).
+For nappe flow there is also a small quantity of water in the falling jets
+between steps:
+
+```
+jet hold-up = ṁ·N·t_fall
+```
+
+At 200 kg/h this is `0.0556·33·0.0782 = 0.14 kg`; at 50 kg/min it is
+`0.833·33·0.0782 = 2.15 kg`. The reported table hold-up excludes this airborne
+jet mass because it is not retained on the stairs; cycle time includes it
+through the explicit free-fall term.
+
+- **200 kg/h (nappe):** 2–3 kg on the treads as the 3.9–7.2 mm film flowing
+  across each of the 33 treads (drawing to critical depth at every brink),
+  ~60–95 g/step, plus ~0.14 kg in falling jets.
+- **50 kg/min:** 12–14 kg on the staircase. Nappe widths → a thicker
+  1.8–2.3 cm tread film plus ~2.15 kg in falling jets. Skimming (5 cm) → splits
+  into the fast sheet over the step edges (~6.9 kg) plus recirculating vortices
+  in the triangular step cavities (~4.9 kg), with no discrete per-step falling
+  jets.
 
 Hold-up is ≤3.5 % of the tank even at high flow, so the staircase cannot
 accumulate a meaningful fraction of the inventory; the tank always holds
@@ -258,6 +524,59 @@ rate, not the stairs**. To get more passes in a given time, raise the pump flow.
 (5 cm), 5,740 kg/h (10 cm) or 8,610 kg/h (15 cm) — 14×–43× the design flow — so
 there is large room to increase flow while staying in nappe regime (until the
 50 kg/min case, where 5 cm does reach skimming).
+
+### 6.3 Piping calculations and sizing
+
+Pipe velocity is calculated from
+
+```
+A = πD²/4
+Vpipe = Q/A
+Re = ρVpipeD/μ
+```
+
+Straight-pipe friction head is estimated with Darcy-Weisbach:
+
+```
+hf/L = f·Vpipe²/(2gD)
+```
+
+using `f = 64/Re` if laminar and the smooth-turbulent Blasius estimate
+`f = 0.3164/Re^0.25` otherwise. Fittings, elbows, valves, strainers, distributors
+and the top inlet add extra minor losses, so pump TDH is specified higher than
+straight-pipe loss alone.
+
+#### 200 kg/h piping
+
+`Q = 5.566×10⁻⁵ m³/s = 3.34 L/min`
+
+| Pipe ID | Velocity | Re | straight head loss |
+|---|---:|---:|---:|
+| 6 mm | 1.97 m/s | 11,800 | 1.00 m/m |
+| 8 mm | 1.11 m/s | 8,800 | 0.25 m/m |
+| 10 mm | 0.71 m/s | 7,100 | 0.09 m/m |
+| 12 mm | 0.49 m/s | 5,900 | 0.04 m/m |
+
+Recommended: **8–10 mm ID** for a peristaltic/gear pump. 6 mm works but wastes
+head; 12 mm is fine if the run is long but is bulkier and can trap air.
+
+#### 50 kg/min piping
+
+`Q = 8.348×10⁻⁴ m³/s = 50.1 L/min`
+
+| Pipe ID | Velocity | Re | straight head loss |
+|---|---:|---:|---:|
+| 15 mm | 4.72 m/s | 70,600 | 1.47 m/m |
+| 20 mm | 2.66 m/s | 52,900 | 0.38 m/m |
+| 25 mm | 1.70 m/s | 42,400 | 0.13 m/m |
+| 32 mm | 1.04 m/s | 33,100 | 0.04 m/m |
+| 40 mm | 0.66 m/s | 26,500 | 0.01 m/m |
+
+Recommended: **DN32 preferred** (DN25 minimum) for the high-flow case. DN15 and
+DN20 are too fast/noisy and add avoidable head. Use a flooded suction, short
+suction line, strainer before the pump, vents at high points, drains at low
+points, and a stilling box/distribution manifold at the top stair so the inlet
+arrives as a uniform sheet instead of a jet.
 
 ---
 

@@ -98,8 +98,11 @@ transit time is
 T = Σ_steps ( t_tread + t_fall )
 ```
 
-This is identical to (system hold-up)/(throughput), which is the physically
-correct "time water spends on the staircase" at steady operation.
+The film-residence component is equal to (tread-film hold-up)/(throughput).
+The full parcel transit additionally includes the explicit free-fall time
+between steps. Reported hold-up is the water physically supported by the stairs
+(films/cavities); falling-jet water is small at design flow and is counted in
+the travel time, not in the hold-up table.
 
 ## Results
 
@@ -278,16 +281,19 @@ Geometry (auto-computed): **5 steps per face** (1.0 m flight), **7 flights**,
 
 ### 3. What the hold-up is, and where it sits
 
-**Hold-up = the water resident on the staircase at any instant** (water "in
-transit"), as opposed to the ~400 kg in the tank and the small amount in the
-pipes. Numerically it equals `transit_time × mass_flow`.
+**Reported hold-up = water physically supported by the staircase at any
+instant**: tread films in nappe flow, or skimming sheet plus cavity vortices in
+skimming flow. It is separate from the ~400 kg in the tank and the small amount
+in the pipes. In nappe flow there is additional water in the falling jets:
+`jet hold-up = mdot · 33 · 0.0782 s` (0.14 kg at 200 kg/h; 2.15 kg at
+50 kg/min). Cycle time includes that jet travel time.
 
-- **At 200 kg/h (nappe):** 2–3 kg total, located as the **3.9–7.2 mm film
+- **At 200 kg/h (nappe):** 2–3 kg on the stairs, located as the **3.9–7.2 mm film
   flowing across each of the 33 treads** (drawing down to critical depth at
-  every brink), plus a negligible amount in the falling nappes. ~60–95 g per
-  step.
-- **At 50 kg/min:** 12–14 kg total.
-  - Nappe widths (10, 15 cm): a thicker **1.8–2.3 cm film on each tread**.
+  every brink), plus ~0.14 kg in falling nappes. ~60–95 g per step.
+- **At 50 kg/min:** 12–14 kg on the stairs.
+  - Nappe widths (10, 15 cm): a thicker **1.8–2.3 cm film on each tread** plus
+    ~2.15 kg in falling nappes.
   - Skimming width (5 cm): it **splits in two** — the fast **sheet skimming
     over the step edges (~6.9 kg)** plus **recirculating vortices trapped in
     the triangular step cavities under the pseudo-bottom (~4.9 kg)**. The
