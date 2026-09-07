@@ -1,0 +1,86 @@
+{
+  "build": "speed5_6s_hdzero",
+  "class": "5-inch digital speed quad",
+  "voltage": "6S LiHV",
+  "target_auw_g": 543,
+  "parts": [
+    {
+      "group": "frame",
+      "qty": 1,
+      "item": "AOS 5 EVO",
+      "notes": "5 inch aero truss arms, deadcat camera path, 30.5 mm stack, HDZero 1W tray. Substitute AOS 5 V2 if EVO is unavailable. Do not upsize to 5.5: that frame wants ~1800 KV, which fights the high-KV brief."
+    },
+    {
+      "group": "motors",
+      "qty": 4,
+      "item": "iFlight XING2 2207 2550KV",
+      "notes": "Ultra-high KV for 6S 5 inch. Thermal limit is the constraint. Fallback: same motor 2150 KV if winding temp exceeds ~90 C after a 20 s speed run."
+    },
+    {
+      "group": "propellers",
+      "qty": "4 pairs",
+      "item": "Gemfan Hurricane 51526-2 (5.1x5.26x2) or HQ 5.1x5.1x2",
+      "notes": "High-pitch 2-blade for pitch speed. Carry Gemfan 51466-3 as a handling set if the 2-blade is unstable in gusts."
+    },
+    {
+      "group": "battery",
+      "qty": 4,
+      "item": "Tattu R-Line V5 6S 1050 mAh 150C XT60",
+      "notes": "Burst budget ~157 A at the printed 150C. Charge to 4.35 V/cell (LiHV) only for speed runs; 4.20 V for practice. Never a 4S 1300 in this airframe."
+    },
+    {
+      "group": "fc",
+      "qty": 1,
+      "item": "iFlight BLITZ Mini F7 (STM32F722)",
+      "notes": "8S-tolerant input, MSP DisplayPort, enough UARTs for ELRS + HDZero + GPS."
+    },
+    {
+      "group": "esc",
+      "qty": 1,
+      "item": "iFlight BLITZ E60 Pro / E80 60–80 A 4-in-1, AM32",
+      "notes": "Continuous headroom for 2550 KV on 6S. Bidirectional DShot300. 1000 uF 50 V low-ESR cap on the pack pads."
+    },
+    {
+      "group": "video",
+      "qty": 1,
+      "item": "HDZero 1W VTX + HDZero Nano V3 16:9 camera",
+      "notes": "Digital, one-way, ~14–20 ms glass-to-glass. 1 W because 70 m/s leaves a 25 mW bubble in seconds. Not DJI O4, not analog."
+    },
+    {
+      "group": "video_antenna",
+      "qty": 1,
+      "item": "TrueRC Singularity 5.8 GHz (or VAS Ion) on a rear TPU 45-degree mount",
+      "notes": "No pagoda in the freestream. Keep 5.8 away from the 2.4 ELRS element by >= 40 mm."
+    },
+    {
+      "group": "goggles",
+      "qty": 1,
+      "item": "HDZero Goggles or Goggles V2",
+      "notes": "Required ground side for HDZero. RapidFIRE/analog modules are unused."
+    },
+    {
+      "group": "rx",
+      "qty": 1,
+      "item": "RadioMaster XR4 Gemini Xrossband (dual LR1121)",
+      "notes": "ELRS 3.5+ Gem-X: 2.4 GHz + 900 MHz simultaneously. Dual-band T-antennas in TPU along the rear arms, >80 mm separation."
+    },
+    {
+      "group": "tx",
+      "qty": 1,
+      "item": "RadioMaster Nomad or Bandit with Gemini Xrossband firmware",
+      "notes": "Packet rate: 2.4 Gemini D500 / F1000 for close speed runs; X100/X150 Full Res when the course is a long straight."
+    },
+    {
+      "group": "gps",
+      "qty": 1,
+      "item": "HGLRC M100 Mini / any u-blox M10",
+      "notes": "Speed verification and GPS Rescue after a long straight. 9 g. Not for navigation while racing."
+    },
+    {
+      "group": "hardware",
+      "qty": 1,
+      "item": "M3 nylon stack, 12 AWG XT60 pigtail <= 60 mm, 1000 uF 50 V cap, TPU antenna/cam mounts, 20x250 mm battery strap x2, steel motor screws with threadlock",
+      "notes": "Short power path. No aluminium standoffs next to the HDZero SMA."
+    }
+  ]
+}
